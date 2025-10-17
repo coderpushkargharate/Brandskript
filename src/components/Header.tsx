@@ -106,7 +106,7 @@ const Header: React.FC = () => {
                     <ul className="space-y-2">
                       <li>
                         <Link
-                          to="/services/logo-design"
+                          to="/logodesign"
                           className="block text-gray-800 font-medium hover:text-blue-600"
                         >
                           Logo Design
