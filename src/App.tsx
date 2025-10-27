@@ -12,7 +12,7 @@ import Chatbot from './components/Chatbot';
 import { AuthProvider } from './context/AuthContext';
 import AdvanceLeadGeneration from './pages/AdvanceLeadGeneration ';
 import WebDevelopment from './pages/WebDevelopment';
-import LogoDesign from './pages/LogoDesign';
+import CaseStudy from './pages/CaseStudy';
 // import AdvanceLeadGeneration from "./pages/AdvanceLeadGeneration";
 
 function App() {
@@ -30,8 +30,7 @@ function App() {
             <Route path="/dashboard" element={<Dashboard />} />
              <Route path="/advanceLeadGeneration" element={<AdvanceLeadGeneration />} />
              <Route path="/webDevelopment" element={<WebDevelopment />} />
-              <Route path="/logodesign" element={<LogoDesign />} />
-
+             <Route path="/case-study" element={<CaseStudy />} />
           </Routes>
           <Footer />
           <Chatbot />

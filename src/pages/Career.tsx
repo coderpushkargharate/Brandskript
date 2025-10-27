@@ -225,34 +225,56 @@ const Career: React.FC = () => {
   return (
     <div className="bg-white text-gray-900">
       {/* Features */}
-      <section className="py-16 px-4 md:px-16 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">
+      <section className="bg-gray-50 py-20">
+      <div className="max-w-7xl mx-auto px-6 text-center">
+        {/* Key Features */}
+        <p className="text-sm font-medium text-blue-600 uppercase tracking-wide">
+          Feature
+        </p>
+        <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-gray-900">
           Key Features Overview
         </h2>
-        <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
-          Explore the comprehensive features that set our web design apart in
-          excellence and innovation.
+        <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
+          Explore the comprehensive features that set Arise apart in web design
+          excellence.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {features.map((f, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.2 }}
-              className="bg-white p-6 rounded-3xl shadow-md hover:shadow-xl transition text-center"
-            >
-              <div className="mb-4">{f.icon}</div>
-              <h3 className="text-lg md:text-xl font-semibold mb-2">
-                {f.title}
-              </h3>
-              <p className="text-gray-600 text-sm md:text-base">
-                {f.description}
-              </p>
-            </motion.div>
-          ))}
+
+        {/* Features Cards */}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white border border-gray-200 shadow-md rounded-2xl p-8 hover:shadow-lg transition">
+            <img src="https://framerusercontent.com/images/PbFv0tFQrSZNmc7PR6LgJMyhhKA.svg" alt="" />
+            <h3 className="text-lg font-semibold text-gray-900">
+              Guaranteed Results
+            </h3>
+            <p className="mt-3 text-gray-600">
+              Empower your business to thrive with our tailored web design
+              solutions.
+            </p>
+          </div>
+
+          <div className="bg-white border border-gray-200 shadow-md rounded-2xl p-8 hover:shadow-lg transition">
+               <img src="https://framerusercontent.com/images/oBFCqj8Fxz9y32rNjnUJSDjle0.svg" alt="" />
+            <h3 className="text-lg font-semibold text-gray-900">
+              98% Client Success Rate
+            </h3>
+            <p className="mt-3 text-gray-600">
+              Join a community of satisfied clients benefiting from our proven
+              excellence.
+            </p>
+          </div>
+
+          <div className="bg-white border border-gray-200 shadow-md rounded-2xl p-8 hover:shadow-lg transition">
+               <img src="https://framerusercontent.com/images/pvbH3AL833qVey1FahxzZEIaI.svg" alt="" />
+            <h3 className="text-lg font-semibold text-gray-900">Lead the Way</h3>
+            <p className="mt-3 text-gray-600">
+              Stay ahead with innovative web designs crafted by Arise.
+            </p>
+          </div>
         </div>
-      </section>
+
+   
+      </div>
+    </section>
 
       {/* Stats */}
       <section className="py-16 px-4 md:px-16">
@@ -294,65 +316,7 @@ const Career: React.FC = () => {
         </div>
       </section>
 
-      {/* Career Resources */}
-      <section className="py-12 px-4 md:px-16">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">
-            Career Resources
-          </h1>
-          <p className="text-lg md:text-xl text-gray-600">
-            Advance your career with our collection of professional development
-            books and resources.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {books.map((b) => (
-            <div
-              key={b._id}
-              className="bg-white rounded-3xl shadow-md hover:shadow-xl transition overflow-hidden"
-            >
-              <img
-                src={
-                  b.image ||
-                  "https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg"
-                }
-                alt={b.title}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-6">
-                <h3 className="text-lg font-semibold mb-2">{b.title}</h3>
-                <p className="text-gray-600 mb-4 text-sm md:text-base">
-                  {b.description}
-                </p>
-                <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-4 gap-2">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-xl md:text-2xl font-bold">
-                      ₹{b.price}
-                    </span>
-                    {b.originalPrice && (
-                      <>
-                        <span className="text-sm md:text-lg text-gray-400 line-through">
-                          ₹{b.originalPrice}
-                        </span>
-                        <span className="text-xs md:text-sm text-green-500 font-medium">
-                          {b.discount}
-                        </span>
-                      </>
-                    )}
-                  </div>
-                </div>
-                <button
-                  onClick={() => alert(`Downloading ${b.title}`)}
-                  className="w-full bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-2xl flex items-center justify-center transition"
-                >
-                  <Download className="h-4 w-4 mr-2" /> Download Now
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
+    
       {/* FAQ */}
       <section className="py-16 px-4 md:px-16">
         <div className="text-center mb-12">

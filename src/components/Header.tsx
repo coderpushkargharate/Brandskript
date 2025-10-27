@@ -6,24 +6,20 @@ const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Mobile menu
 
   return (
-    <header className="sticky top-0 z-50 ">
+    <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-     <Link to="/" className="flex items-center space-x-3">
-  {/* Logo */}
-  <img
-    // src="https://framerusercontent.com/images/U7g3LocgQq1Bb0Sv17Ra0LaPrs.png"
-    alt="Logo"
-    className="h-8 w-auto sm:h-10 md:h-12 lg:h-14 object-contain"
-  />
-
-  {/* Brand Name */}
-  <span className="font-extrabold text-black tracking-wide text-base sm:text-lg md:text-xl lg:text-2xl">
-    BrandName
-  </span>
-</Link>
-
+          <Link to="/" className="flex items-center space-x-3">
+            <img
+              // src="https://framerusercontent.com/images/U7g3LocgQq1Bb0Sv17Ra0LaPrs.png"
+              alt="Logo"
+              className="h-8 w-auto sm:h-10 md:h-12 lg:h-14 object-contain"
+            />
+            <span className="font-extrabold text-black tracking-wide text-base sm:text-lg md:text-xl lg:text-2xl">
+              BrandName
+            </span>
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-8 bg-gray-100 px-6 py-2 rounded-full border border-gray-200 shadow-sm">
@@ -40,12 +36,12 @@ const Header: React.FC = () => {
               About Us
             </Link>
 
-            {/* Services Dropdown (hover) */}
+            {/* Services Dropdown (center aligned) */}
             <div className="relative group">
               <button className="text-gray-800 hover:text-blue-600 focus:outline-none">
                 Services
               </button>
-              <div className="absolute left-0 mt-2 hidden group-hover:block bg-white border border-gray-200 shadow-xl rounded-xl p-6 w-[700px] z-50">
+              <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden group-hover:block bg-white border border-gray-200 shadow-xl rounded-xl p-6 w-[700px] z-50">
                 <div className="grid grid-cols-3 gap-6">
                   {/* Marketing */}
                   <div>
@@ -55,11 +51,11 @@ const Header: React.FC = () => {
                     <ul className="space-y-2">
                       <li>
                         <Link
-          to="/advanceLeadGeneration"
-          className="block text-gray-800 font-medium hover:text-blue-600"
-        >
-          Advance Lead Generation
-        </Link>
+                          to="/advanceLeadGeneration"
+                          className="block text-gray-800 font-medium hover:text-blue-600"
+                        >
+                          Advance Lead Generation
+                        </Link>
                         <p className="text-sm text-gray-500">
                           Through PPC Ads Only
                         </p>
