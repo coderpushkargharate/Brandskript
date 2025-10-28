@@ -9,32 +9,32 @@ const ToolsSection = () => {
     {
       name: "Meta Ads",
       desc: "Collaborative design and prototyping tool online.",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/meta/meta-original.svg",
+      icon: "https://framerusercontent.com/images/c1ND1d7N7UWmtyCmZy89PkkC6m4.png?width=512&height=512",
     },
     {
       name: "Google Ads",
       desc: "Interactive prototypes for advanced animations website.",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg",
+      icon: "https://framerusercontent.com/images/XEgb6Kc9y7tPFQ0qinq8sBJ7ZZQ.png?width=512&height=512",
     },
     {
       name: "LinkedIn Ads",
       desc: "E-commerce platform for online shopping websites.",
-      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg",
+      icon: "https://framerusercontent.com/images/rin30quf7EsKF3THDucF4NtykJw.png?width=512&height=512",
     },
     {
       name: "Clay.io",
       desc: "All-in-one workspace for notes and project tasks.",
-      icon: "https://img.icons8.com/color/48/000000/clay.png",
+      icon: "https://framerusercontent.com/images/Gtzp9Wckn7m8ws5x46ABWVpU0.png?width=512&height=512",
     },
     {
       name: "Phantom Buster",
       desc: "Design and develop websites visually with ease.",
-      icon: "https://img.icons8.com/external-others-phat-plus/64/000000/external-phantom-buster-tools-others-phat-plus.png",
+      icon: "https://framerusercontent.com/images/SLjeOKPg8rPXme6aHMav104Q5s4.png?width=512&height=512 ",
     },
     {
       name: "SmartLead",
       desc: "Online payment processing platform for businesses.",
-      icon: "https://img.icons8.com/color/48/000000/idea.png",
+      icon: "https://framerusercontent.com/images/NtlHUs933g5sjkh3OEzw1t3mf4o.svg?width=40&height=40",
     },
   ];
 

@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
 const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Mobile menu
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Mobile menu toggle
 
   return (
-    <header className="sticky top-0 z-50">
+    <header className="sticky top-0 z-50 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
               About Us
             </Link>
 
-            {/* Services Dropdown (center aligned) */}
+            {/* Services Dropdown */}
             <div className="relative group">
               <button className="text-gray-800 hover:text-blue-600 focus:outline-none">
                 Services
@@ -113,7 +113,7 @@ const Header: React.FC = () => {
                       </li>
                       <li>
                         <Link
-                          to="/services/brand-design"
+                          to="/branddesign"
                           className="block text-gray-800 font-medium hover:text-blue-600"
                         >
                           Brand Design
@@ -150,11 +150,13 @@ const Header: React.FC = () => {
             </Link>
           </nav>
 
-          {/* Contact Button */}
+          {/* ✅ Fixed Contact Button */}
           <div className="hidden md:flex items-center">
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
-              Contact Us
-            </button>
+            <Link to="/contact">
+              <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
+                Contact Us
+              </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -192,9 +194,13 @@ const Header: React.FC = () => {
               <Link to="/career" className="text-gray-700 hover:text-blue-600">
                 Careers
               </Link>
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors w-fit">
-                Contact Us
-              </button>
+
+              {/* Mobile Contact Button */}
+              <Link to="/contact">
+                <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
+                  Contact Us
+                </button>
+              </Link>
             </div>
           </div>
         )}
