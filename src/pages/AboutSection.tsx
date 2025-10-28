@@ -30,17 +30,33 @@ const AboutSection: React.FC = () => {
                 View Projects
               </button>
             </div>
-            <div className="mt-6 flex items-center gap-3 bg-gray-50 border px-4 py-3 rounded-xl shadow-sm">
-              <img
-                src="https://via.placeholder.com/40"
-                alt="Founder"
-                className="w-10 h-10 rounded-full"
-              />
-              <div>
-                <p className="text-sm font-semibold text-gray-900">Shubham Channagire</p>
-                <p className="text-xs text-gray-600">Founder</p>
-              </div>
-            </div>
+                   <div className="flex items-center justify-between  border border-[#0A0F3C] rounded-2xl px-4 py-3 max-w-md shadow-sm mt-5">
+  {/* Left Section - Profile */}
+  <div className="flex items-center gap-3">
+    <div className="w-12 h-12 rounded-xl bg-yellow-400 flex items-center justify-center overflow-hidden">
+      <img
+        src="https://framerusercontent.com/images/6vwvEXYU4xGIl5vfLjnvLYP9NXo.png"
+        alt="Shubham Channagire"
+        className="w-12 h-12 object-cover"
+      />
+    </div>
+    <div>
+      <p className="font-semibold text-dark leading-tight">
+        Shubham Channagire
+      </p>
+      <p className="text-sm text-gray-400">Founder</p>
+    </div>
+  </div>
+
+  {/* Right Section - Twitter/X icon */}
+  <div className="w-10 h-10 flex items-center justify-center  rounded-xl  hover:bg-[#0A0F3C] transition">
+    <img
+      src="https://cdn-icons-png.flaticon.com/512/5968/5968830.png"
+      alt="X Logo"
+      className="w-5 h-5"
+    />
+  </div>
+</div>
           </div>
         </div>
       </div>

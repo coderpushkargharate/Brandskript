@@ -1,7 +1,47 @@
 import React from "react";
+import Slider from "react-slick";
 import { Star } from "lucide-react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const HeroSection: React.FC = () => {
+const HeroSection = () => {
+  // Carousel settings
+  const settings = {
+    dots: false,
+    infinite: true,
+    autoplay: true,
+    autoplaySpeed: 2500,
+    speed: 800,
+    slidesToShow: 8,
+    slidesToScroll: 1,
+    arrows: false,
+    pauseOnHover: false,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 3 },
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 480,
+        settings: { slidesToShow: 1 },
+      },
+    ],
+  };
+
+  const brandImages = [
+    "https://framerusercontent.com/images/fWRiiLcqQoucPAq3Ut9yHeVAZA.png?width=1400&height=600",
+    "https://framerusercontent.com/images/wK4E80TjbV0jJFGY1B4doVSx1U.png",
+    "https://framerusercontent.com/images/fWRiiLcqQoucPAq3Ut9yHeVAZA.png?width=800&height=400",
+    "https://framerusercontent.com/images/EPoEgAmp3ix1dfny5HFCTfASQ68.png?width=1000&height=600",
+    "https://framerusercontent.com/images/wK4E80TjbV0jJFGY1B4doVSx1U.png",
+    "https://framerusercontent.com/images/fWRiiLcqQoucPAq3Ut9yHeVAZA.png?width=1400&height=600",
+    "https://framerusercontent.com/images/fWRiiLcqQoucPAq3Ut9yHeVAZA.png?width=800&height=400",
+  ];
+
   return (
     <section className="relative overflow-hidden bg-white text-gray-900">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28 relative z-10 text-center">
@@ -46,23 +86,26 @@ const HeroSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Logo Row */}
-        <div className="mt-10 flex flex-wrap justify-center gap-3">
-          {["Lumina", "Spectrum", "Echo", "Quantum", "Evolve", "Stellar"].map(
-            (brand, index) => (
-              <span
-                key={index}
-                className="bg-gray-100 text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-sm"
-              >
-                {brand}
-              </span>
-            )
-          )}
+        {/* ✅ Logo Carousel */}
+        <div className="mt-14 max-w-5xl mx-auto">
+          <Slider {...settings}>
+            {brandImages.map((img, index) => (
+              <div key={index} className="px-3">
+                <div className="flex justify-center items-center">
+                  <img
+                    src={img}
+                    alt={`Brand ${index + 1}`}
+                    className="w-full h-32 object-contain rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                  />
+                </div>
+              </div>
+            ))}
+          </Slider>
         </div>
 
         {/* Video Section */}
         <div className="mt-16">
-          <div className="relative w-full max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-xl">
+          <div className="relative w-full max-w-8xl mx-auto rounded-2xl overflow-hidden shadow-xl">
             <img
               src="https://framerusercontent.com/images/wK4E80TjbV0jJFGY1B4doVSx1U.png"
               alt="Video thumbnail"
@@ -85,19 +128,27 @@ const HeroSection: React.FC = () => {
 
         {/* Features */}
         <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div className="p-8 bg-gray-50 border rounded-2xl shadow-sm hover:shadow-md transition">
+          <div className="p-8 bg-gray-50 border rounded-2xl shadow-sm hover:shadow-md transition text-left">
+            <img
+              src="https://framerusercontent.com/images/9lDwe5RVWhcROsUnUSLQ5QiaaPk.svg?width=26&height=26"
+              alt=""
+              className="mb-4"
+            />
             <h3 className="text-xl font-bold text-gray-900">Guaranteed Results</h3>
             <p className="mt-3 text-gray-600 text-base leading-relaxed">
               Tailored websites meticulously crafted to reflect your brand.
             </p>
           </div>
-          <div className="p-8 bg-gray-50 border rounded-2xl shadow-sm hover:shadow-md transition">
+
+          <div className="p-8 bg-gray-50 border rounded-2xl shadow-sm hover:shadow-md transition text-left">
+            <img src="https://framerusercontent.com/images/FhPczbEeg5bRtLspTbQHpRUUg.svg?width=26&height=26" alt="" />
             <h3 className="text-xl font-bold text-gray-900">Up to 90% Automation</h3>
             <p className="mt-3 text-gray-600 text-base leading-relaxed">
               Optimized for lightning-fast speed to enhance user experience.
             </p>
           </div>
-          <div className="p-8 bg-gray-50 border rounded-2xl shadow-sm hover:shadow-md transition">
+          <div className="p-8 bg-gray-50 border rounded-2xl shadow-sm hover:shadow-md transition text-left">
+            <img src="https://framerusercontent.com/images/36QlWRG5xFqx3DaY9IWO4wgp98.svg?width=26&height=26" alt="" />
             <h3 className="text-xl font-bold text-gray-900">Replace with Systems</h3>
             <p className="mt-3 text-gray-600 text-base leading-relaxed">
               Designed to improve SEO and increase visibility effortlessly.
