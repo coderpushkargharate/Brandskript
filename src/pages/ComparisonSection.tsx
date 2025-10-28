@@ -1,79 +1,94 @@
-import React from 'react';
+import React from "react";
+import { Zap } from "lucide-react";
 
-const ComparisonSection: React.FC = () => {
+const ComparisonSection = () => {
+  const comparisons = [
+    {
+      left: "Experienced team delivering standard solutions.",
+      right: "Highly skilled specialists delivering customized solutions.",
+    },
+    {
+      left: "Offers standard, template-based designs.",
+      right: "Offers innovative, bespoke ad creatives.",
+    },
+    {
+      left: "Limited post-launch support and updates.",
+      right: "Comprehensive post-launch support and updates.",
+    },
+    {
+      left: "Basic performance with average results.",
+      right: "Optimal performance with extraordinary results.",
+    },
+    {
+      left: "Basic lead generation practices implemented.",
+      right: "Advanced lead generation for better ROI marketing.",
+    },
+  ];
+
   return (
-    <section className="bg-gray-50 text-center py-20">
-      <div className="max-w-6xl mx-auto px-6">
-        {/* Top Heading */}
-        <p className="text-sm font-medium text-blue-600 uppercase tracking-wide">
+    <section className="relative bg-white text-gray-900 py-24 overflow-hidden">
+      {/* Light Gradient Background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,123,255,0.08)_0%,transparent_70%)] pointer-events-none"></div>
+
+      <div className="relative max-w-7xl mx-auto px-6 text-center">
+        {/* Top Section */}
+        <p className="text-sm text-blue-600 font-semibold uppercase tracking-wide">
           Industry Insights
         </p>
-        <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-gray-900">
-          Qualified Leads Impacts Sales Growth
+        <h2 className="mt-3 text-4xl md:text-5xl font-extrabold leading-tight text-gray-900">
+          Qualified Leads <br/> Impacts Sales Growth
         </h2>
-        <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
-          Capture & convert more customers by upgrading your Lead generation methods 
-          for high growth in revenue.
+        <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">
+          Capture & convert more customers by upgrading your lead generation
+          methods for high growth in revenue.
         </p>
-        <button className="mt-6 bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition-colors">
+
+        <button className="mt-8 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-base font-semibold transition">
           Book A FREE Consultation Call
         </button>
 
         {/* Comparison Section */}
-        <div className="mt-20">
-          <span className="inline-block bg-blue-100 text-blue-600 text-sm font-medium px-4 py-1 rounded-full mb-4">
+        <div className="mt-24">
+          <span className="inline-block bg-blue-50 text-blue-600 text-sm font-medium px-4 py-1 rounded-full mb-4">
             Comparison
           </span>
-          <h3 className="text-2xl font-bold text-gray-900">
+
+          <h3 className="text-3xl md:text-4xl font-bold text-gray-900">
             Choosing Brandskript Over Others
           </h3>
-          <p className="mt-2 text-gray-600 max-w-2xl mx-auto">
-            See why Brandskript stands out with superior service, innovation, 
+          <p className="mt-3 text-gray-600 max-w-2xl mx-auto text-lg">
+            See why Brandskript stands out with superior service, innovation,
             and client satisfaction benchmarks.
           </p>
 
-          {/* Table */}
-          <div className="mt-10 bg-white border rounded-2xl shadow-lg overflow-hidden">
-            <div className="grid grid-cols-3 bg-gray-100 py-4 px-6 font-semibold text-gray-800 text-left">
-              <p>Other Agencies</p>
+          {/* Comparison Table */}
+          <div className="mt-14 bg-white border border-gray-200 rounded-3xl shadow-xl overflow-hidden">
+            {/* Header Row */}
+            <div className="grid grid-cols-3 py-5 px-8 bg-gray-50 text-gray-800 font-semibold border-b border-gray-200 text-base">
+              <p className="text-center">Other Agencies</p>
               <p className="text-center text-blue-600">V/S</p>
-              <p className="text-right">Brandskript</p>
+              <p className="text-center">Brandskript</p>
             </div>
 
-            {/* Rows */}
-            <div className="divide-y">
-              {[
-                {
-                  left: "Experienced team delivering standard solutions.",
-                  right: "⚡ Highly skilled specialists delivering customized solutions."
-                },
-                {
-                  left: "Offers standard, template-based designs.",
-                  right: "⚡ Offers innovative, bespoke website designs."
-                },
-                {
-                  left: "Limited post-launch support and updates.",
-                  right: "⚡ Comprehensive post-launch support and updates."
-                },
-                {
-                  left: "Basic performance with average loading times.",
-                  right: "⚡ Optimal performance with fast loading times."
-                },
-                {
-                  left: "Basic SEO practices implemented.",
-                  right: "⚡ Advanced SEO tactics for enhanced online visibility."
-                },
-              ].map((row, idx) => (
-                <div
-                  key={idx}
-                  className="grid grid-cols-3 items-center text-left px-6 py-4 bg-white hover:bg-gray-50 transition"
-                >
-                  <p className="text-gray-700">{row.left}</p>
-                  <p className="text-center text-blue-600 font-semibold">⚡</p>
-                  <p className="text-gray-900 font-medium text-right">{row.right}</p>
+            {/* Comparison Rows */}
+            {comparisons.map((row, index) => (
+              <div
+                key={index}
+                className="grid grid-cols-3 items-center px-8 py-5 border-b border-gray-200 last:border-none hover:bg-gray-50 transition-colors"
+              >
+                <p className="text-gray-600 text-left text-[15px]">
+                  <span className="inline-block mr-2">•</span>
+                  {row.left}
+                </p>
+                <div className="flex justify-center">
+                  <Zap className="text-blue-500 w-5 h-5" />
                 </div>
-              ))}
-            </div>
+                <p className="text-gray-900 font-medium text-left text-[15px] flex items-center justify-end gap-2">
+                  <Zap className="text-blue-500 w-4 h-4" />
+                  {row.right}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -11,11 +11,11 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            <img
-              // src="https://framerusercontent.com/images/U7g3LocgQq1Bb0Sv17Ra0LaPrs.png"
+            {/* <img
+              src="https://framerusercontent.com/images/U7g3LocgQq1Bb0Sv17Ra0LaPrs.png"
               alt="Logo"
               className="h-8 w-auto sm:h-10 md:h-12 lg:h-14 object-contain"
-            />
+            /> */}
             <span className="font-extrabold text-black tracking-wide text-base sm:text-lg md:text-xl lg:text-2xl">
               BrandName
             </span>
