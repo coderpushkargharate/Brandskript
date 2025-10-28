@@ -62,7 +62,7 @@ const Header: React.FC = () => {
                       </li>
                       <li>
                         <Link
-                          to="/services/performance-marketing"
+                          to="/performancemarketing"
                           className="block text-gray-800 font-medium hover:text-blue-600"
                         >
                           Performance Marketing
