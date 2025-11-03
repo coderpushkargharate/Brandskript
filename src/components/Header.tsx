@@ -152,11 +152,9 @@ const Header: React.FC = () => {
 
           {/* ✅ Fixed Contact Button */}
           <div className="hidden md:flex items-center">
-            <Link to="/contact">
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
-                Contact Us
-              </button>
-            </Link>
+            <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
+              Contact Us
+            </button>
           </div>
 
           {/* Mobile Menu Toggle */}

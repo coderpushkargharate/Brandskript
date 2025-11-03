@@ -34,14 +34,12 @@ const HeroSection = () => {
 
   const brandImages = [
     "https://framerusercontent.com/images/fWRiiLcqQoucPAq3Ut9yHeVAZA.png?width=1400&height=600",
-    "https://framerusercontent.com/images/l9CwuiW5n0mLLvbEHNqeU1VQM.png?width=1000&height=600",
-    "https://framerusercontent.com/images/4p9eSy8R2WQrXc8zWgf0dhVp6ck.png?width=1000&height=600",
+    "https://framerusercontent.com/images/wK4E80TjbV0jJFGY1B4doVSx1U.png",
+    "https://framerusercontent.com/images/fWRiiLcqQoucPAq3Ut9yHeVAZA.png?width=800&height=400",
     "https://framerusercontent.com/images/EPoEgAmp3ix1dfny5HFCTfASQ68.png?width=1000&height=600",
-    "https://framerusercontent.com/images/AeSHm9HVC7P8cx0s62CciYEOMA.png?width=1000&height=600",
-    "https://framerusercontent.com/images/OrmT3dRpNIH3fYTPibChhG6Qxu8.png?width=1400&height=600",
-    "https://framerusercontent.com/images/bs9rrk7GgV1SZ4kww4yHh2F98.png?width=1400&height=600",
-    "https://framerusercontent.com/images/oYIEqYL6fivcrdm7Lp6CO4HLihk.png?width=1400&height=600",
-
+    "https://framerusercontent.com/images/wK4E80TjbV0jJFGY1B4doVSx1U.png",
+    "https://framerusercontent.com/images/fWRiiLcqQoucPAq3Ut9yHeVAZA.png?width=1400&height=600",
+    "https://framerusercontent.com/images/fWRiiLcqQoucPAq3Ut9yHeVAZA.png?width=800&height=400",
   ];
 
   return (

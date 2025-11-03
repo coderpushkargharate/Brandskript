@@ -29,7 +29,7 @@ const ToolsSection = () => {
     {
       name: "Phantom Buster",
       desc: "Design and develop websites visually with ease.",
-      icon: "https://framerusercontent.com/images/SLjeOKPg8rPXme6aHMav104Q5s4.png?width=512&height=512 ",
+      icon: "https://img.icons8.com/external-others-phat-plus/64/000000/external-phantom-buster-tools-others-phat-plus.png",
     },
     {
       name: "SmartLead",

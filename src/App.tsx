@@ -14,8 +14,6 @@ import AdvanceLeadGeneration from './pages/AdvanceLeadGeneration ';
 import WebDevelopment from './pages/WebDevelopment';
 import CaseStudy from './pages/CaseStudy';
 import LogoDesign from './pages/LogoDesign';
-import PerformanceMarketing from './pages/PerformanceMarketing';
-import BrandDesignSection from './pages/BrandDesign';
 // import AdvanceLeadGeneration from "./pages/AdvanceLeadGeneration";
 
 function App() {
@@ -35,9 +33,6 @@ function App() {
              <Route path="/logodesign" element={<LogoDesign />} />
              <Route path="/webDevelopment" element={<WebDevelopment />} />
              <Route path="/case-study" element={<CaseStudy />} />
-             <Route path="/performancemarketing" element={<PerformanceMarketing/>} />
-            <Route path="/branddesign" element={<BrandDesignSection/>} />
-
           </Routes>
           <Footer />
           <Chatbot />
