@@ -3,10 +3,10 @@ import React from "react";
 export default function CaseStudy() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-indigo-50/40 to-white text-gray-900">
-      {/* HERO */}
+      {/* HERO SECTION */}
       <header className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-16 flex flex-col lg:flex-row items-center justify-between gap-10">
-          {/* Left - Text */}
+        <div className="max-w-7xl mx-auto px-6 py-20 flex flex-col lg:flex-row items-center justify-between gap-10">
+          {/* LEFT - Text */}
           <div className="max-w-2xl text-center lg:text-left">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-md">
               Ready to Roll With Us?
@@ -22,31 +22,30 @@ export default function CaseStudy() {
                 href="#apply"
                 className="inline-block rounded-full bg-white text-indigo-700 font-semibold px-8 py-3 shadow-md hover:shadow-lg hover:scale-105 transition-transform duration-200"
               >
-                JOIN THE TEAM
+                Join the Team
               </a>
-
               <a
                 href="#roles"
                 className="inline-block rounded-full border border-white/60 text-white px-8 py-3 hover:bg-white/10 transition duration-200"
               >
-                Find your Role
+                Find Your Role
               </a>
             </div>
           </div>
 
-          {/* Right - Card */}
+          {/* RIGHT - Info Card */}
           <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-6 shadow-lg max-w-sm text-white">
             <h3 className="text-sm font-semibold uppercase tracking-wider">
               Work with BrandSkript
             </h3>
             <p className="mt-3 text-sm opacity-95">
-              Internships + full-time roles across design, marketing, video and
-              copy — learn while you ship.
+              Explore internships and full-time roles across design, marketing,
+              video and copy — learn while you ship impactful projects.
             </p>
             <ul className="mt-4 text-sm space-y-2 list-disc list-inside opacity-90">
               <li>Hybrid work model</li>
-              <li>Mentorship & growth</li>
-              <li>Friendly team culture</li>
+              <li>Mentorship & career growth</li>
+              <li>Friendly, creative team culture</li>
             </ul>
           </div>
         </div>
@@ -59,10 +58,10 @@ export default function CaseStudy() {
           {[
             {
               title: "Workdays",
-              text: "Monday - Friday: ",
+              text: "Monday - Friday:",
               highlight: "09 AM to 06 PM",
             },
-            { title: "Work Location", text: "HYBRID" },
+            { title: "Work Location", text: "Hybrid (Pune + Remote)" },
             {
               title: "Leaves & Probation",
               text: "Leaves: 24 Days Annual Paid Leaves",
@@ -86,7 +85,7 @@ export default function CaseStudy() {
           ))}
         </section>
 
-        {/* PAYROLL */}
+        {/* PAYROLL & PERFORMANCE */}
         <section className="bg-white rounded-2xl p-8 shadow mb-16">
           <h3 className="text-2xl font-bold text-indigo-700">
             Payroll & Performance
@@ -99,11 +98,11 @@ export default function CaseStudy() {
               },
               {
                 label: "Salary Appraisal",
-                value: "Post 1 Year Completion",
+                value: "After 1 Year Completion",
               },
               {
                 label: "Performance Evaluation",
-                value: "Self Evaluation on a Monthly Basis",
+                value: "Monthly self-assessment with manager feedback",
               },
             ].map((d, i) => (
               <div key={i} className="hover:translate-y-1 transition">
@@ -114,28 +113,24 @@ export default function CaseStudy() {
           </div>
         </section>
 
-        {/* ROLES */}
+        {/* AVAILABLE ROLES */}
         <section id="roles" className="mb-16">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <h2 className="text-3xl font-extrabold text-indigo-700">
-              Find your desired Role!
+              Find Your Desired Role
             </h2>
             <p className="text-sm text-gray-600 max-w-md">
-              Not just another job board — this is where passion meets purpose.
+              Whether you're exploring internships or full-time opportunities —
+              passion, creativity, and impact are what we value most.
             </p>
           </div>
 
-          <p className="mt-3 text-gray-700">
-            Whether you’re hunting for your first internship or chasing your
-            dream full-time gig, we’ve got a role with your name on it.
-          </p>
-
           <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { title: "Digital Marketing", tag: "Full time + Internship" },
-              { title: "Graphic Design", tag: "Full time + Internship" },
-              { title: "Video Editing", tag: "Full time + Internship" },
-              { title: "Copywriter", tag: "Full time + Internship" },
+              { title: "Digital Marketing", tag: "Full Time + Internship" },
+              { title: "Graphic Design", tag: "Full Time + Internship" },
+              { title: "Video Editing", tag: "Full Time + Internship" },
+              { title: "Copywriter", tag: "Full Time + Internship" },
             ].map((role) => (
               <article
                 key={role.title}
@@ -158,7 +153,7 @@ export default function CaseStudy() {
           </div>
         </section>
 
-        {/* APPLY CTA */}
+        {/* APPLY SECTION */}
         <section
           id="apply"
           className="bg-gradient-to-r from-indigo-100 via-indigo-50 to-white rounded-2xl p-8 shadow-lg text-center md:text-left mb-16"
@@ -169,8 +164,8 @@ export default function CaseStudy() {
                 Want to work with us?
               </h3>
               <p className="mt-2 text-gray-700 max-w-xl">
-                Start your journey with us. Browse through the job openings to
-                see the role that fits you best.
+                Start your journey with BrandSkript. Browse through available
+                roles and apply for the one that best fits your creative energy.
               </p>
             </div>
 
@@ -185,38 +180,43 @@ export default function CaseStudy() {
                 href="#contact"
                 className="rounded-full border border-indigo-300 px-8 py-3 text-indigo-700 font-medium hover:bg-indigo-50"
               >
-                Contact
+                Contact Us
               </a>
             </div>
           </div>
         </section>
 
-        {/* FAQ */}
+        {/* FAQ SECTION */}
         <section className="mb-20">
-          <h3 className="text-3xl font-bold text-indigo-700 mb-6">FAQs</h3>
+          <h3 className="text-3xl font-bold text-indigo-700 mb-6">
+            Frequently Asked Questions
+          </h3>
           <p className="text-gray-700 max-w-3xl">
-            All that you need to know about BrandSkript! Find the answers to the
-            questions we get asked the most about our work policies.
+            Everything you need to know about BrandSkript’s work culture,
+            benefits, and processes — all in one place.
           </p>
 
           <div className="mt-8 space-y-4">
             {[
               {
-                q: "Workdays",
-                a: "Monday - Friday: 09 AM to 06 PM",
-              },
-              { q: "Work-Location", a: "HYBRID" },
-              {
-                q: "Leaves & Probation",
-                a: "Leaves: 24 Days Annual Paid Leaves · Probation: 6 Months",
+                q: "What are your working hours?",
+                a: "We work Monday to Friday, from 09 AM to 06 PM.",
               },
               {
-                q: "Salary Cycle & Appraisal",
-                a: "Salary Cycle: 10th of every month · Appraisal: Post 1 Year Completion",
+                q: "Where is BrandSkript located?",
+                a: "We operate on a hybrid model — primarily in Pune with remote flexibility.",
               },
               {
-                q: "Performance Evaluation",
-                a: "Self Evaluation on a Monthly Basis",
+                q: "How does performance evaluation work?",
+                a: "We use a monthly self-evaluation system with feedback sessions to help you grow.",
+              },
+              {
+                q: "When are salaries credited?",
+                a: "Salaries are processed on the 10th of every month.",
+              },
+              {
+                q: "Do interns get paid?",
+                a: "Yes, all internships are paid and come with mentorship from senior team members.",
               },
             ].map((faq, i) => (
               <details
@@ -233,7 +233,12 @@ export default function CaseStudy() {
         </section>
       </main>
 
-    
+      {/* FOOTER */}
+      <footer className="bg-indigo-600 text-white py-6 text-center rounded-t-2xl">
+        <p className="text-sm">
+          © {new Date().getFullYear()} BrandSkript · Empowering Digital Growth
+        </p>
+      </footer>
     </div>
   );
 }

@@ -9,6 +9,14 @@ import FeaturesServicesSection from './FeaturesServicesSection';
 import StatsTestimonialsSection from './StatsTestimonialsSection';
 import FAQSection from './FAQSection';
 import CTASection from './CTASection';
+import ClientLoveSection from './ClientLoveSection';
+import ShortVidsAtGlance from './ShortVidsAtGlance';
+import WhosThisForSection from './WhosThisForSection';
+import BookCallSection from './BookCallSection';
+import MembershipBenefits from './MembershipBenefits';
+import BlogSection from '../components/BlogSection';
+import CaseStudyList from '../components/CaseStudyList';
+import Book from './Book';
 
 
 const Home: React.FC = () => {
@@ -17,13 +25,21 @@ const Home: React.FC = () => {
       <HeroSection />
       <ProcessSection />
       <AboutSection />
-      <ToolsSection />
-      <ComparisonSection />
+      {/* <ToolsSection /> */}
+      <ClientLoveSection/>
+      <ShortVidsAtGlance/>
+      <WhosThisForSection/>
+      {/* <ComparisonSection /> */}
       {/* <PricingSection /> */}
-      <FeaturesServicesSection />
+      {/* <FeaturesServicesSection /> */}
       <StatsTestimonialsSection />
-      <FAQSection />
-      <CTASection />
+      <BookCallSection/>
+      <MembershipBenefits/>
+      <BlogSection/>
+      <CaseStudyList/>
+      <Book/>
+      {/* <FAQSection /> */}
+      {/* <CTASection /> */}
     </div>
   );
 };

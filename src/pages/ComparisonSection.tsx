@@ -31,24 +31,10 @@ const ComparisonSection = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,123,255,0.08)_0%,transparent_70%)] pointer-events-none"></div>
 
       <div className="relative max-w-7xl mx-auto px-6 text-center">
-        {/* Top Section */}
-        <p className="text-sm text-blue-600 font-semibold uppercase tracking-wide">
-          Industry Insights
-        </p>
-        <h2 className="mt-3 text-4xl md:text-5xl font-extrabold leading-tight text-gray-900">
-          Qualified Leads <br/> Impacts Sales Growth
-        </h2>
-        <p className="mt-4 text-gray-600 max-w-2xl mx-auto text-lg">
-          Capture & convert more customers by upgrading your lead generation
-          methods for high growth in revenue.
-        </p>
-
-        <button className="mt-8 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full text-base font-semibold transition">
-          Book A FREE Consultation Call
-        </button>
+   
 
         {/* Comparison Section */}
-        <div className="mt-24">
+        <div className="mt-">
           <span className="inline-block bg-blue-50 text-blue-600 text-sm font-medium px-4 py-1 rounded-full mb-4">
             Comparison
           </span>

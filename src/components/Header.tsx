@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
-const Header: React.FC = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Mobile menu toggle
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 ">
@@ -11,150 +11,172 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-3">
-            {/* <img
-              src="https://framerusercontent.com/images/U7g3LocgQq1Bb0Sv17Ra0LaPrs.png"
-              alt="Logo"
-              className="h-8 w-auto sm:h-10 md:h-12 lg:h-14 object-contain"
-            /> */}
-            <span className="font-extrabold text-black tracking-wide text-base sm:text-lg md:text-xl lg:text-2xl">
-              BrandName
+            <span className="font-extrabold text-black tracking-wide text-xl">
+              Brandskript
             </span>
           </Link>
 
-          {/* Desktop Nav */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 bg-gray-100 px-6 py-2 rounded-full border border-gray-200 shadow-sm">
-            <Link
-              to="/"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              Home
-            </Link>
-            <Link
-              to="/about"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              About Us
-            </Link>
-
             {/* Services Dropdown */}
             <div className="relative group">
               <button className="text-gray-800 hover:text-blue-600 focus:outline-none">
                 Services
               </button>
-              <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden group-hover:block bg-white border border-gray-200 shadow-xl rounded-xl p-6 w-[700px] z-50">
-                <div className="grid grid-cols-3 gap-6">
-                  {/* Marketing */}
+
+              <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden group-hover:flex bg-white border border-gray-200 shadow-2xl rounded-xl p-6 w-[950px] z-50 transition-all duration-300">
+                {/* Left Image */}
+                <div className="w-1/3 pr-6">
+                  <img
+                    src="/images/services.jpg"
+                    alt="Services"
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
+
+                {/* Right Dropdown Content */}
+                <div className="w-2/3 grid grid-cols-2 gap-8">
+                  {/* MARKETING SECTION */}
                   <div>
-                    <h3 className="text-gray-500 uppercase text-sm font-semibold mb-2">
-                      Marketing
+                    <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
+                      Lead Gen &gt;
                     </h3>
-                    <ul className="space-y-2">
+                    <ul className="text-gray-600 space-y-1 mb-4">
+                      <li>• Through Ads</li>
                       <li>
-                        <Link
-                          to="/advanceLeadGeneration"
-                          className="block text-gray-800 font-medium hover:text-blue-600"
-                        >
-                          Advance Lead Generation
-                        </Link>
-                        <p className="text-sm text-gray-500">
-                          Through PPC Ads Only
-                        </p>
+                        <div>
+                          <p className="font-semibold text-gray-800">
+                            • Through Email Marketing
+                          </p>
+                          <ul className="ml-6 text-gray-600 space-y-1 mt-1">
+                            <li>- Data Scraping</li>
+                            <li>- Data Outreaching</li>
+                          </ul>
+                        </div>
                       </li>
-                      <li>
-                        <Link
-                          to="/performancemarketing"
-                          className="block text-gray-800 font-medium hover:text-blue-600"
-                        >
-                          Performance Marketing
-                        </Link>
-                        <p className="text-sm text-gray-500">
-                          Social Media & High ROAS PPC Ads
-                        </p>
-                      </li>
+                      <li>• Through IVR / AI Agent</li>
+                      <li>• Through Insta DMing</li>
                     </ul>
                   </div>
 
-                  {/* Development */}
+                  {/* DESIGN SECTION */}
                   <div>
-                    <h3 className="text-gray-500 uppercase text-sm font-semibold mb-2">
-                      Development
+                    <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
+                      Other &gt;
                     </h3>
-                    <ul className="space-y-2">
+                    <ul className="text-gray-600 space-y-1">
+                      <li>• Branding</li>
+                      <li>• Website Design</li>
                       <li>
-                        <Link
-                          to="/webdevelopment"
-                          className="block text-gray-800 font-medium hover:text-blue-600"
-                        >
-                          Web Development
-                        </Link>
-                        <p className="text-sm text-gray-500">
-                          Static, E-Commerce, Dynamic, Shopify
-                        </p>
+                        <div>
+                          <p className="font-semibold text-gray-800">
+                            • Graphic Design
+                          </p>
+                          <ul className="ml-6 text-gray-600 space-y-1 mt-1">
+                            <li>- Brochure</li>
+                            <li>- Magazine</li>
+                            <li>- Pamphlet</li>
+                          </ul>
+                        </div>
                       </li>
-                    </ul>
-                  </div>
-
-                  {/* Design */}
-                  <div>
-                    <h3 className="text-gray-500 uppercase text-sm font-semibold mb-2">
-                      Design
-                    </h3>
-                    <ul className="space-y-2">
-                      <li>
-                        <Link
-                          to="/logodesign"
-                          className="block text-gray-800 font-medium hover:text-blue-600"
-                        >
-                          Logo Design
-                        </Link>
-                        <p className="text-sm text-gray-500">
-                          Timeless Logo Design
-                        </p>
-                      </li>
-                      <li>
-                        <Link
-                          to="/branddesign"
-                          className="block text-gray-800 font-medium hover:text-blue-600"
-                        >
-                          Brand Design
-                        </Link>
-                        <p className="text-sm text-gray-500">
-                          Impactful Brand Design
-                        </p>
-                      </li>
-                      <li>
-                        <span className="block text-gray-800 font-medium">
-                          Creative Services
-                        </span>
-                        <p className="text-sm text-gray-500">
-                          Magazine, Brochures, etc.
-                        </p>
-                      </li>
+                      <li>• Packaging Design</li>
                     </ul>
                   </div>
                 </div>
               </div>
             </div>
 
+            {/* Resources Dropdown */}
+            <div className="relative group">
+              <button className="text-gray-800 hover:text-blue-600 focus:outline-none">
+                Resources
+              </button>
+
+              <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden group-hover:flex bg-white border border-gray-200 shadow-2xl rounded-xl p-6 w-[700px] z-50 transition-all duration-300">
+                {/* Left Image */}
+                <div className="w-1/3 pr-6">
+                  <img
+                    src="/images/resources.jpg"
+                    alt="Resources"
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                </div>
+
+                {/* Right List */}
+                <div className="w-2/3 flex flex-col justify-center">
+                  <ul className="text-gray-700 space-y-3 text-base">
+                    <li>
+                      <Link
+                        to="/blog"
+                        className="hover:text-blue-600 transition-colors"
+                      >
+                        Blog
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/testimonials"
+                        className="hover:text-blue-600 transition-colors"
+                      >
+                        Testimonials
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/comparisons"
+                        className="hover:text-blue-600 transition-colors"
+                      >
+                        Comparisons
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/wall-of-love"
+                        className="hover:text-blue-600 transition-colors"
+                      >
+                        Wall of Love
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/free-ebooks"
+                        className="hover:text-blue-600 transition-colors"
+                      >
+                        Free E-Books
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
             <Link
-              to="/case-study"
+              to="/testimonials"
               className="text-gray-700 hover:text-blue-600 transition-colors"
             >
-              Case Study
+              Testimonials
             </Link>
             <Link
-              to="/career"
+              to="/case-studies"
               className="text-gray-700 hover:text-blue-600 transition-colors"
             >
-              Careers
+              Case Studies
+            </Link>
+            <Link
+              to="/why-us"
+              className="text-gray-700 hover:text-blue-600 transition-colors"
+            >
+              Why Us?
             </Link>
           </nav>
 
-          {/* ✅ Fixed Contact Button */}
+          {/* Right Button */}
           <div className="hidden md:flex items-center">
-            <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
-              Contact Us
-            </button>
+            <Link to="/contact">
+              <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
+                Schedule A Call →
+              </button>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -162,11 +184,7 @@ const Header: React.FC = () => {
             className="md:hidden text-gray-800"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
 
@@ -177,26 +195,89 @@ const Header: React.FC = () => {
               <Link to="/" className="text-gray-700 hover:text-blue-600">
                 Home
               </Link>
-              <Link to="/about" className="text-gray-700 hover:text-blue-600">
-                About Us
+
+              {/* Services */}
+              <details>
+                <summary className="cursor-pointer text-gray-700 font-semibold">
+                  Services
+                </summary>
+                <div className="ml-4 mt-2 space-y-2 text-gray-600 text-sm">
+                  <div>
+                    <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
+                      Lead Gen &gt;
+                    </h3>
+                    <ul className="text-gray-600 space-y-1 mb-4">
+                      <li>• Through Ads</li>
+                      <li>
+                        <p className="font-semibold text-gray-800">
+                          • Through Email Marketing
+                        </p>
+                        <ul className="ml-6 text-gray-600 space-y-1 mt-1">
+                          <li>- Data Scraping</li>
+                          <li>- Data Outreaching</li>
+                        </ul>
+                      </li>
+                      <li>• Through IVR / AI Agent</li>
+                      <li>• Through Insta DMing</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
+                      Other &gt;
+                    </h3>
+                    <ul className="text-gray-600 space-y-1">
+                      <li>• Branding</li>
+                      <li>• Website Design</li>
+                      <li>
+                        <p className="font-semibold text-gray-800">
+                          • Graphic Design
+                        </p>
+                        <ul className="ml-6 text-gray-600 space-y-1 mt-1">
+                          <li>- Brochure</li>
+                          <li>- Magazine</li>
+                          <li>- Pamphlet</li>
+                        </ul>
+                      </li>
+                      <li>• Packaging Design</li>
+                    </ul>
+                  </div>
+                </div>
+              </details>
+
+              {/* Resources */}
+              <details>
+                <summary className="cursor-pointer text-gray-700 font-semibold">
+                  Resources
+                </summary>
+                <div className="ml-4 mt-2 space-y-2 text-gray-600 text-sm">
+                  <Link to="/blog" className="block hover:text-blue-600">
+                    Blog
+                  </Link>
+                  <Link to="/testimonials" className="block hover:text-blue-600">
+                    Testimonials
+                  </Link>
+                  <Link to="/comparisons" className="block hover:text-blue-600">
+                    Comparisons
+                  </Link>
+                  <Link to="/wall-of-love" className="block hover:text-blue-600">
+                    Wall of Love
+                  </Link>
+                  <Link to="/free-ebooks" className="block hover:text-blue-600">
+                    Free E-Books
+                  </Link>
+                </div>
+              </details>
+
+              <Link to="/case-studies" className="text-gray-700 hover:text-blue-600">
+                Case Studies
               </Link>
-              <Link to="/services" className="text-gray-700 hover:text-blue-600">
-                Services
-              </Link>
-              <Link
-                to="/case-study"
-                className="text-gray-700 hover:text-blue-600"
-              >
-                Case Study
-              </Link>
-              <Link to="/career" className="text-gray-700 hover:text-blue-600">
-                Careers
+              <Link to="/why-us" className="text-gray-700 hover:text-blue-600">
+                Why Us?
               </Link>
 
-              {/* Mobile Contact Button */}
               <Link to="/contact">
                 <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
-                  Contact Us
+                  Schedule A Call →
                 </button>
               </Link>
             </div>

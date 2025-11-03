@@ -1,67 +1,109 @@
-import React from "react";
-import { Users, Briefcase, Clock, BarChart3 } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
 
 const StatsSection = () => {
   const stats = [
-    { number: "340+", label: "Happy Customers" },
-    { number: "850+", label: "Projects Completed" },
-    { number: "8+", label: "Years of Experience" },
-    { number: "22+", label: "Team Members" },
+    { value: 300, suffix: "+", label: "Businesses and agencies" },
+    { value: 27, suffix: "k+", label: "Videos edited and delivered" },
+    { value: 50, suffix: "%", label: "Cost Reduction" },
+    { value: 300, suffix: "k+", label: "Saved by businesses" },
   ];
 
-  const brands = ["Spectrum", "Zenith", "Nexus", "Echo", "Quantum"];
+  const [counts, setCounts] = useState(stats.map(() => 0));
+  const [startCount, setStartCount] = useState(false);
+  const sectionRef = useRef(null);
+
+  // 👇 Detect when section enters the viewport
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting) {
+          setStartCount(true);
+        }
+      },
+      { threshold: 0.3 } // triggers when 30% visible
+    );
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
+
+  // 👇 Start count-up animation when visible
+  useEffect(() => {
+    if (!startCount) return;
+
+    const duration = 1500;
+    const steps = 60;
+    const interval = duration / steps;
+
+    stats.forEach((stat, i) => {
+      let current = 0;
+      const increment = stat.value / steps;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= stat.value) {
+          clearInterval(timer);
+          current = stat.value;
+        }
+        setCounts((prev) => {
+          const updated = [...prev];
+          updated[i] = Math.floor(current);
+          return updated;
+        });
+      }, interval);
+    });
+  }, [startCount]);
 
   return (
-    <section className="bg-white py-24">
-      <div className="max-w-6xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-12">
-        {/* Left: Stats Grid */}
-        <div className="grid grid-cols-2 gap-6 flex-1">
-          {stats.map((stat, index) => (
-            <div
-              key={index}
-              className="relative bg-gradient-to-br from-white to-blue-50 border border-gray-200 rounded-3xl shadow-sm hover:shadow-md transition p-8 text-center"
+    <section
+      ref={sectionRef}
+      className="bg-gradient-to-br from-white to-gray-100 py-20 transition-all duration-700"
+    >
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+        {/* Left Content */}
+        <div className="text-center md:text-left space-y-6">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
+            The Best{" "}
+            <span className="text-indigo-600">Return On Your Investment</span>
+          </h2>
+          <p className="uppercase text-gray-500 tracking-wider text-xs font-medium">
+            SUCCESS IN NUMBER
+          </p>
+          <button className="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-3 rounded-md transition">
+            Start Working Now
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-5 h-5 ml-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth="2"
             >
-              {/* Subtle glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-100/40 to-transparent opacity-60 rounded-3xl"></div>
-              <div className="relative z-10">
-                <h3 className="text-3xl font-extrabold text-gray-900">
-                  {stat.number}
-                </h3>
-                <p className="text-gray-600 mt-2 text-sm md:text-base">
-                  {stat.label}
-                </p>
-              </div>
-            </div>
-          ))}
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13 7l5 5m0 0l-5 5m5-5H6"
+              />
+            </svg>
+          </button>
         </div>
 
-        {/* Right: Content */}
-        <div className="flex-1 text-center lg:text-left max-w-md">
-          <span className="inline-block bg-blue-100 text-blue-700 text-sm font-medium px-4 py-1 rounded-full mb-4">
-            Results & Analytics
-          </span>
-
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
-            Performance Insights and Analytics Overview
-          </h2>
-
-          <p className="mt-4 text-gray-600 text-base leading-relaxed">
-            Trusted by leading brands to deliver measurable results through data-driven
-            design, innovation, and strategy.
-          </p>
-
-          {/* Brand Logos */}
-          <div className="mt-8 flex flex-wrap justify-center lg:justify-start gap-6">
-            {brands.map((brand, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2 text-gray-500 hover:text-blue-600 transition"
-              >
-                <div className="w-2 h-2 bg-blue-300 rounded-full"></div>
-                <span className="font-medium text-sm">{brand}</span>
-              </div>
-            ))}
-          </div>
+        {/* Right Stats */}
+        <div className="grid grid-cols-2 gap-x-12 gap-y-10 text-center md:text-left">
+          {stats.map((stat, i) => (
+            <div
+              key={i}
+              className={`relative ${
+                i === 0 || i === 2 ? "border-r border-gray-300" : ""
+              } pr-6`}
+            >
+              <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-700">
+                {counts[i]}
+                {stat.suffix}
+              </h3>
+              <p className="text-gray-600 text-sm mt-2">{stat.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
