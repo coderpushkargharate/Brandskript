@@ -34,10 +34,10 @@ const Home: React.FC = () => {
       {/* <FeaturesServicesSection /> */}
       <StatsTestimonialsSection />
       <BookCallSection/>
-      <MembershipBenefits/>
-      <BlogSection/>
-      <CaseStudyList/>
-      <Book/>
+      {/* <MembershipBenefits/> */}
+      {/* <BlogSection/> */}
+      {/* <CaseStudyList/> */}
+      {/* <Book/> */}
       {/* <FAQSection /> */}
       {/* <CTASection /> */}
     </div>

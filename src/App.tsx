@@ -23,6 +23,8 @@ import BlogList from "./pages/BlogList";
 import BlogDetails from "./pages/BlogDetails";
 import CaseStudyList from "./components/CaseStudyList";
 import CaseStudyDetail from "./components/CaseStudyDetail";
+import BlogSection from "./components/BlogSection";
+import WallOfLove from "./pages/WallOfLove";
 function App() {
   return (
     <AuthProvider>
@@ -33,7 +35,7 @@ function App() {
           {/* Main Content */}
           <main className="flex-grow">
             <Routes>
-              
+
               <Route path="/" element={<Home />} />
               <Route path="/store" element={<Store />} />
               <Route path="/career" element={<Career />} />
@@ -53,9 +55,12 @@ function App() {
               <Route path="/logodesign" element={<LogoDesign />} />
               <Route path="/branddesign" element={<BrandDesignSection />} />
               <Route path="/" element={<BlogList />} />
-        <Route path="/blog/:id" element={<BlogDetails />} />
-        <Route path="/case-study" element={<CaseStudyList />} />
-        <Route path="/case-study/:id" element={<CaseStudyDetail />} />
+              <Route path="/blog/:id" element={<BlogDetails />} />
+              <Route path="/blog" element={<BlogSection />} />
+              <Route path="/case-study" element={<CaseStudyList />} />
+              <Route path="/case-study/:id" element={<CaseStudyDetail />} />
+              <Route path="/walloflove" element={<WallOfLove />} />
+
             </Routes>
           </main>
 
