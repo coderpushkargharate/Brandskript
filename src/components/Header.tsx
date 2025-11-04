@@ -160,7 +160,7 @@ const Header = () => {
                         </li>
                         <li>
                           <Link
-                            to="/wall-of-love"
+                            to="/walloflove"
                             className="hover:text-blue-600 transition-colors"
                           >
                             Wall of Love
