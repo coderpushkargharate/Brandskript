@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 ">
+    <header className="sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -17,34 +19,41 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8 bg-gray-100 px-6 py-2 rounded-full border border-gray-200 shadow-sm">
+          <nav className="hidden md:flex items-center space-x-8 bg-gray-100 px-6 py-2 rounded-full border border-gray-200 relative">
             {/* Services Dropdown */}
-            <div className="relative group">
-              <button className="text-gray-800 hover:text-blue-600 focus:outline-none">
-                Services
+            <div className="relative">
+              <button
+                onClick={() => {
+                  setIsServicesOpen(!isServicesOpen);
+                  setIsResourcesOpen(false);
+                }}
+                className="flex items-center text-gray-800 hover:text-blue-600 focus:outline-none"
+              >
+                Services <ChevronDown className="ml-1 h-4 w-4" />
               </button>
 
-              <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden group-hover:flex bg-white border border-gray-200 shadow-2xl rounded-xl p-6 w-[950px] z-50 transition-all duration-300">
-                {/* Left Image */}
-                <div className="w-1/3 pr-6">
-                  <img
-                    src="/images/services.jpg"
-                    alt="Services"
-                    className="w-full h-full object-cover rounded-xl"
-                  />
-                </div>
+              {isServicesOpen && (
+                <div
+                  className="absolute ms-5 left-1/2 -translate-x-1/2 mt-2 bg-white border border-gray-200 shadow-2xl rounded-xl p-6 w-[1100px] z-50 transition-all duration-300"
+                >
+                  <div className="grid grid-cols-4 gap-8">
+                    {/* Left Image */}
+                    <div>
+                      <img
+                        src="/images/services.jpg"
+                        alt="Services"
+                        className="w-full h-full object-cover rounded-xl"
+                      />
+                    </div>
 
-                {/* Right Dropdown Content */}
-                <div className="w-2/3 grid grid-cols-2 gap-8">
-                  {/* MARKETING SECTION */}
-                  <div>
-                    <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
-                      Lead Gen &gt;
-                    </h3>
-                    <ul className="text-gray-600 space-y-1 mb-4">
-                      <li>• Through Ads</li>
-                      <li>
-                        <div>
+                    {/* Lead Gen */}
+                    <div>
+                      <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
+                        Lead Gen &gt;
+                      </h3>
+                      <ul className="text-gray-600 space-y-1 mb-4">
+                        <li>• Through Ads</li>
+                        <li>
                           <p className="font-semibold text-gray-800">
                             • Through Email Marketing
                           </p>
@@ -52,23 +61,21 @@ const Header = () => {
                             <li>- Data Scraping</li>
                             <li>- Data Outreaching</li>
                           </ul>
-                        </div>
-                      </li>
-                      <li>• Through IVR / AI Agent</li>
-                      <li>• Through Insta DMing</li>
-                    </ul>
-                  </div>
+                        </li>
+                        <li>• Through IVR / AI Agent</li>
+                        <li>• Through Insta DMing</li>
+                      </ul>
+                    </div>
 
-                  {/* DESIGN SECTION */}
-                  <div>
-                    <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
-                      Other &gt;
-                    </h3>
-                    <ul className="text-gray-600 space-y-1">
-                      <li>• Branding</li>
-                      <li>• Website Design</li>
-                      <li>
-                        <div>
+                    {/* Other */}
+                    <div>
+                      <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
+                        Other &gt;
+                      </h3>
+                      <ul className="text-gray-600 space-y-1">
+                        <li>• Branding</li>
+                        <li>• Website Design</li>
+                        <li>
                           <p className="font-semibold text-gray-800">
                             • Graphic Design
                           </p>
@@ -77,77 +84,101 @@ const Header = () => {
                             <li>- Magazine</li>
                             <li>- Pamphlet</li>
                           </ul>
-                        </div>
-                      </li>
-                      <li>• Packaging Design</li>
-                    </ul>
+                        </li>
+                        <li>• Packaging Design</li>
+                      </ul>
+                    </div>
+
+                    {/* Ad Expertise */}
+                    <div>
+                      <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
+                        Ad Expertise &gt;
+                      </h3>
+                      <ul className="ml-4 list-disc text-gray-600 space-y-1">
+                        <li>Meta Ads</li>
+                        <li>Google Ads</li>
+                        <li>LinkedIn Ads</li>
+                        <li>TikTok Ads</li>
+                        <li>Twitter Ads</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Resources Dropdown */}
-            <div className="relative group">
-              <button className="text-gray-800 hover:text-blue-600 focus:outline-none">
-                Resources
+            <div className="relative">
+              <button
+                onClick={() => {
+                  setIsResourcesOpen(!isResourcesOpen);
+                  setIsServicesOpen(false);
+                }}
+                className="flex items-center text-gray-800 hover:text-blue-600 focus:outline-none"
+              >
+                Resources <ChevronDown className="ml-1 h-4 w-4" />
               </button>
 
-              <div className="absolute left-1/2 -translate-x-1/2 mt-2 hidden group-hover:flex bg-white border border-gray-200 shadow-2xl rounded-xl p-6 w-[700px] z-50 transition-all duration-300">
-                {/* Left Image */}
-                <div className="w-1/3 pr-6">
-                  <img
-                    src="/images/resources.jpg"
-                    alt="Resources"
-                    className="w-full h-full object-cover rounded-xl"
-                  />
-                </div>
+              {isResourcesOpen && (
+                <div
+                  className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white border border-gray-200 shadow-2xl rounded-xl p-4 w-[450px] z-50 transition-all duration-300"
+                >
+                  <div className="flex gap-4">
+                    <div className="w-1/3">
+                      <img
+                        src="/images/resources.jpg"
+                        alt="Resources"
+                        className="w-full h-full object-cover rounded-lg"
+                      />
+                    </div>
 
-                {/* Right List */}
-                <div className="w-2/3 flex flex-col justify-center">
-                  <ul className="text-gray-700 space-y-3 text-base">
-                    <li>
-                      <Link
-                        to="/blog"
-                        className="hover:text-blue-600 transition-colors"
-                      >
-                        Blog
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/testimonials"
-                        className="hover:text-blue-600 transition-colors"
-                      >
-                        Testimonials
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/comparisons"
-                        className="hover:text-blue-600 transition-colors"
-                      >
-                        Comparisons
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/wall-of-love"
-                        className="hover:text-blue-600 transition-colors"
-                      >
-                        Wall of Love
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/free-ebooks"
-                        className="hover:text-blue-600 transition-colors"
-                      >
-                        Free E-Books
-                      </Link>
-                    </li>
-                  </ul>
+                    <div className="w-2/3 flex flex-col justify-center">
+                      <ul className="text-gray-700 space-y-3 text-base">
+                        <li>
+                          <Link
+                            to="/blog"
+                            className="hover:text-blue-600 transition-colors"
+                          >
+                            Blog
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/testimonials"
+                            className="hover:text-blue-600 transition-colors"
+                          >
+                            Testimonials
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/comparisons"
+                            className="hover:text-blue-600 transition-colors"
+                          >
+                            Comparisons
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/wall-of-love"
+                            className="hover:text-blue-600 transition-colors"
+                          >
+                            Wall of Love
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/free-ebooks"
+                            className="hover:text-blue-600 transition-colors"
+                          >
+                            Free E-Books
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
             <Link
@@ -202,45 +233,11 @@ const Header = () => {
                   Services
                 </summary>
                 <div className="ml-4 mt-2 space-y-2 text-gray-600 text-sm">
-                  <div>
-                    <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
-                      Lead Gen &gt;
-                    </h3>
-                    <ul className="text-gray-600 space-y-1 mb-4">
-                      <li>• Through Ads</li>
-                      <li>
-                        <p className="font-semibold text-gray-800">
-                          • Through Email Marketing
-                        </p>
-                        <ul className="ml-6 text-gray-600 space-y-1 mt-1">
-                          <li>- Data Scraping</li>
-                          <li>- Data Outreaching</li>
-                        </ul>
-                      </li>
-                      <li>• Through IVR / AI Agent</li>
-                      <li>• Through Insta DMing</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
-                      Other &gt;
-                    </h3>
-                    <ul className="text-gray-600 space-y-1">
-                      <li>• Branding</li>
-                      <li>• Website Design</li>
-                      <li>
-                        <p className="font-semibold text-gray-800">
-                          • Graphic Design
-                        </p>
-                        <ul className="ml-6 text-gray-600 space-y-1 mt-1">
-                          <li>- Brochure</li>
-                          <li>- Magazine</li>
-                          <li>- Pamphlet</li>
-                        </ul>
-                      </li>
-                      <li>• Packaging Design</li>
-                    </ul>
-                  </div>
+                  <ul className="list-disc ml-4">
+                    <li>Lead Gen</li>
+                    <li>Other</li>
+                    <li>Ad Expertise</li>
+                  </ul>
                 </div>
               </details>
 
@@ -268,7 +265,7 @@ const Header = () => {
                 </div>
               </details>
 
-              <Link to="/case-studies" className="text-gray-700 hover:text-blue-600">
+              <Link to="/case-study-list" className="text-gray-700 hover:text-blue-600">
                 Case Studies
               </Link>
               <Link to="/why-us" className="text-gray-700 hover:text-blue-600">

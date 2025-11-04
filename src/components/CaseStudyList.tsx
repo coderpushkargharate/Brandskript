@@ -3,7 +3,7 @@ import React from "react";
 const caseStudies = [
   {
     id: 1,
-    image: "https://via.placeholder.com/400x220",
+    image: "https://shortvids.co/wp-content/uploads/2025/09/fetaure.jpg",
     title: "Why Namami Inc. Trusts ShortVids",
     subtitle: "As Their Extended Creative Team",
     date: "1 September 2025",
@@ -13,7 +13,7 @@ const caseStudies = [
   },
   {
     id: 2,
-    image: "https://via.placeholder.com/400x220",
+    image: "https://shortvids.co/wp-content/uploads/2025/07/super-dupe-fetaure-superdupe-x-shortvids.jpg",
     title: "How SuperDupe Scaled AI-Generated Videos",
     subtitle: "With ShortVids",
     date: "3 July 2025",
@@ -23,7 +23,7 @@ const caseStudies = [
   },
   {
     id: 3,
-    image: "https://via.placeholder.com/400x220",
+    image: "https://shortvids.co/wp-content/uploads/2025/06/codyblundell-fetaure1.jpg",
     title: "How Cody Blundell Grows His Brand & PARAFLIX",
     subtitle: "Using ShortVids Video Content",
     date: "21 June 2025",

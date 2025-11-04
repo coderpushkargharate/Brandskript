@@ -33,7 +33,7 @@ const ProcessSection = () => {
   ];
 
   return (
-    <section className="bg-gray-50 text-center py-20">
+    <section className="bg-gray-50 text-center ">
       <div className="max-w-6xl mx-auto px-6">
         {/* Heading */}
         <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-snug">

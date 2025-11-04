@@ -70,7 +70,12 @@ const MembershipBenefits = () => {
       </h2>
 
       {/* Cards Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 max-w-6xl">
+      <div
+        className="
+          grid gap-6 max-w-6xl w-full
+          grid-cols-[repeat(auto-fill,minmax(250px,1fr))]
+        "
+      >
         {benefits.map((item, index) => (
           <div
             key={index}

@@ -7,7 +7,7 @@ const blogs = [
     title: "10 Creative Formulas for High-Converting Facebook Video Ads",
     date: "30 October 2025",
     comments: "No Comments",
-    img: "https://cdn.pixabay.com/photo/2017/06/10/07/23/social-2380836_1280.png",
+    img: "https://shortvids.co/wp-content/uploads/2025/06/FEATUREGene-Slades-ShortVids-Success-Story.jpg",
     desc: "There’s real magic in Facebook video ads when they combine creativity with strategy. At ShortVids, we’ve watched ordinary brands turn into unforgettable names through clever...",
   },
   {
@@ -15,7 +15,7 @@ const blogs = [
     title: "How to Build a High-Converting YouTube Sales Funnel in 2026",
     date: "29 October 2025",
     comments: "No Comments",
-    img: "https://cdn.pixabay.com/photo/2016/11/29/09/08/youtube-1868269_1280.jpg",
+    img: "https://shortvids.co/wp-content/uploads/2025/05/FEATURE-ramp.jpg",
     desc: "Video content is now the main focus of the internet, and a good YouTube sales funnel is becoming one of the best strategies for 2026...",
   },
   {
@@ -23,7 +23,7 @@ const blogs = [
     title: "Is AI Creative Testing the Future of Ads — and How Can Brands Use It Now?",
     date: "28 October 2025",
     comments: "No Comments",
-    img: "https://cdn.pixabay.com/photo/2019/07/10/06/33/artificial-intelligence-4321890_1280.jpg",
+    img: "https://shortvids.co/wp-content/uploads/2025/05/FEATURE-morning-brew.jpg",
     desc: "AI creative testing has already started changing how video ads perform online. At ShortVids, there’s never been a day without running into countless creative combinations...",
   },
 ];
