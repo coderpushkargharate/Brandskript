@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 
@@ -7,8 +7,29 @@ const Header = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
 
+  // Refs to detect clicks outside dropdowns
+  const servicesRef = useRef(null);
+  const resourcesRef = useRef(null);
+
+  // ✅ Close dropdowns when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        servicesRef.current &&
+        !servicesRef.current.contains(event.target) &&
+        resourcesRef.current &&
+        !resourcesRef.current.contains(event.target)
+      ) {
+        setIsServicesOpen(false);
+        setIsResourcesOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50">
+    <header className="sticky top-0 z-50 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -21,10 +42,10 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 bg-gray-100 px-6 py-2 rounded-full border border-gray-200 relative">
             {/* Services Dropdown */}
-            <div className="relative">
+            <div className="relative" ref={servicesRef}>
               <button
                 onClick={() => {
-                  setIsServicesOpen(!isServicesOpen);
+                  setIsServicesOpen((prev) => !prev);
                   setIsResourcesOpen(false);
                 }}
                 className="flex items-center text-gray-800 hover:text-blue-600 focus:outline-none"
@@ -33,11 +54,8 @@ const Header = () => {
               </button>
 
               {isServicesOpen && (
-                <div
-                  className="absolute ms-5 left-1/2 -translate-x-1/2 mt-2 bg-white border border-gray-200 shadow-2xl rounded-xl p-6 w-[1100px] z-50 transition-all duration-300"
-                >
+                <div className="absolute ms-5 left-1/2 -translate-x-1/2 mt-2 bg-white border border-gray-200 shadow-2xl rounded-xl p-6 w-[1100px] z-50 transition-all duration-300">
                   <div className="grid grid-cols-4 gap-8">
-                    {/* Left Image */}
                     <div>
                       <img
                         src="/images/services.jpg"
@@ -45,8 +63,6 @@ const Header = () => {
                         className="w-full h-full object-cover rounded-xl"
                       />
                     </div>
-
-                    {/* Lead Gen */}
                     <div>
                       <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
                         Lead Gen &gt;
@@ -67,8 +83,19 @@ const Header = () => {
                       </ul>
                     </div>
 
-                    {/* Other */}
                     <div>
+                      <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
+                        Ad Expertise &gt;
+                      </h3>
+                      <ul className="ml-4 list-disc text-gray-600 space-y-1">
+                        <li>Meta Ads</li>
+                        <li>Google Ads</li>
+                        <li>LinkedIn Ads</li>
+                        <li>TikTok Ads</li>
+                        <li>Twitter Ads</li>
+                      </ul>
+                    </div>
+                       <div>
                       <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
                         Other &gt;
                       </h3>
@@ -88,30 +115,16 @@ const Header = () => {
                         <li>• Packaging Design</li>
                       </ul>
                     </div>
-
-                    {/* Ad Expertise */}
-                    <div>
-                      <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
-                        Ad Expertise &gt;
-                      </h3>
-                      <ul className="ml-4 list-disc text-gray-600 space-y-1">
-                        <li>Meta Ads</li>
-                        <li>Google Ads</li>
-                        <li>LinkedIn Ads</li>
-                        <li>TikTok Ads</li>
-                        <li>Twitter Ads</li>
-                      </ul>
-                    </div>
                   </div>
                 </div>
               )}
             </div>
 
             {/* Resources Dropdown */}
-            <div className="relative">
+            <div className="relative" ref={resourcesRef}>
               <button
                 onClick={() => {
-                  setIsResourcesOpen(!isResourcesOpen);
+                  setIsResourcesOpen((prev) => !prev);
                   setIsServicesOpen(false);
                 }}
                 className="flex items-center text-gray-800 hover:text-blue-600 focus:outline-none"
@@ -120,9 +133,7 @@ const Header = () => {
               </button>
 
               {isResourcesOpen && (
-                <div
-                  className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white border border-gray-200 shadow-2xl rounded-xl p-4 w-[450px] z-50 transition-all duration-300"
-                >
+                <div className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white border border-gray-200 shadow-2xl rounded-xl p-4 w-[450px] z-50 transition-all duration-300">
                   <div className="flex gap-4">
                     <div className="w-1/3">
                       <img
@@ -226,8 +237,6 @@ const Header = () => {
               <Link to="/" className="text-gray-700 hover:text-blue-600">
                 Home
               </Link>
-
-              {/* Services */}
               <details>
                 <summary className="cursor-pointer text-gray-700 font-semibold">
                   Services
@@ -241,7 +250,6 @@ const Header = () => {
                 </div>
               </details>
 
-              {/* Resources */}
               <details>
                 <summary className="cursor-pointer text-gray-700 font-semibold">
                   Resources

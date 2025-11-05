@@ -17,6 +17,7 @@ import MembershipBenefits from './MembershipBenefits';
 import BlogSection from '../components/BlogSection';
 import CaseStudyList from '../components/CaseStudyList';
 import Book from './Book';
+import CaseStudyHome from './CaseStudyHome';
 
 
 const Home: React.FC = () => {
@@ -36,7 +37,7 @@ const Home: React.FC = () => {
       <BookCallSection/>
       <MembershipBenefits/>
       <BlogSection/>
-      <CaseStudyList/>
+      <CaseStudyHome/>
       <Book/>
       {/* <FAQSection /> */}
       {/* <CTASection /> */}
