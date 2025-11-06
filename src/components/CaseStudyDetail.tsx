@@ -11,8 +11,7 @@ const caseStudies = [
       "How RH helped Ka’Ohana hit $50K profit and record revenue, even after tariffs forced them to retire their best-selling product.",
     heroImages: [
       "https://righthookdigital.com/wp-content/uploads/elementor/thumbs/KaOhana-Landscape-ra56apndl9oycwe3z0izlxz1tg4bb64olog9ux8x9g.jpg",
-      "https://righthookdigital.com/wp-content/uploads/2025/08/Koahana-1.png",
-      "https://righthookdigital.com/wp-content/uploads/2025/08/Koahana-2.png",
+      
     ],
     highlights: [
       { label: "Record growth &", value: "$50K profit in 1 month" },
@@ -27,14 +26,14 @@ Founded by Reed Yamaguchi, Ka’Ohana was created to honor Hawaiian heritage thr
 
 Each piece was designed to be a keepsake, not just another accessory. The brand built a deeply loyal customer base by staying true to its mission. But as demand grew, revenue plateaued.`,
       images: [
-        "https://righthookdigital.com/wp-content/uploads/2025/08/Koahana-1.png",
-        "https://righthookdigital.com/wp-content/uploads/2025/08/Koahana-2.png",
+        "https://righthookdigital.com/wp-content/uploads/2025/08/KaOhana.jpg",
+        // "https://righthookdigital.com/wp-content/uploads/2025/08/Koahana-2.png",
       ],
     },
     challenge: {
       title: "The Challenge",
       image:
-        "https://righthookdigital.com/wp-content/uploads/2025/08/Koahana-Instagram.png",
+        "https://righthookdigital.com/wp-content/uploads/2025/08/InstagramImage1.png",
       text: `
 Ka’Ohana had everything in place: premium product, strong mission, and a loyal audience. But none of it translated into sustainable growth. Messaging focused too heavily on product features and overlooked emotional resonance. Then tariffs landed, forcing them to retire their best-selling product.`,
     },
@@ -48,8 +47,7 @@ Ka’Ohana had everything in place: premium product, strong mission, and a loyal
       "Little Trouble went from being down substantially to having the best month in the brand’s history within weeks of starting with Right Hook.",
     heroImages: [
       "https://righthookdigital.com/wp-content/uploads/elementor/thumbs/LittleTrouble-scaled-r9hr1o4jt96vajots0kv9fr4iy4844ry89q6inxqhw.jpg",
-      "https://righthookdigital.com/wp-content/uploads/2025/07/LittleTrouble-Ad1.png",
-      "https://righthookdigital.com/wp-content/uploads/2025/07/LittleTrouble-Ad2.png",
+ 
     ],
     highlights: [
       { label: "138% Revenue Growth", value: "YoY" },
@@ -62,14 +60,14 @@ Ka’Ohana had everything in place: premium product, strong mission, and a loyal
       text: `
 Little Trouble started as a small brand with a cult following in the pet accessories space. They had strong engagement but struggled to translate that into consistent sales. Their creative approach lacked direction and emotional resonance.`,
       images: [
-        "https://righthookdigital.com/wp-content/uploads/2025/07/LittleTrouble-Ad1.png",
-        "https://righthookdigital.com/wp-content/uploads/2025/07/LittleTrouble-Ad2.png",
+        "https://righthookdigital.com/wp-content/uploads/2025/07/Collage.jpg",
+        // "https://righthookdigital.com/wp-content/uploads/2025/07/LittleTrouble-Ad2.png",
       ],
     },
     challenge: {
       title: "The Challenge",
       image:
-        "https://righthookdigital.com/wp-content/uploads/2025/07/LittleTrouble-IG.png",
+        "https://righthookdigital.com/wp-content/uploads/2025/07/Righthook-LittleTrouble-9x16-GRID-SPRING-DROP-LT.png",
       text: `
 After several poor-performing months, Little Trouble’s founder reached a breaking point. With ad fatigue and no new direction, they needed a total creative and strategic reset to regain traction and scale profitably.`,
     },
@@ -83,8 +81,7 @@ After several poor-performing months, Little Trouble’s founder reached a break
       "How RH helped get Silly George back in profit after an extended decline, with consistent $15–20K days and a full-funnel strategy scaling across platforms.",
     heroImages: [
       "https://righthookdigital.com/wp-content/uploads/elementor/thumbs/SillyGeorge-r8v9i1fakvr9ueft40rs78bpw5d2itkzoow6ylhld0.jpg",
-      "https://righthookdigital.com/wp-content/uploads/2025/07/SillyGeorge-1.png",
-      "https://righthookdigital.com/wp-content/uploads/2025/07/SillyGeorge-2.png",
+
     ],
     highlights: [
       { label: "Consistent", value: "$15–20K days" },
@@ -97,14 +94,14 @@ After several poor-performing months, Little Trouble’s founder reached a break
       text: `
 Silly George is a global beauty brand known for its lash innovations. After rapid initial growth, sales plateaued, and acquisition costs soared. They needed a sustainable full-funnel strategy to get back to profitability.`,
       images: [
-        "https://righthookdigital.com/wp-content/uploads/2025/07/SillyGeorge-1.png",
-        "https://righthookdigital.com/wp-content/uploads/2025/07/SillyGeorge-2.png",
+        "https://righthookdigital.com/wp-content/uploads/elementor/thumbs/SillyGeorge-r8v9i1f9d0z4goy7v58ucped1qdji0cv3n1xto9uuo.jpg",
+        // "https://righthookdigital.com/wp-content/uploads/2025/07/SillyGeorge-2.png",
       ],
     },
     challenge: {
       title: "The Challenge",
       image:
-        "https://righthookdigital.com/wp-content/uploads/2025/07/SillyGeorge-Ad.png",
+        "https://righthookdigital.com/wp-content/uploads/2025/07/3-Slides-scaled.jpg",
       text: `
 Despite great products and loyal customers, Silly George’s paid strategy was inefficient. Campaigns weren’t aligned with user intent, and creative fatigue set in. They needed a comprehensive paid media overhaul.`,
     },
