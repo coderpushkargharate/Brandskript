@@ -5,6 +5,25 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const HeroSection = () => {
+
+   const team = [
+    {
+      title: "Video Editing",
+      img: "https://cdn-icons-png.flaticon.com/512/2920/2920332.png",
+    },
+    {
+      title: "Script Writer",
+      img: "https://cdn-icons-png.flaticon.com/512/1055/1055646.png",
+    },
+    {
+      title: "Project Manager",
+      img: "https://cdn-icons-png.flaticon.com/512/3135/3135755.png",
+    },
+    {
+      title: "Creative Director",
+      img: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
+    },
+  ];
   // Carousel settings
   const settings = {
     dots: false,
@@ -129,34 +148,34 @@ const HeroSection = () => {
         </div>
 
         {/* Features */}
-        <div className="mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <div className="p-8 bg-gray-50 border rounded-2xl shadow-sm hover:shadow-md transition text-left">
-            <img
-              src="https://framerusercontent.com/images/9lDwe5RVWhcROsUnUSLQ5QiaaPk.svg?width=26&height=26"
-              alt=""
-              className="mb-4"
-            />
-            <h3 className="text-xl font-bold text-gray-900">Guaranteed Results</h3>
-            <p className="mt-3 text-gray-600 text-base leading-relaxed">
-              Tailored websites meticulously crafted to reflect your brand.
-            </p>
-          </div>
+       <section className="py-16 bg-white text-gray-800">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+        {/* Heading */}
+        <h2 className="text-2xl md:text-3xl font-semibold mb-2">
+          A Dedicated Team – At Your Service
+        </h2>
+        <p className="text-gray-500 mb-8">
+          Corporate &amp; Outsource Video Editing Services
+        </p>
 
-          <div className="p-8 bg-gray-50 border rounded-2xl shadow-sm hover:shadow-md transition text-left">
-            <img src="https://framerusercontent.com/images/FhPczbEeg5bRtLspTbQHpRUUg.svg?width=26&height=26" alt="" />
-            <h3 className="text-xl font-bold text-gray-900">Up to 90% Automation</h3>
-            <p className="mt-3 text-gray-600 text-base leading-relaxed">
-              Optimized for lightning-fast speed to enhance user experience.
-            </p>
-          </div>
-          <div className="p-8 bg-gray-50 border rounded-2xl shadow-sm hover:shadow-md transition text-left">
-            <img src="https://framerusercontent.com/images/36QlWRG5xFqx3DaY9IWO4wgp98.svg?width=26&height=26" alt="" />
-            <h3 className="text-xl font-bold text-gray-900">Replace with Systems</h3>
-            <p className="mt-3 text-gray-600 text-base leading-relaxed">
-              Designed to improve SEO and increase visibility effortlessly.
-            </p>
-          </div>
+        {/* Card Container */}
+        <div className="flex flex-wrap justify-center gap-4 bg-gray-100 rounded-xl p-6 border border-gray-200">
+          {team.map((item, index) => (
+            <div
+              key={index}
+              className="flex items-center gap-3 bg-white text-gray-900 px-5 py-3 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition"
+            >
+              <img
+                src={item.img}
+                alt={item.title}
+                className="w-8 h-8 object-contain"
+              />
+              <span className="font-medium">{item.title}</span>
+            </div>
+          ))}
         </div>
+      </div>
+    </section>
       </div>
 
       {/* Background Subtle Gradient */}

@@ -1,7 +1,7 @@
 import React from "react";
 import { Mail, MessageCircle } from "lucide-react";
 
-const Book= () => {
+const Book = () => {
   const points = [
     "It’s Free but super valuable if you’re just starting out or stuck in Growth.",
     "Experts advice, suggestions and feedbacks for content lead growth.",
@@ -16,11 +16,11 @@ const Book= () => {
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         {/* Left Side */}
         <div>
-          <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-6">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 leading-snug">
             Do You Have More Questions?{" "}
             <a
               href="#book"
-              className="text-indigo-600 hover:underline font-semibold"
+              className="text-indigo-600 hover:underline font-bold"
             >
               Book Your Call Now!
             </a>
@@ -34,10 +34,10 @@ const Book= () => {
             {points.map((text, index) => (
               <li
                 key={index}
-                className="flex items-start space-x-3 bg-gradient-to-r from-indigo-100 to-purple-100 border border-indigo-200 rounded-lg p-3 shadow-sm hover:shadow-md transition"
+                className="flex items-start bg-gradient-to-b from-purple-100 to-indigo-200 text-gray-800 rounded-xl p-4 shadow-sm hover:shadow-md border border-indigo-300 transition-all duration-200"
               >
-                <span className="text-indigo-500 text-xl font-bold">✱</span>
-                <p className="text-gray-800 text-sm md:text-base leading-snug">
+                <span className="text-indigo-600 text-xl mr-3">✦</span>
+                <p className="text-sm sm:text-base font-medium leading-snug">
                   {text}
                 </p>
               </li>
@@ -48,22 +48,23 @@ const Book= () => {
         {/* Right Side */}
         <div className="flex flex-col items-center text-center">
           <img
-            src="https://i.ibb.co/Z8MrvCc/book-call-img.png" // 🔁 Replace with your real image
+            src="https://shortvids.co/wp-content/uploads/2025/10/ai-content-creation.png"
             alt="Book a Call"
-            className="w-60 mb-4"
+            className="w-56 sm:w-64 mb-4"
           />
           <a
             href="#book"
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-3 rounded-md shadow-md mb-6 transition flex items-center gap-2"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold px-6 py-3 rounded-md shadow-md mb-6 transition flex items-center justify-center gap-2"
           >
             Book a Call Now →
           </a>
 
-          <p className="text-gray-700 font-medium mb-3">Reach out to us</p>
-          <div className="flex gap-4">
+          <p className="text-gray-800 font-medium mb-3">Reach out to us</p>
+
+          <div className="flex gap-4 flex-wrap justify-center">
             <a
               href="mailto:info@shortvids.com"
-              className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium transition"
+              className="flex items-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md text-sm font-medium shadow-sm transition"
             >
               <Mail size={18} /> Email us
             </a>
@@ -71,7 +72,7 @@ const Book= () => {
               href="https://wa.me/1234567890"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md text-sm font-medium transition"
+              className="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md text-sm font-medium shadow-sm transition"
             >
               <MessageCircle size={18} /> Whatsapp
             </a>

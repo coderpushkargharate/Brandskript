@@ -17,6 +17,7 @@ import MembershipBenefits from './MembershipBenefits';
 import BlogSection from '../components/BlogSection';
 import CaseStudyList from '../components/CaseStudyList';
 import Book from './Book';
+import CaseStudyHome from './CaseStudyHome';
 
 
 const Home: React.FC = () => {
@@ -34,10 +35,17 @@ const Home: React.FC = () => {
       {/* <FeaturesServicesSection /> */}
       <StatsTestimonialsSection />
       <BookCallSection/>
+<<<<<<< HEAD
       {/* <MembershipBenefits/> */}
       {/* <BlogSection/> */}
       {/* <CaseStudyList/> */}
       {/* <Book/> */}
+=======
+      <MembershipBenefits/>
+      <BlogSection/>
+      <CaseStudyHome/>
+      <Book/>
+>>>>>>> origin/main
       {/* <FAQSection /> */}
       {/* <CTASection /> */}
     </div>
