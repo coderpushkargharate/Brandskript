@@ -78,7 +78,7 @@ const CaseStudy = () => {
                   className="h-10 mb-6 object-contain"
                 />
               )}
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl  font-extrabold text-gray-900 leading-tight mb-4">
                 {study.title}
               </h2>
               <p className="text-gray-600 text-base leading-relaxed mb-8">
