@@ -205,7 +205,7 @@ const Header = () => {
               Case Studies
             </Link>
             <Link
-              to="/why-us"
+              to="/whyus"
               className="text-gray-700 hover:text-blue-600 transition-colors"
             >
               Why Us?
@@ -276,7 +276,7 @@ const Header = () => {
               <Link to="/case-study-list" className="text-gray-700 hover:text-blue-600">
                 Case Studies
               </Link>
-              <Link to="/why-us" className="text-gray-700 hover:text-blue-600">
+              <Link to="/whyus" className="text-gray-700 hover:text-blue-600">
                 Why Us?
               </Link>
 

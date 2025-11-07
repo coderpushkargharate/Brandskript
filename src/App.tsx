@@ -25,6 +25,7 @@ import CaseStudyList from "./components/CaseStudyList";
 import CaseStudyDetail from "./components/CaseStudyDetail";
 import BlogSection from "./components/BlogSection";
 import WallOfLove from "./pages/WallOfLove";
+import WhyUs from "./pages/WhyUs";
 function App() {
   return (
     <AuthProvider>
@@ -35,7 +36,7 @@ function App() {
           {/* Main Content */}
           <main className="flex-grow">
             <Routes>
-              
+
               <Route path="/" element={<Home />} />
               <Route path="/store" element={<Store />} />
               <Route path="/career" element={<Career />} />
@@ -55,11 +56,12 @@ function App() {
               <Route path="/logodesign" element={<LogoDesign />} />
               <Route path="/branddesign" element={<BrandDesignSection />} />
               <Route path="/" element={<BlogList />} />
-               <Route path="/blog" element={<BlogSection />} />
-        <Route path="/blog/:id" element={<BlogDetails />} />
-        <Route path="/case-study-list" element={<CaseStudyList />} />
-        <Route path="/case-study/:id" element={<CaseStudyDetail />} />
-        <Route path="/walloflove" element={<WallOfLove />} />
+              <Route path="/blog" element={<BlogSection />} />
+              <Route path="/blog/:id" element={<BlogDetails />} />
+              <Route path="/case-study-list" element={<CaseStudyList />} />
+              <Route path="/case-study/:id" element={<CaseStudyDetail />} />
+              <Route path="/walloflove" element={<WallOfLove />} />
+              <Route path="/whyus" element={<WhyUs />} />
             </Routes>
           </main>
 
