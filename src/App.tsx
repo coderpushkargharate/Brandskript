@@ -25,6 +25,9 @@ import CaseStudyList from "./components/CaseStudyList";
 import CaseStudyDetail from "./components/CaseStudyDetail";
 import BlogSection from "./components/BlogSection";
 import WallOfLove from "./pages/WallOfLove";
+import Services from "./pages/Services";
+import ComparisonSection from "./components/ComparisonSection";
+import ComparisonDetails from "./components/comparisonDetails";
 function App() {
   return (
     <AuthProvider>
@@ -55,20 +58,14 @@ function App() {
               <Route path="/logodesign" element={<LogoDesign />} />
               <Route path="/branddesign" element={<BrandDesignSection />} />
               <Route path="/" element={<BlogList />} />
-<<<<<<< HEAD
-              <Route path="/blog/:id" element={<BlogDetails />} />
               <Route path="/blog" element={<BlogSection />} />
-              <Route path="/case-study" element={<CaseStudyList />} />
+              <Route path="/blog/:id" element={<BlogDetails />} />
+              <Route path="/case-study-list" element={<CaseStudyList />} />
               <Route path="/case-study/:id" element={<CaseStudyDetail />} />
               <Route path="/walloflove" element={<WallOfLove />} />
-
-=======
-               <Route path="/blog" element={<BlogSection />} />
-        <Route path="/blog/:id" element={<BlogDetails />} />
-        <Route path="/case-study-list" element={<CaseStudyList />} />
-        <Route path="/case-study/:id" element={<CaseStudyDetail />} />
-        <Route path="/walloflove" element={<WallOfLove />} />
->>>>>>> origin/main
+              <Route path="/services" element={<Services />} />
+              <Route path="/comparisonsection" element={<ComparisonSection />} />
+        <Route path="/comparison/:id" element={<ComparisonDetails />} />
             </Routes>
           </main>
 

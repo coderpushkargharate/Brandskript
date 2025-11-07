@@ -35,17 +35,10 @@ const Home: React.FC = () => {
       {/* <FeaturesServicesSection /> */}
       <StatsTestimonialsSection />
       <BookCallSection/>
-<<<<<<< HEAD
-      {/* <MembershipBenefits/> */}
-      {/* <BlogSection/> */}
-      {/* <CaseStudyList/> */}
-      {/* <Book/> */}
-=======
       <MembershipBenefits/>
       <BlogSection/>
       <CaseStudyHome/>
       <Book/>
->>>>>>> origin/main
       {/* <FAQSection /> */}
       {/* <CTASection /> */}
     </div>
