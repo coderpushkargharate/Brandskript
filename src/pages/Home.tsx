@@ -37,7 +37,7 @@ const Home: React.FC = () => {
       <BookCallSection/>
       <MembershipBenefits/>
       <BlogSection/>
-      <CaseStudyList/>
+      <CaseStudyHome/>
       <Book/>
       {/* <FAQSection /> */}
       {/* <CTASection /> */}

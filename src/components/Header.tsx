@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const Header = () => {
@@ -7,18 +7,20 @@ const Header = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
 
+  const navigate = useNavigate();
+
   // Refs to detect clicks outside dropdowns
-  const servicesRef = useRef(null);
-  const resourcesRef = useRef(null);
+  const servicesRef = useRef<HTMLDivElement>(null);
+  const resourcesRef = useRef<HTMLDivElement>(null);
 
   // ✅ Close dropdowns when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         servicesRef.current &&
-        !servicesRef.current.contains(event.target) &&
+        !servicesRef.current.contains(event.target as Node) &&
         resourcesRef.current &&
-        !resourcesRef.current.contains(event.target)
+        !resourcesRef.current.contains(event.target as Node)
       ) {
         setIsServicesOpen(false);
         setIsResourcesOpen(false);
@@ -42,16 +44,21 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 bg-gray-100 px-6 py-2 rounded-full border border-gray-200 relative">
             {/* Services Dropdown */}
-            <div className="relative" ref={servicesRef}>
-              <button
-                onClick={() => {
-                  setIsServicesOpen((prev) => !prev);
-                  setIsResourcesOpen(false);
-                }}
-                className="flex items-center text-gray-800 hover:text-blue-600 focus:outline-none"
-              >
-                Services <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
+            <div
+              className="relative"
+              ref={servicesRef}
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
+              <div className="flex items-center space-x-1">
+                <button
+                  onClick={() => navigate("/services")}
+                  className="text-gray-800 hover:text-blue-600 focus:outline-none font-medium"
+                >
+                  Services
+                </button>
+                <ChevronDown className="h-4 w-4 text-gray-800" />
+              </div>
 
               {isServicesOpen && (
                 <div className="absolute ms-5 left-1/2 -translate-x-1/2 mt-2 bg-white border border-gray-200 shadow-2xl rounded-xl p-6 w-[1100px] z-50 transition-all duration-300">
@@ -95,7 +102,7 @@ const Header = () => {
                         <li>Twitter Ads</li>
                       </ul>
                     </div>
-                       <div>
+                    <div>
                       <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
                         Other &gt;
                       </h3>
@@ -121,16 +128,18 @@ const Header = () => {
             </div>
 
             {/* Resources Dropdown */}
-            <div className="relative" ref={resourcesRef}>
-              <button
-                onClick={() => {
-                  setIsResourcesOpen((prev) => !prev);
-                  setIsServicesOpen(false);
-                }}
-                className="flex items-center text-gray-800 hover:text-blue-600 focus:outline-none"
-              >
-                Resources <ChevronDown className="ml-1 h-4 w-4" />
-              </button>
+            <div
+              className="relative"
+              ref={resourcesRef}
+              onMouseEnter={() => setIsResourcesOpen(true)}
+              onMouseLeave={() => setIsResourcesOpen(false)}
+            >
+              <div className="flex items-center space-x-1">
+                <span className="text-gray-800 font-medium hover:text-blue-600 cursor-pointer">
+                  Resources
+                </span>
+                <ChevronDown className="h-4 w-4 text-gray-800" />
+              </div>
 
               {isResourcesOpen && (
                 <div className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white border border-gray-200 shadow-2xl rounded-xl p-4 w-[450px] z-50 transition-all duration-300">
@@ -143,52 +152,53 @@ const Header = () => {
                       />
                     </div>
 
-                {/* Right List */}
-                <div className="w-2/3 flex flex-col justify-center">
-                  <ul className="text-gray-700 space-y-3 text-base">
-                    <li>
-                      <Link
-                        to="/blog"
-                        className="hover:text-blue-600 transition-colors"
-                      >
-                        Blog
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/testimonials"
-                        className="hover:text-blue-600 transition-colors"
-                      >
-                        Testimonials
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/comparisons"
-                        className="hover:text-blue-600 transition-colors"
-                      >
-                        Comparisons
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/wall-of-love"
-                        className="hover:text-blue-600 transition-colors"
-                      >
-                        Wall of Love
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/free-ebooks"
-                        className="hover:text-blue-600 transition-colors"
-                      >
-                        Free E-Books
-                      </Link>
-                    </li>
-                  </ul>
+                    <div className="w-2/3 flex flex-col justify-center">
+                      <ul className="text-gray-700 space-y-3 text-base">
+                        <li>
+                          <Link
+                            to="/blog"
+                            className="hover:text-blue-600 transition-colors"
+                          >
+                            Blog
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/testimonials"
+                            className="hover:text-blue-600 transition-colors"
+                          >
+                            Testimonials
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/comparisonsection"
+                            className="hover:text-blue-600 transition-colors"
+                          >
+                            Comparisons
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/walloflove"
+                            className="hover:text-blue-600 transition-colors"
+                          >
+                            Wall of Love
+                          </Link>
+                        </li>
+                        <li>
+                          <Link
+                            to="/free-ebooks"
+                            className="hover:text-blue-600 transition-colors"
+                          >
+                            Free E-Books
+                          </Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
 
             <Link
@@ -204,7 +214,7 @@ const Header = () => {
               Case Studies
             </Link>
             <Link
-              to="/whyus"
+              to="/why-us"
               className="text-gray-700 hover:text-blue-600 transition-colors"
             >
               Why Us?
@@ -213,7 +223,7 @@ const Header = () => {
 
           {/* Right Button */}
           <div className="hidden md:flex items-center">
-            <Link to="/Scheduleacall">
+            <Link to="/schedulecall">
               <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
                 Schedule A Call →
               </button>
@@ -236,18 +246,13 @@ const Header = () => {
               <Link to="/" className="text-gray-700 hover:text-blue-600">
                 Home
               </Link>
-              <details>
-                <summary className="cursor-pointer text-gray-700 font-semibold">
-                  Services
-                </summary>
-                <div className="ml-4 mt-2 space-y-2 text-gray-600 text-sm">
-                  <ul className="list-disc ml-4">
-                    <li>Lead Gen</li>
-                    <li>Other</li>
-                    <li>Ad Expertise</li>
-                  </ul>
-                </div>
-              </details>
+
+              <Link
+                to="/services"
+                className="text-gray-700 font-semibold hover:text-blue-600"
+              >
+                Services
+              </Link>
 
               <details>
                 <summary className="cursor-pointer text-gray-700 font-semibold">
@@ -272,14 +277,17 @@ const Header = () => {
                 </div>
               </details>
 
-              <Link to="/case-study-list" className="text-gray-700 hover:text-blue-600">
+              <Link
+                to="/case-study-list"
+                className="text-gray-700 hover:text-blue-600"
+              >
                 Case Studies
               </Link>
-              <Link to="/whyus" className="text-gray-700 hover:text-blue-600">
+              <Link to="/why-us" className="text-gray-700 hover:text-blue-600">
                 Why Us?
               </Link>
 
-              <Link to="/Scheduleacall">
+              <Link to="/schedulecall">
                 <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
                   Schedule A Call →
                 </button>

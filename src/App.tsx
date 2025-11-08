@@ -23,6 +23,11 @@ import BlogList from "./pages/BlogList";
 import BlogDetails from "./pages/BlogDetails";
 import CaseStudyList from "./components/CaseStudyList";
 import CaseStudyDetail from "./components/CaseStudyDetail";
+import WhyUs from "./pages/WhyUs";
+import ScheduleAcall from "./pages/scheduleACall";
+import ComparisonSection from "./components/comparisonSection";
+import ComparisonDetails from "./components/comparisonDetails";
+import Services from "./pages/Services";
 function App() {
   return (
     <AuthProvider>
@@ -34,7 +39,7 @@ function App() {
           <main className="flex-grow">
             <Routes>
 
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={<Home />} /> 
               <Route path="/store" element={<Store />} />
               <Route path="/career" element={<Career />} />
               <Route path="/about" element={<About />} />
@@ -53,9 +58,15 @@ function App() {
               <Route path="/logodesign" element={<LogoDesign />} />
               <Route path="/branddesign" element={<BrandDesignSection />} />
               <Route path="/" element={<BlogList />} />
-        <Route path="/blog/:id" element={<BlogDetails />} />
-        <Route path="/case-study" element={<CaseStudyList />} />
-        <Route path="/case-study/:id" element={<CaseStudyDetail />} />
+              <Route path="/blog/:id" element={<BlogDetails />} />
+              <Route path="/case-study-list" element={<CaseStudyList />} />
+              <Route path="/case-study/:id" element={<CaseStudyDetail />} />
+              <Route path="/why-us" element={<WhyUs />} />
+             <Route path="/schedulecall" element={<ScheduleAcall />} />
+             <Route path="/comparisonsection" element={<ComparisonSection />} />
+             <Route path="/comparison/:id" element={<ComparisonDetails />} />
+             <Route path="/services" element={<Services />} />
+             {/* <Route path="/comparisondetails" element={<Comparison />} />  */}
             </Routes>
           </main>
 
