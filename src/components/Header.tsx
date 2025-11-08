@@ -143,53 +143,52 @@ const Header = () => {
                       />
                     </div>
 
-                    <div className="w-2/3 flex flex-col justify-center">
-                      <ul className="text-gray-700 space-y-3 text-base">
-                        <li>
-                          <Link
-                            to="/blog"
-                            className="hover:text-blue-600 transition-colors"
-                          >
-                            Blog
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/testimonials"
-                            className="hover:text-blue-600 transition-colors"
-                          >
-                            Testimonials
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/comparisons"
-                            className="hover:text-blue-600 transition-colors"
-                          >
-                            Comparisons
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/walloflove"
-                            className="hover:text-blue-600 transition-colors"
-                          >
-                            Wall of Love
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/free-ebooks"
-                            className="hover:text-blue-600 transition-colors"
-                          >
-                            Free E-Books
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
+                {/* Right List */}
+                <div className="w-2/3 flex flex-col justify-center">
+                  <ul className="text-gray-700 space-y-3 text-base">
+                    <li>
+                      <Link
+                        to="/blog"
+                        className="hover:text-blue-600 transition-colors"
+                      >
+                        Blog
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/testimonials"
+                        className="hover:text-blue-600 transition-colors"
+                      >
+                        Testimonials
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/comparisons"
+                        className="hover:text-blue-600 transition-colors"
+                      >
+                        Comparisons
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/wall-of-love"
+                        className="hover:text-blue-600 transition-colors"
+                      >
+                        Wall of Love
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/free-ebooks"
+                        className="hover:text-blue-600 transition-colors"
+                      >
+                        Free E-Books
+                      </Link>
+                    </li>
+                  </ul>
                 </div>
-              )}
+              </div>
             </div>
 
             <Link
