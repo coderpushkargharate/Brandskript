@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const blogs = [
   {
@@ -29,19 +31,33 @@ const blogs = [
 ];
 
 const BlogSection = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   return (
     <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-12">
+        {/* Section Title */}
+        <h2
+          className="text-3xl font-bold text-gray-900 mb-12"
+          data-aos="fade-up"
+        >
           Our <span className="text-indigo-600">Blogs</span>
         </h2>
 
         {/* Blog Cards */}
-        <div className="grid md:grid-cols-3 gap-8">
-          {blogs.map((blog) => (
+        <div
+          className="grid md:grid-cols-3 gap-8"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          {blogs.map((blog, index) => (
             <div
               key={blog.id}
-              className="bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-lg transition duration-300 overflow-hidden"
+              className="bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-lg transition duration-300 overflow-hidden transform hover:-translate-y-2"
+              data-aos="zoom-in"
+              data-aos-delay={index * 150}
             >
               <img
                 src={blog.img}
@@ -70,9 +86,11 @@ const BlogSection = () => {
         </div>
 
         {/* Load More Button */}
-        <button className="mt-10 px-6 py-3 bg-indigo-600 text-white rounded-md font-medium hover:bg-indigo-700 transition">
-          Load More
-        </button>
+        <div data-aos="fade-up" data-aos-delay="400">
+          <button className="mt-10 px-6 py-3 bg-indigo-600 text-white rounded-md font-medium hover:bg-indigo-700 transition">
+            Load More
+          </button>
+        </div>
       </div>
     </section>
   );

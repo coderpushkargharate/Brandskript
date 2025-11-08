@@ -214,7 +214,7 @@ const Header = () => {
 
           {/* Right Button */}
           <div className="hidden md:flex items-center">
-            <Link to="/contact">
+            <Link to="/Scheduleacall">
               <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
                 Schedule A Call →
               </button>
@@ -280,7 +280,7 @@ const Header = () => {
                 Why Us?
               </Link>
 
-              <Link to="/contact">
+              <Link to="/Scheduleacall">
                 <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
                   Schedule A Call →
                 </button>

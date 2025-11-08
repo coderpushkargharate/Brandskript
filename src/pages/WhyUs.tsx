@@ -260,36 +260,57 @@ const WhyUs = () => {
         </div>
       </section>
 
-      {/* Services */}
-      <section className="py-16 bg-white px-4 text-center" data-aos="fade-up">
-        <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">What ShortVids Can Do For You?</h2>
-        <p className="text-gray-600 text-lg mb-10">Here is what we do</p>
+    {/* Services */}
+<section className="py-16 bg-white px-4 text-center" data-aos="fade-up">
+  <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+    What ShortVids Can Do For You?
+  </h2>
+  <p className="text-gray-600 text-lg mb-10">Here is what we do</p>
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto">
-          {videoServices.map((service, index) => (
-            <div
-              key={index}
-              className={`p-6 rounded-2xl border border-gray-200 text-left shadow-sm hover:shadow-md transition duration-300 ${
-                index === 1 ? "bg-purple-50 border-purple-200" : "bg-white"
-              }`}
-              data-aos="fade-up"
-              data-aos-delay={index * 50}
-            >
-              <div
-                className={`flex items-center justify-center w-12 h-12 rounded-lg mb-4 ${
-                  index === 1 ? "bg-purple-600 text-white" : "bg-purple-100 text-purple-600"
-                }`}
-              >
-                {service.icon}
-              </div>
-              <h3 className={`font-semibold text-lg mb-2 ${index === 1 ? "text-purple-800" : "text-black"}`}>
-                {service.title}
-              </h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{service.desc}</p>
-            </div>
-          ))}
+  <div
+    className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-7xl mx-auto justify-center"
+    style={{
+      display: "grid",
+      justifyContent: "center",
+      gridTemplateColumns:
+        "repeat(auto-fit, minmax(250px, 1fr))",
+    }}
+  >
+    {videoServices.map((service, index) => (
+      <div
+        key={index}
+        className={`p-6 rounded-2xl border border-gray-200 text-left shadow-sm hover:shadow-md transition duration-300 ${
+          index === 1
+            ? "bg-purple-50 border-purple-200"
+            : "bg-white"
+        }`}
+        data-aos="fade-up"
+        data-aos-delay={index * 50}
+      >
+        <div
+          className={`flex items-center justify-center w-12 h-12 rounded-lg mb-4 ${
+            index === 1
+              ? "bg-purple-600 text-white"
+              : "bg-purple-100 text-purple-600"
+          }`}
+        >
+          {service.icon}
         </div>
-      </section>
+        <h3
+          className={`font-semibold text-lg mb-2 ${
+            index === 1 ? "text-purple-800" : "text-black"
+          }`}
+        >
+          {service.title}
+        </h3>
+        <p className="text-gray-600 text-sm leading-relaxed">
+          {service.desc}
+        </p>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Cards */}
       <section className="py-16 px-4 text-center bg-white" data-aos="fade-up">

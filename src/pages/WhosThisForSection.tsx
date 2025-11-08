@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const WhosThisForSection = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
+
   const categories = [
     {
       id: 1,
@@ -53,10 +63,17 @@ const WhosThisForSection = () => {
   ];
 
   return (
-    <section className="bg-gradient-to-b from-white to-gray-100 py-20">
+    <section
+      className="bg-gradient-to-b from-white to-gray-100 py-20"
+      data-aos="fade-up"
+    >
       <div className="max-w-7xl mx-auto px-6 text-center">
         {/* Section Heading */}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-12">
+        <h2
+          className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-12"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
           Who’s this{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">
             for?
@@ -64,10 +81,16 @@ const WhosThisForSection = () => {
         </h2>
 
         {/* Category Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {categories.map((item) => (
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          {categories.map((item, index) => (
             <div
               key={item.id}
+              data-aos={index % 2 === 0 ? "fade-up-right" : "fade-up-left"}
+              data-aos-delay={index * 100}
               className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 p-8 text-center flex flex-col items-center"
             >
               <img
@@ -86,7 +109,11 @@ const WhosThisForSection = () => {
         </div>
 
         {/* CTA Button */}
-        <div className="mt-12">
+        <div
+          className="mt-12"
+          data-aos="zoom-in"
+          data-aos-delay="600"
+        >
           <button className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-full shadow-lg transition duration-300 flex items-center mx-auto">
             Connect with Our Team
             <svg

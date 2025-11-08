@@ -1,4 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const StatsSection = () => {
   const stats = [
@@ -12,6 +14,15 @@ const StatsSection = () => {
   const [startCount, setStartCount] = useState(false);
   const sectionRef = useRef(null);
 
+  // 👇 Initialize AOS
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
+
   // 👇 Detect when section enters the viewport
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,7 +32,7 @@ const StatsSection = () => {
           setStartCount(true);
         }
       },
-      { threshold: 0.3 } // triggers when 30% visible
+      { threshold: 0.3 }
     );
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
@@ -58,10 +69,14 @@ const StatsSection = () => {
     <section
       ref={sectionRef}
       className="bg-gradient-to-br from-white to-gray-100 py-20 transition-all duration-700"
+      data-aos="fade-up"
     >
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         {/* Left Content */}
-        <div className="text-center md:text-left space-y-6">
+        <div
+          className="text-center md:text-left space-y-6"
+          data-aos="fade-right"
+        >
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
             The Best{" "}
             <span className="text-indigo-600">Return On Your Investment</span>
@@ -69,7 +84,11 @@ const StatsSection = () => {
           <p className="uppercase text-gray-500 tracking-wider text-xs font-medium">
             SUCCESS IN NUMBER
           </p>
-          <button className="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-3 rounded-md transition">
+          <button
+            className="inline-flex items-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-6 py-3 rounded-md transition"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
             Start Working Now
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -89,13 +108,18 @@ const StatsSection = () => {
         </div>
 
         {/* Right Stats */}
-        <div className="grid grid-cols-2 gap-x-12 gap-y-10 text-center md:text-left">
+        <div
+          className="grid grid-cols-2 gap-x-12 gap-y-10 text-center md:text-left"
+          data-aos="fade-left"
+        >
           {stats.map((stat, i) => (
             <div
               key={i}
               className={`relative ${
                 i === 0 || i === 2 ? "border-r border-gray-300" : ""
               } pr-6`}
+              data-aos="zoom-in"
+              data-aos-delay={i * 150}
             >
               <h3 className="text-3xl md:text-4xl font-extrabold text-indigo-700">
                 {counts[i]}

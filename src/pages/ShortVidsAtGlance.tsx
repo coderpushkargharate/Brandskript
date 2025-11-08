@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const ShortVidsAtGlance = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   const stats = [
     {
       id: 1,
@@ -59,10 +65,17 @@ const ShortVidsAtGlance = () => {
   };
 
   return (
-    <section className="bg-gradient-to-b from-white to-gray-100 py-16 md:py-24">
+    <section
+      className="bg-gradient-to-b from-white to-gray-100 py-16 md:py-24"
+      data-aos="fade-up"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
         {/* Section Title */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-12">
+        <h2
+          className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-12"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
           ShortVids at{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">
             Glance
@@ -70,24 +83,33 @@ const ShortVidsAtGlance = () => {
         </h2>
 
         {/* Carousel */}
-        <Slider {...settings}>
-          {stats.map((item) => (
-            <div key={item.id} className="px-3">
-              <div className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 py-8 md:py-10 px-5 flex flex-col items-center justify-center">
-                <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">{item.icon}</div>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-indigo-600">
-                  {item.number}
-                </h3>
-                <h4 className="text-base sm:text-lg font-semibold text-gray-800 mt-1">
-                  {item.title}
-                </h4>
-                <p className="text-gray-600 mt-2 text-sm sm:text-base max-w-[220px] mx-auto">
-                  {item.description}
-                </p>
+        <div data-aos="fade-up" data-aos-delay="200">
+          <Slider {...settings}>
+            {stats.map((item, index) => (
+              <div
+                key={item.id}
+                className="px-3"
+                data-aos={index % 2 === 0 ? "fade-up-right" : "fade-up-left"}
+                data-aos-delay={index * 150}
+              >
+                <div className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 py-8 md:py-10 px-5 flex flex-col items-center justify-center">
+                  <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">
+                    {item.icon}
+                  </div>
+                  <h3 className="text-2xl sm:text-3xl font-extrabold text-indigo-600">
+                    {item.number}
+                  </h3>
+                  <h4 className="text-base sm:text-lg font-semibold text-gray-800 mt-1">
+                    {item.title}
+                  </h4>
+                  <p className="text-gray-600 mt-2 text-sm sm:text-base max-w-[220px] mx-auto">
+                    {item.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
-        </Slider>
+            ))}
+          </Slider>
+        </div>
       </div>
     </section>
   );

@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
+import AOS from "aos";
+import "aos/dist/aos.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const ClientShowcaseSection = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000, once: true });
+  }, []);
+
   const testimonials = [
     {
       id: 1,
@@ -57,18 +63,37 @@ const ClientShowcaseSection = () => {
     <>
       {/* ======= Top Hero Section (Light Theme) ======= */}
       <section className="bg-gradient-to-b from-white to-gray-50 text-center py-16 md:py-24 text-gray-900 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <p className="uppercase text-indigo-600 font-semibold tracking-wide text-xs sm:text-sm">
+        <div
+          className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10"
+          data-aos="fade-up"
+        >
+          <p
+            className="uppercase text-indigo-600 font-semibold tracking-wide text-xs sm:text-sm"
+            data-aos="fade-down"
+            data-aos-delay="100"
+          >
             Industry Insights
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mt-3">
+          <h2
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mt-3"
+            data-aos="zoom-in-up"
+            data-aos-delay="200"
+          >
             Qualified Leads <br /> Impacts Sales Growth
           </h2>
-          <p className="mt-4 text-gray-600 text-base sm:text-lg max-w-2xl mx-auto">
+          <p
+            className="mt-4 text-gray-600 text-base sm:text-lg max-w-2xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             Capture & convert more customers by upgrading your lead generation
             methods for high growth in revenue.
           </p>
-          <button className="mt-8 px-6 sm:px-8 py-3 bg-indigo-600 hover:bg-indigo-700 transition rounded-full font-medium text-white shadow-lg text-sm sm:text-base">
+          <button
+            className="mt-8 px-6 sm:px-8 py-3 bg-indigo-600 hover:bg-indigo-700 transition rounded-full font-medium text-white shadow-lg text-sm sm:text-base"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
             Book A FREE Consultation Call
           </button>
         </div>
@@ -78,9 +103,16 @@ const ClientShowcaseSection = () => {
       </section>
 
       {/* ======= Client Carousel Section ======= */}
-      <section className="bg-white py-16 md:py-24 text-center">
+      <section
+        className="bg-white py-16 md:py-24 text-center"
+        data-aos="fade-up"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900">
+          <h2
+            className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
             Our Clients Shared Their{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">
               Love For Our Work
@@ -88,10 +120,15 @@ const ClientShowcaseSection = () => {
           </h2>
 
           {/* Carousel */}
-          <div className="mt-10 md:mt-14">
+          <div className="mt-10 md:mt-14" data-aos="zoom-in-up" data-aos-delay="200">
             <Slider {...settings}>
-              {testimonials.map((client) => (
-                <div key={client.id} className="px-3">
+              {testimonials.map((client, index) => (
+                <div
+                  key={client.id}
+                  className="px-3"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 150}
+                >
                   <div className="relative rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
                     {/* Image */}
                     <img

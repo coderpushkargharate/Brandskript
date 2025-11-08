@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ProcessSection = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration in ms
+      once: true, // Animation runs only once
+      easing: "ease-in-out",
+    });
+  }, []);
+
   const steps = [
     {
       id: "01",
@@ -8,6 +18,7 @@ const ProcessSection = () => {
       desc: "Submit your videos and receive professionally edited content with same-day turnaround.",
       icon: "🎬",
       color: "from-purple-500 to-indigo-500",
+      aos: "fade-up",
     },
     {
       id: "02",
@@ -15,6 +26,7 @@ const ProcessSection = () => {
       desc: "Select your design from our library of options for the best unlimited video editing service.",
       icon: "🎨",
       color: "from-pink-500 to-orange-500",
+      aos: "fade-up",
     },
     {
       id: "03",
@@ -22,6 +34,7 @@ const ProcessSection = () => {
       desc: "Our team of experts will share your video promptly based on your selected plan.",
       icon: "⏱️",
       color: "from-blue-500 to-teal-500",
+      aos: "fade-up",
     },
     {
       id: "04",
@@ -29,40 +42,48 @@ const ProcessSection = () => {
       desc: "Always pay the same amount with our straightforward pricing and no hidden costs or charges.",
       icon: "💵",
       color: "from-green-500 to-emerald-500",
+      aos: "fade-up",
     },
   ];
 
   return (
-    <section className="bg-gray-50 text-center ">
+    <section className="bg-gray-50 text-center py-16">
       <div className="max-w-6xl mx-auto px-6">
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-snug">
-          Smart Design, Converting Ads, and Sales-
-          <br />
-          Focused Marketing Strategy.
-        </h2>
-        <p className="mt-3 text-gray-600 text-lg">
-          Because, we approach things a bit differently around here.
-        </p>
+        <div data-aos="fade-down">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-snug">
+            Smart Design, Converting Ads, and Sales-
+            <br />
+            Focused Marketing Strategy.
+          </h2>
+          <p className="mt-3 text-gray-600 text-lg">
+            Because, we approach things a bit differently around here.
+          </p>
+        </div>
 
         {/* Process Section */}
         <div className="mt-16">
-          <span className="inline-block bg-indigo-100 text-indigo-700 text-sm font-semibold px-4 py-1 rounded-full mb-4">
-            Process
-          </span>
-          <h3 className="text-2xl font-bold text-gray-900">
-            Our Result-Oriented Process
-          </h3>
-          <p className="mt-2 text-gray-600 max-w-2xl mx-auto">
-            Discover our efficient method for designing compelling advertisements
-            that resonate with your objectives and draw in your Ideal Client Profiles (ICP).
-          </p>
+          <div data-aos="zoom-in">
+            <span className="inline-block bg-indigo-100 text-indigo-700 text-sm font-semibold px-4 py-1 rounded-full mb-4">
+              Process
+            </span>
+            <h3 className="text-2xl font-bold text-gray-900">
+              Our Result-Oriented Process
+            </h3>
+            <p className="mt-2 text-gray-600 max-w-2xl mx-auto">
+              Discover our efficient method for designing compelling
+              advertisements that resonate with your objectives and draw in your
+              Ideal Client Profiles (ICP).
+            </p>
+          </div>
 
           {/* Process Steps */}
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
               <div
                 key={step.id}
+                data-aos={step.aos}
+                data-aos-delay={index * 150} // delay for staggered animation
                 className={`relative bg-white p-8 rounded-2xl border border-gray-200 shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-2 group`}
               >
                 {/* Icon */}
