@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const ClientShowcaseSection = () => {
+const TestimonialsSection = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -147,4 +147,4 @@ const ClientShowcaseSection = () => {
   );
 };
 
-export default ClientShowcaseSection;
+export default TestimonialsSection;

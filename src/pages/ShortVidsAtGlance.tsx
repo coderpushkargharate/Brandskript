@@ -54,13 +54,22 @@ const ShortVidsAtGlance = () => {
     autoplay: true,
     speed: 1000,
     autoplaySpeed: 2500,
-    slidesToShow: 4,
+    slidesToShow: 4, // ✅ Laptop/Desktop
     slidesToScroll: 1,
     arrows: false,
     responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 3 } },
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 640, settings: { slidesToShow: 1 } },
+      {
+        breakpoint: 1024, // tablet
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 768, // mobile landscape
+        settings: { slidesToShow: 1 },
+      },
+      {
+        breakpoint: 480, // small mobile
+        settings: { slidesToShow: 1 },
+      },
     ],
   };
 

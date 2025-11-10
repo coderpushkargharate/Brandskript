@@ -69,7 +69,7 @@ Both ShortVids and Irisbits claim to offer unlimited video editing subscriptions
     // 🆕 You can easily add more blog objects below for other pages
 ];
 
-const ComparisonDetails: React.FC = () => {
+const BlogDetails: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const blog = blogs.find((b) => b.id === parseInt(id || ""));
     const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -250,4 +250,4 @@ const ComparisonDetails: React.FC = () => {
     );
 };
 
-export default ComparisonDetails;
+export default BlogDetails;

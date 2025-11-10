@@ -1,5 +1,7 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
 
 const Services: React.FC = () => {
   // Refs for each service section
@@ -118,9 +120,15 @@ const Services: React.FC = () => {
             <a href="#" className="font-semibold border-b-2 border-black hover:text-blue-600">
               Find out more →
             </a>
-            <a href="#" className="font-semibold border-b-2 border-black hover:text-blue-600">
+
+
+            <Link
+              to="/ServicesBookCall"
+              className="font-semibold border-b-2 border-white hover:text-blue-400 transition-colors duration-200"
+            >
               Get started →
-            </a>
+            </Link>
+
           </div>
         </motion.div>
 
@@ -164,12 +172,12 @@ const Services: React.FC = () => {
           <p className="text-sm text-gray-400">
             Facebook / Instagram / Pinterest / Snapchat / TikTok Advertising
           </p>
-          <a
-            href="#"
-            className="font-semibold border-b-2 border-white hover:text-blue-400"
+          <Link
+            to="/ServicesBookCall"
+            className="font-semibold border-b-2 border-white hover:text-blue-400 transition-colors duration-200"
           >
             Get started →
-          </a>
+          </Link>
         </motion.div>
 
         <motion.div
@@ -206,9 +214,12 @@ const Services: React.FC = () => {
             Maximize ROI through precision-targeted Google Ads and Display campaigns that
             convert browsers into buyers.
           </p>
-          <a href="#" className="font-semibold border-b-2 border-black hover:text-blue-600">
+          <Link
+            to="/ServicesBookCall"
+            className="font-semibold border-b-2 border-white hover:text-blue-400 transition-colors duration-200"
+          >
             Get started →
-          </a>
+          </Link>
         </motion.div>
 
         <motion.div
@@ -245,12 +256,12 @@ const Services: React.FC = () => {
             Build customer loyalty and retention through powerful, automated, and
             personalized email journeys.
           </p>
-          <a
-            href="#"
-            className="font-semibold border-b-2 border-white hover:text-blue-400"
+          <Link
+            to="/ServicesBookCall"
+            className="font-semibold border-b-2 border-white hover:text-blue-400 transition-colors duration-200"
           >
             Get started →
-          </a>
+          </Link>
         </motion.div>
 
         <motion.div
@@ -287,9 +298,12 @@ const Services: React.FC = () => {
             Engage customers instantly with high-conversion mobile messaging campaigns
             that drive immediate action.
           </p>
-          <a href="#" className="font-semibold border-b-2 border-black hover:text-blue-600">
+          <Link
+            to="/ServicesBookCall"
+            className="font-semibold border-b-2 border-white hover:text-blue-400 transition-colors duration-200"
+          >
             Get started →
-          </a>
+          </Link>
         </motion.div>
 
         <motion.div
@@ -378,13 +392,12 @@ const Services: React.FC = () => {
           </div>
 
           {/* Top-right link */}
-          <a
-            href="#"
-            className="text-sm font-semibold text-black hover:text-blue-600 transition-all duration-200 mt-2 inline-flex items-center gap-1"
+          <Link
+            to="/ServicesBookCall"
+            className="font-semibold border-b-2 border-white hover:text-blue-400 transition-colors duration-200"
           >
-            Get Started
-            <span className="text-lg font-light">→</span>
-          </a>
+            Get started →
+          </Link>
         </div>
 
         {/* Steps */}
@@ -414,12 +427,7 @@ const Services: React.FC = () => {
           ))}
         </div>
       </section>
-
-
     </div>
-
-
-
 
   );
 };

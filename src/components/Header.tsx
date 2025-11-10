@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown } from "lucide-react";
 
 const Header = () => {
@@ -8,19 +8,18 @@ const Header = () => {
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
-  // Refs to detect clicks outside dropdowns
-  const servicesRef = useRef<HTMLDivElement>(null);
-  const resourcesRef = useRef<HTMLDivElement>(null);
+  const servicesRef = useRef(null);
+  const resourcesRef = useRef(null);
 
-  // ✅ Close dropdowns when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event) => {
       if (
         servicesRef.current &&
-        !servicesRef.current.contains(event.target as Node) &&
+        !servicesRef.current.contains(event.target) &&
         resourcesRef.current &&
-        !resourcesRef.current.contains(event.target as Node)
+        !resourcesRef.current.contains(event.target)
       ) {
         setIsServicesOpen(false);
         setIsResourcesOpen(false);
@@ -30,8 +29,17 @@ const Header = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    if (location.pathname !== "/services") {
+      setIsServicesOpen(false);
+    }
+    setIsResourcesOpen(false);
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
   return (
-    <header className="sticky top-0 z-50 ">
+    // ✅ Only this line changed (sticky → fixed)
+    <header className="fixed top-0 left-0 w-full z-50 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -44,17 +52,16 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 bg-gray-100 px-6 py-2 rounded-full border border-gray-200 relative">
             {/* Services Dropdown */}
-            <div
-              className="relative"
-              ref={servicesRef}
-              onMouseEnter={() => setIsServicesOpen(true)}
-              onMouseLeave={() => setIsServicesOpen(false)}
-            >
-              <div className="flex items-center space-x-1">
-                <button
-                  onClick={() => navigate("/services")}
-                  className="text-gray-800 hover:text-blue-600 focus:outline-none font-medium"
-                >
+            <div className="relative" ref={servicesRef}>
+              <div
+                className="flex items-center space-x-1 cursor-pointer"
+                onClick={() => {
+                  navigate("/services");
+                  setIsServicesOpen(!isServicesOpen);
+                  setIsResourcesOpen(false);
+                }}
+              >
+                <button className="text-gray-800 hover:text-blue-600 focus:outline-none font-medium">
                   Services
                 </button>
                 <ChevronDown className="h-4 w-4 text-gray-800" />
@@ -128,14 +135,15 @@ const Header = () => {
             </div>
 
             {/* Resources Dropdown */}
-            <div
-              className="relative"
-              ref={resourcesRef}
-              onMouseEnter={() => setIsResourcesOpen(true)}
-              onMouseLeave={() => setIsResourcesOpen(false)}
-            >
-              <div className="flex items-center space-x-1">
-                <span className="text-gray-800 font-medium hover:text-blue-600 cursor-pointer">
+            <div className="relative" ref={resourcesRef}>
+              <div
+                className="flex items-center space-x-1 cursor-pointer"
+                onClick={() => {
+                  setIsResourcesOpen(!isResourcesOpen);
+                  setIsServicesOpen(false);
+                }}
+              >
+                <span className="text-gray-800 font-medium hover:text-blue-600">
                   Resources
                 </span>
                 <ChevronDown className="h-4 w-4 text-gray-800" />
@@ -247,12 +255,38 @@ const Header = () => {
                 Home
               </Link>
 
-              <Link
-                to="/services"
-                className="text-gray-700 font-semibold hover:text-blue-600"
-              >
-                Services
-              </Link>
+              <details>
+                <summary className="cursor-pointer text-gray-700 font-semibold">
+                  Services
+                </summary>
+                <div className="ml-4 mt-2 space-y-2 text-gray-600 text-sm">
+                  <Link to="/services" className="block hover:text-blue-600">
+                    View All Services
+                  </Link>
+                  <p className="font-semibold text-gray-800">Lead Gen</p>
+                  <ul className="ml-4">
+                    <li>- Through Ads</li>
+                    <li>- Through Email Marketing</li>
+                    <li>- Through IVR / AI Agent</li>
+                    <li>- Through Insta DMing</li>
+                  </ul>
+                  <p className="font-semibold text-gray-800 mt-2">Ad Expertise</p>
+                  <ul className="ml-4">
+                    <li>- Meta Ads</li>
+                    <li>- Google Ads</li>
+                    <li>- LinkedIn Ads</li>
+                    <li>- TikTok Ads</li>
+                    <li>- Twitter Ads</li>
+                  </ul>
+                  <p className="font-semibold text-gray-800 mt-2">Other</p>
+                  <ul className="ml-4">
+                    <li>- Branding</li>
+                    <li>- Website Design</li>
+                    <li>- Graphic Design (Brochure, Magazine, Pamphlet)</li>
+                    <li>- Packaging Design</li>
+                  </ul>
+                </div>
+              </details>
 
               <details>
                 <summary className="cursor-pointer text-gray-700 font-semibold">
@@ -265,10 +299,10 @@ const Header = () => {
                   <Link to="/testimonials" className="block hover:text-blue-600">
                     Testimonials
                   </Link>
-                  <Link to="/comparisons" className="block hover:text-blue-600">
+                  <Link to="/comparisonsection" className="block hover:text-blue-600">
                     Comparisons
                   </Link>
-                  <Link to="/wall-of-love" className="block hover:text-blue-600">
+                  <Link to="/walloflove" className="block hover:text-blue-600">
                     Wall of Love
                   </Link>
                   <Link to="/free-ebooks" className="block hover:text-blue-600">

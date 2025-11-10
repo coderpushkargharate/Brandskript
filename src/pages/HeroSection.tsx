@@ -125,26 +125,40 @@ const HeroSection = () => {
           </p>
         </div>
 
-        {/* ✅ Logo Carousel */}
-        <div
-          className="mt-14 max-w-5xl mx-auto"
-          data-aos="fade-up"
-          data-aos-delay="400"
-        >
-          <Slider {...settings}>
-            {brandImages.map((img, index) => (
-              <div key={index} className="px-3">
-                <div className="flex justify-center items-center">
-                  <img
-                    src={img}
-                    alt={`Brand ${index + 1}`}
-                    className="w-full h-32 object-contain rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
-                  />
-                </div>
-              </div>
-            ))}
-          </Slider>
+      {/* ✅ Logo Carousel */}
+<div
+  className="mt-14 max-w-5xl mx-auto"
+  data-aos="fade-up"
+  data-aos-delay="400"
+>
+  <Slider {...settings}>
+    {brandImages.map((img, index) => (
+      <div key={index} className="px-3">
+        <div className="flex justify-center items-center">
+          <img
+            src={img}
+            alt={`Brand ${index + 1}`}
+            className="
+              w-full 
+              h-28
+              sm:h-32
+              md:h-28
+              lg:h-24
+              xl:h-20
+              object-contain 
+              rounded-xl 
+              shadow-sm 
+              hover:shadow-md 
+              transition-all 
+              duration-300
+            "
+          />
         </div>
+      </div>
+    ))}
+  </Slider>
+</div>
+
 
         {/* Video Section */}
         <div className="mt-16" data-aos="zoom-in-up" data-aos-delay="200">

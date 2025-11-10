@@ -28,13 +28,16 @@ import ScheduleAcall from "./pages/scheduleACall";
 import ComparisonSection from "./components/comparisonSection";
 import ComparisonDetails from "./components/comparisonDetails";
 import Services from "./pages/Services";
+import ServicesBookCall from "./pages/ServicesBookCall";
+import TestimonialsSection from "./pages/TestimonialsSection";
+import BlogSection from "./components/BlogSection";
+import WallOfLove from "./pages/WallOfLove";
 function App() {
   return (
     <AuthProvider>
       <Router>
         <div className="min-h-screen bg-gray-50 flex flex-col">
           <Header />
-
           {/* Main Content */}
           <main className="flex-grow">
             <Routes>
@@ -57,7 +60,7 @@ function App() {
               />
               <Route path="/logodesign" element={<LogoDesign />} />
               <Route path="/branddesign" element={<BrandDesignSection />} />
-              <Route path="/" element={<BlogList />} />
+              <Route path="/blog" element={<BlogSection />} />
               <Route path="/blog/:id" element={<BlogDetails />} />
               <Route path="/case-study-list" element={<CaseStudyList />} />
               <Route path="/case-study/:id" element={<CaseStudyDetail />} />
@@ -67,6 +70,9 @@ function App() {
              <Route path="/comparison/:id" element={<ComparisonDetails />} />
              <Route path="/services" element={<Services />} />
              {/* <Route path="/comparisondetails" element={<Comparison />} />  */}
+             <Route path="/ServicesBookCall" element={<ServicesBookCall />} />
+             <Route path="/testimonials" element={<TestimonialsSection />} />
+             <Route path="/walloflove" element={<WallOfLove />} />
             </Routes>
           </main>
 

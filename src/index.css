@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+*{
+    /* border: 5px solid red; */
+}
+/* ===== Fix scrollbar flicker from AOS animations ===== */
+html, body {
+  overflow-x: hidden; /* prevent horizontal scrollbar */
+}
+
+body.aos-animate {
+  overflow-y: auto; /* restore scroll after animations */
+}
+
+body:not(.aos-animate) {
+  overflow-y: hidden; /* hide vertical scrollbar during AOS init */
+}
+/* In your global CSS */
+body {
+  padding-top: 4rem; /* equal to header height */
+}
