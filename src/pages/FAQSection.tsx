@@ -29,7 +29,10 @@ const FAQSection: React.FC = () => {
           <p className="text-sm font-medium text-blue-600 uppercase tracking-wide">
             FAQ’s
           </p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-gray-900">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="mt-3 text-3xl md:text-4xl font-extrabold text-gray-900">
             Frequently Asked Questions
           </h2>
           <p className="mt-3 text-gray-600 max-w-2xl mx-auto">

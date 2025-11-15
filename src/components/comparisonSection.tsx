@@ -56,7 +56,10 @@ const ComparisonSection: React.FC = () => {
   return (
     <section className="bg-white py-20">
       <div className="max-w-7xl mx-auto px-6 text-center">
-        <h2 className="text-3xl font-bold text-gray-900 mb-12">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl font-bold text-gray-900 mb-12">
           Our <span className="text-indigo-600">Comparisons</span>
         </h2>
 

@@ -102,7 +102,10 @@ const AdvanceLeadGeneration = () => {
 
       {/* CTA */}
       <section className="text-center py-16 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-        <h2 className="text-3xl md:text-4xl font-bold">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-4xl font-bold">
           Maximize Your Leads and Drive Business Growth Instantly
         </h2>
         <p className="mt-3 text-gray-100">
@@ -116,7 +119,10 @@ const AdvanceLeadGeneration = () => {
 
       {/* PROCESS */}
       <section className="max-w-6xl mx-auto py-20 px-6">
-        <h2 className="text-3xl font-bold text-center mb-12 text-blue-700">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl font-bold text-center mb-12 text-blue-700">
           Our Design Process
         </h2>
         <div className="grid md:grid-cols-4 gap-6">
@@ -136,7 +142,10 @@ const AdvanceLeadGeneration = () => {
 
       {/* EXPERTISE */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-center text-3xl font-bold mb-10 text-blue-700">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-center text-3xl font-bold mb-10 text-blue-700">
           Unmatched Expertise Guaranteed
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
@@ -191,7 +200,10 @@ const AdvanceLeadGeneration = () => {
 
       {/* FAQ */}
       <section className="max-w-4xl mx-auto px-6 py-16">
-        <h2 className="text-center text-3xl font-bold mb-8 text-blue-700">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-center text-3xl font-bold mb-8 text-blue-700">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
@@ -215,7 +227,10 @@ const AdvanceLeadGeneration = () => {
 
       {/* FINAL CTA */}
       <section className="text-center py-20 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-        <h2 className="text-3xl md:text-4xl font-bold">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-4xl font-bold">
           Unlock Your Business Potential Through Lead Generation
         </h2>
         <button className="mt-6 px-6 py-3 bg-white text-blue-700 font-semibold rounded-lg shadow hover:bg-gray-100 transition">

@@ -345,7 +345,10 @@ const PerformanceMarketing: React.FC = () => {
         </div>
 
         <div className="max-w-5xl mx-auto text-center bg-white rounded-3xl shadow-lg border border-gray-200 py-20 px-8">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-5xl font-bold mb-6">
             Accelerate Business Growth with{" "}
             <span className="text-blue-600">Precision Marketing Strategies</span>
           </h2>
@@ -361,7 +364,10 @@ const PerformanceMarketing: React.FC = () => {
           <span className="inline-block text-sm font-medium text-blue-600 bg-blue-100 px-4 py-1 rounded-full mb-4 border border-blue-200">
             Process
           </span>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-4xl md:text-5xl font-bold mb-4">
             Proven Process for <span className="text-blue-600">Performance Marketing</span>
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -399,7 +405,10 @@ const PerformanceMarketing: React.FC = () => {
             <div className="inline-block bg-blue-100 text-blue-600 text-sm font-semibold px-4 py-1.5 rounded-full">
               About Us
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold leading-tight">
+            <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-5xl font-bold leading-tight">
               How We Work Together in <br /> Performance Marketing
             </h2>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">
@@ -436,7 +445,10 @@ const PerformanceMarketing: React.FC = () => {
             <div className="inline-block bg-blue-100 text-blue-600 px-4 py-1.5 rounded-full text-sm font-semibold">
               Tools
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold">Tools We Utilize for Excellence</h2>
+            <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-5xl font-bold">Tools We Utilize for Excellence</h2>
             <p className="max-w-2xl mx-auto text-gray-600 text-base md:text-lg">
               Discover the advanced tools and technologies we leverage to create cutting-edge marketing performance.
             </p>
@@ -471,7 +483,10 @@ const PerformanceMarketing: React.FC = () => {
       <section className="bg-gray-50 text-gray-900 py-20 px-6 font-sans">
         <div className="text-center mb-12">
           <p className="text-sm uppercase tracking-widest text-blue-600 font-semibold">Works</p>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3">Explore Our Recent Projects</h2>
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-4xl md:text-5xl font-bold mt-3">Explore Our Recent Projects</h2>
           <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
             Browse through our portfolio showcasing diverse, innovative marketing projects and client successes.
           </p>
@@ -526,7 +541,10 @@ const PerformanceMarketing: React.FC = () => {
             <span className="text-sm uppercase tracking-widest text-blue-600 font-semibold">
               Comparison
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold mt-3">
+            <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-4xl font-bold mt-3">
               Choosing <span className="text-blue-600">Brandskript</span> Over
               Others
             </h2>
@@ -713,7 +731,10 @@ const PerformanceMarketing: React.FC = () => {
               <p className="text-sm uppercase tracking-widest text-blue-600 font-semibold mb-2">
                 Results & Analytics
               </p>
-              <h2 className="text-3xl font-bold mb-2">
+              <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl font-bold mb-2">
                 Results and Analytics Insights Overview
               </h2>
               <p className="text-gray-600">Trusted by Leading Brands</p>
@@ -762,7 +783,10 @@ const PerformanceMarketing: React.FC = () => {
       {/* FAQ */}
       <section className="py-16 px-4 md:px-16">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">FAQ’s</h2>
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-4xl font-bold mb-2">FAQ’s</h2>
           <p className="text-gray-600 mt-2 text-sm md:text-lg max-w-2xl mx-auto">
             Answers to common questions about our services, processes, and what sets us apart.
           </p>
@@ -808,7 +832,10 @@ const PerformanceMarketing: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-white to-transparent opacity-60 pointer-events-none rounded-3xl" />
 
         <div className="relative z-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">
             Remain Linked with Our <br /> Outcome Maximizing Team
           </h2>
 

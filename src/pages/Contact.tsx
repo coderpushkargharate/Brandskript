@@ -10,7 +10,10 @@ const ContactSection = () => {
         <button className="px-4 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-4">
           Contact Us
         </button>
-        <h2 className="text-3xl md:text-4xl font-bold mb-2">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-4xl font-bold mb-2">
           Get in Touch With Us
         </h2>
         <p className="text-gray-600 max-w-xl mx-auto mb-12">

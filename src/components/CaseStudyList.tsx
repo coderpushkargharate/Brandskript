@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 const caseStudies = [
   {
     id: 1,
     logo: "https://righthookdigital.com/wp-content/uploads/2025/08/Koahanna-Logo-Black.png",
-    title:
-      "FROM REVENUE CEILING TO RECORD $50K PROFIT: HOW KA’OHANA TRUMPED TARIFFS",
+    title: "FROM REVENUE CEILING TO RECORD $50K PROFIT: HOW KA’OHANA TRUMPED TARIFFS",
     description:
       "How RH helped Ka’Ohana hit $50K profit and record revenue, even after tariffs forced them to retire their best-selling product.",
     imageGrid: [
@@ -39,8 +39,7 @@ const caseStudies = [
   {
     id: 3,
     logo: "https://righthookdigital.com/wp-content/uploads/2025/07/SillyGeorge-Logo.png",
-    title:
-      "FROM STRESS TO SCALE: TURNING A 6-MONTH STALL INTO A $20K/DAY GROWTH MACHINE",
+    title: "FROM STRESS TO SCALE: TURNING A 6-MONTH STALL INTO A $20K/DAY GROWTH MACHINE",
     description:
       "How RH helped get Silly George back in profit after an extended decline, with consistent $15–20K days and a full-funnel strategy scaling across platforms.",
     imageGrid: [
@@ -57,7 +56,7 @@ const caseStudies = [
 
 const CaseStudy = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true, easing: "ease-in-out" });
+    AOS.init({ duration: 700, once: true, easing: "ease-in-out" });
   }, []);
 
   return (
@@ -82,6 +81,10 @@ const CaseStudy = () => {
                 />
               )}
               <h2
+                style={{
+                  fontFamily: "var(--h2-font-family)",
+                  color: "var(--h2-color)",
+                }}
                 className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4"
                 data-aos="fade-up"
               >
@@ -111,49 +114,27 @@ const CaseStudy = () => {
                   data-aos="fade-right"
                   data-aos-delay="300"
                 >
-                  <a
-                    href={`/case-study/${study.id}`}
+                  <Link
+                    to={`/case-study/${study.id}`}
                     className="text-black font-medium hover:text-blue-600 transition-colors inline-flex items-center gap-1"
                   >
                     View Case Study →
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
 
-            {/* Right Images */}
+            {/* Right Image */}
             <div
               className="grid grid-cols-2 gap-4"
               data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
               data-aos-delay="150"
             >
-              {study.imageGrid.length === 1 ? (
-                <img
-                  src={study.imageGrid[0]}
-                  alt={study.title}
-                  className="rounded-lg w-full h-[400px] object-cover col-span-2 shadow-md hover:scale-[1.02] transition-transform duration-500"
-                />
-              ) : (
-                <>
-                  <div className="col-span-2">
-                    <img
-                      src={study.imageGrid[0]}
-                      alt=""
-                      className="rounded-lg w-full h-[350px] object-cover shadow-md"
-                    />
-                  </div>
-                  {study.imageGrid.slice(1).map((img, i) => (
-                    <img
-                      key={i}
-                      src={img}
-                      alt=""
-                      className="rounded-lg w-full h-[180px] object-cover shadow-md"
-                      data-aos="zoom-in"
-                      data-aos-delay={i * 100}
-                    />
-                  ))}
-                </>
-              )}
+              <img
+                src={study.imageGrid[0]}
+                alt={study.title}
+                className="rounded-lg w-full h-[400px] object-cover col-span-2 shadow-md hover:scale-[1.02] transition-transform duration-500"
+              />
             </div>
           </div>
         ))}

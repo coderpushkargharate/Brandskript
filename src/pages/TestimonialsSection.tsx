@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const TestimonialsSection = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 700, once: true });
   }, []);
 
   const testimonials = [
@@ -55,22 +55,37 @@ const TestimonialsSection = () => {
     responsive: [
       { breakpoint: 1280, settings: { slidesToShow: 3 } },
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1 } }, // ✅ better for mobile
+      { breakpoint: 768, settings: { slidesToShow: 1 } },
     ],
   };
 
   return (
     <>
-      {/* ======= Top Hero Section ======= */}
+      {/* ======= Hero Section ======= */}
       <section className="bg-gradient-to-b from-white to-gray-50 text-center py-16 md:py-24 text-gray-900 relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10" data-aos="fade-up">
-          <p className="uppercase text-indigo-600 font-semibold tracking-wide text-xs sm:text-sm" data-aos="fade-down" data-aos-delay="100">
+          <p
+            className="uppercase text-indigo-600 font-semibold tracking-wide text-xs sm:text-sm"
+            data-aos="fade-down"
+            data-aos-delay="100"
+          >
             Industry Insights
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mt-3" data-aos="zoom-in-up" data-aos-delay="200">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }}
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mt-3"
+            data-aos="zoom-in-up"
+            data-aos-delay="200"
+          >
             Qualified Leads <br /> Impacts Sales Growth
           </h2>
-          <p className="mt-4 text-gray-600 text-sm sm:text-lg max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="300">
+          <p
+            className="mt-4 text-gray-600 text-sm sm:text-lg max-w-2xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             Capture & convert more customers by upgrading your lead generation
             methods for high growth in revenue.
           </p>
@@ -87,10 +102,13 @@ const TestimonialsSection = () => {
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-indigo-200 opacity-30 blur-[150px] rounded-full"></div>
       </section>
 
-      {/* ======= Client Carousel Section ======= */}
+      {/* ======= Testimonials Carousel Section ======= */}
       <section className="bg-white py-12 sm:py-16 md:py-24 text-center" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-3 sm:px-6">
-          <h2
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }}
             className="text-xl sm:text-3xl md:text-4xl font-extrabold text-gray-900"
             data-aos="fade-up"
             data-aos-delay="100"
@@ -102,22 +120,27 @@ const TestimonialsSection = () => {
           </h2>
 
           {/* Carousel */}
-          <div className="mt-8 sm:mt-10 md:mt-14" data-aos="zoom-in-up" data-aos-delay="200">
+          <div className="mt-10 sm:mt-12 md:mt-16" data-aos="zoom-in-up" data-aos-delay="200">
             <Slider {...settings}>
               {testimonials.map((client, index) => (
                 <div key={client.id} className="px-2 sm:px-3" data-aos="fade-up" data-aos-delay={index * 150}>
-                  <div className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+                  <div
+                    className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.03] group border border-gray-100"
+                  >
                     {/* Image */}
                     <img
                       src={client.thumbnail}
                       alt={client.title}
-                      className="w-full h-52 sm:h-64 md:h-80 object-cover rounded-xl"
+                      className="w-full h-64 sm:h-80 md:h-96 object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
                     />
 
+                    {/* Overlay Gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+
                     {/* Text Overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
-                      <div className="backdrop-blur-md bg-white/40 border border-white/30 rounded-lg p-2 sm:p-3 shadow-md">
-                        <p className="text-xs sm:text-sm md:text-base text-gray-900 font-medium leading-relaxed">
+                    <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
+                      <div className="backdrop-blur-md bg-white/20 border border-white/30 rounded-xl p-3 sm:p-4 shadow-lg">
+                        <p className="text-sm sm:text-base md:text-lg text-white font-semibold leading-relaxed drop-shadow-md">
                           {client.title}
                         </p>
                       </div>
@@ -125,12 +148,12 @@ const TestimonialsSection = () => {
 
                     {/* Play Button */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                      <button className="w-10 sm:w-12 md:w-14 h-10 sm:h-12 md:h-14 bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
+                      <button className="w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="currentColor"
                           viewBox="0 0 24 24"
-                          className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
+                          className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
                         >
                           <path d="M8 5v14l11-7z" />
                         </svg>

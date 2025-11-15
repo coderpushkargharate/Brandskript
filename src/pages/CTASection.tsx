@@ -11,7 +11,10 @@ const CTASection: React.FC = () => {
         
         {/* Content */}
         <div className="relative z-10">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-4xl font-bold text-gray-900">
             Want to discuss your project?
           </h2>
           <p className="mt-4 text-gray-600 max-w-2xl mx-auto">

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -15,8 +16,7 @@ const caseStudies = [
   },
   {
     id: 2,
-    image:
-      "https://shortvids.co/wp-content/uploads/2025/07/super-dupe-fetaure-superdupe-x-shortvids.jpg",
+    image: "https://shortvids.co/wp-content/uploads/2025/07/super-dupe-fetaure-superdupe-x-shortvids.jpg",
     title: "How SuperDupe Scaled AI-Generated Videos",
     subtitle: "With ShortVids",
     date: "3 July 2025",
@@ -26,8 +26,7 @@ const caseStudies = [
   },
   {
     id: 3,
-    image:
-      "https://shortvids.co/wp-content/uploads/2025/06/codyblundell-fetaure1.jpg",
+    image: "https://shortvids.co/wp-content/uploads/2025/06/codyblundell-fetaure1.jpg",
     title: "How Cody Blundell Grows His Brand & PARAFLIX",
     subtitle: "Using ShortVids Video Content",
     date: "21 June 2025",
@@ -38,32 +37,27 @@ const caseStudies = [
 ];
 
 const CaseStudyHome = () => {
-  // Initialize AOS
   useEffect(() => {
-    AOS.init({
-      duration: 1000, // animation duration
-      once: true, // animation happens only once
-      easing: "ease-in-out", // smooth easing
-    });
+    AOS.init({ duration: 700, once: true, easing: "ease-in-out" });
   }, []);
 
   return (
     <section
       className="bg-gray-50 py-20"
-      style={{
-        background: "linear-gradient(to bottom, #f9fafb, #fff)",
-      }}
+      style={{ background: "linear-gradient(to bottom, #f9fafb, #fff)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Title */}
         <h2
+          style={{
+            fontFamily: "var(--h2-font-family)",
+            color: "var(--h2-color)",
+          }}
           className="text-center text-3xl sm:text-4xl font-semibold text-gray-800 mb-12"
           data-aos="fade-up"
         >
           Our <span className="text-yellow-500">Case Study</span>
         </h2>
 
-        {/* Card Grid */}
         <div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10"
           data-aos="fade-up"
@@ -75,9 +69,6 @@ const CaseStudyHome = () => {
               data-aos="zoom-in"
               data-aos-delay={index * 200}
               className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-transform duration-500 hover:-translate-y-2 overflow-hidden border border-gray-100"
-              style={{
-                width: "100%",
-              }}
             >
               <img
                 src={study.image}
@@ -97,18 +88,17 @@ const CaseStudyHome = () => {
                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                   {study.description}
                 </p>
-                <a
-                  href={`/case-study/${study.id}`}
+                <Link
+                  to={`/case-details-home/${study.id}`}
                   className="inline-block text-blue-600 font-medium hover:text-blue-700 transition-colors duration-300"
                 >
                   Read More »
-                </a>
+                </Link>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Load More Button */}
         <div className="text-center mt-12" data-aos="fade-up" data-aos-delay="400">
           <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-md hover:shadow-lg">
             Load More

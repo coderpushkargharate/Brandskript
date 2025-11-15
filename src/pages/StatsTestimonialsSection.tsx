@@ -17,7 +17,7 @@ const StatsSection = () => {
   // 👇 Initialize AOS
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 700,
       easing: "ease-in-out",
       once: true,
     });
@@ -77,7 +77,10 @@ const StatsSection = () => {
           className="text-center md:text-left space-y-6"
           data-aos="fade-right"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
             The Best{" "}
             <span className="text-indigo-600">Return On Your Investment</span>
           </h2>

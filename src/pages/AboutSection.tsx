@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 const AboutSection = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // animation duration
+      duration: 700, // animation duration
       easing: "ease-in-out",
       once: true, // only animate once
     });
@@ -36,7 +36,10 @@ const AboutSection = () => {
           </span>
 
           {/* Heading */}
-          <h2
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }}
             className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-gray-900"
             data-aos="fade-up"
             data-aos-delay="300"

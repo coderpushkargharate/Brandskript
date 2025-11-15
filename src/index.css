@@ -2,22 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-    /* border: 5px solid red; */
-}
-/* ===== Fix scrollbar flicker from AOS animations ===== */
+/* ===== Prevent AOS scrollbar flicker ===== */
 html, body {
-  overflow-x: hidden; /* prevent horizontal scrollbar */
+  overflow-x: hidden;
 }
 
 body.aos-animate {
-  overflow-y: auto; /* restore scroll after animations */
+  overflow-y: auto;
 }
 
 body:not(.aos-animate) {
-  overflow-y: hidden; /* hide vertical scrollbar during AOS init */
+  overflow-y: hidden;
 }
-/* In your global CSS */
+
+/* Offset for sticky header */
 body {
-  padding-top: 4rem; /* equal to header height */
+  padding-top: 4rem;
+}
+
+/* 🌐 Global Theme Variables */
+:root {
+
+ --h2-color: #000000;
+  --h2-font-family: 'Poppins', 'Segoe UI', sans-serif;
+
+
+
+  /* 🌈 Background Colors */
+  --bg-color: #ffffff;
+  --bg-light: #f8f9fa;
+  --bg-dark: #1a1a1a;
+  --bg-gradient: linear-gradient(135deg, #007bff, #00c6ff);
+
 }

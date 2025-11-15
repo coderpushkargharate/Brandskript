@@ -31,7 +31,10 @@ const Book = () => {
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
         {/* Left Side */}
         <div data-aos="fade-right">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 leading-snug">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 leading-snug">
             Do You Have More Questions?{" "}
             <a
               href="#book"

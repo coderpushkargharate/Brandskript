@@ -58,7 +58,10 @@ const ScheduleAcall = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Left Column - Benefits */}
         <div className="lg:col-span-1 space-y-4">
-          <h2 className="text-center text-lg font-medium text-gray-700 mb-6">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-center text-lg font-medium text-gray-700 mb-6">
             Why You Should Book the Call:
           </h2>
           
@@ -82,7 +85,10 @@ const ScheduleAcall = () => {
         {/* Right Column - Booking Form */}
         <div className="lg:col-span-2 bg-white rounded-xl shadow-lg p-6">
           <div className="flex justify-between items-center mb-6">
-            <h2 className="text-lg font-semibold text-gray-800">What Time Works for a Quick Call?</h2>
+            <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-lg font-semibold text-gray-800">What Time Works for a Quick Call?</h2>
           </div>
 
           <div className="bg-white rounded-lg border border-gray-200 p-6">

@@ -111,7 +111,10 @@ const ServicesBookCall: React.FC = () => {
         </a>
       </p>
 
-      <h2 style={{ fontSize: "22px", fontWeight: 700, margin: "50px 0 25px" }}>
+      <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} style={{ fontSize: "22px", fontWeight: 700, margin: "50px 0 25px" }}>
         Trusted by over 352+ Brands Last 6 Years
       </h2>
 

@@ -28,41 +28,9 @@ const blogs = [
     img: "https://shortvids.co/wp-content/uploads/2025/05/FEATURE-morning-brew.jpg",
     desc: "AI creative testing has already started changing how video ads perform online. At ShortVids, there’s never been a day without running into countless creative combinations...",
   },
-   {
-    id: 4,
-    title: "10 Creative Formulas for High-Converting Facebook Video Ads",
-    date: "30 October 2025",
-    comments: "No Comments",
-    img: "https://shortvids.co/wp-content/uploads/2025/06/FEATUREGene-Slades-ShortVids-Success-Story.jpg",
-    desc: "There’s real magic in Facebook video ads when they combine creativity with strategy. At ShortVids, we’ve watched ordinary brands turn into unforgettable names through clever...",
-  },
-   {
-    id: 5,
-    title: "10 Creative Formulas for High-Converting Facebook Video Ads",
-    date: "30 October 2025",
-    comments: "No Comments",
-    img: "https://shortvids.co/wp-content/uploads/2025/06/FEATUREGene-Slades-ShortVids-Success-Story.jpg",
-    desc: "There’s real magic in Facebook video ads when they combine creativity with strategy. At ShortVids, we’ve watched ordinary brands turn into unforgettable names through clever...",
-  },
-   {
-    id: 6,
-    title: "10 Creative Formulas for High-Converting Facebook Video Ads",
-    date: "30 October 2025",
-    comments: "No Comments",
-    img: "https://shortvids.co/wp-content/uploads/2025/06/FEATUREGene-Slades-ShortVids-Success-Story.jpg",
-    desc: "There’s real magic in Facebook video ads when they combine creativity with strategy. At ShortVids, we’ve watched ordinary brands turn into unforgettable names through clever...",
-  },
-   {
-    id: 7,
-    title: "10 Creative Formulas for High-Converting Facebook Video Ads",
-    date: "30 October 2025",
-    comments: "No Comments",
-    img: "https://shortvids.co/wp-content/uploads/2025/06/FEATUREGene-Slades-ShortVids-Success-Story.jpg",
-    desc: "There’s real magic in Facebook video ads when they combine creativity with strategy. At ShortVids, we’ve watched ordinary brands turn into unforgettable names through clever...",
-  },
 ];
 
-const BlogSection = () => {
+const BlogSectionHome = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -131,4 +99,4 @@ const BlogSection = () => {
   );
 };
 
-export default BlogSection;
+export default BlogSectionHome;

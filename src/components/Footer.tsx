@@ -9,7 +9,10 @@ export default function Footer() {
         
         {/* Left Section - Brand & CTA */}
         <div>
-          <h2 className="text-2xl font-bold">Brandskript</h2>
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-2xl font-bold">Brandskript</h2>
           <p className="mt-4 text-gray-300 text-sm">
             Book a Call For Free Consultation
           </p>

@@ -72,7 +72,7 @@ const Header = () => {
                   <div className="grid grid-cols-4 gap-8">
                     <div>
                       <img
-                        src="/images/services.jpg"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtsnQtJqRbdz2P9qApjUkVKHm9HrOOxlRu4g&s"
                         alt="Services"
                         className="w-full h-full object-cover rounded-xl"
                       />
@@ -154,13 +154,13 @@ const Header = () => {
                   <div className="flex gap-4">
                     <div className="w-1/3">
                       <img
-                        src="/images/resources.jpg"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy9rtjD2Ic7xZg424CRgfrHN6NC4O7gGAq9w&s"
                         alt="Resources"
                         className="w-full h-full object-cover rounded-lg"
                       />
                     </div>
 
-                    <div className="w-2/3 flex flex-col justify-center">
+                    <div className="w-2/3 flex flex-col justify-center ms-5 ps-5">
                       <ul className="text-gray-700 space-y-3 text-base">
                         <li>
                           <Link

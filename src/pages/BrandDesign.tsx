@@ -162,7 +162,10 @@ const BrandDesignSection = () => {
       {/* Process Section */}
       <section className="bg-white text-gray-800 py-20 px-6 md:px-16">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-5xl font-bold mb-4">
             Creating Authentic Brand Identities that{" "}
             <span className="text-blue-600">Resonate Deeply</span>
           </h2>
@@ -219,7 +222,10 @@ const BrandDesignSection = () => {
               About Us
             </span>
 
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-gray-900">
+            <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-4xl md:text-5xl font-bold leading-tight mb-6 text-gray-900">
               Discover Who We Are <br /> and Our Mission
             </h2>
 
@@ -276,7 +282,10 @@ const BrandDesignSection = () => {
           <p className="text-sm font-semibold text-blue-600 uppercase tracking-widest mb-2">
             Works
           </p>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-5xl font-bold mb-4">
             Our Tools Work
           </h2>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -313,7 +322,10 @@ const BrandDesignSection = () => {
           <p className="text-sm font-medium text-blue-600 uppercase tracking-wide">
             Feature
           </p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-gray-900">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="mt-3 text-3xl md:text-4xl font-extrabold text-gray-900">
             Key Features Overview
           </h2>
           <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
@@ -367,7 +379,10 @@ const BrandDesignSection = () => {
       {/* Service Offerings */}
       <div className="bg-white text-gray-900 font-sans py-20 px-6 md:px-16">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-4xl md:text-5xl font-bold text-gray-900">
             Service Offerings Overview
           </h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">

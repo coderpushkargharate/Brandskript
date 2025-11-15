@@ -47,7 +47,7 @@ const WhyUs = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 800,
+      duration: 700,
       once: true,
       offset: 100,
     });
@@ -283,10 +283,13 @@ const WhyUs = () => {
     <section className="flex flex-col items-center text-center px-4 py-10 bg-white">
       {/* Intro */}
       <div data-aos="fade-up" className="max-w-4xl">
-        <h2 className="text-3xl md:text-4xl font-light italic">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-4xl font-light italic">
           <span className="not-italic font-normal">Short</span>
           <span className="italic font-semibold">Vids</span>:
-          <span className="not-italic font-normal"> A Dedicated Creative Partner for Your </span>
+          <span className="not-italic font-normal"> A Dedicated Creative <br /> Partner for Your </span>
           <br />
           <span className="italic underline">Agency’s Success</span>
         </h2>
@@ -316,7 +319,10 @@ const WhyUs = () => {
         <p className="text-purple-600 font-semibold tracking-wide">
           Trusted Over Agencies Across the Globe
         </p>
-        <h2 className="mt-3 text-2xl md:text-4xl font-medium text-black">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="mt-3 text-2xl md:text-4xl font-medium text-black">
           Let Us Handle Your Video Content So You Can Focus on Growing Your
           Agency
         </h2>
@@ -354,7 +360,10 @@ const WhyUs = () => {
         className="py-16 bg-white px-4 text-center"
         data-aos="fade-up"
       >
-        <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-4xl font-bold text-black mb-4">
           What ShortVids Can Do For You?
         </h2>
         <p className="text-gray-600 text-lg mb-10">Here is what we do</p>
@@ -400,7 +409,10 @@ const WhyUs = () => {
         className="py-16 px-4 text-center bg-white"
         data-aos="fade-up"
       >
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-purple-600 mb-3">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl sm:text-4xl md:text-5xl font-bold text-purple-600 mb-3">
           ShortVids: Built by Agency Owners for <br /> Agency Owners Like You!
         </h2>
         <h3 className="text-2xl md:text-3xl font-bold text-purple-600 mt-10">
@@ -448,7 +460,10 @@ const WhyUs = () => {
         <p className="text-purple-600 font-semibold text-lg mb-2">
           What Our Clients Say
         </p>
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-10">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-10">
           Real Feedback from Agency Owners Like You
         </h2>
 
@@ -486,7 +501,10 @@ const WhyUs = () => {
           <h6 className="text-indigo-600 font-semibold">
             How ShortVids Simplifies Video Creation
           </h6>
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-4xl font-bold text-gray-900 mt-2">
             Your One-Stop Solution for Engaging and Effective Video Content
           </h2>
         </div>
@@ -527,7 +545,10 @@ const WhyUs = () => {
 <section className="py-16 bg-white w-full" data-aos="fade-up">
   <div className="text-center mb-10 px-4">
     <h6 className="text-indigo-600 font-semibold text-base">Our Clients</h6>
-    <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mt-2">
+    <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-2xl md:text-3xl font-bold text-gray-900 mt-2">
       Companies we've edited for
     </h2>
   </div>
@@ -579,7 +600,10 @@ const WhyUs = () => {
       {/* Final Agency Advantages */}
       <section className="py-20 bg-white" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-12">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-5xl font-bold text-gray-900 mb-12">
             Why Agencies Choose{" "}
             <span className="text-gray-900">ShortVids</span>
           </h2>
@@ -608,7 +632,10 @@ const WhyUs = () => {
       {/* Case Studies */}
       <section className="py-20 bg-white" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-16">
             Real Results from Our Clients
           </h2>
 
@@ -658,7 +685,10 @@ const WhyUs = () => {
               className="bg-white p-8 rounded-xl shadow-md border border-gray-100"
               data-aos="fade-right"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+              <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-4xl font-bold text-black mb-6">
                 Why Partner with <span className="font-extrabold">ShortVids?</span>
               </h2>
               <p className="text-gray-700 mb-8 leading-relaxed">
@@ -706,7 +736,10 @@ const WhyUs = () => {
         <div className="bg-purple-50 py-12 px-4 md:px-12">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-6">
-              <h2 className="text-2xl md:text-3xl font-bold text-black mb-2">
+              <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-2xl md:text-3xl font-bold text-black mb-2">
                 Why Do Agencies Keep Coming Back to ShortVids?
               </h2>
               <p className="text-gray-600 text-sm md:text-base">
@@ -843,7 +876,10 @@ const WhyUs = () => {
               className="lg:w-1/3 p-6 border-r border-gray-200"
               data-aos="fade-right"
             >
-              <h2 className="text-xl font-bold mb-4">
+              <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-xl font-bold mb-4">
                 Call with Dev from ShortVids
               </h2>
               <div className="flex items-center mb-3">

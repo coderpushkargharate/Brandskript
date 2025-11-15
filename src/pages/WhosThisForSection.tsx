@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 const WhosThisForSection = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 700,
       easing: "ease-in-out",
       once: true,
     });
@@ -69,7 +69,10 @@ const WhosThisForSection = () => {
     >
       <div className="max-w-7xl mx-auto px-6 text-center">
         {/* Section Heading */}
-        <h2
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }}
           className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-12"
           data-aos="zoom-in"
           data-aos-delay="100"

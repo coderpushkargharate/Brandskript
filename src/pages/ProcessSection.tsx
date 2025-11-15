@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 const ProcessSection = () => {
   useEffect(() => {
     AOS.init({
-      duration: 1000, // Animation duration in ms
+      duration: 700, // Animation duration in ms
       once: true, // Animation runs only once
       easing: "ease-in-out",
     });
@@ -51,7 +51,13 @@ const ProcessSection = () => {
       <div className="max-w-6xl mx-auto px-6">
         {/* Heading */}
         <div data-aos="fade-down">
-          <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 leading-snug">
+         <h2
+  className="text-3xl md:text-4xl font-extrabold leading-snug"
+  style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }}
+>
             Smart Design, Converting Ads, and Sales-
             <br />
             Focused Marketing Strategy.

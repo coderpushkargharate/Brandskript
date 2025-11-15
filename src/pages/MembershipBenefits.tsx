@@ -67,13 +67,16 @@ const benefits = [
 
 const MembershipBenefits = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 700, once: true });
   }, []);
 
   return (
     <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 bg-white">
       {/* Section Title */}
-      <h2
+      <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }}
         className="text-3xl md:text-4xl font-bold text-center mb-12"
         data-aos="fade-up"
       >

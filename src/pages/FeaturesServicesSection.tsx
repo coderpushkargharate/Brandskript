@@ -8,7 +8,10 @@ const FeaturesServicesSection: React.FC = () => {
         <p className="text-sm font-medium text-blue-600 uppercase tracking-wide">
           Feature
         </p>
-        <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-gray-900">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="mt-3 text-3xl md:text-4xl font-extrabold text-gray-900">
           Key Features Overview
         </h2>
         <p className="mt-3 text-gray-600 max-w-2xl mx-auto">
@@ -54,7 +57,10 @@ const FeaturesServicesSection: React.FC = () => {
           <p className="text-sm font-medium text-blue-600 uppercase tracking-wide">
             Services
           </p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-extrabold text-gray-900">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="mt-3 text-3xl md:text-4xl font-extrabold text-gray-900">
             Explore Our Core Services
           </h2>
           <p className="mt-3 text-gray-600 max-w-2xl mx-auto">

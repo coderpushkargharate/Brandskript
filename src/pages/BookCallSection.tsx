@@ -45,7 +45,10 @@ const BookCallSection = () => {
     >
       <div className="max-w-6xl mx-auto">
         {/* Title */}
-        <h2
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }}
           className="text-3xl md:text-4xl font-bold text-gray-900 mb-12"
           data-aos="fade-down"
         >

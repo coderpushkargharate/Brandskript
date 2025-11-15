@@ -92,7 +92,13 @@ const ToolsSection = () => {
         </div>
 
         {/* Heading & Description */}
-        <h2 className="mt-8 text-3xl font-bold text-gray-900">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="mt-8 text-3xl font-bold text-gray-900">
           Tools We Utilize for Excellence
         </h2>
         <p className="mt-3 text-gray-600 max-w-xl mx-auto text-base">

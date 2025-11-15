@@ -67,6 +67,262 @@ Both ShortVids and Irisbits claim to offer unlimited video editing subscriptions
         ],
     },
     // 🆕 You can easily add more blog objects below for other pages
+    {
+        id: 2,
+        title:
+            "ShortVids vs. Irisbits: Which Unlimited Video Editing Service Delivers More?",
+        date: "30 October 2025",
+        banner:
+            "https://shortvids.co/wp-content/uploads/2025/05/ShortVids-vs-Irisbits-Comparison-Banner.jpg",
+        intro: `
+Both ShortVids and Irisbits claim to offer unlimited video editing subscriptions — but when it comes to real-world delivery, speed, and creative output, the experience differs significantly.`,
+        table: {
+            headers: [
+                "Features",
+                "Irisbits – $395/month",
+                "ShortVids StartUp – $999/month",
+            ],
+            rows: [
+                ["Video Editing & Graphic Design", "Yes", "Yes (Video Focused)"],
+                [
+                    "Unlimited Requests & Revisions",
+                    "Yes (1 active task at a time)",
+                    "Yes (1 active task at a time)",
+                ],
+                ["Turnaround Time", "1–2 business days", "24–36 hours or less"],
+                ["Work Days", "Monday to Friday", "24/7 Team Support"],
+                ["Raw Footage Limit", "Unlimited", "Unlimited"],
+                ["Export Sizes", "Multiple formats", "Multiple formats"],
+                ["Music and Stock Assets", "Premium + Royalty-Free", "Included"],
+                ["Brands Supported", "Unlimited", "Single brand (on startup plan)"],
+                ["Video Styles", "Standard", "10+ Available"],
+            ],
+        },
+        sections: [
+            {
+                heading: "Turnaround Time",
+                text: `ShortVids operates 24/7, with average delivery within 24–36 hours — ideal for content creators needing consistent posting schedules. Irisbits follows a more traditional 1–2 business day cycle.`,
+            },
+            {
+                heading: "Support and Collaboration",
+                text: `ShortVids uses Slack and WhatsApp for real-time communication, enabling instant creative feedback. Irisbits limits contact to email support, which can delay creative discussions.`,
+            },
+            {
+                heading: "Final Verdict",
+                text: `ShortVids is designed for brands that value speed, creative excellence, and full-time reliability. Irisbits remains suitable for smaller teams needing budget-friendly options, but ShortVids offers a premium experience.`,
+            },
+        ],
+        faqs: [
+            {
+                q: "Is Irisbits truly an unlimited video editing service if only one active task is allowed?",
+                a: "While Irisbits offers unlimited video editing requests, it restricts users to one active task at a time. This queue system can slow down your workflow, especially if you need to manage multiple video projects simultaneously.",
+            },
+            {
+                q: "Why is ShortVids a better unlimited video editing service for agencies than Irisbits?",
+                a: "ShortVids supports faster turnaround times, 24/7 support, and multiple simultaneous editing tasks making it ideal for agencies and businesses scaling video content. Irisbits is better suited for low-volume creators.",
+            },
+            {
+                q: "How fast is ShortVids’ video editing turnaround compared to Irisbits?",
+                a: "ShortVids delivers most video edits within 24 hours, including weekends, whereas Irisbits operates only on weekdays with a 1–2 business day turnaround. This makes ShortVids more reliable for content needs.",
+            },
+            {
+                q: "Is ShortVids cost–effective for small video content creators compared to Irisbits?",
+                a: "For creators with minimal editing needs, Irisbits may appear cheaper upfront but has slower delivery. ShortVids becomes cost-effective for medium to large volumes of video editing, thanks to its 24/7 team and multiple active tasks.",
+            },
+        ],
+    },
+    {
+        id: 3,
+        title:
+            "ShortVids vs. Irisbits: Which Unlimited Video Editing Service Delivers More?",
+        date: "30 October 2025",
+        banner:
+            "https://shortvids.co/wp-content/uploads/2025/05/ShortVids-vs-Irisbits-Comparison-Banner.jpg",
+        intro: `
+Both ShortVids and Irisbits claim to offer unlimited video editing subscriptions — but when it comes to real-world delivery, speed, and creative output, the experience differs significantly.`,
+        table: {
+            headers: [
+                "Features",
+                "Irisbits – $395/month",
+                "ShortVids StartUp – $999/month",
+            ],
+            rows: [
+                ["Video Editing & Graphic Design", "Yes", "Yes (Video Focused)"],
+                [
+                    "Unlimited Requests & Revisions",
+                    "Yes (1 active task at a time)",
+                    "Yes (1 active task at a time)",
+                ],
+                ["Turnaround Time", "1–2 business days", "24–36 hours or less"],
+                ["Work Days", "Monday to Friday", "24/7 Team Support"],
+                ["Raw Footage Limit", "Unlimited", "Unlimited"],
+                ["Export Sizes", "Multiple formats", "Multiple formats"],
+                ["Music and Stock Assets", "Premium + Royalty-Free", "Included"],
+                ["Brands Supported", "Unlimited", "Single brand (on startup plan)"],
+                ["Video Styles", "Standard", "10+ Available"],
+            ],
+        },
+        sections: [
+            {
+                heading: "Turnaround Time",
+                text: `ShortVids operates 24/7, with average delivery within 24–36 hours — ideal for content creators needing consistent posting schedules. Irisbits follows a more traditional 1–2 business day cycle.`,
+            },
+            {
+                heading: "Support and Collaboration",
+                text: `ShortVids uses Slack and WhatsApp for real-time communication, enabling instant creative feedback. Irisbits limits contact to email support, which can delay creative discussions.`,
+            },
+            {
+                heading: "Final Verdict",
+                text: `ShortVids is designed for brands that value speed, creative excellence, and full-time reliability. Irisbits remains suitable for smaller teams needing budget-friendly options, but ShortVids offers a premium experience.`,
+            },
+        ],
+        faqs: [
+            {
+                q: "Is Irisbits truly an unlimited video editing service if only one active task is allowed?",
+                a: "While Irisbits offers unlimited video editing requests, it restricts users to one active task at a time. This queue system can slow down your workflow, especially if you need to manage multiple video projects simultaneously.",
+            },
+            {
+                q: "Why is ShortVids a better unlimited video editing service for agencies than Irisbits?",
+                a: "ShortVids supports faster turnaround times, 24/7 support, and multiple simultaneous editing tasks making it ideal for agencies and businesses scaling video content. Irisbits is better suited for low-volume creators.",
+            },
+            {
+                q: "How fast is ShortVids’ video editing turnaround compared to Irisbits?",
+                a: "ShortVids delivers most video edits within 24 hours, including weekends, whereas Irisbits operates only on weekdays with a 1–2 business day turnaround. This makes ShortVids more reliable for content needs.",
+            },
+            {
+                q: "Is ShortVids cost–effective for small video content creators compared to Irisbits?",
+                a: "For creators with minimal editing needs, Irisbits may appear cheaper upfront but has slower delivery. ShortVids becomes cost-effective for medium to large volumes of video editing, thanks to its 24/7 team and multiple active tasks.",
+            },
+        ],
+    },
+    {
+        id: 5,
+        title:
+            "ShortVids vs. Irisbits: Which Unlimited Video Editing Service Delivers More?",
+        date: "30 October 2025",
+        banner:
+            "https://shortvids.co/wp-content/uploads/2025/05/ShortVids-vs-Irisbits-Comparison-Banner.jpg",
+        intro: `
+Both ShortVids and Irisbits claim to offer unlimited video editing subscriptions — but when it comes to real-world delivery, speed, and creative output, the experience differs significantly.`,
+        table: {
+            headers: [
+                "Features",
+                "Irisbits – $395/month",
+                "ShortVids StartUp – $999/month",
+            ],
+            rows: [
+                ["Video Editing & Graphic Design", "Yes", "Yes (Video Focused)"],
+                [
+                    "Unlimited Requests & Revisions",
+                    "Yes (1 active task at a time)",
+                    "Yes (1 active task at a time)",
+                ],
+                ["Turnaround Time", "1–2 business days", "24–36 hours or less"],
+                ["Work Days", "Monday to Friday", "24/7 Team Support"],
+                ["Raw Footage Limit", "Unlimited", "Unlimited"],
+                ["Export Sizes", "Multiple formats", "Multiple formats"],
+                ["Music and Stock Assets", "Premium + Royalty-Free", "Included"],
+                ["Brands Supported", "Unlimited", "Single brand (on startup plan)"],
+                ["Video Styles", "Standard", "10+ Available"],
+            ],
+        },
+        sections: [
+            {
+                heading: "Turnaround Time",
+                text: `ShortVids operates 24/7, with average delivery within 24–36 hours — ideal for content creators needing consistent posting schedules. Irisbits follows a more traditional 1–2 business day cycle.`,
+            },
+            {
+                heading: "Support and Collaboration",
+                text: `ShortVids uses Slack and WhatsApp for real-time communication, enabling instant creative feedback. Irisbits limits contact to email support, which can delay creative discussions.`,
+            },
+            {
+                heading: "Final Verdict",
+                text: `ShortVids is designed for brands that value speed, creative excellence, and full-time reliability. Irisbits remains suitable for smaller teams needing budget-friendly options, but ShortVids offers a premium experience.`,
+            },
+        ],
+        faqs: [
+            {
+                q: "Is Irisbits truly an unlimited video editing service if only one active task is allowed?",
+                a: "While Irisbits offers unlimited video editing requests, it restricts users to one active task at a time. This queue system can slow down your workflow, especially if you need to manage multiple video projects simultaneously.",
+            },
+            {
+                q: "Why is ShortVids a better unlimited video editing service for agencies than Irisbits?",
+                a: "ShortVids supports faster turnaround times, 24/7 support, and multiple simultaneous editing tasks making it ideal for agencies and businesses scaling video content. Irisbits is better suited for low-volume creators.",
+            },
+            {
+                q: "How fast is ShortVids’ video editing turnaround compared to Irisbits?",
+                a: "ShortVids delivers most video edits within 24 hours, including weekends, whereas Irisbits operates only on weekdays with a 1–2 business day turnaround. This makes ShortVids more reliable for content needs.",
+            },
+            {
+                q: "Is ShortVids cost–effective for small video content creators compared to Irisbits?",
+                a: "For creators with minimal editing needs, Irisbits may appear cheaper upfront but has slower delivery. ShortVids becomes cost-effective for medium to large volumes of video editing, thanks to its 24/7 team and multiple active tasks.",
+            },
+        ],
+    },
+    {
+        id: 6,
+        title:
+            "ShortVids vs. Irisbits: Which Unlimited Video Editing Service Delivers More?",
+        date: "30 October 2025",
+        banner:
+            "https://shortvids.co/wp-content/uploads/2025/05/ShortVids-vs-Irisbits-Comparison-Banner.jpg",
+        intro: `
+Both ShortVids and Irisbits claim to offer unlimited video editing subscriptions — but when it comes to real-world delivery, speed, and creative output, the experience differs significantly.`,
+        table: {
+            headers: [
+                "Features",
+                "Irisbits – $395/month",
+                "ShortVids StartUp – $999/month",
+            ],
+            rows: [
+                ["Video Editing & Graphic Design", "Yes", "Yes (Video Focused)"],
+                [
+                    "Unlimited Requests & Revisions",
+                    "Yes (1 active task at a time)",
+                    "Yes (1 active task at a time)",
+                ],
+                ["Turnaround Time", "1–2 business days", "24–36 hours or less"],
+                ["Work Days", "Monday to Friday", "24/7 Team Support"],
+                ["Raw Footage Limit", "Unlimited", "Unlimited"],
+                ["Export Sizes", "Multiple formats", "Multiple formats"],
+                ["Music and Stock Assets", "Premium + Royalty-Free", "Included"],
+                ["Brands Supported", "Unlimited", "Single brand (on startup plan)"],
+                ["Video Styles", "Standard", "10+ Available"],
+            ],
+        },
+        sections: [
+            {
+                heading: "Turnaround Time",
+                text: `ShortVids operates 24/7, with average delivery within 24–36 hours — ideal for content creators needing consistent posting schedules. Irisbits follows a more traditional 1–2 business day cycle.`,
+            },
+            {
+                heading: "Support and Collaboration",
+                text: `ShortVids uses Slack and WhatsApp for real-time communication, enabling instant creative feedback. Irisbits limits contact to email support, which can delay creative discussions.`,
+            },
+            {
+                heading: "Final Verdict",
+                text: `ShortVids is designed for brands that value speed, creative excellence, and full-time reliability. Irisbits remains suitable for smaller teams needing budget-friendly options, but ShortVids offers a premium experience.`,
+            },
+        ],
+        faqs: [
+            {
+                q: "Is Irisbits truly an unlimited video editing service if only one active task is allowed?",
+                a: "While Irisbits offers unlimited video editing requests, it restricts users to one active task at a time. This queue system can slow down your workflow, especially if you need to manage multiple video projects simultaneously.",
+            },
+            {
+                q: "Why is ShortVids a better unlimited video editing service for agencies than Irisbits?",
+                a: "ShortVids supports faster turnaround times, 24/7 support, and multiple simultaneous editing tasks making it ideal for agencies and businesses scaling video content. Irisbits is better suited for low-volume creators.",
+            },
+            {
+                q: "How fast is ShortVids’ video editing turnaround compared to Irisbits?",
+                a: "ShortVids delivers most video edits within 24 hours, including weekends, whereas Irisbits operates only on weekdays with a 1–2 business day turnaround. This makes ShortVids more reliable for content needs.",
+            },
+            {
+                q: "Is ShortVids cost–effective for small video content creators compared to Irisbits?",
+                a: "For creators with minimal editing needs, Irisbits may appear cheaper upfront but has slower delivery. ShortVids becomes cost-effective for medium to large volumes of video editing, thanks to its 24/7 team and multiple active tasks.",
+            },
+        ],
+    },
 ];
 
 const BlogDetails: React.FC = () => {
@@ -139,7 +395,10 @@ const BlogDetails: React.FC = () => {
                     {/* SECTIONS */}
                     {blog.sections.map((section, i) => (
                         <div key={i} className="mb-10">
-                            <h2 className="text-2xl font-semibold text-gray-900 mb-3">
+                            <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-2xl font-semibold text-gray-900 mb-3">
                                 {section.heading}
                             </h2>
                             <p className="text-gray-700 leading-relaxed whitespace-pre-line">
@@ -150,7 +409,10 @@ const BlogDetails: React.FC = () => {
 
                     {/* FAQ ACCORDION */}
                     <section className="bg-gray-50 rounded-2xl shadow-sm p-8 mb-20">
-                        <h2 className="text-3xl font-semibold text-gray-900 mb-8 text-center">
+                        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl font-semibold text-gray-900 mb-8 text-center">
                             Frequently Asked Questions
                         </h2>
                         <div className="space-y-4">

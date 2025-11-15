@@ -52,7 +52,10 @@ const Career = () => {
 
       {/* ROLES */}
       <section className="py-20 px-6 md:px-16 max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold mb-10 text-center text-gray-900">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl font-bold mb-10 text-center text-gray-900">
           Current Openings
         </h2>
 
@@ -114,7 +117,10 @@ const Career = () => {
 
       {/* CTA */}
       <section className="text-center py-20 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
-        <h2 className="text-4xl font-bold mb-4">🚀 Ready to Roll With Us?</h2>
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-4xl font-bold mb-4">🚀 Ready to Roll With Us?</h2>
         <p className="max-w-2xl mx-auto text-lg opacity-90 mb-8">
           This isn’t just a “job” — it’s a chance to vibe, learn, and create
           work that makes noise in the digital world. Whether you’re here for an
@@ -127,7 +133,10 @@ const Career = () => {
 
       {/* INTERNSHIPS */}
       <section className="py-20 px-6 md:px-16 max-w-6xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-4">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl font-bold text-center mb-4">
           🎓 Internships @ Mindstorm
         </h2>
         <p className="text-center text-gray-600 max-w-3xl mx-auto mb-12">
@@ -218,7 +227,10 @@ const Career = () => {
 
       {/* INTERNSHIP CTA */}
       <section className="py-20 text-center bg-gradient-to-r from-purple-50 via-indigo-50 to-white">
-        <h2 className="text-3xl font-bold mb-4">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl font-bold mb-4">
           ⚡ Ready to Intern the Mindstorm Way?
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto mb-8">
@@ -240,13 +252,19 @@ const Career = () => {
                 className="bg-white rounded-3xl p-6 text-center shadow-md hover:shadow-xl transition"
               >
                 <div className="mb-2 text-indigo-600">{s.icon}</div>
-                <h2 className="text-2xl font-bold mb-1">{s.number}</h2>
+                <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-2xl font-bold mb-1">{s.number}</h2>
                 <p className="text-gray-600 text-sm">{s.label}</p>
               </div>
             ))}
           </div>
           <div className="flex-1 text-center lg:text-left max-w-lg">
-            <h2 className="text-3xl font-bold mb-4">
+            <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl font-bold mb-4">
               A Place Where Creativity Thrives
             </h2>
             <p className="text-gray-600 mb-4">
@@ -261,7 +279,10 @@ const Career = () => {
       {/* FAQ */}
       <section className="py-20 px-6 md:px-16 bg-gray-50">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-2">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-4xl font-bold mb-2">
             FAQs — All That You Need to Know About BrandSkript!
           </h2>
           <p className="text-gray-600 mt-2 text-sm md:text-lg max-w-2xl mx-auto">

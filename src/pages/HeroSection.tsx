@@ -8,26 +8,25 @@ import "slick-carousel/slick/slick-theme.css";
 
 const HeroSection = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true, easing: "ease-in-out" });
+    AOS.init({ duration: 700, once: true, easing: "ease-in-out" });
   }, []);
 
   const team = [
-    {
-      title: "Video Editing",
-      img: "https://cdn-icons-png.flaticon.com/512/2920/2920332.png",
-    },
-    {
-      title: "Script Writer",
-      img: "https://cdn-icons-png.flaticon.com/512/1055/1055646.png",
-    },
-    {
-      title: "Project Manager",
-      img: "https://cdn-icons-png.flaticon.com/512/3135/3135755.png",
-    },
-    {
-      title: "Creative Director",
-      img: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png",
-    },
+    { title: "Video Editing", img: "https://cdn-icons-png.flaticon.com/512/2920/2920332.png" },
+    { title: "Script Writer", img: "https://cdn-icons-png.flaticon.com/512/1055/1055646.png" },
+    { title: "Project Manager", img: "https://cdn-icons-png.flaticon.com/512/3135/3135755.png" },
+    { title: "Creative Director", img: "https://cdn-icons-png.flaticon.com/512/4140/4140048.png" },
+  ];
+
+  const brandImages = [
+    "https://framerusercontent.com/images/fWRiiLcqQoucPAq3Ut9yHeVAZA.png?width=1400&height=600",
+    "https://framerusercontent.com/images/l9CwuiW5n0mLLvbEHNqeU1VQM.png?width=1000&height=600",
+    "https://framerusercontent.com/images/4p9eSy8R2WQrXc8zWgf0dhVp6ck.png?width=1000&height=600",
+    "https://framerusercontent.com/images/EPoEgAmp3ix1dfny5HFCTfASQ68.png?width=1000&height=600",
+    "https://framerusercontent.com/images/AeSHm9HVC7P8cx0s62CciYEOMA.png?width=1000&height=600",
+    "https://framerusercontent.com/images/OrmT3dRpNIH3fYTPibChhG6Qxu8.png?width=1400&height=600",
+    "https://framerusercontent.com/images/bs9rrk7GgV1SZ4kww4yHh2F98.png?width=1400&height=600",
+    "https://framerusercontent.com/images/oYIEqYL6fivcrdm7Lp6CO4HLihk.png?width=1400&height=600",
   ];
 
   const settings = {
@@ -36,7 +35,7 @@ const HeroSection = () => {
     autoplay: true,
     autoplaySpeed: 2500,
     speed: 800,
-    slidesToShow: 8,
+    slidesToShow: 6,
     slidesToScroll: 1,
     arrows: false,
     pauseOnHover: false,
@@ -56,31 +55,20 @@ const HeroSection = () => {
     ],
   };
 
-  const brandImages = [
-    "https://framerusercontent.com/images/fWRiiLcqQoucPAq3Ut9yHeVAZA.png?width=1400&height=600",
-    "https://framerusercontent.com/images/l9CwuiW5n0mLLvbEHNqeU1VQM.png?width=1000&height=600",
-    "https://framerusercontent.com/images/4p9eSy8R2WQrXc8zWgf0dhVp6ck.png?width=1000&height=600",
-    "https://framerusercontent.com/images/EPoEgAmp3ix1dfny5HFCTfASQ68.png?width=1000&height=600",
-    "https://framerusercontent.com/images/AeSHm9HVC7P8cx0s62CciYEOMA.png?width=1000&height=600",
-    "https://framerusercontent.com/images/OrmT3dRpNIH3fYTPibChhG6Qxu8.png?width=1400&height=600",
-    "https://framerusercontent.com/images/bs9rrk7GgV1SZ4kww4yHh2F98.png?width=1400&height=600",
-    "https://framerusercontent.com/images/oYIEqYL6fivcrdm7Lp6CO4HLihk.png?width=1400&height=600",
-  ];
-
   return (
     <section className="relative overflow-hidden bg-white text-gray-900">
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28 relative z-10 text-center">
-        {/* Top Badge */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 lg:py-24 text-center relative z-10">
+        {/* Badge */}
         <div
-          className="inline-flex items-center bg-blue-50 text-blue-700 font-medium px-5 py-2 rounded-full text-sm mb-6 shadow-sm"
+          className="inline-flex items-center bg-blue-50 text-blue-700 font-medium px-4 sm:px-6 py-2 rounded-full text-xs sm:text-sm mb-4 sm:mb-6 shadow-sm"
           data-aos="fade-down"
         >
-          Grow Revenue <span className="ml-2 text-gray-500">→ with Ads Experts</span>
+          Grow Revenue <span className="ml-1 sm:ml-2 text-gray-500">→ with Ads Experts</span>
         </div>
 
         {/* Subtitle */}
         <p
-          className="pb-5 text-base md:text-lg text-gray-600"
+          className="pb-4 text-sm sm:text-base md:text-lg text-gray-600"
           data-aos="fade-up"
           data-aos-delay="100"
         >
@@ -89,7 +77,7 @@ const HeroSection = () => {
 
         {/* Heading */}
         <h1
-          className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight"
+          className="text-3xl sm:text-4xl md:text-6xl font-extrabold leading-snug tracking-tight"
           data-aos="zoom-in"
         >
           10x Your Business Revenue
@@ -100,69 +88,51 @@ const HeroSection = () => {
         </h1>
 
         {/* CTA Button */}
-        <div className="mt-10" data-aos="fade-up" data-aos-delay="200">
-          <button className="bg-blue-600 text-white px-8 sm:px-12 lg:px-16 py-4 rounded-full text-lg font-semibold shadow-md hover:bg-blue-700 transition-all duration-300">
+        <div className="mt-8 sm:mt-10" data-aos="fade-up" data-aos-delay="200">
+          <button className="bg-blue-600 text-white px-6 sm:px-10 lg:px-16 py-3 sm:py-4 rounded-full text-base sm:text-lg font-semibold shadow-md hover:bg-blue-700 transition-all duration-300">
             Book A FREE Strategy Call
           </button>
-          <p className="mt-4 text-orange-600 font-medium text-base" data-aos="fade">
+          <p className="mt-3 text-orange-600 font-medium text-sm sm:text-base" data-aos="fade">
             Over 3k+ sales meetings booked!
           </p>
         </div>
 
         {/* Rating */}
         <div
-          className="mt-10 flex justify-center items-center space-x-2"
+          className="mt-8 flex justify-center items-center space-x-1 sm:space-x-2"
           data-aos="fade-up"
           data-aos-delay="300"
         >
           <div className="flex text-yellow-500">
             {[...Array(5)].map((_, i) => (
-              <Star key={i} size={20} fill="currentColor" />
+              <Star key={i} size={18} className="sm:w-5 sm:h-5" fill="currentColor" />
             ))}
           </div>
-          <p className="text-gray-700 text-base md:text-lg font-medium">
+          <p className="text-gray-700 text-sm sm:text-base md:text-lg font-medium">
             4.8/5 From 602 Customers
           </p>
         </div>
 
-      {/* ✅ Logo Carousel */}
-<div
-  className="mt-14 max-w-5xl mx-auto"
-  data-aos="fade-up"
-  data-aos-delay="400"
->
-  <Slider {...settings}>
-    {brandImages.map((img, index) => (
-      <div key={index} className="px-3">
-        <div className="flex justify-center items-center">
-          <img
-            src={img}
-            alt={`Brand ${index + 1}`}
-            className="
-              w-full 
-              h-28
-              sm:h-32
-              md:h-28
-              lg:h-24
-              xl:h-20
-              object-contain 
-              rounded-xl 
-              shadow-sm 
-              hover:shadow-md 
-              transition-all 
-              duration-300
-            "
-          />
+        {/* ✅ Logo Carousel */}
+        <div className="mt-10 sm:mt-14 max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+          <Slider {...settings}>
+            {brandImages.map((img, index) => (
+              <div key={index} className="px-2 sm:px-3">
+                <div className="flex justify-center items-center">
+                  <img
+                    src={img}
+                    alt={`Brand ${index + 1}`}
+                    className="w-32 h-16 sm:w-40 sm:h-20 md:h-24 lg:h-24 object-contain rounded-xl shadow-sm hover:shadow-md transition-all duration-300"
+                  />
+                </div>
+              </div>
+            ))}
+          </Slider>
         </div>
-      </div>
-    ))}
-  </Slider>
-</div>
-
 
         {/* Video Section */}
-        <div className="mt-16" data-aos="zoom-in-up" data-aos-delay="200">
-          <div className="relative w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-xl">
+        <div className="mt-12 sm:mt-16" data-aos="zoom-in-up" data-aos-delay="200">
+          <div className="relative w-full max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg">
             <img
               src="https://framerusercontent.com/images/wK4E80TjbV0jJFGY1B4doVSx1U.png"
               alt="Video thumbnail"
@@ -174,47 +144,50 @@ const HeroSection = () => {
               rel="noopener noreferrer"
               className="absolute inset-0 flex items-center justify-center"
             >
-              <span className="bg-white text-blue-600 font-semibold px-8 py-3 rounded-full shadow-lg hover:bg-gray-100 transition text-lg">
+              <span className="bg-white text-blue-600 font-semibold px-6 sm:px-8 py-2 sm:py-3 rounded-full shadow-md hover:bg-gray-100 transition text-base sm:text-lg">
                 ▶ Play Video
               </span>
             </a>
           </div>
         </div>
 
-        {/* Features */}
+        {/* Team Features */}
         <section
-          className="pt-12 bg-white text-gray-800"
+          className="pt-10 sm:pt-12 bg-white text-gray-800"
           data-aos="fade-up"
           data-aos-delay="100"
         >
-          <div className="max-w-6xl mx-auto px-6 text-center">
-            {/* Heading */}
-            <h2 className="text-2xl md:text-3xl font-semibold mb-2" data-aos="zoom-in">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+            <h2
+              style={{ fontFamily: "var(--h2-font-family)", color: "var(--h2-color)" }}
+              className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2"
+              data-aos="zoom-in"
+            >
               A Dedicated Team – At Your Service
             </h2>
-            <p className="text-gray-500 mb-8" data-aos="fade-up" data-aos-delay="150">
-              Corporate &amp; Outsource Video Editing Services
+            <p
+              className="text-gray-500 mb-6 sm:mb-8 text-sm sm:text-base"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
+              Corporate & Outsource Video Editing Services
             </p>
 
-            {/* Card Container */}
+            {/* Cards */}
             <div
-              className="flex flex-wrap justify-center gap-4 bg-gray-100 rounded-xl p-6 border border-gray-200"
+              className="flex flex-wrap justify-center gap-3 sm:gap-4 bg-gray-100 rounded-xl p-4 sm:p-6 border border-gray-200"
               data-aos="fade-up"
               data-aos-delay="200"
             >
               {team.map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-3 bg-white text-gray-900 px-5 py-3 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition"
+                  className="flex items-center gap-2 sm:gap-3 bg-white text-gray-900 px-4 py-2 sm:px-5 sm:py-3 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition w-[150px] sm:w-auto"
                   data-aos="zoom-in"
                   data-aos-delay={index * 100}
                 >
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="w-8 h-8 object-contain"
-                  />
-                  <span className="font-medium">{item.title}</span>
+                  <img src={item.img} alt={item.title} className="w-6 h-6 sm:w-8 sm:h-8 object-contain" />
+                  <span className="font-medium text-sm sm:text-base">{item.title}</span>
                 </div>
               ))}
             </div>
@@ -223,7 +196,7 @@ const HeroSection = () => {
       </div>
 
       {/* Background Gradient */}
-      <div className="absolute top-0 left-0 right-0 h-[500px] bg-gradient-to-br from-blue-50 via-white to-transparent"></div>
+      <div className="absolute top-0 left-0 right-0 h-[400px] bg-gradient-to-br from-blue-50 via-white to-transparent"></div>
     </section>
   );
 };

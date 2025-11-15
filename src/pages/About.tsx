@@ -121,7 +121,10 @@ const About = () => {
         <span className="bg-blue-100 text-blue-700 px-5 py-1 rounded-full text-sm font-medium border border-blue-200">
           Marketing
         </span>
-        <h2 className="text-4xl font-bold mt-6 mb-8">Growth, Not Traffic</h2>
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-4xl font-bold mt-6 mb-8">Growth, Not Traffic</h2>
         <p className="max-w-3xl mx-auto text-gray-600 text-lg mb-16">
           We don’t just market — we engineer strategies that pull the right
           audience, build trust, and turn interest into revenue.
@@ -165,7 +168,10 @@ const About = () => {
 
       {/* ================== WHY THIS WORKS ================== */}
       <section className="py-24 bg-gradient-to-b from-blue-50 via-white to-blue-50 text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-8">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-4xl font-bold text-gray-900 mb-8">
           Why This Works
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-16">
@@ -211,7 +217,10 @@ const About = () => {
 
       {/* ================== FOUNDER MESSAGE ================== */}
       <section className="py-24 px-6 md:px-16 bg-white text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-6">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-4xl font-bold text-gray-900 mb-6">
           Founder’s Message
         </h2>
         <p className="max-w-4xl mx-auto text-gray-600 text-lg leading-relaxed mb-10">
@@ -231,7 +240,10 @@ const About = () => {
       {/* ================== VISION & MISSION ================== */}
       <section className="bg-gradient-to-b from-blue-50 to-white py-24 px-6 md:px-16 text-center">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 mb-10">
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-4xl font-bold text-gray-900 mb-10">
             Vision & Mission
           </h2>
 
@@ -266,7 +278,10 @@ const About = () => {
 
       {/* ================== PROCESS ================== */}
       <section className="py-24 bg-white text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-8">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-4xl font-bold text-gray-900 mb-8">
           Our Proven Process
         </h2>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-16">
@@ -299,7 +314,10 @@ const About = () => {
 
       {/* ================== TOOLS ================== */}
       <section className="py-24 bg-gradient-to-b from-blue-50 to-white text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-8">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-4xl font-bold text-gray-900 mb-8">
           Tools We Utilize
         </h2>
         <p className="text-gray-600 text-lg max-w-3xl mx-auto mb-16">
@@ -324,7 +342,10 @@ const About = () => {
 
       {/* ================== PRICING ================== */}
       <section className="py-24 bg-white text-center">
-        <h2 className="text-4xl font-bold text-gray-900 mb-8">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-4xl font-bold text-gray-900 mb-8">
           Transparent Pricing Options
         </h2>
         <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-16">

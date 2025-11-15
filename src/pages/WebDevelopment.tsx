@@ -68,7 +68,10 @@ const WebDevelopment = () => {
 
       {/* CTA */}
       <section className="text-center py-16 bg-gradient-to-r from-blue-700 to-indigo-800">
-        <h2 className="text-3xl md:text-4xl font-bold">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-4xl font-bold">
           Secure and Scalable Web Development Solutions
         </h2>
         <p className="mt-3 text-gray-200">We build robust, future-proof websites designed for growth and success.</p>
@@ -76,7 +79,10 @@ const WebDevelopment = () => {
 
       {/* PROCESS */}
       <section className="max-w-6xl mx-auto py-20 px-6">
-        <h2 className="text-3xl font-bold text-center mb-12">
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl font-bold text-center mb-12">
           Streamlined Web Development Process for Optimal Results
         </h2>
         <div className="grid md:grid-cols-4 gap-6">
@@ -94,7 +100,10 @@ const WebDevelopment = () => {
       {/* INNOVATIVE SECTION */}
       <section className="max-w-6xl mx-auto py-20 px-6 grid md:grid-cols-2 gap-10 items-center">
         <div>
-          <h2 className="text-3xl font-bold">Innovative Web Development for Modern Digital Experiences</h2>
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl font-bold">Innovative Web Development for Modern Digital Experiences</h2>
           <p className="mt-4 text-gray-300">
             Empowering businesses with cutting-edge websites tailored for user engagement and scalability.
           </p>
@@ -108,7 +117,10 @@ const WebDevelopment = () => {
 
       {/* TOOLS */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-center text-3xl font-bold mb-10">Tools We Utilize for Excellence</h2>
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-center text-3xl font-bold mb-10">Tools We Utilize for Excellence</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {["Meta Ads", "Google Ads", "LinkedIn", "Shopify", "WooCommerce", "WordPress"].map((tool, i) => (
             <div key={i} className="p-6 bg-white/10 rounded-xl hover:bg-white/20 transition text-center">
@@ -120,7 +132,10 @@ const WebDevelopment = () => {
 
       {/* PROJECTS */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">Explore Our Recent Projects</h2>
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl font-bold text-center mb-12">Explore Our Recent Projects</h2>
         <div className="grid md:grid-cols-2 gap-8">
           {["SaaS Website Template", "Marketing Landing Page", "Portfolio Website", "Product Landing Page"].map(
             (proj, i) => (
@@ -139,7 +154,10 @@ const WebDevelopment = () => {
 
       {/* INDUSTRY INSIGHTS */}
       <section className="text-center py-16 bg-white/5">
-        <h2 className="text-3xl font-bold">Web Development Trends and Insights</h2>
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl font-bold">Web Development Trends and Insights</h2>
         <p className="mt-3 text-gray-300">
           Explore industry insights that shape future-ready web solutions.
         </p>
@@ -150,7 +168,10 @@ const WebDevelopment = () => {
 
       {/* COMPARISON */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <h2 className="text-3xl font-bold text-center mb-10">Choosing Brandkrit Over Others</h2>
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl font-bold text-center mb-10">Choosing Brandkrit Over Others</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <div className="bg-white/10 rounded-lg p-6">Other Agencies</div>
           <div className="bg-blue-600 rounded-lg p-6">Brandkrit</div>
@@ -217,7 +238,10 @@ const WebDevelopment = () => {
 
       {/* FAQ */}
       <section className="max-w-4xl mx-auto px-6 py-16">
-        <h2 className="text-center text-3xl font-bold mb-8">Frequently Asked Questions</h2>
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-center text-3xl font-bold mb-8">Frequently Asked Questions</h2>
         <div className="space-y-4">
           {[
             "What are web development services?",
@@ -235,7 +259,10 @@ const WebDevelopment = () => {
 
       {/* FINAL CTA */}
       <section className="text-center py-20 bg-gradient-to-r from-blue-700 to-indigo-800">
-        <h2 className="text-3xl md:text-4xl font-bold">Stay Connected with Us Today</h2>
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }} className="text-3xl md:text-4xl font-bold">Stay Connected with Us Today</h2>
         <button className="mt-6 px-6 py-3 bg-white text-blue-700 font-semibold rounded-lg shadow hover:bg-gray-100">
           Contact Us
         </button>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -6,8 +6,25 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const ShortVidsAtGlance = () => {
+  const [slidesToShow, setSlidesToShow] = useState(4);
+
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 700, once: true });
+
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width < 768) setSlidesToShow(1); // mobile
+      else if (width < 1024) setSlidesToShow(2); // tablet
+      else setSlidesToShow(4); // desktop
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("orientationchange", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("orientationchange", handleResize);
+    };
   }, []);
 
   const stats = [
@@ -52,25 +69,11 @@ const ShortVidsAtGlance = () => {
     dots: false,
     infinite: true,
     autoplay: true,
-    speed: 1000,
+    speed: 900,
     autoplaySpeed: 2500,
-    slidesToShow: 4, // ✅ Laptop/Desktop
+    slidesToShow,
     slidesToScroll: 1,
     arrows: false,
-    responsive: [
-      {
-        breakpoint: 1024, // tablet
-        settings: { slidesToShow: 2 },
-      },
-      {
-        breakpoint: 768, // mobile landscape
-        settings: { slidesToShow: 1 },
-      },
-      {
-        breakpoint: 480, // small mobile
-        settings: { slidesToShow: 1 },
-      },
-    ],
   };
 
   return (
@@ -81,6 +84,10 @@ const ShortVidsAtGlance = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
         {/* Section Title */}
         <h2
+          style={{
+            fontFamily: "var(--h2-font-family)",
+            color: "var(--h2-color)",
+          }}
           className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-12"
           data-aos="zoom-in"
           data-aos-delay="100"
@@ -95,16 +102,17 @@ const ShortVidsAtGlance = () => {
         <div data-aos="fade-up" data-aos-delay="200">
           <Slider {...settings}>
             {stats.map((item, index) => (
-              <div
-                key={item.id}
-                className="px-3"
-                data-aos={index % 2 === 0 ? "fade-up-right" : "fade-up-left"}
-                data-aos-delay={index * 150}
-              >
-                <div className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 py-8 md:py-10 px-5 flex flex-col items-center justify-center">
-                  <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">
-                    {item.icon}
-                  </div>
+              <div key={item.id} className="px-3">
+                <div
+                  data-aos={index % 2 === 0 ? "fade-up-right" : "fade-up-left"}
+                  data-aos-delay={index * 150}
+                  className="bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 py-10 px-6 flex flex-col items-center justify-center mx-auto"
+                  style={{
+                    minHeight: "270px",
+                    maxWidth: "320px",
+                  }}
+                >
+                  <div className="text-5xl mb-4">{item.icon}</div>
                   <h3 className="text-2xl sm:text-3xl font-extrabold text-indigo-600">
                     {item.number}
                   </h3>
