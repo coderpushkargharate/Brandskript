@@ -72,7 +72,6 @@ const testimonialGroups = chunkArray(testimonials, 4);
 const ServicesBookCall: React.FC = () => {
   const [index, setIndex] = useState(0);
 
-  // Auto-slide every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % testimonialGroups.length);
@@ -81,52 +80,25 @@ const ServicesBookCall: React.FC = () => {
   }, []);
 
   return (
-    <section
-      style={{
-        padding: "80px 24px",
-        backgroundColor: "#fff",
-        textAlign: "center",
-        fontFamily: "Arial, sans-serif",
-        overflow: "hidden",
-      }}
-    >
-      <h1 style={{ fontSize: "40px", fontWeight: 800, marginBottom: "20px" }}>
-        BOOK A CALL…
-      </h1>
-      <p
-        style={{
-          color: "#444",
-          maxWidth: "700px",
-          margin: "0 auto 20px",
-          lineHeight: "1.6",
-          fontSize: "16px",
-        }}
-      >
+    <section style={styles.section}>
+      <h1 style={styles.heading}>BOOK A CALL…</h1>
+
+      <p style={styles.subtext}>
         Let’s hop on a call. On the call we’ll discuss your goals, show you
         strategies, answer questions, and see if Right Hook is the scale partner
         you’ve been looking for!{" "}
-        <a href="#" style={{ color: "#2563eb", textDecoration: "underline" }}>
+        <a href="#" style={styles.link}>
           Remember, we have a Worry-Free Trial. There’s zero downside to hopping
           on a call and talking.
         </a>
       </p>
 
-      <h2 style={{
-    fontFamily: "var(--h2-font-family)",
-    color: "var(--h2-color)"
-  }} style={{ fontSize: "22px", fontWeight: 700, margin: "50px 0 25px" }}>
+      <h2 style={{ fontSize: "22px", fontWeight: 700, margin: "50px 0 25px" }}>
         Trusted by over 352+ Brands Last 6 Years
       </h2>
 
-      {/* ===== 4 Cards Auto-Sliding Section ===== */}
-      <div
-        style={{
-          position: "relative",
-          overflow: "hidden",
-          maxWidth: "1200px",
-          margin: "0 auto 60px",
-        }}
-      >
+      {/* Testimonials Section */}
+      <div style={styles.sliderWrapper}>
         <AnimatePresence mode="wait">
           <motion.div
             key={index}
@@ -134,51 +106,16 @@ const ServicesBookCall: React.FC = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -100 }}
             transition={{ duration: 0.8 }}
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: "20px",
-              flexWrap: "nowrap",
-            }}
+            style={styles.testimonialRow}
           >
             {testimonialGroups[index].map((t, i) => (
-              <motion.div
-                key={i}
-                whileHover={{ scale: 1.05 }}
-                style={{
-                  flex: "0 0 260px",
-                  border: "1px solid #e5e7eb",
-                  borderRadius: "16px",
-                  padding: "20px",
-                  backgroundColor: "#fff",
-                  boxShadow: "0 2px 6px rgba(0,0,0,0.08)",
-                }}
-              >
-                <p
-                  style={{
-                    color: "#444",
-                    fontStyle: "italic",
-                    marginBottom: "16px",
-                    lineHeight: "1.5",
-                    fontSize: "15px",
-                  }}
-                >
-                  “{t.text}”
-                </p>
-                <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  <img
-                    src={t.img}
-                    alt={t.name}
-                    style={{
-                      width: "40px",
-                      height: "40px",
-                      borderRadius: "50%",
-                      objectFit: "cover",
-                    }}
-                  />
+              <motion.div key={i} whileHover={{ scale: 1.05 }} style={styles.card}>
+                <p style={styles.cardText}>“{t.text}”</p>
+                <div style={styles.userInfo}>
+                  <img src={t.img} alt={t.name} style={styles.avatar} />
                   <div>
-                    <div style={{ fontWeight: 600, fontSize: "15px" }}>{t.name}</div>
-                    <div style={{ fontSize: "13px", color: "#6b7280" }}>{t.company}</div>
+                    <div style={styles.userName}>{t.name}</div>
+                    <div style={styles.userCompany}>{t.company}</div>
                   </div>
                 </div>
               </motion.div>
@@ -187,59 +124,24 @@ const ServicesBookCall: React.FC = () => {
         </AnimatePresence>
       </div>
 
-      {/* ===== Simple Form Section (kept same) ===== */}
-      <div
-        style={{
-          maxWidth: "480px",
-          margin: "0 auto",
-          textAlign: "left",
-        }}
-      >
-        <h3
-          style={{
-            textAlign: "center",
-            fontWeight: 700,
-            fontSize: "18px",
-            marginBottom: "20px",
-          }}
-        >
-          Simply fill out the form below to get started.
-        </h3>
+      {/* Form Section */}
+      <div style={styles.formContainer}>
+        <h3 style={styles.formTitle}>Simply fill out the form below to get started.</h3>
 
         <form>
           {["Your Full Name *", "Business Email *", "Phone *"].map((label, i) => (
             <div key={i} style={{ marginBottom: "15px" }}>
-              <label
-                style={{ fontWeight: 600, fontSize: "14px", marginBottom: "6px", display: "block" }}
-              >
-                {label}
-              </label>
+              <label style={styles.label}>{label}</label>
               <input
                 type={label.includes("Email") ? "email" : label.includes("Phone") ? "tel" : "text"}
                 placeholder={label.replace("*", "").trim()}
-                style={{
-                  width: "100%",
-                  border: "1px solid #d1d5db",
-                  borderRadius: "6px",
-                  padding: "10px",
-                  fontSize: "15px",
-                  boxSizing: "border-box",
-                }}
+                style={styles.input}
               />
             </div>
           ))}
 
-          <label style={{ fontWeight: 600, fontSize: "14px" }}>What Kind of Business?</label>
-          <select
-            style={{
-              width: "100%",
-              border: "1px solid #d1d5db",
-              borderRadius: "6px",
-              padding: "10px",
-              fontSize: "15px",
-              marginBottom: "15px",
-            }}
-          >
+          <label style={styles.label}>What Kind of Business?</label>
+          <select style={styles.input}>
             <option value="">Pls select one</option>
             <option value="ecommerce">E-commerce</option>
             <option value="service">Service</option>
@@ -247,17 +149,8 @@ const ServicesBookCall: React.FC = () => {
             <option value="other">Other</option>
           </select>
 
-          <label style={{ fontWeight: 600, fontSize: "14px" }}>Your Monthly Revenue *</label>
-          <select
-            style={{
-              width: "100%",
-              border: "1px solid #d1d5db",
-              borderRadius: "6px",
-              padding: "10px",
-              fontSize: "15px",
-              marginBottom: "15px",
-            }}
-          >
+          <label style={styles.label}>Your Monthly Revenue *</label>
+          <select style={styles.input}>
             <option value="">Pls select one</option>
             <option value="under10k">Under $10k</option>
             <option value="10k-50k">$10k–$50k</option>
@@ -265,33 +158,148 @@ const ServicesBookCall: React.FC = () => {
             <option value="over100k">Over $100k</option>
           </select>
 
-          <p style={{ fontSize: "12px", color: "#6b7280", lineHeight: "1.5" }}>
+          <p style={styles.privacy}>
             We’re committed to your privacy. We hate spam too. Right Hook uses
             the information you provide to contact you about relevant content,
             products, and services. You may unsubscribe at any time.
           </p>
 
-          <button
-            type="submit"
-            style={{
-              width: "100%",
-              backgroundColor: "#1d4ed8",
-              color: "#fff",
-              padding: "10px",
-              borderRadius: "6px",
-              fontWeight: 600,
-              fontSize: "15px",
-              border: "none",
-              cursor: "pointer",
-              marginTop: "10px",
-            }}
-          >
+          <button type="submit" style={styles.button}>
             SUBMIT
           </button>
         </form>
       </div>
+
+      {/* Responsive Inline Styles */}
+      <style>{responsiveStyles}</style>
     </section>
   );
 };
 
 export default ServicesBookCall;
+
+const styles: { [key: string]: React.CSSProperties } = {
+  section: {
+    padding: "80px 24px",
+    backgroundColor: "#fff",
+    textAlign: "center",
+    fontFamily: "Arial, sans-serif",
+    overflow: "hidden",
+  },
+  heading: {
+    fontSize: "40px",
+    fontWeight: 800,
+    marginBottom: "20px",
+  },
+  subtext: {
+    color: "#444",
+    maxWidth: "700px",
+    margin: "0 auto 20px",
+    lineHeight: "1.6",
+    fontSize: "16px",
+  },
+  link: {
+    color: "#2563eb",
+    textDecoration: "underline",
+  },
+  trusted: {
+    fontSize: "22px",
+    fontWeight: 700,
+    margin: "50px 0 25px",
+  },
+  sliderWrapper: {
+    position: "relative",
+    overflow: "hidden",
+    maxWidth: "1200px",
+    margin: "0 auto 60px",
+  },
+  testimonialRow: {
+    display: "flex",
+    justifyContent: "center",
+    gap: "20px",
+    flexWrap: "nowrap",
+  },
+  card: {
+    flex: "0 0 260px",
+    border: "1px solid #e5e7eb",
+    borderRadius: "16px",
+    padding: "20px",
+    backgroundColor: "#fff",
+    boxShadow: "0 2px 6px rgba(0,0,0,0.08)",
+  },
+  cardText: {
+    color: "#444",
+    fontStyle: "italic",
+    marginBottom: "16px",
+    lineHeight: "1.5",
+    fontSize: "15px",
+  },
+  userInfo: { display: "flex", alignItems: "center", gap: "10px" },
+  avatar: {
+    width: "40px",
+    height: "40px",
+    borderRadius: "50%",
+    objectFit: "cover",
+  },
+  userName: { fontWeight: 600, fontSize: "15px" },
+  userCompany: { fontSize: "13px", color: "#6b7280" },
+  formContainer: { maxWidth: "480px", margin: "0 auto", textAlign: "left" },
+  formTitle: {
+    textAlign: "center",
+    fontWeight: 700,
+    fontSize: "18px",
+    marginBottom: "20px",
+  },
+  label: {
+    fontWeight: 600,
+    fontSize: "14px",
+    marginBottom: "6px",
+    display: "block",
+  },
+  input: {
+    width: "100%",
+    border: "1px solid #d1d5db",
+    borderRadius: "6px",
+    padding: "10px",
+    fontSize: "15px",
+    boxSizing: "border-box",
+    marginBottom: "15px",
+  },
+  privacy: { fontSize: "12px", color: "#6b7280", lineHeight: "1.5" },
+  button: {
+    width: "100%",
+    backgroundColor: "#1d4ed8",
+    color: "#fff",
+    padding: "10px",
+    borderRadius: "6px",
+    fontWeight: 600,
+    fontSize: "15px",
+    border: "none",
+    cursor: "pointer",
+    marginTop: "10px",
+  },
+};
+
+// 📱 Fully Responsive Media Queries
+const responsiveStyles = `
+@media (max-width: 1024px) {
+  h1 { font-size: 34px !important; }
+  .testimonialRow { flex-wrap: wrap !important; justify-content: center !important; }
+}
+
+@media (max-width: 768px) {
+  section { padding: 60px 16px !important; }
+  h1 { font-size: 28px !important; }
+  h2 { font-size: 20px !important; }
+  .testimonialRow { flex-wrap: wrap !important; }
+  .card { flex: 0 0 45% !important; margin-bottom: 20px !important; }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 24px !important; }
+  p { font-size: 14px !important; }
+  .card { flex: 0 0 100% !important; margin-bottom: 16px !important; }
+  .avatar { width: 36px !important; height: 36px !important; }
+}
+`;
+
