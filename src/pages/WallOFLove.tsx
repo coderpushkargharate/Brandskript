@@ -4,7 +4,7 @@ import "aos/dist/aos.css";
 
 const WallOfLove: React.FC = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 700, once: true });
   }, []);
 
   // ✅ Feedback images
@@ -56,7 +56,10 @@ const WallOfLove: React.FC = () => {
 
       {/* ---------- WALL OF LOVE HEADER ---------- */}
       <section className="relative py-20 text-center px-6 md:px-12">
-        <h2
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }}
           className="text-4xl md:text-5xl font-bold mb-4"
           data-aos="fade-up"
         >
@@ -173,7 +176,10 @@ const WallOfLove: React.FC = () => {
         className="relative py-20 px-6 md:px-12 lg:px-24 bg-gray-50"
       >
         <div className="text-center mb-12">
-          <h2
+          <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }}
             className="text-4xl md:text-5xl font-bold mb-4 text-gray-900"
             data-aos="fade-up"
           >
@@ -214,7 +220,10 @@ const WallOfLove: React.FC = () => {
 
       {/* ---------- VIDEO TESTIMONIALS SECTION ---------- */}
       <section className="bg-gray-100 py-20 px-6 md:px-12 text-center relative">
-        <h2
+        <h2 style={{
+    fontFamily: "var(--h2-font-family)",
+    color: "var(--h2-color)"
+  }}
           className="text-4xl md:text-5xl font-bold mb-12 text-gray-900"
           data-aos="fade-up"
         >
