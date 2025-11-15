@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-const TestimonialsSection = () => {
+const TestimonialsSection: React.FC = () => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
@@ -14,32 +14,27 @@ const TestimonialsSection = () => {
     {
       id: 1,
       title: "Helped Josh to streamline video editing process to perfection.",
-      thumbnail:
-        "https://shortvids.co/wp-content/uploads/2025/04/FEATURE-liquid-death.jpg",
+      thumbnail: "https://shortvids.co/wp-content/uploads/2025/04/FEATURE-liquid-death.jpg",
     },
     {
       id: 2,
       title: "Helped Lead Ninja to streamline video editing process to perfection.",
-      thumbnail:
-        "https://shortvids.co/wp-content/uploads/2025/04/FEATURE-bloomberg-.jpg",
+      thumbnail: "https://shortvids.co/wp-content/uploads/2025/04/FEATURE-bloomberg-.jpg",
     },
     {
       id: 3,
       title: "Helped Brandon to streamline video editing process to perfection.",
-      thumbnail:
-        "https://shortvids.co/wp-content/uploads/2025/04/colin-FEATURE.jpg",
+      thumbnail: "https://shortvids.co/wp-content/uploads/2025/04/colin-FEATURE.jpg",
     },
     {
       id: 4,
       title: "Helped Jakib to achieve 2M+ subscribers through YouTube automation.",
-      thumbnail:
-        "https://shortvids.co/wp-content/uploads/2025/03/Brooks-kelly-mortgage-feature.jpg",
+      thumbnail: "https://shortvids.co/wp-content/uploads/2025/03/Brooks-kelly-mortgage-feature.jpg",
     },
     {
       id: 5,
       title: "Helped Alex scale his video production for his consulting business.",
-      thumbnail:
-        "https://shortvids.co/wp-content/uploads/2025/02/feature-Jesse-Sieffs2.jpg",
+      thumbnail: "https://shortvids.co/wp-content/uploads/2025/02/feature-Jesse-Sieffs2.jpg",
     },
   ];
 
@@ -53,27 +48,43 @@ const TestimonialsSection = () => {
     slidesToScroll: 1,
     arrows: false,
     responsive: [
+      { breakpoint: 1536, settings: { slidesToShow: 4 } },
       { breakpoint: 1280, settings: { slidesToShow: 3 } },
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1 } }, // ✅ better for mobile
+      { breakpoint: 768, settings: { slidesToShow: 1 } },
     ],
   };
 
   return (
     <>
-      {/* ======= Top Hero Section ======= */}
-      <section className="bg-gradient-to-b from-white to-gray-50 text-center py-16 md:py-24 text-gray-900 relative overflow-hidden">
+      {/* ======= Hero Section ======= */}
+      <section className="relative overflow-hidden bg-gradient-to-b from-white to-gray-50 text-center py-16 sm:py-20 md:py-24 text-gray-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10" data-aos="fade-up">
-          <p className="uppercase text-indigo-600 font-semibold tracking-wide text-xs sm:text-sm" data-aos="fade-down" data-aos-delay="100">
+          <p
+            className="uppercase text-indigo-600 font-semibold tracking-wide text-xs sm:text-sm"
+            data-aos="fade-down"
+            data-aos-delay="100"
+          >
             Industry Insights
           </p>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mt-3" data-aos="zoom-in-up" data-aos-delay="200">
-            Qualified Leads <br /> Impacts Sales Growth
+
+          <h2
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mt-3"
+            data-aos="zoom-in-up"
+            data-aos-delay="200"
+          >
+            Qualified Leads <br className="hidden sm:block" /> Impacts Sales Growth
           </h2>
-          <p className="mt-4 text-gray-600 text-sm sm:text-lg max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="300">
+
+          <p
+            className="mt-4 text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
             Capture & convert more customers by upgrading your lead generation
             methods for high growth in revenue.
           </p>
+
           <button
             className="mt-8 px-6 sm:px-8 py-3 bg-indigo-600 hover:bg-indigo-700 transition rounded-full font-medium text-white shadow-lg text-sm sm:text-base"
             data-aos="zoom-in"
@@ -83,11 +94,11 @@ const TestimonialsSection = () => {
           </button>
         </div>
 
-        {/* Subtle Glow Effect */}
+        {/* Subtle Glow Background */}
         <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-indigo-200 opacity-30 blur-[150px] rounded-full"></div>
       </section>
 
-      {/* ======= Client Carousel Section ======= */}
+      {/* ======= Testimonials Carousel Section ======= */}
       <section className="bg-white py-12 sm:py-16 md:py-24 text-center" data-aos="fade-up">
         <div className="max-w-7xl mx-auto px-3 sm:px-6">
           <h2
@@ -101,17 +112,26 @@ const TestimonialsSection = () => {
             </span>
           </h2>
 
-          {/* Carousel */}
-          <div className="mt-8 sm:mt-10 md:mt-14" data-aos="zoom-in-up" data-aos-delay="200">
+          <div
+            className="mt-8 sm:mt-10 md:mt-14"
+            data-aos="zoom-in-up"
+            data-aos-delay="200"
+          >
             <Slider {...settings}>
               {testimonials.map((client, index) => (
-                <div key={client.id} className="px-2 sm:px-3" data-aos="fade-up" data-aos-delay={index * 150}>
+                <div
+                  key={client.id}
+                  className="px-2 sm:px-3"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 150}
+                >
                   <div className="relative rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
                     {/* Image */}
                     <img
                       src={client.thumbnail}
                       alt={client.title}
                       className="w-full h-52 sm:h-64 md:h-80 object-cover rounded-xl"
+                      loading="lazy"
                     />
 
                     {/* Text Overlay */}
@@ -125,7 +145,10 @@ const TestimonialsSection = () => {
 
                     {/* Play Button */}
                     <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                      <button className="w-10 sm:w-12 md:w-14 h-10 sm:h-12 md:h-14 bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
+                      <button
+                        aria-label="Play Video"
+                        className="w-10 sm:w-12 md:w-14 h-10 sm:h-12 md:h-14 bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300"
+                      >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           fill="currentColor"
