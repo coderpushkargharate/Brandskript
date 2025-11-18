@@ -38,61 +38,61 @@ function App() {
     <AuthProvider>
       <Router>
 
-        {/* 🌟 GLOBAL DEFAULT SEO + HIGH TRAFFIC KEYWORDS */}
+        {/* 🌟 UPDATED GLOBAL SEO — ONLY ADS + LEADS + DIGITAL MARKETING */}
         <Helmet>
-          <title>Best Video Editing & Lead Generation Agency | Branding | Ads | Marketing</title>
+          <title>
+            Best Lead Generation & Performance Marketing Agency | Meta Ads, Google Ads, LinkedIn Ads
+          </title>
 
           <meta
             name="description"
-            content="Top video editing, lead generation, performance marketing, branding, and business growth services. Boost your revenue with high-converting ads & expert creative team."
+            content="
+              ROI-focused digital marketing agency offering Meta Ads, Google Ads, LinkedIn Ads, 
+              Lead Generation, Performance Marketing & Email Marketing services.
+            "
           />
 
-          {/* 🔥 All SEO Keywords */}
+          {/* 🔥 High-Intent SEO Keywords ONLY (Ads + Leads + Digital Marketing) */}
           <meta
             name="keywords"
             content="
-              video editing services,
-              professional video editing agency,
-              corporate video editing,
-              YouTube video editing company,
-              Instagram reel editing service,
-              creative video editing team,
-              outsource video editing,
-              lead generation services,
-              qualified lead generation experts,
-              best lead generation company,
-              lead generation for businesses,
-              ads expert agency,
-              Facebook ads agency,
-              Google ads expert India,
+              lead generation agency,
               performance marketing agency,
-              top digital marketing company,
-              web development company,
-              branding and design,
-              creative agency for startups,
-              business growth marketing,
-              ad management service,
-              high converting video ads,
-              affordable video editing service,
-              business website with dashboard,
-              CRM dashboard agency,
-              case study marketing,
-              blog marketing,
-              creative brand building,
-              how to grow business with ads,
-              video editing for brands,
-              video marketing experts,
-              startup branding agency
+              meta ads expert,
+              facebook ads agency,
+              instagram ads agency,
+              google ads specialist,
+              google search ads,
+              linkedin ads agency,
+              b2b lead generation company,
+              b2c lead generation services,
+              paid ads management,
+              PPC agency,
+              email marketing services,
+              digital marketing agency,
+              result-driven marketing,
+              ads agency for businesses,
+              best lead generation services,
+              high-quality leads,
+              ROAS optimization,
+              conversion tracking expert,
+              growth marketing agency
             "
           />
 
           <meta name="author" content="Your Brand Name" />
 
           {/* Open Graph */}
-          <meta property="og:title" content="Best Video Editing & Lead Generation Agency" />
+          <meta
+            property="og:title"
+            content="Best Lead Generation & Performance Marketing Agency"
+          />
           <meta
             property="og:description"
-            content="Professional video editing, qualified lead generation, branding & marketing agency to grow your business faster."
+            content="
+              Get high-quality leads and scale your business with Meta Ads, Google Ads, 
+              LinkedIn Ads, Email Marketing & complete digital marketing services.
+            "
           />
           <meta property="og:image" content="/og-image.png" />
           <meta property="og:url" content="https://yourwebsite.com" />
@@ -100,10 +100,13 @@ function App() {
 
           {/* Twitter Card */}
           <meta name="twitter:card" content="summary_large_image" />
-          <meta name="twitter:title" content="Top Video Editing & Ads Agency" />
+          <meta
+            name="twitter:title"
+            content="Top Lead Generation & Ads Agency"
+          />
           <meta
             name="twitter:description"
-            content="Grow faster with video editing + qualified lead generation + ads experts."
+            content="Grow your business with Meta Ads, Google Ads, LinkedIn Ads & high-quality lead generation services."
           />
           <meta name="twitter:image" content="/og-image.png" />
         </Helmet>

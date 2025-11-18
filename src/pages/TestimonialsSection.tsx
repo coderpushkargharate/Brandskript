@@ -6,7 +6,8 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const TestimonialsSection: React.FC = () => {
-  useEffect(() => {
+useEffect(() => {
+    window.scrollTo(0, 0); // 🔥 Page opens from top
     AOS.init({ duration: 700, once: true });
   }, []);
 

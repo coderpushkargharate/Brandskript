@@ -481,6 +481,26 @@ const BlogDetails = () => {
   return (
     <div className="bg-white">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-4 gap-10 px-6 py-16">
+         {/* SIDEBAR */}
+        <aside className="space-y-6">
+          <h3 className="text-xl font-semibold text-gray-800 mb-4">
+            More Articles
+          </h3>
+
+          {blogs
+            .filter((b) => b.id !== blog.id)
+            .slice(0, 4)
+            .map((item) => (
+              <Link
+                key={item.id}
+                to={`/blogs/${item.id}`}
+                className="block border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md transition"
+              >
+                <h4 className="font-semibold text-gray-900 mb-2">{item.title}</h4>
+                <p className="text-sm text-gray-500">{item.date}</p>
+              </Link>
+            ))}
+        </aside>
         {/* MAIN ARTICLE */}
         <article className="lg:col-span-3">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 leading-snug">
@@ -583,26 +603,7 @@ const BlogDetails = () => {
           </div>
         </article>
 
-        {/* SIDEBAR */}
-        <aside className="space-y-6">
-          <h3 className="text-xl font-semibold text-gray-800 mb-4">
-            More Articles
-          </h3>
-
-          {blogs
-            .filter((b) => b.id !== blog.id)
-            .slice(0, 4)
-            .map((item) => (
-              <Link
-                key={item.id}
-                to={`/blogs/${item.id}`}
-                className="block border border-gray-200 rounded-xl p-4 shadow-sm hover:shadow-md transition"
-              >
-                <h4 className="font-semibold text-gray-900 mb-2">{item.title}</h4>
-                <p className="text-sm text-gray-500">{item.date}</p>
-              </Link>
-            ))}
-        </aside>
+       
       </div>
     </div>
   );

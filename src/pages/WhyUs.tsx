@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
+import { Helmet } from "react-helmet-async";
+
 import {
   Film,
   Video,
@@ -51,6 +53,9 @@ const WhyUs = () => {
       once: true,
       offset: 100,
     });
+   
+    window.scrollTo(0, 0); // 🔥 Page opens from top
+   
   }, []);
 
   // Cleaned image URLs (removed trailing spaces)
@@ -280,6 +285,31 @@ const WhyUs = () => {
   ];
 
   return (
+
+    <>
+  <Helmet>
+    <title>Unlimited Video Editing Services for Agencies | ShortVids</title>
+
+    <meta
+      name="description"
+      content="ShortVids provides unlimited professional video editing services for agencies & creators. Boost your content output with high-quality short-form & long-form videos."
+    />
+
+    <meta
+      name="keywords"
+      content="video editing services, unlimited video editing, agency video editing, reels editing, YouTube editing, video ads editing"
+    />
+
+    <meta property="og:title" content="Unlimited Video Editing Services | ShortVids" />
+    <meta
+      property="og:description"
+      content="Grow your agency with unlimited, high-quality video editing. Perfect for creators, brands & marketing teams."
+    />
+    <meta property="og:image" content="https://shortvids.co/your-og-image.jpg" />
+    <meta property="og:type" content="website" />
+  </Helmet>
+
+
     <section className="flex flex-col items-center text-center px-4 py-10 bg-white">
       {/* Intro */}
       <div data-aos="fade-up" className="max-w-4xl">
@@ -1076,6 +1106,7 @@ const WhyUs = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

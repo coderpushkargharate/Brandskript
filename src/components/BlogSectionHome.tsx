@@ -32,7 +32,8 @@ const blogs = [
 
 const BlogSectionHome = () => {
   useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
+     window.scrollTo(0, 0); // 🔥 Page opens from top
+    AOS.init({ duration: 700, once: true });
   }, []);
 
   return (

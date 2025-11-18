@@ -38,6 +38,7 @@ const caseStudies = [
 
 const CaseStudyHome = () => {
   useEffect(() => {
+     window.scrollTo(0, 0); // 🔥 Page opens from top
     AOS.init({ duration: 700, once: true, easing: "ease-in-out" });
   }, []);
 

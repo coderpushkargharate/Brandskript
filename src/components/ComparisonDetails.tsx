@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
 const blogs = [
@@ -329,6 +329,10 @@ const BlogDetails: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const blog = blogs.find((b) => b.id === parseInt(id || ""));
     const [openIndex, setOpenIndex] = useState<number | null>(null);
+     useEffect(() => {
+    window.scrollTo(0, 0); // 🔥 Page opens from top
+ 
+  }, []);
 
     if (!blog) {
         return (

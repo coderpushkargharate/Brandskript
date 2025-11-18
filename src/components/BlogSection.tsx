@@ -64,6 +64,7 @@ const blogs = [
 
 const BlogSection = () => {
   useEffect(() => {
+     window.scrollTo(0, 0); // 🔥 Page opens from top
     AOS.init({ duration: 1000, once: true });
   }, []);
 

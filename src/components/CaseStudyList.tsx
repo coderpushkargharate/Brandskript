@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const caseStudies = [
   {
@@ -56,90 +57,135 @@ const caseStudies = [
 
 const CaseStudy = () => {
   useEffect(() => {
+    window.scrollTo(0, 0);
     AOS.init({ duration: 700, once: true, easing: "ease-in-out" });
   }, []);
 
   return (
-    <section className="bg-gray-50 py-20">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-28">
-        {caseStudies.map((study, index) => (
-          <div
-            key={study.id}
-            className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${
-              index % 2 === 1 ? "lg:flex-row-reverse" : ""
-            }`}
-            data-aos={index % 2 === 0 ? "fade-up" : "fade-left"}
-          >
-            {/* Left Content */}
-            <div data-aos="zoom-in">
-              {study.logo && (
-                <img
-                  src={study.logo}
-                  alt="Logo"
-                  className="h-10 mb-6 object-contain"
-                  data-aos="fade-right"
-                />
-              )}
-              <h2
-                style={{
-                  fontFamily: "var(--h2-font-family)",
-                  color: "var(--h2-color)",
-                }}
-                className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4"
-                data-aos="fade-up"
-              >
-                {study.title}
-              </h2>
-              <p
-                className="text-gray-600 text-base leading-relaxed mb-8"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
-                {study.description}
-              </p>
+    <>
+      {/* ======================= SEO START ======================= */}
+      <Helmet>
+        <title>Case Studies | High-Performance Digital Marketing Results</title>
 
-              <div
-                className="border-t border-gray-300 pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm"
-                data-aos="fade-up"
-                data-aos-delay="200"
-              >
-                {study.highlights.map((item, i) => (
-                  <div key={i} data-aos="zoom-in" data-aos-delay={i * 100}>
-                    <p className="font-semibold text-black">{item.label}</p>
-                    <p className="text-gray-600">{item.value}</p>
-                  </div>
-                ))}
-                <div
-                  className="col-span-2 sm:col-span-4 mt-4"
-                  data-aos="fade-right"
-                  data-aos-delay="300"
+        <meta
+          name="description"
+          content="Explore our top-performing case studies where brands achieved massive revenue growth, $50K profit months, 136% YoY growth, and successful multi-platform scaling."
+        />
+
+        <meta
+          name="keywords"
+          content="case studies, marketing case studies, business growth, ecommerce scaling, revenue growth, digital marketing success"
+        />
+
+        <link rel="canonical" href="https://yourwebsite.com/case-study" />
+
+        {/* Open Graph (Facebook/LinkedIn SEO) */}
+        <meta property="og:title" content="Case Studies | Proven Marketing Growth Stories" />
+        <meta
+          property="og:description"
+          content="See how brands achieved $50K profit months, consistent $20K/day sales, and massive YoY growth with our strategies."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://yourwebsite.com/case-study" />
+        <meta property="og:image" content={caseStudies[0].imageGrid[0]} />
+
+        {/* Twitter SEO */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Case Studies | Proven Marketing Growth Stories" />
+        <meta
+          name="twitter:description"
+          content="Explore real-world success stories where our marketing strategies helped brands scale rapidly."
+        />
+        <meta name="twitter:image" content={caseStudies[0].imageGrid[0]} />
+      </Helmet>
+      {/* ======================= SEO END ========================= */}
+
+      <section className="bg-gray-50 py-20">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 space-y-28">
+          
+          {caseStudies.map((study, index) => (
+            <div
+              key={study.id}
+              className={`grid grid-cols-1 lg:grid-cols-2 gap-10 items-center ${
+                index % 2 === 1 ? "lg:flex-row-reverse" : ""
+              }`}
+              data-aos={index % 2 === 0 ? "fade-up" : "fade-left"}
+            >
+              {/* Left Content */}
+              <div data-aos="zoom-in">
+                {study.logo && (
+                  <img
+                    src={study.logo}
+                    alt="Logo"
+                    className="h-10 mb-6 object-contain"
+                    data-aos="fade-right"
+                  />
+                )}
+
+                <h2
+                  style={{
+                    fontFamily: "var(--h2-font-family)",
+                    color: "var(--h2-color)",
+                  }}
+                  className="text-3xl sm:text-4xl font-extrabold text-gray-900 leading-tight mb-4"
+                  data-aos="fade-up"
                 >
-                  <Link
-                    to={`/case-study/${study.id}`}
-                    className="text-black font-medium hover:text-blue-600 transition-colors inline-flex items-center gap-1"
+                  {study.title}
+                </h2>
+
+                <p
+                  className="text-gray-600 text-base leading-relaxed mb-8"
+                  data-aos="fade-up"
+                  data-aos-delay="100"
+                >
+                  {study.description}
+                </p>
+
+                <div
+                  className="border-t border-gray-300 pt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm"
+                  data-aos="fade-up"
+                  data-aos-delay="200"
+                >
+                  {study.highlights.map((item, i) => (
+                    <div key={i} data-aos="zoom-in" data-aos-delay={i * 100}>
+                      <p className="font-semibold text-black">{item.label}</p>
+                      <p className="text-gray-600">{item.value}</p>
+                    </div>
+                  ))}
+
+                  <div
+                    className="col-span-2 sm:col-span-4 mt-4"
+                    data-aos="fade-right"
+                    data-aos-delay="300"
                   >
-                    View Case Study →
-                  </Link>
+                    <Link
+                      to={`/case-study/${study.id}`}
+                      className="text-black font-medium hover:text-blue-600 transition-colors inline-flex items-center gap-1"
+                    >
+                      View Case Study →
+                    </Link>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Right Image */}
-            <div
-              className="grid grid-cols-2 gap-4"
-              data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
-              data-aos-delay="150"
-            >
-              <img
-                src={study.imageGrid[0]}
-                alt={study.title}
-                className="rounded-lg w-full h-[400px] object-cover col-span-2 shadow-md hover:scale-[1.02] transition-transform duration-500"
-              />
+              {/* Right Image */}
+              <div
+                className="grid grid-cols-2 gap-4"
+                data-aos={index % 2 === 0 ? "fade-left" : "fade-right"}
+                data-aos-delay="150"
+              >
+                <img
+                  src={study.imageGrid[0]}
+                  alt={study.title}
+                  className="rounded-lg w-full h-[400px] object-cover col-span-2 shadow-md hover:scale-[1.02] transition-transform duration-500"
+                />
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+
+        </div>
+      </section>
+    </>
   );
 };
 
