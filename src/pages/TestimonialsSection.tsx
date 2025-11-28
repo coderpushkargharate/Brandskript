@@ -1,161 +1,117 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Slider from "react-slick";
-import AOS from "aos";
-import "aos/dist/aos.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { MapPin } from "lucide-react";
 
-const TestimonialsSection: React.FC = () => {
-useEffect(() => {
-    window.scrollTo(0, 0); // 🔥 Page opens from top
-    AOS.init({ duration: 700, once: true });
-  }, []);
+const testimonials = [
+  {
+    name: "Todd",
+    company: "GoHome LLC",
+    img: "https://randomuser.me/api/portraits/men/11.jpg",
+    review:
+      "I've been so frustrated with estimating that I was ready to give it up. Handoff is like taking a 1,000-pound weight off my chest. I feel so much better now. I'm so glad I found you guys.",
+    location: "Chester, VA",
+  },
+  {
+    name: "Aaron",
+    company: "Hamilton Valentino Design",
+    img: "https://randomuser.me/api/portraits/men/32.jpg",
+    review:
+      "The first estimate I made with Handoff won us a kitchen remodel.",
+    location: "Cumberland, MD",
+  },
+  {
+    name: "Matt",
+    company: "equi-linc",
+    img: "https://randomuser.me/api/portraits/men/45.jpg",
+    review:
+      "Handoff AI is a game changer in helping us develop our long term sales & operations plan. AI is the way of the future and this hits us in a very important part of our business.",
+    location: "Brownsburg, IN",
+  },
+  {
+    name: "Scott",
+    company: "MCM Homes",
+    img: "https://randomuser.me/api/portraits/men/40.jpg",
+    review:
+      "I can genuinely trust the estimates I’m getting. Since I’ve been in Handoff, there hasn’t been a time I haven’t checked numbers and gotten a number in my head or got the same scope. It's incredibly comfortable for me.",
+    location: "Omaha, NE",
+  },
+];
 
-  const testimonials = [
-    {
-      id: 1,
-      title: "Helped Josh to streamline video editing process to perfection.",
-      thumbnail: "https://shortvids.co/wp-content/uploads/2025/04/FEATURE-liquid-death.jpg",
-    },
-    {
-      id: 2,
-      title: "Helped Lead Ninja to streamline video editing process to perfection.",
-      thumbnail: "https://shortvids.co/wp-content/uploads/2025/04/FEATURE-bloomberg-.jpg",
-    },
-    {
-      id: 3,
-      title: "Helped Brandon to streamline video editing process to perfection.",
-      thumbnail: "https://shortvids.co/wp-content/uploads/2025/04/colin-FEATURE.jpg",
-    },
-    {
-      id: 4,
-      title: "Helped Jakib to achieve 2M+ subscribers through YouTube automation.",
-      thumbnail: "https://shortvids.co/wp-content/uploads/2025/03/Brooks-kelly-mortgage-feature.jpg",
-    },
-    {
-      id: 5,
-      title: "Helped Alex scale his video production for his consulting business.",
-      thumbnail: "https://shortvids.co/wp-content/uploads/2025/02/feature-Jesse-Sieffs2.jpg",
-    },
-  ];
-
+const TestimonialSection = () => {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
-    autoplay: true,
-    speed: 1000,
-    autoplaySpeed: 3000,
-    slidesToShow: 4,
+    speed: 700,
+    slidesToShow: 3,
     slidesToScroll: 1,
-    arrows: false,
+    arrows: true,
+
+    // 🔥 Auto carousel added
+    autoplay: true,
+    autoplaySpeed: 2500,
+
     responsive: [
-      { breakpoint: 1536, settings: { slidesToShow: 4 } },
-      { breakpoint: 1280, settings: { slidesToShow: 3 } },
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1 } },
+      {
+        breakpoint: 1024, // Tablet
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 640, // Mobile
+        settings: {
+          slidesToShow: 1,
+        },
+      },
     ],
   };
 
   return (
-    <>
-      {/* ======= Hero Section ======= */}
-          <section className="bg-gradient-to-b from-white to-gray-50 text-center py-16 md:py-24 text-gray-900 relative overflow-hidden">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10" data-aos="fade-up">
-              <p
-                className="uppercase text-indigo-600 font-semibold tracking-wide text-xs sm:text-sm"
-                data-aos="fade-down"
-                data-aos-delay="100"
-              >
-                Industry Insights
-              </p>
-              <h2
-                style={{
-                  fontFamily: "var(--h2-font-family)",
-                  color: "var(--h2-color)",
-                }}
-                className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight mt-3"
-                data-aos="zoom-in-up"
-                data-aos-delay="200"
-              >
-                Qualified Leads <br /> Impacts Sales Growth
-              </h2>
-              <p
-                className="mt-4 text-gray-600 text-sm sm:text-lg max-w-2xl mx-auto"
-                data-aos="fade-up"
-                data-aos-delay="300"
-              >
-                Capture & convert more customers by upgrading your lead generation
-                methods for high growth in revenue.
-              </p>
-              <button
-                className="mt-8 px-6 sm:px-8 py-3 bg-indigo-600 hover:bg-indigo-700 transition rounded-full font-medium text-white shadow-lg text-sm sm:text-base"
-                data-aos="zoom-in"
-                data-aos-delay="400"
-              >
-                Book A FREE Consultation Call
-              </button>
-            </div>
-    
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] bg-indigo-200 opacity-30 blur-[150px] rounded-full"></div>
-          </section>
-    
-          {/* ======= Testimonials Carousel Section ======= */}
-          <section className="bg-white py-12 sm:py-16 md:py-24 text-center" data-aos="fade-up">
-            <div className="max-w-7xl mx-auto px-3 sm:px-6">
-              <h2
-                style={{
-                  fontFamily: "var(--h2-font-family)",
-                  color: "var(--h2-color)",
-                }}
-                className="text-xl sm:text-3xl md:text-4xl font-extrabold text-gray-900"
-                data-aos="fade-up"
-                data-aos-delay="100"
-              >
-                Our Clients Shared Their{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">
-                  Love For Our Work
-                </span>
-              </h2>
-    
-              <div className="mt-10 sm:mt-12 md:mt-16" data-aos="zoom-in-up" data-aos-delay="200">
-                <Slider {...settings}>
-                  {testimonials.map((client, index) => (
-                    <div key={client.id} className="px-2 sm:px-3">
-                      <div className="relative rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.03] group border border-gray-100">
-                        <img
-                          src={client.thumbnail}
-                          alt={client.title}
-                          className="w-full h-64 sm:h-80 md:h-96 object-cover rounded-2xl transition-transform duration-500 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-                        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5">
-                          <div className="backdrop-blur-md bg-white/20 border border-white/30 rounded-xl p-3 sm:p-4 shadow-lg">
-                            <p className="text-sm sm:text-base md:text-lg text-white font-semibold leading-relaxed drop-shadow-md">
-                              {client.title}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                          <button className="w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 bg-indigo-600 text-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform duration-300">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="currentColor"
-                              viewBox="0 0 24 24"
-                              className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7"
-                            >
-                              <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </Slider>
+    <section className="py-20 bg-white">
+      {/* Heading */}
+      <h2 className="text-center text-4xl md:text-5xl font-extrabold mb-16">
+        AI estimating software contractors love
+      </h2>
+
+      <div className="max-w-7xl mx-auto px-6">
+        <Slider {...settings}>
+          {testimonials.map((item, index) => (
+            <div key={index} className="px-4">
+              <div className="bg-white p-6 rounded-3xl shadow-md border border-gray-100 h-full">
+
+                {/* Profile */}
+                <div className="flex items-center gap-4 mb-4">
+                  <img
+                    src={item.img}
+                    alt={item.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                  <div>
+                    <h4 className="font-bold text-lg">{item.name}</h4>
+                    <p className="text-sm text-gray-500">{item.company}</p>
+                  </div>
+                </div>
+
+                {/* Review */}
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  {item.review}
+                </p>
+
+                {/* Location */}
+                <div className="flex items-center gap-2 text-gray-700 font-medium">
+                  <MapPin className="w-4 h-4 text-yellow-500" />
+                  <span>{item.location}</span>
+                </div>
+
               </div>
             </div>
-          </section>
-    </>
+          ))}
+        </Slider>
+      </div>
+    </section>
   );
 };
 
-export default TestimonialsSection;
+export default TestimonialSection;

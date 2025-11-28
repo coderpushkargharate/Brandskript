@@ -92,7 +92,7 @@ const ShortVidsAtGlance = () => {
           data-aos="zoom-in"
           data-aos-delay="100"
         >
-          ShortVids at{" "}
+          “BrandSkript” at{" "}
           <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-purple-600">
             Glance
           </span>

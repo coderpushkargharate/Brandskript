@@ -4,42 +4,42 @@ import "aos/dist/aos.css";
 
 const benefits = [
   {
-    title: "Unlimited Requests",
+    title: "No Need to Invest in 4 Team Members",
     img: "https://cdn-icons-png.flaticon.com/512/1040/1040230.png",
     dark: true,
   },
   {
-    title: "Unlimited Revisions",
+    title: "8.8/10 Success Ratio",
     img: "https://cdn-icons-png.flaticon.com/512/1041/1041916.png",
     dark: false,
   },
   {
-    title: "Extremely Fast Delivery",
+    title: "Unlimited Smart Ad Creatives",
     img: "https://cdn-icons-png.flaticon.com/512/2920/2920215.png",
     dark: false,
   },
   {
-    title: "One Stop Shop",
+    title: "8+ Years of Experience",
     img: "https://cdn-icons-png.flaticon.com/512/4329/4329410.png",
     dark: false,
   },
   {
-    title: "Monthly Subscription",
+    title: "Continuous Performance Reports",
     img: "https://cdn-icons-png.flaticon.com/512/3039/3039385.png",
     dark: false,
   },
   {
-    title: "Flexible & Scalable",
+    title: "Client Closing Guidance",
     img: "https://cdn-icons-png.flaticon.com/512/3050/3050158.png",
     dark: true,
   },
   {
-    title: "Copyright Free",
+    title: "Monthly Subscription",
     img: "https://cdn-icons-png.flaticon.com/512/3247/3247472.png",
     dark: false,
   },
   {
-    title: "Content Repurposing",
+    title: "Scalable Ads Strategy",
     img: "https://cdn-icons-png.flaticon.com/512/2454/2454252.png",
     dark: true,
   },
@@ -49,17 +49,17 @@ const benefits = [
     dark: true,
   },
   {
-    title: "Unlimited Styles",
+    title: "Free NDA",
     img: "https://cdn-icons-png.flaticon.com/512/906/906334.png",
     dark: false,
   },
   {
-    title: "Bundled for Perfection",
+    title: "Smart Video Ads",
     img: "https://cdn-icons-png.flaticon.com/512/3019/3019590.png",
     dark: true,
   },
     {
-    title: "Bundled for Perfection",
+    title: "Smart Copywriting Guidance",
     img: "https://cdn-icons-png.flaticon.com/512/3019/3019590.png",
     dark: false,
   },
@@ -80,7 +80,7 @@ const MembershipBenefits = () => {
         className="text-3xl md:text-4xl font-bold text-center mb-12"
         data-aos="fade-up"
       >
-        Membership{" "}
+        Working with Brandskript {" "}
         <span className="text-purple-600 underline decoration-purple-400">
           Benefits
         </span>

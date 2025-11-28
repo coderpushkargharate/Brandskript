@@ -6,11 +6,11 @@ const BookCallSection = () => {
   const reasons = [
     {
       number: "01",
-      text: "It’s Free but super valuable if you’re just starting out or stuck in Growth",
+      text: "Consultation is FREE & best if your confused about marketing direction",
     },
     {
       number: "02",
-      text: "Experts advice, suggestions and feedbacks for content lead growth",
+      text: "Expert Advice, Suggestions & feedbacks for Qualified Lead Gen & Ad Growth",
     },
     {
       number: "03",
@@ -18,15 +18,15 @@ const BookCallSection = () => {
     },
     {
       number: "04",
-      text: "Clear idea of results you can achieve with ShortVids",
+      text: "Clear idea of results you can achieve with Brandskript",
     },
     {
       number: "05",
-      text: "A Deep dive on our case studies & success of our clients",
+      text: "A deep dive on our case studies & success of our clients",
     },
     {
       number: "06",
-      text: "Special Discounts as well Free Upgrades on Showup",
+      text: "Special discounts & upgrades on showup",
     },
   ];
 

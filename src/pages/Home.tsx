@@ -19,6 +19,8 @@ import MembershipBenefits from "./MembershipBenefits";
 import BlogSectionHome from "../components/BlogSectionHome";
 import CaseStudyHome from "../components/CaseStudyHome";
 import Book from "./Book";
+import TestimonialSection from "./TestimonialsSection";
+import FeaturesCarousel from "./FeaturesCarousel";
 
 const Home: React.FC = () => {
   return (
@@ -60,6 +62,8 @@ const Home: React.FC = () => {
 
       {/* ------------------- Page Sections --------------------- */}
       <HeroSection />
+      <TestimonialSection/>
+      <FeaturesCarousel/>
       <ProcessSection />
       <AboutSection />
       <ClientLoveSection />

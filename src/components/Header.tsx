@@ -1,329 +1,107 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
-
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const servicesRef = useRef(null);
-  const resourcesRef = useRef(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (
-        servicesRef.current &&
-        !servicesRef.current.contains(event.target) &&
-        resourcesRef.current &&
-        !resourcesRef.current.contains(event.target)
-      ) {
-        setIsServicesOpen(false);
-        setIsResourcesOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  useEffect(() => {
-    if (location.pathname !== "/services") {
-      setIsServicesOpen(false);
-    }
-    setIsResourcesOpen(false);
-    setIsMenuOpen(false);
-  }, [location.pathname]);
 
   return (
-    // ✅ Only this line changed (sticky → fixed)
-    <header className="fixed top-0 left-0 w-full z-50 ">
+    <header className="fixed top-0 left-0 w-full z-50 bg-white border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex items-center justify-between h-16">
+          
           {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <span className="font-extrabold text-black tracking-wide text-xl">
-              Brandskript
-            </span>
+          <Link to="/" className="flex items-center space-x-2">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/1048/1048947.png"
+              className="w-6 h-6"
+              alt="logo"
+            />
+            <span className="font-bold text-green-600 text-xl">Handoff</span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8 bg-gray-100 px-6 py-2 rounded-full border border-gray-200 relative">
-            {/* Services Dropdown */}
-            <div className="relative" ref={servicesRef}>
-              <div
-                className="flex items-center space-x-1 cursor-pointer"
-                onClick={() => {
-                  navigate("/services");
-                  setIsServicesOpen(!isServicesOpen);
-                  setIsResourcesOpen(false);
-                }}
-              >
-                <button className="text-gray-800 hover:text-blue-600 focus:outline-none font-medium">
-                  Services
-                </button>
-                <ChevronDown className="h-4 w-4 text-gray-800" />
-              </div>
+          {/* Desktop Menu */}
+          <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-700">
+            <button className="flex items-center gap-1 hover:text-black">
+              Who we serve
+              <span>▾</span>
+            </button>
 
-              {isServicesOpen && (
-                <div className="absolute ms-5 left-1/2 -translate-x-1/2 mt-2 bg-white border border-gray-200 shadow-2xl rounded-xl p-6 w-[1100px] z-50 transition-all duration-300">
-                  <div className="grid grid-cols-4 gap-8">
-                    <div>
-                      <img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtsnQtJqRbdz2P9qApjUkVKHm9HrOOxlRu4g&s"
-                        alt="Services"
-                        className="w-full h-full object-cover rounded-xl"
-                      />
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
-                        Lead Gen &gt;
-                      </h3>
-                      <ul className="text-gray-600 space-y-1 mb-4">
-                        <li>• Through Ads</li>
-                        <li>
-                          <p className="font-semibold text-gray-800">
-                            • Through Email Marketing
-                          </p>
-                          <ul className="ml-6 text-gray-600 space-y-1 mt-1">
-                            <li>- Data Scraping</li>
-                            <li>- Data Outreaching</li>
-                          </ul>
-                        </li>
-                        <li>• Through IVR / AI Agent</li>
-                        <li>• Through Insta DMing</li>
-                      </ul>
-                    </div>
+            <button className="flex items-center gap-1 hover:text-black">
+              Features
+              <span>▾</span>
+            </button>
 
-                    <div>
-                      <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
-                        Ad Expertise &gt;
-                      </h3>
-                      <ul className="ml-4 list-disc text-gray-600 space-y-1">
-                        <li>Meta Ads</li>
-                        <li>Google Ads</li>
-                        <li>LinkedIn Ads</li>
-                        <li>TikTok Ads</li>
-                        <li>Twitter Ads</li>
-                      </ul>
-                    </div>
-                    <div>
-                      <h3 className="text-sm font-semibold text-blue-600 uppercase tracking-wide mb-3">
-                        Other &gt;
-                      </h3>
-                      <ul className="text-gray-600 space-y-1">
-                        <li>• Branding</li>
-                        <li>• Website Design</li>
-                        <li>
-                          <p className="font-semibold text-gray-800">
-                            • Graphic Design
-                          </p>
-                          <ul className="ml-6 text-gray-600 space-y-1 mt-1">
-                            <li>- Brochure</li>
-                            <li>- Magazine</li>
-                            <li>- Pamphlet</li>
-                          </ul>
-                        </li>
-                        <li>• Packaging Design</li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
+            <Link to="/pricing" className="hover:text-black">Pricing</Link>
+            <Link to="/reviews" className="hover:text-black">Reviews</Link>
 
-            {/* Resources Dropdown */}
-            <div className="relative" ref={resourcesRef}>
-              <div
-                className="flex items-center space-x-1 cursor-pointer"
-                onClick={() => {
-                  setIsResourcesOpen(!isResourcesOpen);
-                  setIsServicesOpen(false);
-                }}
-              >
-                <span className="text-gray-800 font-medium hover:text-blue-600">
-                  Resources
-                </span>
-                <ChevronDown className="h-4 w-4 text-gray-800" />
-              </div>
+            <button className="flex items-center gap-1 hover:text-black">
+              Resources
+              <span>▾</span>
+            </button>
 
-              {isResourcesOpen && (
-                <div className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white border border-gray-200 shadow-2xl rounded-xl p-4 w-[450px] z-50 transition-all duration-300">
-                  <div className="flex gap-4">
-                    <div className="w-1/3">
-                      <img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy9rtjD2Ic7xZg424CRgfrHN6NC4O7gGAq9w&s"
-                        alt="Resources"
-                        className="w-full h-full object-cover rounded-lg"
-                      />
-                    </div>
-
-                    <div className="w-2/3 flex flex-col justify-center ms-5 ps-5">
-                      <ul className="text-gray-700 space-y-3 text-base">
-                        <li>
-                          <Link
-                            to="/blog"
-                            className="hover:text-blue-600 transition-colors"
-                          >
-                            Blog
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/testimonials"
-                            className="hover:text-blue-600 transition-colors"
-                          >
-                            Testimonials
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/comparisonsection"
-                            className="hover:text-blue-600 transition-colors"
-                          >
-                            Comparisons
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/walloflove"
-                            className="hover:text-blue-600 transition-colors"
-                          >
-                            Wall of Love
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            to="/free-ebooks"
-                            className="hover:text-blue-600 transition-colors"
-                          >
-                            Free E-Books
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-
-            <Link
-              to="/testimonials"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              Testimonials
-            </Link>
-            <Link
-              to="/case-study-list"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              Case Studies
-            </Link>
-            <Link
-              to="/why-us"
-              className="text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              Why Us?
-            </Link>
+            <Link to="/help" className="hover:text-black">Help Center</Link>
+            <Link to="/career" className="hover:text-black">We're Hiring</Link>
           </nav>
 
-          {/* Right Button */}
-          <div className="hidden md:flex items-center">
-            <Link to="/schedulecall">
-              <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
-                Schedule A Call →
+          {/* Right Buttons */}
+          <div className="hidden md:flex items-center space-x-4">
+            <Link
+              to="/login"
+              className="px-5 py-1.5 border border-gray-300 rounded-full text-sm font-medium hover:bg-gray-100"
+            >
+              Login
+            </Link>
+
+            <Link to="/estimate">
+              <button className="bg-green-500 text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-green-600 transition">
+                Start an estimate
               </button>
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Toggle */}
           <button
-            className="md:hidden text-gray-800"
+            className="md:hidden text-gray-700"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200 bg-white">
-            <div className="flex flex-col space-y-4">
-              <Link to="/" className="text-gray-700 hover:text-blue-600">
-                Home
-              </Link>
+          <div className="md:hidden bg-white border-t py-4">
+            <div className="flex flex-col space-y-4 text-gray-700 text-sm font-medium">
 
-              <details>
-                <summary className="cursor-pointer text-gray-700 font-semibold">
-                  Services
-                </summary>
-                <div className="ml-4 mt-2 space-y-2 text-gray-600 text-sm">
-                  <Link to="/services" className="block hover:text-blue-600">
-                    View All Services
-                  </Link>
-                  <p className="font-semibold text-gray-800">Lead Gen</p>
-                  <ul className="ml-4">
-                    <li>- Through Ads</li>
-                    <li>- Through Email Marketing</li>
-                    <li>- Through IVR / AI Agent</li>
-                    <li>- Through Insta DMing</li>
-                  </ul>
-                  <p className="font-semibold text-gray-800 mt-2">Ad Expertise</p>
-                  <ul className="ml-4">
-                    <li>- Meta Ads</li>
-                    <li>- Google Ads</li>
-                    <li>- LinkedIn Ads</li>
-                    <li>- TikTok Ads</li>
-                    <li>- Twitter Ads</li>
-                  </ul>
-                  <p className="font-semibold text-gray-800 mt-2">Other</p>
-                  <ul className="ml-4">
-                    <li>- Branding</li>
-                    <li>- Website Design</li>
-                    <li>- Graphic Design (Brochure, Magazine, Pamphlet)</li>
-                    <li>- Packaging Design</li>
-                  </ul>
-                </div>
-              </details>
+              <button className="text-left flex items-center justify-between">
+                Who we serve ▾
+              </button>
 
-              <details>
-                <summary className="cursor-pointer text-gray-700 font-semibold">
-                  Resources
-                </summary>
-                <div className="ml-4 mt-2 space-y-2 text-gray-600 text-sm">
-                  <Link to="/blog" className="block hover:text-blue-600">
-                    Blog
-                  </Link>
-                  <Link to="/testimonials" className="block hover:text-blue-600">
-                    Testimonials
-                  </Link>
-                  <Link to="/comparisonsection" className="block hover:text-blue-600">
-                    Comparisons
-                  </Link>
-                  <Link to="/walloflove" className="block hover:text-blue-600">
-                    Wall of Love
-                  </Link>
-                  <Link to="/free-ebooks" className="block hover:text-blue-600">
-                    Free E-Books
-                  </Link>
-                </div>
-              </details>
+              <button className="text-left flex items-center justify-between">
+                Features ▾
+              </button>
+
+              <Link to="/pricing" className="hover:text-black">Pricing</Link>
+              <Link to="/reviews" className="hover:text-black">Reviews</Link>
+
+              <button className="text-left flex items-center justify-between">
+                Resources ▾
+              </button>
+
+              <Link to="/help" className="hover:text-black">Help Center</Link>
+              <Link to="/career" className="hover:text-black">We're Hiring</Link>
 
               <Link
-                to="/case-study-list"
-                className="text-gray-700 hover:text-blue-600"
+                to="/login"
+                className="px-5 py-2 border border-gray-300 rounded-full text-center"
               >
-                Case Studies
-              </Link>
-              <Link to="/why-us" className="text-gray-700 hover:text-blue-600">
-                Why Us?
+                Login
               </Link>
 
-              <Link to="/schedulecall">
-                <button className="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition-colors">
-                  Schedule A Call →
+              <Link to="/estimate">
+                <button className="w-full bg-green-500 text-white px-6 py-2 rounded-full text-sm font-medium">
+                  Start an estimate
                 </button>
               </Link>
             </div>

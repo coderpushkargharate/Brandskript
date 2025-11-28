@@ -9,7 +9,7 @@ const blogs = [
     title: "10 Creative Formulas for High-Converting Facebook Video Ads",
     date: "30 October 2025",
     comments: "No Comments",
-    img: "https://shortvids.co/wp-content/uploads/2025/06/FEATUREGene-Slades-ShortVids-Success-Story.jpg",
+    img: "https://shortvids.co/wp-content/uploads/2025/05/FEATURE-morning-brew.jpg",
     desc: "There’s real magic in Facebook video ads when they combine creativity with strategy. At ShortVids, we’ve watched ordinary brands turn into unforgettable names through clever...",
   },
   {
@@ -17,7 +17,7 @@ const blogs = [
     title: "How to Build a High-Converting YouTube Sales Funnel in 2026",
     date: "29 October 2025",
     comments: "No Comments",
-    img: "https://shortvids.co/wp-content/uploads/2025/05/FEATURE-ramp.jpg",
+    img: "https://shortvids.co/wp-content/uploads/2025/05/FEATURE-ramp.jp",
     desc: "Video content is now the main focus of the internet, and a good YouTube sales funnel is becoming one of the best strategies for 2026...",
   },
   {
