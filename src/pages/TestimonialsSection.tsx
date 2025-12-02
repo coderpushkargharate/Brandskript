@@ -17,8 +17,7 @@ const testimonials = [
     name: "Aaron",
     company: "Hamilton Valentino Design",
     img: "https://randomuser.me/api/portraits/men/32.jpg",
-    review:
-      "The first estimate I made with Handoff won us a kitchen remodel.",
+    review: "The first estimate I made with Handoff won us a kitchen remodel.",
     location: "Cumberland, MD",
   },
   {
@@ -47,8 +46,6 @@ const TestimonialSection = () => {
     slidesToShow: 3,
     slidesToScroll: 1,
     arrows: true,
-
-    // 🔥 Auto carousel added
     autoplay: true,
     autoplaySpeed: 2500,
 
@@ -70,7 +67,6 @@ const TestimonialSection = () => {
 
   return (
     <section className="py-20 bg-white">
-      {/* Heading */}
       <h2 className="text-center text-4xl md:text-5xl font-extrabold mb-16">
         AI estimating software contractors love
       </h2>
@@ -78,33 +74,36 @@ const TestimonialSection = () => {
       <div className="max-w-7xl mx-auto px-6">
         <Slider {...settings}>
           {testimonials.map((item, index) => (
-            <div key={index} className="px-4">
-              <div className="bg-white p-6 rounded-3xl shadow-md border border-gray-100 h-full">
+            <div key={index} className="px-4 h-full">
+              <div className="bg-white p-6 rounded-3xl shadow-md border border-gray-100 
+                              h-full flex flex-col justify-between">
 
-                {/* Profile */}
-                <div className="flex items-center gap-4 mb-4">
-                  <img
-                    src={item.img}
-                    alt={item.name}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
-                  <div>
-                    <h4 className="font-bold text-lg">{item.name}</h4>
-                    <p className="text-sm text-gray-500">{item.company}</p>
+                {/* TOP SECTION */}
+                <div>
+                  {/* Profile */}
+                  <div className="flex items-center gap-4 mb-4">
+                    <img
+                      src={item.img}
+                      alt={item.name}
+                      className="w-12 h-12 rounded-full object-cover"
+                    />
+                    <div>
+                      <h4 className="font-bold text-lg">{item.name}</h4>
+                      <p className="text-sm text-gray-500">{item.company}</p>
+                    </div>
                   </div>
+
+                  {/* Review */}
+                  <p className="text-gray-600 leading-relaxed mb-6">
+                    {item.review}
+                  </p>
                 </div>
 
-                {/* Review */}
-                <p className="text-gray-600 leading-relaxed mb-6">
-                  {item.review}
-                </p>
-
-                {/* Location */}
-                <div className="flex items-center gap-2 text-gray-700 font-medium">
+                {/* FOOTER (Location) */}
+                <div className="flex items-center gap-2 text-gray-700 font-medium mt-auto">
                   <MapPin className="w-4 h-4 text-yellow-500" />
                   <span>{item.location}</span>
                 </div>
-
               </div>
             </div>
           ))}

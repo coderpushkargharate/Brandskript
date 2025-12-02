@@ -32,6 +32,14 @@ import CaseStudyHome from "./components/CaseStudyHome";
 import CaseDetailshome from "./pages/CaseDetailshome";
 import CaseStudy from "./components/CaseStudyList";
 import CaseStudyDetail from "./pages/CaseStudyDetail";
+import { StarsIcon } from "lucide-react";
+import StartOnEstimate from "./pages/StartOnEstimate";
+import CareersPage from "./pages/CareersPage";
+import HelpCenter from "./pages/HelpCenter";
+import PricingSection from "./pages/PricingSection";
+import HandOff from "./pages/HandOff";
+import HandoffReviewsPage from "./pages/HandoffReviewsPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
   return (
@@ -138,6 +146,12 @@ function App() {
               <Route path="/servicesbookcall" element={<ServicesBookCall />} />
               <Route path="/testimonials" element={<TestimonialsSection />} />
               <Route path="/walloflove" element={<WallOfLove />} />
+              <Route path="/startofestimate" element={<StartOnEstimate />} />
+              <Route path="/careerspage" element={<CareersPage />} />
+              <Route path="/HelpCenter" element={<HelpCenter />} />
+              <Route path="/PricingSection" element={<PricingSection />} />
+              <Route path="/Handoffreview" element={<HandoffReviewsPage />} />
+              <Route path="/loginpage" element={<LoginPage />} />
             </Routes>
           </main>
           <Footer />

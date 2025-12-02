@@ -2,12 +2,12 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <section className="w-full bg-white py-16">
+    <section className="w-full bg-white py-16  px-28">
       {/* Main Container */}
-      <div className="max-w-7xl mx-auto px-6 relative">
+      <div className="max-w-8xl mx-auto px-6  relative">
 
         {/* Green Background Shape */}
-        <div className="absolute top-0 left-0 w-full h-[520px] rounded-3xl bg-green-500"></div>
+        <div className="absolute top-0 left-0 w-full h-[580px] mb-5 rounded-3xl bg-green-500"></div>
 
         {/* Content Row */}
         <div className="relative z-10 flex flex-col lg:flex-row items-center pt-12">
@@ -59,7 +59,7 @@ const HeroSection = () => {
       </div>
 
       {/* Metrics Row */}
-      <div className="max-w-7xl mx-auto px-6 mt-20 grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
+      <div className="max-w-7xl mx-auto px-6 mt-36 grid grid-cols-2 md:grid-cols-4 gap-10 text-center">
 
         <div>
           <h3 className="text-4xl font-extrabold">↑$5,250</h3>

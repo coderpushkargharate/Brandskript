@@ -21,6 +21,10 @@ import CaseStudyHome from "../components/CaseStudyHome";
 import Book from "./Book";
 import TestimonialSection from "./TestimonialsSection";
 import FeaturesCarousel from "./FeaturesCarousel";
+import HandOff from "./HandOff";
+import HowItWorks from "./HowItWorks";
+import PricingSections from "./PricingSection";
+import HandoffSection from "./HandoffSection";
 
 const Home: React.FC = () => {
   return (
@@ -64,7 +68,12 @@ const Home: React.FC = () => {
       <HeroSection />
       <TestimonialSection/>
       <FeaturesCarousel/>
-      <ProcessSection />
+      <HandOff/>
+      <HowItWorks/>
+      <PricingSections/>
+      <BlogSectionHome />
+      <HandoffSection/>
+      {/* <ProcessSection />
       <AboutSection />
       <ClientLoveSection />
       <ShortVidsAtGlance />
@@ -72,9 +81,9 @@ const Home: React.FC = () => {
       <StatsTestimonialsSection />
       <BookCallSection />
       <MembershipBenefits />
-      <BlogSectionHome />
+      <BlogSectionHome />?
       <CaseStudyHome />
-      <Book />
+      <Book /> */}
 
     </div>
   );
