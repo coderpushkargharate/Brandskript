@@ -18,6 +18,14 @@ export default function PricingSection() {
         <p className="text-sm mt-2 opacity-90">Start your 7-day free trial today.</p>
       </section>
 
+
+
+
+
+
+
+      
+
       {/* PRICING BOX */}
       <section className="py-16 px-4 flex justify-center">
         <div className="bg-white shadow-xl rounded-xl p-8 max-w-xl w-full">
