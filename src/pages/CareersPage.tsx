@@ -53,7 +53,7 @@ const CareersPage = () => {
     <div className="w-full bg-white">
 
       {/* ================= HERO SECTION ================= */}
-      <section className="w-full bg-green-600 text-white p-10 rounded-b-3xl">
+      <section className="w-full bg-green-600 text-white p-10  rounded-b-3xl">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
           <div>
             <span className="px-3 py-1 bg-white text-black rounded-full text-sm font-semibold">
@@ -73,7 +73,7 @@ const CareersPage = () => {
 
           <div>
             <img
-              src="https://i.ibb.co/khqZqZ7/team.png"
+              src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/67f8420642d1a805b7feafdd_Mask%20group%20(1).avif"
               alt="team"
               className="rounded-2xl shadow-lg"
             />
@@ -156,7 +156,7 @@ const CareersPage = () => {
             {/* Card 1 */}
             <div className="px-4">
               <div className="bg-white p-6 rounded-2xl shadow">
-                <img src="https://i.ibb.co/HPp517F/val1.png" className="rounded-xl" />
+                <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6800a7f9ccaf5d7bf06df77c_image.webp" className="rounded-xl" />
                 <h3 className="font-bold mt-4">Delight customers daily</h3>
                 <p className="mt-2 text-gray-600 text-sm">
                   We always put customers first and celebrate delight.
@@ -167,7 +167,7 @@ const CareersPage = () => {
             {/* Card 2 */}
             <div className="px-4">
               <div className="bg-white p-6 rounded-2xl shadow">
-                <img src="https://i.ibb.co/g4L6VXz/val2.png" className="rounded-xl" />
+                <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6800a80d9069804bec5112ef_image%20(1).webp" className="rounded-xl" />
                 <h3 className="font-bold mt-4">Step up to the challenge</h3>
                 <p className="mt-2 text-gray-600 text-sm">
                   Tackle big problems and grow outside comfort zone.
@@ -178,7 +178,7 @@ const CareersPage = () => {
             {/* Card 3 */}
             <div className="px-4">
               <div className="bg-white p-6 rounded-2xl shadow">
-                <img src="https://i.ibb.co/2jFqsXf/val3.png" className="rounded-xl" />
+                <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6800a823189fe52ae8a877ab_image%20(2).webp" className="rounded-xl" />
                 <h3 className="font-bold mt-4">Seek and speak the truth</h3>
                 <p className="mt-2 text-gray-600 text-sm">
                   Communicate honestly with clarity and accuracy.
@@ -196,11 +196,11 @@ const CareersPage = () => {
 
           <Slider {...teamSlider}>
             {[
-              "https://i.ibb.co/WfSsgDz/team1.png",
-              "https://i.ibb.co/VxPjtkf/team2.png",
-              "https://i.ibb.co/2gCZGkB/team3.png",
-              "https://i.ibb.co/vHC5qRt/team4.png",
-              "https://i.ibb.co/Qj7Vv3v/team5.png"
+              "https://cdn.prod.website-files.com/6650cddf762ba9b692753dc0/68fb9d46c3cb51455c851198_IMG_6351.jpg",
+              "https://cdn.prod.website-files.com/6650cddf762ba9b692753dc0/6800d486c44492acfaf1d753_image%2082.png",
+              "https://cdn.prod.website-files.com/6650cddf762ba9b692753dc0/68ebf0fbfe349a53f1dcc02c_IMG_5323.jpg",
+              "https://cdn.prod.website-files.com/6650cddf762ba9b692753dc0/68ebf10ca715e4c8121284d7_IMG_5282.jpg",
+              "https://cdn.prod.website-files.com/6650cddf762ba9b692753dc0/6800d411938d893e7df23e54_image%2014.png"
             ].map((img, i) => (
               <div key={i} className="px-4">
                 <img src={img} className="rounded-xl shadow-lg" />

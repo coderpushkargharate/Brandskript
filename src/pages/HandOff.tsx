@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Play } from "lucide-react";
 
 const HandOff = () => {
+  useEffect(() => {
+  window.scrollTo(0, 0); // 🔥 Page opens from top
+}, []);
   return (
     <div className="w-full">
 
@@ -15,9 +18,9 @@ const HandOff = () => {
               alt="Video"
               className="rounded-xl w-full"
             />
-            <button className="absolute inset-0 m-auto bg-white rounded-full p-4 shadow-lg">
+            {/* <button className="absolute inset-0 m-auto w-15 h-15 bg-white rounded-full p-4 shadow-lg">
               <Play size={32} className="text-black" />
-            </button>
+            </button> */}
 
             <p className="absolute bottom-4 left-0 right-0 mx-auto bg-black text-white px-3 py-1 rounded-md text-sm w-max">
               Using HandOff to close $118,000
@@ -59,13 +62,13 @@ const HandOff = () => {
 
         <div className="flex flex-wrap justify-center gap-10 mt-10 grayscale opacity-70">
           {[
-            "https://i.ibb.co/dmr9wVW/logo1.png",
-            "https://i.ibb.co/Yf9CkZR/logo2.png",
-            "https://i.ibb.co/Fq5vC47/logo3.png",
-            "https://i.ibb.co/TtGq7V3/logo4.png",
-            "https://i.ibb.co/ysS8J3t/logo5.png",
-            "https://i.ibb.co/vmqhRxr/logo6.png",
-            "https://i.ibb.co/6XxSg5M/logo7.png",
+            "https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e36_Logo_Mohawk.webp",
+            "https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e34_Logo_USG.webp",
+            "https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e32_Logo_Kohler.webp",
+            "https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e37_Logo_Boise_Cascade.webp",
+            "https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e33_Logo_Southwire.webp",
+            "https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753dd7_Logo_EATON.webp",
+            "https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753dd8_Logo_Pergo.webp",
           ].map((logo, index) => (
             <img key={index} src={logo} alt="Supplier" className="h-10" />
           ))}
@@ -91,7 +94,7 @@ const HandOff = () => {
         {/* Image */}
         <div>
           <img
-            src="https://i.ibb.co/nnD58Vt/phones.png"
+            src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e31_iPad%20%26%20Apple%20Pencil.webp"
             alt="Estimate"
             className="rounded-xl w-[380px] md:w-[480px]"
           />
@@ -111,7 +114,7 @@ const HandOff = () => {
           {/* Card 1 */}
           <div className="relative rounded-xl overflow-hidden shadow group">
             <img
-              src="https://i.ibb.co/bb8CS4P/remodelers.jpg"
+              src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753dd1_Remodelers.webp"
               className="w-full h-64 object-cover group-hover:scale-105 transition"
             />
             <div className="absolute bottom-4 left-4">
@@ -124,7 +127,7 @@ const HandOff = () => {
           {/* Card 2 */}
           <div className="relative rounded-xl overflow-hidden shadow group">
             <img
-              src="https://i.ibb.co/BnKVdMF/handyman.jpg"
+              src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753dd2_Handyman.webp"
               className="w-full h-64 object-cover group-hover:scale-105 transition"
             />
             <div className="absolute bottom-4 left-4">
@@ -137,7 +140,7 @@ const HandOff = () => {
           {/* Card 3 */}
           <div className="relative rounded-xl overflow-hidden shadow group">
             <img
-              src="https://i.ibb.co/Ydf4BLf/fixflip.jpg"
+              src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753dd3_Fix%20and%20flip.webp"
               className="w-full h-64 object-cover group-hover:scale-105 transition"
             />
             <div className="absolute bottom-4 left-4">

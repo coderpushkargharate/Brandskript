@@ -67,7 +67,7 @@ export default function LoginPage() {
 
         {/* Google Login */}
         <div className="flex justify-center mt-6">
-          <FcGoogle size={35} className="cursor-pointer" />
+          <img src="" alt="" />
         </div>
       </div>
 
@@ -75,7 +75,7 @@ export default function LoginPage() {
       <div className="w-1/2 bg-gray-50 flex justify-center items-center">
         <div className="text-center">
           {/* Card Image Section */}
-          <div className="bg-green-200 w-80 h-52 mx-auto rounded-xl"></div>
+          <div className="bg-green-200 w-80 h-52 mx-auto rounded-xl"><img src="https://app.handoff.ai/assets/src/common/components/FullPageAuthCarousel/assets/slide-1-desktop.b41b9dbb41e4c8216aba2a95c865c06c.png" alt="" /></div>
 
           <h2 className="text-2xl font-semibold mt-10">Instant AI Estimates</h2>
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -14,13 +14,6 @@ const testimonials = [
     location: "Chester, VA",
   },
   {
-    name: "Aaron",
-    company: "Hamilton Valentino Design",
-    img: "https://randomuser.me/api/portraits/men/32.jpg",
-    review: "The first estimate I made with Handoff won us a kitchen remodel.",
-    location: "Cumberland, MD",
-  },
-  {
     name: "Matt",
     company: "equi-linc",
     img: "https://randomuser.me/api/portraits/men/45.jpg",
@@ -29,6 +22,14 @@ const testimonials = [
     location: "Brownsburg, IN",
   },
   {
+    name: "Scott",
+    company: "MCM Homes",
+    img: "https://randomuser.me/api/portraits/men/40.jpg",
+    review:
+      "I can genuinely trust the estimates I’m getting. Since I’ve been in Handoff, there hasn’t been a time I haven’t checked numbers and gotten a number in my head or got the same scope. It's incredibly comfortable for me.",
+    location: "Omaha, NE",
+  },
+   {
     name: "Scott",
     company: "MCM Homes",
     img: "https://randomuser.me/api/portraits/men/40.jpg",
@@ -64,6 +65,10 @@ const TestimonialSection = () => {
       },
     ],
   };
+
+  useEffect(() => {
+  window.scrollTo(0, 0); // 🔥 Page opens from top
+}, []);
 
   return (
     <section className="py-20 bg-white">
