@@ -35,7 +35,7 @@ export default function Admin() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    if (username === 'pushkar' && password === 'pushkar123') {
+    if (username === 'Brandskript' && password === 'Brandskript123') {
       localStorage.setItem('adminToken', 'authenticated');
       setIsAuthenticated(true);
       fetchBlogs();
@@ -104,7 +104,6 @@ export default function Admin() {
           body: JSON.stringify({ ...formData, date: new Date().toISOString() })
         });
       }
-
       resetForm();
       fetchBlogs();
     } catch (error) {
