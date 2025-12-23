@@ -20,6 +20,7 @@ import StartOnEstimate from "./pages/StartOnEstimate";
 import FixAndFlipPage from "./pages/FixAndFlipPage";
 import ConstructionCosts from "./pages/ConstructionCosts";
 import EstimatingAIPage from "./pages/EstimatingAIPage";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 function App() {
   return (
@@ -47,6 +48,8 @@ function App() {
               <Route path="/fixandflip" element={<FixAndFlipPage />} />
               <Route path="/instant-ai-estimates" element={<EstimatingAIPage />} />
               <Route path="/construction-costs" element={<ConstructionCosts />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+
             </Routes>
           </main>
 

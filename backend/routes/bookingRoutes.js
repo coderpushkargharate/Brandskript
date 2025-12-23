@@ -15,28 +15,12 @@ const validateBooking = (data) => {
     errors.push('Valid email is required');
   }
 
-  if (!data.phoneNumber || data.phoneNumber.trim() === '') {
-    errors.push('Phone number is required');
+  if (!data.startTimeline || data.startTimeline.trim() === '') {
+    errors.push('Start timeline is required');
   }
 
-  if (!data.occupation || data.occupation.trim() === '') {
-    errors.push('Occupation is required');
-  }
-
-  if (!data.weight || data.weight <= 0) {
-    errors.push('Valid weight is required');
-  }
-
-  if (!data.height || data.height <= 0) {
-    errors.push('Valid height is required');
-  }
-
-  if (!data.age || data.age <= 0 || data.age > 150) {
-    errors.push('Valid age is required');
-  }
-
-  if (!data.condition || data.condition.trim() === '') {
-    errors.push('Condition is required');
+  if (!data.monthlyRevenue || data.monthlyRevenue.trim() === '') {
+    errors.push('Monthly revenue is required');
   }
 
   if (!data.selectedDate || data.selectedDate.trim() === '') {
@@ -87,24 +71,19 @@ router.post('/bookings', async (req, res) => {
     const booking = new Booking(req.body);
     const newBooking = await booking.save();
 
+    // Send emails
     const emailSent = await sendConfirmationEmail(newBooking);
     const adminNotified = await sendAdminNotificationEmail(newBooking);
 
     res.status(201).json({
       message: 'Booking created successfully',
       booking: newBooking,
-      emailSent: emailSent,
-      adminNotified: adminNotified
+      emailSent,
+      adminNotified
     });
   } catch (error) {
     console.error('Error creating booking:', error);
-
-    if (error.name === 'ValidationError') {
-      const messages = Object.values(error.errors).map(err => err.message);
-      return res.status(400).json({ message: 'Validation error', errors: messages });
-    }
-
-    res.status(400).json({ message: 'Failed to create booking', error: error.message });
+    res.status(500).json({ message: 'Failed to create booking', error: error.message });
   }
 });
 
@@ -132,13 +111,7 @@ router.put('/bookings/:id', async (req, res) => {
     res.json({ message: 'Booking updated successfully', booking });
   } catch (error) {
     console.error('Error updating booking:', error);
-
-    if (error.name === 'ValidationError') {
-      const messages = Object.values(error.errors).map(err => err.message);
-      return res.status(400).json({ message: 'Validation error', errors: messages });
-    }
-
-    res.status(400).json({ message: 'Failed to update booking', error: error.message });
+    res.status(500).json({ message: 'Failed to update booking', error: error.message });
   }
 });
 

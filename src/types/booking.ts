@@ -1,14 +1,11 @@
 export interface Booking {
-  _id?: string;
+  _id: string;
   fullName: string;
   email: string;
-  phoneNumber: string;
-  occupation: string;
-  weight: number;
-  height: number;
-  age: number;
-  condition: string;
+  startTimeline: string;
+  monthlyRevenue: string;
   selectedDate: string;
   timeSlot: string;
-  createdAt?: string;
+  createdAt: string;
+  updatedAt: string;
 }

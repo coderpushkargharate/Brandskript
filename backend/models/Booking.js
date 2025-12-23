@@ -3,43 +3,32 @@ import mongoose from 'mongoose';
 const bookingSchema = new mongoose.Schema({
   fullName: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   email: {
     type: String,
-    required: true
+    required: true,
+    trim: true,
+    lowercase: true
   },
-  phoneNumber: {
+  startTimeline: {
     type: String,
     required: true
   },
-  occupation: {
-    type: String,
-    required: true
-  },
-  weight: {
-    type: Number,
-    required: true
-  },
-  height: {
-    type: Number,
-    required: true
-  },
-  age: {
-    type: Number,
-    required: true
-  },
-  condition: {
+  monthlyRevenue: {
     type: String,
     required: true
   },
   selectedDate: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   timeSlot: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   }
 }, {
   timestamps: true

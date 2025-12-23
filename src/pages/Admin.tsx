@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Blog } from '../types/blog';
 import { Booking } from '../types/booking';
-import { Plus, Edit2, Trash2, LogOut, Eye, EyeOff } from 'lucide-react';
+import { Plus, Edit2, Trash2, LogOut, Eye } from 'lucide-react';
 import SEO from '../components/SEO';
 
 export default function Admin() {
@@ -39,6 +39,7 @@ export default function Admin() {
       localStorage.setItem('adminToken', 'authenticated');
       setIsAuthenticated(true);
       fetchBlogs();
+      fetchBookings();
     } else {
       alert('Invalid credentials');
     }
@@ -461,28 +462,12 @@ export default function Admin() {
                         <p className="text-lg font-medium text-gray-900">{selectedBooking.email}</p>
                       </div>
                       <div>
-                        <p className="text-sm text-gray-600">Phone Number</p>
-                        <p className="text-lg font-medium text-gray-900">{selectedBooking.phoneNumber}</p>
+                        <p className="text-sm text-gray-600">Start Timeline</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.startTimeline}</p>
                       </div>
                       <div>
-                        <p className="text-sm text-gray-600">Occupation</p>
-                        <p className="text-lg font-medium text-gray-900">{selectedBooking.occupation}</p>
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-600">Weight (kg)</p>
-                        <p className="text-lg font-medium text-gray-900">{selectedBooking.weight}</p>
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-600">Height (cm)</p>
-                        <p className="text-lg font-medium text-gray-900">{selectedBooking.height}</p>
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-600">Age</p>
-                        <p className="text-lg font-medium text-gray-900">{selectedBooking.age}</p>
-                      </div>
-                      <div>
-                        <p className="text-sm text-gray-600">Condition</p>
-                        <p className="text-lg font-medium text-gray-900">{selectedBooking.condition}</p>
+                        <p className="text-sm text-gray-600">Monthly Revenue</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.monthlyRevenue}</p>
                       </div>
                       <div>
                         <p className="text-sm text-gray-600">Selected Date</p>
@@ -492,10 +477,10 @@ export default function Admin() {
                         <p className="text-sm text-gray-600">Time Slot</p>
                         <p className="text-lg font-medium text-gray-900">{selectedBooking.timeSlot}</p>
                       </div>
-                      <div>
+                      <div className="md:col-span-2">
                         <p className="text-sm text-gray-600">Booked On</p>
                         <p className="text-lg font-medium text-gray-900">
-                          {new Date(selectedBooking.createdAt || '').toLocaleDateString()}
+                          {new Date(selectedBooking.createdAt).toLocaleString()}
                         </p>
                       </div>
                     </div>
@@ -522,7 +507,7 @@ export default function Admin() {
                       Date & Time
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Condition
+                      Revenue Range
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Actions
@@ -543,7 +528,7 @@ export default function Admin() {
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                          {booking.condition}
+                          {booking.monthlyRevenue}
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">

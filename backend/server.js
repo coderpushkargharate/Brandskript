@@ -14,6 +14,7 @@ const PORT = process.env.PORT || 3001;
 app.use(cors());
 app.use(express.json());
 
+// Error handling middleware
 app.use((err, req, res, next) => {
   console.error('Unhandled error:', err);
   res.status(err.status || 500).json({
@@ -22,6 +23,7 @@ app.use((err, req, res, next) => {
   });
 });
 
+// Connect to MongoDB
 mongoose.connect(process.env.DATABASE_URL)
   .then(() => {
     console.log('Connected to MongoDB');
@@ -29,9 +31,11 @@ mongoose.connect(process.env.DATABASE_URL)
   })
   .catch((error) => console.error('MongoDB connection error:', error));
 
+// Routes
 app.use('/api', blogRoutes);
 app.use('/api', bookingRoutes);
 
+// Health check
 app.get('/', (req, res) => {
   res.json({
     message: 'Handoff API Server',
@@ -47,6 +51,7 @@ app.get('/health', (req, res) => {
   res.json({ status: 'healthy', timestamp: new Date().toISOString() });
 });
 
+// 404 handler
 app.all('*', (req, res) => {
   res.status(404).json({ message: 'Endpoint not found' });
 });
