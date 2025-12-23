@@ -31,6 +31,11 @@ export default function GetStarted() {
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleRadioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -48,15 +53,33 @@ export default function GetStarted() {
 
     try {
       const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:3001";
-      await fetch(`${apiUrl}/api/bookings`, {
+      const response = await fetch(`${apiUrl}/api/bookings`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
-      alert("Event Scheduled Successfully");
-    } catch {
-      alert("Booking failed");
+      const result = await response.json();
+      
+      if (response.ok) {
+        alert("Event Scheduled Successfully! Check your email for confirmation.");
+        // Reset form
+        setFormData({
+          fullName: "",
+          email: "",
+          startTimeline: "",
+          monthlyRevenue: "",
+          selectedDate: "",
+          timeSlot: "",
+        });
+        setSelectedDate(null);
+        setSelectedTime(null);
+      } else {
+        alert(result.message || "Booking failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Booking error:", error);
+      alert("Booking failed. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -146,6 +169,7 @@ export default function GetStarted() {
                 name="fullName"
                 placeholder="Name *"
                 required
+                value={formData.fullName}
                 onChange={handleChange}
                 className="w-full border px-4 py-2 rounded-lg"
               />
@@ -155,6 +179,7 @@ export default function GetStarted() {
                 type="email"
                 placeholder="Email *"
                 required
+                value={formData.email}
                 onChange={handleChange}
                 className="w-full border px-4 py-2 rounded-lg"
               />
@@ -175,7 +200,8 @@ export default function GetStarted() {
                       type="radio"
                       name="startTimeline"
                       value={opt}
-                      onChange={handleChange}
+                      checked={formData.startTimeline === opt}
+                      onChange={handleRadioChange}
                     />
                     {opt}
                   </label>
@@ -198,7 +224,8 @@ export default function GetStarted() {
                       type="radio"
                       name="monthlyRevenue"
                       value={opt}
-                      onChange={handleChange}
+                      checked={formData.monthlyRevenue === opt}
+                      onChange={handleRadioChange}
                     />
                     {opt}
                   </label>
