@@ -38,14 +38,14 @@ const getConfirmationEmailTemplate = (booking) => {
       <body>
         <div class="container">
           <div class="header">
-            <h1>Booking Confirmation</h1>
-            <p>Your session has been successfully scheduled</p>
+            <h1>Consultation Scheduled!</h1>
+            <p>Your 1-on-1 session with Brandskript has been confirmed</p>
           </div>
 
           <div class="content">
             <p>Hello <strong>${booking.fullName}</strong>,</p>
 
-            <p>Thank you for booking a free 1-on-1 session with us! We're excited to help you achieve your fitness goals.</p>
+            <p>Thank you for booking a free 1-on-1 consultation call with Brandskript! We're excited to help you scale your business with predictable leads & profitable ads.</p>
 
             <div class="section">
               <div style="text-align: center; margin: 20px 0;">
@@ -64,15 +64,29 @@ const getConfirmationEmailTemplate = (booking) => {
                 <span class="value">${booking.timeSlot}</span>
               </div>
               <div class="info-row">
-                <span class="label">Condition:</span>
-                <span class="value">${booking.condition}</span>
+                <span class="label">Duration:</span>
+                <span class="value">30 minutes</span>
               </div>
             </div>
 
             <div class="divider"></div>
 
             <div class="section">
-              <div class="section-title">Your Information</div>
+              <div class="section-title">Business Information</div>
+              <div class="info-row">
+                <span class="label">Monthly Revenue:</span>
+                <span class="value">${booking.monthlyRevenue}</span>
+              </div>
+              <div class="info-row">
+                <span class="label">Start Timeline:</span>
+                <span class="value">${booking.startTimeline}</span>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="section">
+              <div class="section-title">Your Contact</div>
               <div class="info-row">
                 <span class="label">Name:</span>
                 <span class="value">${booking.fullName}</span>
@@ -81,41 +95,25 @@ const getConfirmationEmailTemplate = (booking) => {
                 <span class="label">Email:</span>
                 <span class="value">${booking.email}</span>
               </div>
-              <div class="info-row">
-                <span class="label">Phone:</span>
-                <span class="value">${booking.phoneNumber}</span>
-              </div>
-              <div class="info-row">
-                <span class="label">Age:</span>
-                <span class="value">${booking.age} years</span>
-              </div>
-              <div class="info-row">
-                <span class="label">Weight:</span>
-                <span class="value">${booking.weight} kg</span>
-              </div>
-              <div class="info-row">
-                <span class="label">Height:</span>
-                <span class="value">${booking.height} cm</span>
-              </div>
             </div>
 
             <div class="divider"></div>
 
             <div class="section">
               <p><strong>What's Next?</strong></p>
-              <p>A confirmation email has been sent to your email address. Our team will review your information and send you further instructions within 24 hours.</p>
+              <p>We'll be reviewing your business information and preparing specific strategies for your consultation call. Please check your email 15 minutes before your scheduled time for the meeting link.</p>
               <p>If you have any questions or need to reschedule, please reply to this email or contact us directly.</p>
             </div>
 
             <div style="text-align: center; margin: 30px 0;">
-              <a href="${process.env.APP_URL}" class="button">Visit Our Website</a>
+              <a href="${process.env.APP_URL || 'https://brandskript.com'}" class="button">Visit Brandskript</a>
             </div>
 
             <div class="footer">
-              <p>© 2025 ${process.env.APP_NAME}. All rights reserved.</p>
+              <p>© 2025 Brandskript. All rights reserved.</p>
               <p>This is an automated email. Please do not reply directly to this message.</p>
-              <p><a href="${process.env.APP_URL}/privacy" style="color: #16a34a; text-decoration: none;">Privacy Policy</a> |
-                 <a href="${process.env.APP_URL}/terms" style="color: #16a34a; text-decoration: none;">Terms of Service</a></p>
+              <p><a href="${process.env.APP_URL || 'https://brandskript.com'}/privacy" style="color: #16a34a; text-decoration: none;">Privacy Policy</a> |
+                 <a href="${process.env.APP_URL || 'https://brandskript.com'}/terms" style="color: #16a34a; text-decoration: none;">Terms of Service</a></p>
             </div>
           </div>
         </div>
@@ -127,11 +125,11 @@ const getConfirmationEmailTemplate = (booking) => {
 const sendConfirmationEmail = async (booking) => {
   try {
     const mailOptions = {
-      from: `${process.env.APP_NAME} <${process.env.FROM_EMAIL}>`,
+      from: `Brandskript <${process.env.FROM_EMAIL || process.env.SMTP_USER}>`,
       to: booking.email,
-      subject: `Session Booking Confirmation - ${process.env.APP_NAME}`,
+      subject: `Your Brandskript Consultation is Confirmed!`,
       html: getConfirmationEmailTemplate(booking),
-      replyTo: process.env.FROM_EMAIL
+      replyTo: process.env.FROM_EMAIL || process.env.SMTP_USER
     };
 
     const info = await transporter.sendMail(mailOptions);
@@ -145,10 +143,11 @@ const sendConfirmationEmail = async (booking) => {
 
 const sendAdminNotificationEmail = async (booking) => {
   try {
+    const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_USER;
     const mailOptions = {
-      from: `${process.env.APP_NAME} <${process.env.FROM_EMAIL}>`,
-      to: process.env.FROM_EMAIL,
-      subject: `New Session Booking - ${booking.fullName}`,
+      from: `Brandskript <${process.env.FROM_EMAIL || process.env.SMTP_USER}>`,
+      to: adminEmail,
+      subject: `New Consultation Booking - ${booking.fullName}`,
       html: `
         <!DOCTYPE html>
         <html>
@@ -159,26 +158,50 @@ const sendAdminNotificationEmail = async (booking) => {
               .container { max-width: 600px; margin: 0 auto; padding: 20px; }
               .header { background-color: #1f2937; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
               .content { background-color: #f9fafb; padding: 20px; border: 1px solid #e5e7eb; border-radius: 0 0 8px 8px; }
-              .info-row { padding: 8px; background-color: white; margin: 3px 0; border-radius: 4px; }
+              .info-row { padding: 10px; background-color: white; margin: 5px 0; border-radius: 4px; display: flex; justify-content: space-between; }
               .label { font-weight: bold; color: #666; }
+              .value { color: #333; font-weight: 500; }
             </style>
           </head>
           <body>
             <div class="container">
               <div class="header">
-                <h2>New Session Booking</h2>
+                <h2>🚨 New Consultation Booking</h2>
+                <p>Brandskript - 1-on-1 Consultation Call</p>
               </div>
               <div class="content">
-                <div class="info-row"><span class="label">Name:</span> ${booking.fullName}</div>
-                <div class="info-row"><span class="label">Email:</span> ${booking.email}</div>
-                <div class="info-row"><span class="label">Phone:</span> ${booking.phoneNumber}</div>
-                <div class="info-row"><span class="label">Occupation:</span> ${booking.occupation}</div>
-                <div class="info-row"><span class="label">Date:</span> ${booking.selectedDate}</div>
-                <div class="info-row"><span class="label">Time:</span> ${booking.timeSlot}</div>
-                <div class="info-row"><span class="label">Condition:</span> ${booking.condition}</div>
-                <div class="info-row"><span class="label">Age:</span> ${booking.age}</div>
-                <div class="info-row"><span class="label">Weight:</span> ${booking.weight} kg</div>
-                <div class="info-row"><span class="label">Height:</span> ${booking.height} cm</div>
+                <div class="info-row">
+                  <span class="label">Client Name:</span>
+                  <span class="value">${booking.fullName}</span>
+                </div>
+                <div class="info-row">
+                  <span class="label">Email:</span>
+                  <span class="value">${booking.email}</span>
+                </div>
+                <div class="info-row">
+                  <span class="label">Session Date:</span>
+                  <span class="value">${booking.selectedDate}</span>
+                </div>
+                <div class="info-row">
+                  <span class="label">Time Slot:</span>
+                  <span class="value">${booking.timeSlot}</span>
+                </div>
+                <div class="info-row">
+                  <span class="label">Monthly Revenue:</span>
+                  <span class="value">${booking.monthlyRevenue}</span>
+                </div>
+                <div class="info-row">
+                  <span class="label">Start Timeline:</span>
+                  <span class="value">${booking.startTimeline}</span>
+                </div>
+                <div class="info-row">
+                  <span class="label">Booked At:</span>
+                  <span class="value">${new Date(booking.createdAt).toLocaleString()}</span>
+                </div>
+                
+                <div style="margin-top: 20px; padding: 15px; background-color: #fffbeb; border-left: 4px solid #ca8a04;">
+                  <strong>✅ Action Required:</strong> Prepare for consultation call and send meeting link 15 minutes before scheduled time.
+                </div>
               </div>
             </div>
           </body>
@@ -199,10 +222,10 @@ const sendAdminNotificationEmail = async (booking) => {
 const verifyConnection = async () => {
   try {
     await transporter.verify();
-    console.log('SMTP connection verified successfully');
+    console.log('✅ SMTP connection verified successfully for Brandskript');
     return true;
   } catch (error) {
-    console.error('SMTP connection error:', error.message);
+    console.error('❌ SMTP connection error:', error.message);
     return false;
   }
 };
