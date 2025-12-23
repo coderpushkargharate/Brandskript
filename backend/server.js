@@ -5,6 +5,10 @@ import dotenv from 'dotenv';
 import blogRoutes from './routes/blogRoutes.js';
 import bookingRoutes from './routes/bookingRoutes.js';
 import { verifyConnection } from './services/emailService.js';
+import coffeeRoutes from './routes/coffeeRoutes.js';
+
+
+
 
 dotenv.config();
 
@@ -34,6 +38,7 @@ mongoose.connect(process.env.DATABASE_URL)
 // Routes
 app.use('/api', blogRoutes);
 app.use('/api', bookingRoutes);
+app.use('/api', coffeeRoutes);
 
 // Health check
 app.get('/', (req, res) => {

@@ -21,6 +21,7 @@ import FixAndFlipPage from "./pages/FixAndFlipPage";
 import ConstructionCosts from "./pages/ConstructionCosts";
 import EstimatingAIPage from "./pages/EstimatingAIPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import CoffeeBreak from "./pages/CoffeeBreak";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
               <Route path="/construction-costs" element={<ConstructionCosts />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               
+              <Route path="/Coffeebreak" element={<CoffeeBreak />} />
 
             </Routes>
           </main>

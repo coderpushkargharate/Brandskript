@@ -93,7 +93,7 @@ const Header = () => {
                   <DropdownItem title="Lead Gen Course" desc="Learn funnels" link="/lead-gen-course" />
                 </DropdownWrapper>
 
-                <Link to="/help-center" className="whitespace-nowrap">Services</Link>
+                <Link to="/Coffeebreak" className="whitespace-nowrap">Services</Link>
                 <Link to="/careerspage" className="whitespace-nowrap">We're Hiring</Link>
               </nav>
 
