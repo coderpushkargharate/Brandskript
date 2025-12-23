@@ -157,7 +157,7 @@ export default function Admin() {
       <>
         <SEO
           title="Admin Dashboard"
-          description="Manage blogs and session bookings. Secure admin portal for Handoff platform."
+          description="Manage blogs and session bookings. Secure admin portal for Brandskript platform."
           keywords="admin, management, dashboard"
           type="website"
         />
@@ -212,7 +212,7 @@ export default function Admin() {
     <>
       <SEO
         title="Admin Dashboard"
-        description="Manage blogs and session bookings. Secure admin portal for Handoff platform."
+        description="Manage blogs and session bookings. Secure admin portal for Brandskript platform."
         keywords="admin, management, dashboard"
         type="website"
       />
@@ -462,12 +462,16 @@ export default function Admin() {
                         <p className="text-lg font-medium text-gray-900">{selectedBooking.email}</p>
                       </div>
                       <div>
-                        <p className="text-sm text-gray-600">Start Timeline</p>
-                        <p className="text-lg font-medium text-gray-900">{selectedBooking.startTimeline}</p>
+                        <p className="text-sm text-gray-600">Business Name</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.businessName}</p>
                       </div>
                       <div>
                         <p className="text-sm text-gray-600">Monthly Revenue</p>
                         <p className="text-lg font-medium text-gray-900">{selectedBooking.monthlyRevenue}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600">Start Timeline</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.startTimeline}</p>
                       </div>
                       <div>
                         <p className="text-sm text-gray-600">Selected Date</p>
@@ -476,6 +480,22 @@ export default function Admin() {
                       <div>
                         <p className="text-sm text-gray-600">Time Slot</p>
                         <p className="text-lg font-medium text-gray-900">{selectedBooking.timeSlot}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600">Products/Services</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.productsServices}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600">Target Audience</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.targetAudience}</p>
+                      </div>
+                      <div className="md:col-span-2">
+                        <p className="text-sm text-gray-600">Lead Generation Method</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.leadGenerationMethod}</p>
+                      </div>
+                      <div className="md:col-span-2">
+                        <p className="text-sm text-gray-600">Main Challenges</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.mainChallenges}</p>
                       </div>
                       <div className="md:col-span-2">
                         <p className="text-sm text-gray-600">Booked On</p>
@@ -501,13 +521,16 @@ export default function Admin() {
                       Name
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Business
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Email
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Date & Time
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                      Revenue Range
+                      Revenue
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                       Actions
@@ -519,6 +542,9 @@ export default function Admin() {
                     <tr key={booking._id}>
                       <td className="px-6 py-4 whitespace-nowrap">
                         <div className="text-sm font-medium text-gray-900">{booking.fullName}</div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                        {booking.businessName}
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                         {booking.email}

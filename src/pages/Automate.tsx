@@ -1,153 +1,585 @@
-import React, { useEffect } from "react";
+import { useState, useEffect } from 'react';
+import { Blog } from '../types/blog';
+import { Booking } from '../types/booking';
+import { Plus, Edit2, Trash2, LogOut, Eye } from 'lucide-react';
+import SEO from '../components/SEO';
 
-export default function Automate() {
+export default function Admin() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [activeTab, setActiveTab] = useState<'blogs' | 'bookings'>('blogs');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [bookings, setBookings] = useState<Booking[]>([]);
+  const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
+  const [showForm, setShowForm] = useState(false);
+  const [editingBlog, setEditingBlog] = useState<Blog | null>(null);
+  const [formData, setFormData] = useState({
+    title: '',
+    excerpt: '',
+    content: '',
+    category: 'GUIDES',
+    author: 'Admin',
+    featured: false,
+    image: ''
+  });
+
   useEffect(() => {
-  window.scrollTo(0, 0); // 🔥 Page opens from top
-}, []);
-  return (
-    <div className="w-full">
+    const token = localStorage.getItem('adminToken');
+    if (token === 'authenticated') {
+      setIsAuthenticated(true);
+      fetchBlogs();
+      fetchBookings();
+    }
+  }, []);
 
-      {/* ---------------------- SECTION 1 ----------------------- */}
-      <section className="w-full bg-[#E8F9F2] py-20 px-6">
-        <div className="max-w-6xl mx-auto text-center">
+  const handleLogin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (username === 'Brandskript' && password === 'Brandskript123') {
+      localStorage.setItem('adminToken', 'authenticated');
+      setIsAuthenticated(true);
+      fetchBlogs();
+      fetchBookings();
+    } else {
+      alert('Invalid credentials');
+    }
+  };
 
-          {/* Title */}
-          <h1 className="text-3xl md:text-4xl font-bold text-black leading-snug">
-            Automate your contracting<br />
-            business with AI estimating software
-          </h1>
+  const handleLogout = () => {
+    localStorage.removeItem('adminToken');
+    setIsAuthenticated(false);
+    setUsername('');
+    setPassword('');
+  };
 
-          {/* Three Boxes */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+  const fetchBlogs = async () => {
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/blogs`);
+      const data = await response.json();
+      setBlogs(data);
+    } catch (error) {
+      console.error('Error fetching blogs:', error);
+    }
+  };
 
-            {/* Box 1 */}
-            <div className="bg-white p-6 rounded-lg shadow-sm border">
-              <div className="w-10 h-10 rounded-full bg-yellow-200 flex items-center justify-center text-yellow-600 font-bold text-lg">
-                ●
-              </div>
-              <h3 className="font-semibold text-lg mt-4">Reclaim Your Time</h3>
-              <p className="text-sm text-gray-600 mt-2">
-                Regain valuable time with our efficient AI estimator. Let it crunch the numbers for you.
-              </p>
-            </div>
+  const fetchBookings = async () => {
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      const response = await fetch(`${apiUrl}/api/bookings`);
+      const data = await response.json();
+      setBookings(data);
+    } catch (error) {
+      console.error('Error fetching bookings:', error);
+    }
+  };
 
-            {/* Box 2 */}
-            <div className="bg-white p-6 rounded-lg shadow-sm border">
-              <div className="w-10 h-10 rounded-full bg-blue-200 flex items-center justify-center text-blue-600 font-bold text-lg">
-                ●
-              </div>
-              <h3 className="font-semibold text-lg mt-4">Estimate Anywhere, Anytime</h3>
-              <p className="text-sm text-gray-600 mt-2">
-                Provide the client with an accurate estimate without leaving their house.
-              </p>
-            </div>
+  const deleteBooking = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this booking?')) return;
 
-            {/* Box 3 */}
-            <div className="bg-white p-6 rounded-lg shadow-sm border">
-              <div className="w-10 h-10 rounded-full bg-green-200 flex items-center justify-center text-green-600 font-bold text-lg">
-                ●
-              </div>
-              <h3 className="font-semibold text-lg mt-4">Bid with Expertise</h3>
-              <p className="text-sm text-gray-600 mt-2">
-                Handoff ensures accuracy, eliminating worries about bidding.
-              </p>
-            </div>
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      await fetch(`${apiUrl}/api/bookings/${id}`, { method: 'DELETE' });
+      fetchBookings();
+      setSelectedBooking(null);
+    } catch (error) {
+      console.error('Error deleting booking:', error);
+    }
+  };
 
-          </div>
-        </div>
-      </section>
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
-      {/* ---------------------- SECTION 2 ----------------------- */}
-      <section className="w-full bg-black text-white py-24 px-6 relative overflow-hidden">
-        <div className="max-w-4xl mx-auto text-center">
+    try {
+      if (editingBlog) {
+        await fetch(`${apiUrl}/api/blogs/${editingBlog._id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...formData, date: new Date().toISOString() })
+        });
+      } else {
+        await fetch(`${apiUrl}/api/blogs`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...formData, date: new Date().toISOString() })
+        });
+      }
+      resetForm();
+      fetchBlogs();
+    } catch (error) {
+      console.error('Error saving blog:', error);
+    }
+  };
 
-          <h2 className="text-3xl md:text-4xl font-bold leading-snug">
-            Start for free. Pay as little<br />
-            as <span className="text-green-400">$119 per month.</span>
-          </h2>
+  const handleEdit = (blog: Blog) => {
+    setEditingBlog(blog);
+    setFormData({
+      title: blog.title,
+      excerpt: blog.excerpt,
+      content: blog.content,
+      category: blog.category,
+      author: blog.author,
+      featured: blog.featured,
+      image: blog.image
+    });
+    setShowForm(true);
+  };
 
-          <p className="text-gray-300 mt-4">
-            Handoff will immediately start making you more money,<br />
-            before you have to pay us even one cent.
-          </p>
+  const handleDelete = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this blog?')) return;
 
-          {/* Button */}
-          <button className="mt-6 bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full text-sm">
-            See Plan
-          </button>
+    try {
+      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+      await fetch(`${apiUrl}/api/blogs/${id}`, { method: 'DELETE' });
+      fetchBlogs();
+    } catch (error) {
+      console.error('Error deleting blog:', error);
+    }
+  };
 
-          {/* Pricing Card */}
-          <div className="mt-10 flex justify-center">
-            <div className="bg-white text-black p-8 rounded-xl w-80 shadow-xl relative">
+  const resetForm = () => {
+    setFormData({
+      title: '',
+      excerpt: '',
+      content: '',
+      category: 'GUIDES',
+      author: 'Admin',
+      featured: false,
+      image: ''
+    });
+    setEditingBlog(null);
+    setShowForm(false);
+  };
 
-              {/* Save Badge */}
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs px-3 py-1 rounded-full">
-                Save 20%
-              </div>
-
-              <h3 className="text-lg font-semibold text-center">Business Plan</h3>
-              <p className="text-sm text-gray-500 text-center mt-1">
-                Ideal for businesses getting started with AI estimating.
-              </p>
-
-              <p className="text-4xl font-bold text-center mt-4">$119.00</p>
-
-              <p className="text-sm text-gray-500 text-center mt-1">
-                Per month / Billed annually
-              </p>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      {/* ---------------------- SECTION 3 ----------------------- */}
-      <section className="w-full bg-[#F7F7F7] py-20 px-6">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-
-          {/* Left Side */}
+  if (!isAuthenticated) {
+    return (
+      <>
+        <SEO
+          title="Admin Dashboard"
+          description="Manage blogs and session bookings. Secure admin portal for Brandskript platform."
+          keywords="admin, management, dashboard"
+          type="website"
+        />
+        <div className="min-h-screen bg-gray-100 flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-md w-full bg-white rounded-lg shadow-lg p-8">
           <div>
-            <h2 className="text-3xl font-bold">Facebook community</h2>
+            <h2 className="text-center text-3xl font-bold text-gray-900 mb-8">
+              Admin Login
+            </h2>
+            <form className="space-y-6" onSubmit={handleLogin}>
+              <div>
+                <label htmlFor="username" className="block text-sm font-medium text-gray-700">
+                  Username
+                </label>
+                <input
+                  id="username"
+                  type="text"
+                  required
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                />
+              </div>
+              <div>
+                <label htmlFor="password" className="block text-sm font-medium text-gray-700">
+                  Password
+                </label>
+                <input
+                  id="password"
+                  type="password"
+                  required
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-green-500 focus:border-green-500"
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+              >
+                Sign in
+              </button>
+            </form>
+          </div>
+        </div>
+        </div>
+      </>
+    );
+  }
 
-            <p className="text-gray-600 mt-4 text-sm leading-relaxed">
-              Have questions about Handoff or need general business advice?
-              You can speak with other contractors in Handoff Nation, our engaging
-              Facebook community.
-            </p>
-
-            <button className="mt-6 bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full text-sm">
-              Join community
+  return (
+    <>
+      <SEO
+        title="Admin Dashboard"
+        description="Manage blogs and session bookings. Secure admin portal for Brandskript platform."
+        keywords="admin, management, dashboard"
+        type="website"
+      />
+      <div className="min-h-screen bg-gray-100">
+      <div className="bg-white shadow">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex justify-between items-center">
+            <h1 className="text-2xl font-bold text-gray-900">Admin Dashboard</h1>
+            <button
+              onClick={handleLogout}
+              className="flex items-center space-x-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+            >
+              <LogOut className="w-4 h-4" />
+              <span>Logout</span>
             </button>
           </div>
+        </div>
+      </div>
 
-          {/* Right Side – Circular Images */}
-          <div className="flex items-center gap-6">
-
-            {/* Image 1 */}
-            <img
-              src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753df7_Scott.webp"
-              alt=""
-              className="w-24 h-24 rounded-full object-cover shadow"
-            />
-
-            {/* Image 2 */}
-            <img
-              src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753df8_Matt.webp"
-              alt=""
-              className="w-24 h-24 rounded-full object-cover shadow"
-            />
-
-            {/* Image 3 */}
-            <img
-              src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753df9_Todd.webp"
-              alt=""
-              className="w-24 h-24 rounded-full object-cover shadow"
-            />
-
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="mb-6 border-b border-gray-200">
+          <div className="flex space-x-8">
+            <button
+              onClick={() => {
+                setActiveTab('blogs');
+                setSelectedBooking(null);
+              }}
+              className={`pb-4 px-1 border-b-2 font-medium text-sm ${
+                activeTab === 'blogs'
+                  ? 'border-green-600 text-green-600'
+                  : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300'
+              }`}
+            >
+              Blog Management
+            </button>
+            <button
+              onClick={() => {
+                setActiveTab('bookings');
+                setShowForm(false);
+              }}
+              className={`pb-4 px-1 border-b-2 font-medium text-sm ${
+                activeTab === 'bookings'
+                  ? 'border-green-600 text-green-600'
+                  : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300'
+              }`}
+            >
+              Session Bookings ({bookings.length})
+            </button>
           </div>
         </div>
-      </section>
 
-    </div>
+        {activeTab === 'blogs' && (
+          <>
+            <div className="mb-6">
+              <button
+                onClick={() => setShowForm(true)}
+                className="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+              >
+                <Plus className="w-4 h-4" />
+                <span>Add New Blog</span>
+              </button>
+            </div>
+
+        {showForm && (
+          <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 className="text-xl font-bold text-gray-900 mb-4">
+              {editingBlog ? 'Edit Blog' : 'Add New Blog'}
+            </h2>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                <input
+                  type="text"
+                  required
+                  value={formData.title}
+                  onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Excerpt</label>
+                <textarea
+                  required
+                  value={formData.excerpt}
+                  onChange={(e) => setFormData({ ...formData, excerpt: e.target.value })}
+                  rows={2}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Content</label>
+                <textarea
+                  required
+                  value={formData.content}
+                  onChange={(e) => setFormData({ ...formData, content: e.target.value })}
+                  rows={6}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
+                />
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
+                  <select
+                    value={formData.category}
+                    onChange={(e) => setFormData({ ...formData, category: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
+                  >
+                    <option>GUIDES</option>
+                    <option>UPDATES</option>
+                    <option>CASE STUDIES</option>
+                    <option>RESOURCES</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">Author</label>
+                  <input
+                    type="text"
+                    required
+                    value={formData.author}
+                    onChange={(e) => setFormData({ ...formData, author: e.target.value })}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Image URL</label>
+                <input
+                  type="url"
+                  required
+                  value={formData.image}
+                  onChange={(e) => setFormData({ ...formData, image: e.target.value })}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
+                  placeholder="https://images.pexels.com/..."
+                />
+              </div>
+              <div className="flex items-center">
+                <input
+                  type="checkbox"
+                  id="featured"
+                  checked={formData.featured}
+                  onChange={(e) => setFormData({ ...formData, featured: e.target.checked })}
+                  className="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300 rounded"
+                />
+                <label htmlFor="featured" className="ml-2 block text-sm text-gray-700">
+                  Featured Post
+                </label>
+              </div>
+              <div className="flex space-x-3">
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+                >
+                  {editingBlog ? 'Update' : 'Create'} Blog
+                </button>
+                <button
+                  type="button"
+                  onClick={resetForm}
+                  className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400"
+                >
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
+        )}
+
+        <div className="bg-white rounded-lg shadow overflow-hidden">
+          <table className="min-w-full divide-y divide-gray-200">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Title
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Category
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Author
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Featured
+                </th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white divide-y divide-gray-200">
+              {blogs.map((blog) => (
+                <tr key={blog._id}>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <div className="text-sm font-medium text-gray-900">{blog.title}</div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                      {blog.category}
+                    </span>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    {blog.author}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    {blog.featured ? 'Yes' : 'No'}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                    <button
+                      onClick={() => handleEdit(blog)}
+                      className="text-blue-600 hover:text-blue-900 mr-4"
+                    >
+                      <Edit2 className="w-4 h-4" />
+                    </button>
+                    <button
+                      onClick={() => handleDelete(blog._id!)}
+                      className="text-red-600 hover:text-red-900"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+            </div>
+          </>
+        )}
+
+        {activeTab === 'bookings' && (
+          <div className="bg-white rounded-lg shadow overflow-hidden">
+            {selectedBooking ? (
+              <div className="p-6">
+                <button
+                  onClick={() => setSelectedBooking(null)}
+                  className="mb-4 text-blue-600 hover:text-blue-900 font-medium"
+                >
+                  &larr; Back to Bookings
+                </button>
+                <div className="space-y-6">
+                  <div className="border-b border-gray-200 pb-6">
+                    <h2 className="text-2xl font-bold text-gray-900 mb-4">Booking Details</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div>
+                        <p className="text-sm text-gray-600">Full Name</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.fullName}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600">Email</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.email}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600">Business Name</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.businessName}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600">Monthly Revenue</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.monthlyRevenue}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600">Start Timeline</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.startTimeline}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600">Selected Date</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.selectedDate}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600">Time Slot</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.timeSlot}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600">Products/Services</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.productsServices}</p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600">Target Audience</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.targetAudience}</p>
+                      </div>
+                      <div className="md:col-span-2">
+                        <p className="text-sm text-gray-600">Lead Generation Method</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.leadGenerationMethod}</p>
+                      </div>
+                      <div className="md:col-span-2">
+                        <p className="text-sm text-gray-600">Main Challenges</p>
+                        <p className="text-lg font-medium text-gray-900">{selectedBooking.mainChallenges}</p>
+                      </div>
+                      <div className="md:col-span-2">
+                        <p className="text-sm text-gray-600">Booked On</p>
+                        <p className="text-lg font-medium text-gray-900">
+                          {new Date(selectedBooking.createdAt).toLocaleString()}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                    onClick={() => deleteBooking(selectedBooking._id!)}
+                    className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+                  >
+                    Delete Booking
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Name
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Business
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Email
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Date & Time
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Revenue
+                    </th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                      Actions
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {bookings.map((booking) => (
+                    <tr key={booking._id}>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <div className="text-sm font-medium text-gray-900">{booking.fullName}</div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                        {booking.businessName}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                        {booking.email}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
+                        {booking.selectedDate} at {booking.timeSlot}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
+                          {booking.monthlyRevenue}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <button
+                          onClick={() => setSelectedBooking(booking)}
+                          className="text-blue-600 hover:text-blue-900 mr-4"
+                        >
+                          <Eye className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => deleteBooking(booking._id!)}
+                          className="text-red-600 hover:text-red-900"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </div>
+        )}
+      </div>
+      </div>
+    </>
   );
 }

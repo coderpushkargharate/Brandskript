@@ -14,6 +14,11 @@ export default function GetStarted() {
     monthlyRevenue: "",
     selectedDate: "",
     timeSlot: "",
+    businessName: "",
+    productsServices: "",
+    targetAudience: "",
+    leadGenerationMethod: "",
+    mainChallenges: ""
   });
 
   const dates = ['24 Mon', '25 Tue', '26 Wed', '27 Thu', '28 Fri', '29 Sat', '30 Sun'];
@@ -25,7 +30,7 @@ export default function GetStarted() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -46,6 +51,32 @@ export default function GetStarted() {
 
     if (!formData.startTimeline || !formData.monthlyRevenue) {
       alert("Please answer both questions");
+      return;
+    }
+
+    // Validate required additional fields
+    if (!formData.businessName.trim()) {
+      alert("Please enter your business name");
+      return;
+    }
+
+    if (!formData.productsServices.trim()) {
+      alert("Please describe your products or services");
+      return;
+    }
+
+    if (!formData.targetAudience.trim()) {
+      alert("Please describe your target audience or ideal customer");
+      return;
+    }
+
+    if (!formData.leadGenerationMethod.trim()) {
+      alert("Please describe how you currently generate leads");
+      return;
+    }
+
+    if (!formData.mainChallenges.trim()) {
+      alert("Please describe your main challenges in generating consistent leads");
       return;
     }
 
@@ -71,6 +102,11 @@ export default function GetStarted() {
           monthlyRevenue: "",
           selectedDate: "",
           timeSlot: "",
+          businessName: "",
+          productsServices: "",
+          targetAudience: "",
+          leadGenerationMethod: "",
+          mainChallenges: ""
         });
         setSelectedDate(null);
         setSelectedTime(null);
@@ -230,6 +266,90 @@ export default function GetStarted() {
                     {opt}
                   </label>
                 ))}
+              </div>
+
+              {/* ADDITIONAL QUESTIONS FROM IMAGE */}
+              <div className="space-y-6 pt-6 border-t border-gray-200">
+                <div>
+                  <label className="block font-medium mb-2">
+                    What is the name of your business?
+                  </label>
+                  <input
+                    name="businessName"
+                    placeholder="Enter your business name"
+                    required
+                    value={formData.businessName}
+                    onChange={handleChange}
+                    className="w-full border px-4 py-2 rounded-lg"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-medium mb-2">
+                    What products or services do you offer?
+                  </label>
+                  <input
+                    name="productsServices"
+                    placeholder="Describe your products or services"
+                    required
+                    value={formData.productsServices}
+                    onChange={handleChange}
+                    className="w-full border px-4 py-2 rounded-lg"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-medium mb-2">
+                    Who is your target audience or ideal customer?
+                  </label>
+                  <input
+                    name="targetAudience"
+                    placeholder="Describe your target audience or ideal customer"
+                    required
+                    value={formData.targetAudience}
+                    onChange={handleChange}
+                    className="w-full border px-4 py-2 rounded-lg"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-medium mb-2">
+                    How do you currently generate leads or acquire new customers?
+                  </label>
+                  <textarea
+                    name="leadGenerationMethod"
+                    placeholder="Describe your current lead generation methods"
+                    required
+                    rows={3}
+                    value={formData.leadGenerationMethod}
+                    onChange={handleChange}
+                    className="w-full border px-4 py-2 rounded-lg"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-medium mb-2">
+                    What are the main challenges you face in generating consistent leads or clients?
+                  </label>
+                  <textarea
+                    name="mainChallenges"
+                    placeholder="Describe your main challenges in generating consistent leads"
+                    required
+                    rows={3}
+                    value={formData.mainChallenges}
+                    onChange={handleChange}
+                    className="w-full border px-4 py-2 rounded-lg"
+                  />
+                </div>
+              </div>
+
+              {/* TERMS AND CONDITIONS */}
+              <div className="pt-4 border-t border-gray-200">
+                <p className="text-sm text-gray-600 mb-4">
+                  By proceeding, you confirm that you have read and agree to 
+                  <a href="#" className="text-blue-600 hover:text-blue-800 underline ml-1">Brandskript's Terms of Use</a> and 
+                  <a href="#" className="text-blue-600 hover:text-blue-800 underline ml-1">Privacy Notice</a>.
+                </p>
               </div>
 
               <button

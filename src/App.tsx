@@ -49,6 +49,7 @@ function App() {
               <Route path="/instant-ai-estimates" element={<EstimatingAIPage />} />
               <Route path="/construction-costs" element={<ConstructionCosts />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+              
 
             </Routes>
           </main>

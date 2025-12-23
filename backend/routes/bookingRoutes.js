@@ -31,6 +31,26 @@ const validateBooking = (data) => {
     errors.push('Time slot is required');
   }
 
+  if (!data.businessName || data.businessName.trim() === '') {
+    errors.push('Business name is required');
+  }
+
+  if (!data.productsServices || data.productsServices.trim() === '') {
+    errors.push('Products/services description is required');
+  }
+
+  if (!data.targetAudience || data.targetAudience.trim() === '') {
+    errors.push('Target audience description is required');
+  }
+
+  if (!data.leadGenerationMethod || data.leadGenerationMethod.trim() === '') {
+    errors.push('Lead generation method is required');
+  }
+
+  if (!data.mainChallenges || data.mainChallenges.trim() === '') {
+    errors.push('Main challenges description is required');
+  }
+
   return errors;
 };
 

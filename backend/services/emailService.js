@@ -81,6 +81,10 @@ const getConfirmationEmailTemplate = (booking) => {
                 <span class="label">Start Timeline:</span>
                 <span class="value">${booking.startTimeline}</span>
               </div>
+              <div class="info-row">
+                <span class="label">Business Name:</span>
+                <span class="value">${booking.businessName}</span>
+              </div>
             </div>
 
             <div class="divider"></div>
@@ -112,8 +116,6 @@ const getConfirmationEmailTemplate = (booking) => {
             <div class="footer">
               <p>© 2025 Brandskript. All rights reserved.</p>
               <p>This is an automated email. Please do not reply directly to this message.</p>
-              <p><a href="${process.env.APP_URL || 'https://brandskript.com'}/privacy" style="color: #16a34a; text-decoration: none;">Privacy Policy</a> |
-                 <a href="${process.env.APP_URL || 'https://brandskript.com'}/terms" style="color: #16a34a; text-decoration: none;">Terms of Service</a></p>
             </div>
           </div>
         </div>
@@ -161,6 +163,8 @@ const sendAdminNotificationEmail = async (booking) => {
               .info-row { padding: 10px; background-color: white; margin: 5px 0; border-radius: 4px; display: flex; justify-content: space-between; }
               .label { font-weight: bold; color: #666; }
               .value { color: #333; font-weight: 500; }
+              .section { margin: 15px 0; }
+              .section-title { font-weight: bold; color: #1f2937; margin-bottom: 10px; }
             </style>
           </head>
           <body>
@@ -170,30 +174,66 @@ const sendAdminNotificationEmail = async (booking) => {
                 <p>Brandskript - 1-on-1 Consultation Call</p>
               </div>
               <div class="content">
-                <div class="info-row">
-                  <span class="label">Client Name:</span>
-                  <span class="value">${booking.fullName}</span>
+                <div class="section">
+                  <div class="section-title">Client Information</div>
+                  <div class="info-row">
+                    <span class="label">Client Name:</span>
+                    <span class="value">${booking.fullName}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="label">Email:</span>
+                    <span class="value">${booking.email}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="label">Business Name:</span>
+                    <span class="value">${booking.businessName}</span>
+                  </div>
                 </div>
-                <div class="info-row">
-                  <span class="label">Email:</span>
-                  <span class="value">${booking.email}</span>
+
+                <div class="section">
+                  <div class="section-title">Session Details</div>
+                  <div class="info-row">
+                    <span class="label">Session Date:</span>
+                    <span class="value">${booking.selectedDate}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="label">Time Slot:</span>
+                    <span class="value">${booking.timeSlot}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="label">Monthly Revenue:</span>
+                    <span class="value">${booking.monthlyRevenue}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="label">Start Timeline:</span>
+                    <span class="value">${booking.startTimeline}</span>
+                  </div>
                 </div>
-                <div class="info-row">
-                  <span class="label">Session Date:</span>
-                  <span class="value">${booking.selectedDate}</span>
+
+                <div class="section">
+                  <div class="section-title">Business Details</div>
+                  <div class="info-row">
+                    <span class="label">Products/Services:</span>
+                    <span class="value">${booking.productsServices}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="label">Target Audience:</span>
+                    <span class="value">${booking.targetAudience}</span>
+                  </div>
                 </div>
-                <div class="info-row">
-                  <span class="label">Time Slot:</span>
-                  <span class="value">${booking.timeSlot}</span>
+
+                <div class="section">
+                  <div class="section-title">Current Situation</div>
+                  <div class="info-row">
+                    <span class="label">Lead Generation:</span>
+                    <span class="value">${booking.leadGenerationMethod}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="label">Main Challenges:</span>
+                    <span class="value">${booking.mainChallenges}</span>
+                  </div>
                 </div>
-                <div class="info-row">
-                  <span class="label">Monthly Revenue:</span>
-                  <span class="value">${booking.monthlyRevenue}</span>
-                </div>
-                <div class="info-row">
-                  <span class="label">Start Timeline:</span>
-                  <span class="value">${booking.startTimeline}</span>
-                </div>
+
                 <div class="info-row">
                   <span class="label">Booked At:</span>
                   <span class="value">${new Date(booking.createdAt).toLocaleString()}</span>
