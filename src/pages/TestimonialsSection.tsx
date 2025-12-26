@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
 import { MapPin } from "lucide-react";
+
+import "swiper/css";
+import "swiper/css/pagination";
 
 const testimonials = [
   {
@@ -18,7 +20,7 @@ const testimonials = [
     company: "equi-linc",
     img: "https://randomuser.me/api/portraits/men/45.jpg",
     review:
-      "Handoff AI is a game changer in helping us develop our long term sales & operations plan. AI is the way of the future and this hits us in a very important part of our business.",
+      "Handoff AI is a game changer in helping us develop our long term sales & operations plan.",
     location: "Brownsburg, IN",
   },
   {
@@ -26,7 +28,7 @@ const testimonials = [
     company: "MCM Homes",
     img: "https://randomuser.me/api/portraits/men/40.jpg",
     review:
-      "I can genuinely trust the estimates I’m getting. Since I’ve been in Handoff, there hasn’t been a time I haven’t checked numbers and gotten a number in my head or got the same scope. It's incredibly comfortable for me.",
+      "I can genuinely trust the estimates I’m getting. It's incredibly comfortable for me.",
     location: "Omaha, NE",
   },
   {
@@ -34,93 +36,63 @@ const testimonials = [
     company: "BuildPro",
     img: "https://randomuser.me/api/portraits/men/32.jpg",
     review:
-      "The accuracy and speed are unmatched. This tool alone improved our close rate significantly.",
+      "The accuracy and speed are unmatched. This tool improved our close rate significantly.",
     location: "Austin, TX",
   },
 ];
 
 const TestimonialSection = () => {
-  const sliderRef = useRef(null);
-  const [maxHeight, setMaxHeight] = useState(0);
-
-  // Calculate tallest card height
-  useEffect(() => {
-    const updateHeight = () => {
-      if (sliderRef.current) {
-        const cards = sliderRef.current.querySelectorAll(".testimonial-card");
-        let tallest = 0;
-        cards.forEach((card) => {
-          const h = card.offsetHeight;
-          if (h > tallest) tallest = h;
-        });
-        setMaxHeight(tallest);
-      }
-    };
-    updateHeight();
-    window.addEventListener("resize", updateHeight);
-    return () => window.removeEventListener("resize", updateHeight);
-  }, []);
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 2800,
-    arrows: true,
-    responsive: [
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 2,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          arrows: false,
-        },
-      },
-    ],
-  };
-
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-gray-50 overflow-hidden">
+    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
       <h2 className="text-center text-3xl sm:text-4xl md:text-5xl font-extrabold mb-14 px-4">
         AI estimating software contractors love
       </h2>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6" ref={sliderRef}>
-        <Slider {...settings}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
+          pagination={{ clickable: true }}
+          speed={600}
+          spaceBetween={24}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1280: {
+              slidesPerView: 3,
+            },
+          }}
+        >
           {testimonials.map((item, index) => (
-            <div key={index} className="px-3">
-              <div
-                className="testimonial-card bg-white p-6 sm:p-8 rounded-3xl shadow-lg border border-gray-100 flex flex-col justify-between transition hover:shadow-xl"
-                style={{ minHeight: `${maxHeight}px` }} // Set equal height
-              >
-                {/* TOP */}
-                <div>
-                  {/* PROFILE */}
-                  <div className="flex items-center gap-4 mb-5">
-                    <img
-                      src={item.img}
-                      alt={item.name}
-                      className="w-12 h-12 rounded-full object-cover"
-                    />
-                    <div>
-                      <h4 className="font-bold text-lg leading-tight">{item.name}</h4>
-                      <p className="text-sm text-gray-500">{item.company}</p>
-                    </div>
+            <SwiperSlide key={index}>
+              <div className="h-full bg-white p-6 sm:p-8 rounded-3xl shadow-lg border border-gray-100 flex flex-col transition hover:shadow-xl">
+                
+                {/* PROFILE */}
+                <div className="flex items-center gap-4 mb-5">
+                  <img
+                    src={item.img}
+                    alt={item.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
+                  <div>
+                    <h4 className="font-bold text-lg leading-tight">
+                      {item.name}
+                    </h4>
+                    <p className="text-sm text-gray-500">{item.company}</p>
                   </div>
-
-                  {/* REVIEW */}
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                    “{item.review}”
-                  </p>
                 </div>
+
+                {/* REVIEW */}
+                <p className="text-gray-600 text-sm sm:text-base leading-relaxed flex-grow">
+                  “{item.review}”
+                </p>
 
                 {/* FOOTER */}
                 <div className="flex items-center gap-2 text-gray-700 font-medium mt-6 pt-4 border-t">
@@ -128,25 +100,19 @@ const TestimonialSection = () => {
                   <span className="text-sm">{item.location}</span>
                 </div>
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
       </div>
 
-      {/* SLICK FIXES */}
+      {/* Pagination spacing fix */}
       <style>{`
-        .slick-slide > div {
-          height: 100%;
-        }
-        .slick-dots {
-          bottom: -45px;
-        }
-        .slick-prev, .slick-next {
-          z-index: 10;
+        .swiper-pagination {
+          bottom: -35px !important;
         }
         @media (max-width: 768px) {
-          .slick-dots {
-            bottom: -35px;
+          .swiper-pagination {
+            bottom: -25px !important;
           }
         }
       `}</style>

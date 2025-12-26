@@ -16,13 +16,11 @@ export default function Footer() {
           <div>
             <Link to="/" className="flex items-center gap-2">
               <img
-                src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png"
+                src="/ROI Edge Logos-01.png"
                 alt="Handoff Logo"
-                className="w-8"
+                className="w-24 sm:w-28 xl:w-32"
               />
-              <h2 className="text-2xl font-bold text-[#0B0F29]">
-                Handoff
-              </h2>
+             
             </Link>
 
             <p className="text-gray-600 mt-4 text-sm leading-relaxed">

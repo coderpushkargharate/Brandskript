@@ -1,7 +1,9 @@
-import React, { useRef, useEffect, useState } from "react";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
 
 const features = [
   {
@@ -35,112 +37,55 @@ const features = [
 ];
 
 const FeaturesCarousel = () => {
-  const sliderRef = useRef(null);
-  const [maxHeight, setMaxHeight] = useState(0);
-
-  // Calculate tallest card height
-  useEffect(() => {
-    const updateHeight = () => {
-      if (sliderRef.current) {
-        const cards = sliderRef.current.querySelectorAll(".feature-card");
-        let tallest = 0;
-        cards.forEach((card) => {
-          const h = card.offsetHeight;
-          if (h > tallest) tallest = h;
-        });
-        setMaxHeight(tallest);
-      }
-    };
-    updateHeight();
-    window.addEventListener("resize", updateHeight);
-    return () => window.removeEventListener("resize", updateHeight);
-  }, []);
-
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 600,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    arrows: true,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    responsive: [
-      {
-        breakpoint: 1280,
-        settings: { slidesToShow: 2, arrows: true },
-      },
-      {
-        breakpoint: 768,
-        settings: { slidesToShow: 1, arrows: false },
-      },
-    ],
-  };
-
   return (
-    <div className="py-20 bg-[#EAFBF1]">
-      {/* Heading */}
+    <section className="py-20 bg-[#EAFBF1]">
       <h2 className="text-center text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 px-4">
-        Automate your contracting<br />business with AI
+        Automate your contracting <br /> business with AI
       </h2>
 
-      <p className="text-center max-w-3xl mx-auto text-gray-600 mb-14 px-4 sm:px-0">
+      <p className="text-center max-w-3xl mx-auto text-gray-600 mb-14 px-4">
         Handoff provides everything you need to automate the operations of your contracting business
-        with Artificial Intelligence. Create instant estimates, send winning proposals, wow your clients,
-        and get paid faster.
+        with Artificial Intelligence.
       </p>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6" ref={sliderRef}>
-        <Slider {...settings}>
+      <div className="max-w-7xl mx-auto px-4">
+        <Swiper
+          modules={[Autoplay, Pagination]}
+          autoplay={{ delay: 3000 }}
+          pagination={{ clickable: true }}
+          spaceBetween={24}
+          breakpoints={{
+            0: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1280: { slidesPerView: 3 },
+          }}
+        >
           {features.map((item, i) => (
-            <div key={i} className="px-3">
+            <SwiperSlide key={i}>
               <div
-                className="feature-card rounded-3xl shadow-md p-6 sm:p-8 border border-gray-200 flex flex-col justify-between transition hover:shadow-xl"
-                style={{ backgroundColor: item.bg, minHeight: `${maxHeight}px` }}
+                className="h-full flex flex-col rounded-3xl border border-gray-200 shadow-md p-6 sm:p-8 hover:shadow-xl transition"
+                style={{ backgroundColor: item.bg }}
               >
-                {/* Tag */}
-                <span className="text-xs bg-black text-white px-3 py-1 rounded-full">
+                <span className="w-fit text-xs bg-black text-white px-3 py-1 rounded-full mb-4">
                   {item.tag}
                 </span>
 
-                {/* Image */}
-                <img
-                  src={item.img}
-                  alt={item.title}
-                  className="w-full mt-4 rounded-xl object-contain"
-                />
+                <div className="h-44 sm:h-52 flex items-center justify-center mb-4">
+                  <img src={item.img} alt={item.title} className="max-h-full object-contain" />
+                </div>
 
-                {/* Title */}
-                <h3 className="text-xl font-bold mt-4">{item.title}</h3>
+                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <p className="text-gray-700 flex-grow">{item.desc}</p>
 
-                {/* Description */}
-                <p className="text-gray-700 mt-2">{item.desc}</p>
-
-                {/* Learn More */}
-                <button className="mt-4 text-black font-semibold flex items-center gap-2 hover:underline">
+                <button className="mt-5 font-semibold hover:underline">
                   Learn more →
                 </button>
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </Slider>
+        </Swiper>
       </div>
-
-      {/* SLICK FIXES */}
-      <style>{`
-        .slick-slide > div {
-          height: 100%;
-        }
-        .slick-dots {
-          bottom: -35px;
-        }
-        @media (max-width: 768px) {
-          .slick-dots {
-            bottom: -25px;
-          }
-        }
-      `}</style>
-    </div>
+    </section>
   );
 };
 

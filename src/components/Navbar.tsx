@@ -17,10 +17,10 @@ const specialities = [
 ];
 
 const whoWeServe = [
-  { title: "SaaS Business", desc: "Scalable SaaS growth", link: "/saas-business" },
-  { title: "Service Businesses", desc: "More booked calls", link: "/service-businesses" },
-  { title: "Real Estate", desc: "Buyer & seller leads", link: "/real-estate" },
-  { title: "Healthcare", desc: "Patient acquisition", link: "/healthcare" },
+  { title: "SaaS Business", desc: "Scalable SaaS growth", link: "/handyman" },
+  { title: "Service Businesses", desc: "More booked calls", link: "/fixandflip" },
+  { title: "Real Estate", desc: "Buyer & seller leads", link: "/instant-ai-estimates" },
+  { title: "Healthcare", desc: "Patient acquisition", link: "/construction-costs" },
 ];
 
 const resources = [
