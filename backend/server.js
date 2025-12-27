@@ -75,13 +75,13 @@ const CoffeeRegistration = mongoose.model('CoffeeRegistration', coffeeRegistrati
 const newspaperSchema = new mongoose.Schema({
   title: { type: String, required: true },
   description: { type: String, required: true },
-  mediaUrl: { type: String, required: true },     // filename (e.g., "media-12345.jpg")
-  mediaType: {                                    // 'image' or 'video'
+  mediaUrl: { type: String, required: true },
+  mediaType: {
     type: String,
     enum: ['image', 'video'],
     required: true
   },
-  logoUrl: { type: String },                      // optional logo filename
+  logoUrl: { type: String },
   authorName: { type: String, required: true },
   authorTitle: { type: String, required: true },
   date: { type: Date, default: Date.now }
@@ -100,86 +100,42 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const getConfirmationEmailTemplate = (booking) => {
-  return `
-    <!DOCTYPE html>
-    <html>
-      <head>
-        <meta charset="utf-8">
-        <style>
-          body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-          .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-          .header { background: linear-gradient(to right, #16a34a, #15803d); color: white; padding: 30px; text-align: center; border-radius: 8px 8px 0 0; }
-          .content { background-color: #f9fafb; padding: 30px; border: 1px solid #e5e7eb; border-radius: 0 0 8px 8px; }
-          .section { margin: 20px 0; }
-          .section-title { font-size: 16px; font-weight: bold; color: #16a34a; margin-bottom: 10px; }
-          .info-row { display: flex; justify-content: space-between; padding: 10px; background-color: white; margin: 5px 0; border-radius: 4px; }
-          .label { font-weight: bold; color: #666; }
-          .value { color: #333; }
-          .divider { border-top: 2px solid #16a34a; margin: 20px 0; }
-          .footer { text-align: center; color: #666; font-size: 12px; margin-top: 20px; padding-top: 20px; border-top: 1px solid #e5e7eb; }
-          .button { display: inline-block; padding: 12px 30px; background-color: #16a34a; color: white; text-decoration: none; border-radius: 4px; margin: 20px 0; }
-          .success-badge { display: inline-block; background-color: #dcfce7; color: #166534; padding: 8px 16px; border-radius: 4px; font-weight: bold; }
-        </style>
-      </head>
-      <body>
-        <div class="container">
-          <div class="header">
-            <h1>Consultation Scheduled!</h1>
-            <p>Your 1-on-1 session with Brandskript has been confirmed</p>
-          </div>
-          <div class="content">
-            <p>Hello <strong>${booking.fullName}</strong>,</p>
-            <p>Thank you for booking a free 1-on-1 consultation call with Brandskript!</p>
-            <div class="section">
-              <div style="text-align: center; margin: 20px 0;">
-                <span class="success-badge">✓ Confirmed</span>
-              </div>
-            </div>
-            <div class="section">
-              <div class="section-title">Session Details</div>
-              <div class="info-row"><span class="label">Date:</span><span class="value">${booking.selectedDate}</span></div>
-              <div class="info-row"><span class="label">Time:</span><span class="value">${booking.timeSlot}</span></div>
-              <div class="info-row"><span class="label">Duration:</span><span class="value">30 minutes</span></div>
-            </div>
-            <div class="divider"></div>
-            <div class="section">
-              <div class="section-title">Business Information</div>
-              <div class="info-row"><span class="label">Monthly Revenue:</span><span class="value">${booking.monthlyRevenue}</span></div>
-              <div class="info-row"><span class="label">Start Timeline:</span><span class="value">${booking.startTimeline}</span></div>
-              <div class="info-row"><span class="label">Business Name:</span><span class="value">${booking.businessName}</span></div>
-            </div>
-            <div class="divider"></div>
-            <div class="section">
-              <div class="section-title">Your Contact</div>
-              <div class="info-row"><span class="label">Name:</span><span class="value">${booking.fullName}</span></div>
-              <div class="info-row"><span class="label">Email:</span><span class="value">${booking.email}</span></div>
-            </div>
-            <div class="divider"></div>
-            <div class="section">
-              <p><strong>What's Next?</strong></p>
-              <p>We'll send a meeting link 15 minutes before your call.</p>
-            </div>
-            <div style="text-align: center; margin: 30px 0;">
-              <a href="${process.env.APP_URL || 'https://brandskript.com'}" class="button">Visit Brandskript</a>
-            </div>
-            <div class="footer">
-              <p>© 2025 Brandskript. All rights reserved.</p>
-            </div>
-          </div>
-        </div>
-      </body>
-    </html>
-  `;
-};
-
+// ✅ UPDATED: Plain-text booking confirmation email (ROI Edge version)
 const sendConfirmationEmail = async (booking) => {
   try {
+    const emailText = `Hi ${booking.fullName},
+
+Thank you for booking a 1:1 strategy call with ROI Edge.
+
+This session is designed to understand your business goals and explore how we can help you set up a scalable client acquisition system, generate qualified leads, and run high-ROI ad campaigns.
+
+Appointment Details:
+📅 Date: ${booking.selectedDate}
+⏰ Time: ${booking.timeSlot} (IST)
+📍 Mode: Google Meet
+🔗 Meeting Link: ${process.env.MEETING_LINK || 'https://meet.google.com/your-link'}
+
+To make the call as productive as possible, please be prepared to discuss:
+	•	Your current lead generation or acquisition process
+	•	Your ideal customer profile
+	•	Your growth targets for the next 3–6 months
+
+If you need to reschedule or cancel, kindly inform us at least 24 hours in advance.
+
+Looking forward to a focused and valuable conversation.
+
+Best regards,
+Shubham Channagire
+ROI Edge
+Client Acquisition & Growth Systems
+📧 Hello.roiedge@gmail.com 📞 +918999051967
+🌐 www.roi-edge.com`;
+
     const mailOptions = {
-      from: `Brandskript <${process.env.FROM_EMAIL || process.env.SMTP_USER}>`,
+      from: `ROI Edge <${process.env.FROM_EMAIL || process.env.SMTP_USER}>`,
       to: booking.email,
-      subject: `Your Brandskript Consultation is Confirmed!`,
-      html: getConfirmationEmailTemplate(booking),
+      subject: "Your 1:1 Strategy Call with ROI Edge Is Confirmed ✅",
+      text: emailText,
       replyTo: process.env.FROM_EMAIL || process.env.SMTP_USER
     };
     await transporter.sendMail(mailOptions);
@@ -191,11 +147,12 @@ const sendConfirmationEmail = async (booking) => {
   }
 };
 
+// Keep admin email as HTML (no change requested)
 const sendAdminNotificationEmail = async (booking) => {
   try {
     const adminEmail = process.env.ADMIN_EMAIL || process.env.SMTP_USER;
     const mailOptions = {
-      from: `Brandskript <${process.env.FROM_EMAIL || process.env.SMTP_USER}>`,
+      from: `ROI Edge <${process.env.FROM_EMAIL || process.env.SMTP_USER}>`,
       to: adminEmail,
       subject: `New Consultation Booking - ${booking.fullName}`,
       html: `
@@ -216,6 +173,58 @@ const sendAdminNotificationEmail = async (booking) => {
   } catch (error) {
     console.error('❌ Failed to send admin email:', error.message);
     return false;
+  }
+};
+
+// ✅ UPDATED: Coffee/popup registration email (ROI Edge community version)
+const sendCoffeeRegistrationEmails = async (registration) => {
+  try {
+    const clientText = `Hi ${registration.firstName},
+
+Welcome to ROI Edge — you’re now part of a community that believes in one simple principle:
+
+A healthy client acquisition system builds a healthy business.
+When it’s ROI-friendly, predictable revenue follows.
+
+As a member, you’ll get:
+	•	Practical frameworks for healthy client acquisition systems
+	•	Proven ways to generate qualified leads
+	•	Insights on ROI-friendly, high-performing ads
+
+No fluff. No hype. Just systems that compound over time.
+
+Glad to have you with us.
+
+— Shubham Channagire
+Founder at ROI Edge`;
+
+    await transporter.sendMail({
+      from: `ROI Edge <${process.env.FROM_EMAIL || process.env.SMTP_USER}>`,
+      to: registration.email,
+      subject: "Welcome to the ROI Edge Community 🚀",
+      text: clientText,
+      replyTo: process.env.FROM_EMAIL
+    });
+
+    // Admin notification — keep as plain text (unchanged logic)
+    const adminText = `New Community Signup
+
+Name: ${registration.firstName}
+Email: ${registration.email}
+Phone: ${registration.phone}
+Role: ${registration.userType}`;
+
+    await transporter.sendMail({
+      from: `ROI Edge <${process.env.FROM_EMAIL || process.env.SMTP_USER}>`,
+      to: process.env.ADMIN_EMAIL || process.env.SMTP_USER,
+      subject: `🚀 New Community Member: ${registration.firstName}`,
+      text: adminText,
+      replyTo: registration.email
+    });
+
+    console.log('✅ Coffee registration emails sent');
+  } catch (error) {
+    console.error('❌ Coffee email error:', error.message);
   }
 };
 
@@ -379,16 +388,18 @@ app.delete('/api/bookings/:id', async (req, res) => {
   }
 });
 
-// Coffee Registrations
+// ✅ UPDATED: Coffee Registrations — now sends ROI Edge welcome email
 app.post('/api/coffee-register', async (req, res) => {
   try {
     const data = await CoffeeRegistration.create(req.body);
+    await sendCoffeeRegistrationEmails(data);
     res.json({ success: true, data });
   } catch (error) {
     res.status(500).json({ message: 'Failed to register coffee break' });
   }
 });
 
+// Other coffee routes (unchanged)
 app.get('/api/coffee-registrations', async (req, res) => {
   try {
     const data = await CoffeeRegistration.find().sort({ createdAt: -1 });
@@ -408,9 +419,7 @@ app.delete('/api/coffee-registrations/:id', async (req, res) => {
   }
 });
 
-// ✅ ENHANCED NEWSPAPER ROUTES
-
-// GET all newspapers (with full URLs)
+// Newspaper routes (unchanged)
 app.get('/api/newspapers', async (req, res) => {
   try {
     const newspapers = await Newspaper.find().sort({ date: -1 });
@@ -427,7 +436,6 @@ app.get('/api/newspapers', async (req, res) => {
   }
 });
 
-// POST new newspaper
 app.post('/api/newspapers', uploadFields, async (req, res) => {
   try {
     const { title, description, authorName, authorTitle } = req.body;
@@ -471,7 +479,6 @@ app.post('/api/newspapers', uploadFields, async (req, res) => {
   }
 });
 
-// PUT (Update) newspaper
 app.put('/api/newspapers/:id', uploadFields, async (req, res) => {
   try {
     const { id } = req.params;
@@ -519,14 +526,12 @@ app.put('/api/newspapers/:id', uploadFields, async (req, res) => {
   }
 });
 
-// DELETE newspaper
 app.delete('/api/newspapers/:id', async (req, res) => {
   try {
     const newspaper = await Newspaper.findByIdAndDelete(req.params.id);
     if (!newspaper) {
       return res.status(404).json({ message: 'Newspaper not found' });
     }
-    // Note: File deletion from disk is optional and not implemented here for simplicity
     res.json({ message: 'Newspaper deleted successfully' });
   } catch (error) {
     console.error('Newspaper delete error:', error);

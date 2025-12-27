@@ -1,5 +1,3 @@
-// src/pages/CEOCoffeeBreakPage.jsx
-
 import { useEffect, useState } from "react";
 
 const CEOCoffeeBreakPage = () => {
@@ -14,7 +12,10 @@ const CEOCoffeeBreakPage = () => {
   const [success, setSuccess] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  // 🔹 Fetch newspapers
+  /* 🔹 Newsletter Popup */
+  const [selectedNews, setSelectedNews] = useState(null);
+
+  /* ---------------- FETCH DATA ---------------- */
   useEffect(() => {
     fetch("http://localhost:3001/api/newspapers")
       .then((res) => res.json())
@@ -22,11 +23,9 @@ const CEOCoffeeBreakPage = () => {
       .catch(console.error);
   }, []);
 
-  // 🔹 Show popup after 5 seconds
+  /* ---------------- POPUP TIMER ---------------- */
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowModal(true);
-    }, 5000);
+    const timer = setTimeout(() => setShowModal(true), 5000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -50,35 +49,35 @@ const CEOCoffeeBreakPage = () => {
           setShowModal(false);
         }, 3000);
       }
-    } catch (err) {
+    } catch {
       alert("Registration failed. Please try again.");
     }
   };
 
   return (
-    <div className="bg-[#fdfbf9] min-h-screen font-sans relative">
-      {/* HEADER */}
+    <div className="bg-[#fdfbf9] min-h-screen font-sans">
+
+      {/* ---------------- HEADER ---------------- */}
       <div className="text-center py-8 border-b">
         <h2 className="text-xs uppercase tracking-wider text-gray-600">
           FOUNDER OS
         </h2>
       </div>
 
-      {/* PAGE CONTENT */}
+      {/* ---------------- PAGE CONTENT ---------------- */}
       <div className="max-w-4xl mx-auto px-6 py-12">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
           Register for the next CEO Coffee Break.
         </h1>
-
-        <p className="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
+        <p className="text-center text-gray-600 max-w-2xl mx-auto">
           Subscribe below and you’ll be placed on our CEO Coffee Break waitlist.
         </p>
       </div>
 
-      {/* ================= MODAL ================= */}
+      {/* ================= FORM MODAL ================= */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-          <div className="bg-white w-full max-w-md rounded-xl p-6 relative animate-fadeIn">
+          <div className="bg-white w-full max-w-md rounded-xl p-6 relative">
             <button
               onClick={() => setShowModal(false)}
               className="absolute top-3 right-3 text-gray-400 hover:text-black text-xl"
@@ -120,6 +119,7 @@ const CEOCoffeeBreakPage = () => {
                   className="w-full border p-3 rounded"
                   required
                 />
+
                 <div className="space-y-2">
                   {["Freelancer", "Agency", "Business Owner", "Other"].map(
                     (type) => (
@@ -136,6 +136,7 @@ const CEOCoffeeBreakPage = () => {
                     )
                   )}
                 </div>
+
                 <button
                   type="submit"
                   className="w-full bg-lime-400 hover:bg-lime-500 py-3 rounded font-medium"
@@ -148,74 +149,99 @@ const CEOCoffeeBreakPage = () => {
         </div>
       )}
 
-      {/* ================= FEATURED MEDIA ================= */}
+      {/* ================= FEATURED NEWSLETTER ================= */}
       {newspapers.length > 0 && (
         <div className="max-w-7xl mx-auto py-16 px-6">
-          <p className="text-center text-sm uppercase tracking-wider text-gray-600 mb-8">
+          <p className="text-center text-sm uppercase tracking-wider text-gray-600 mb-10">
             As Featured In
           </p>
 
-          {/* Horizontal Scroll on Mobile, Grid on Desktop */}
-          <div className="overflow-x-auto pb-6 md:pb-0">
-            <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-max md:w-full">
+          <div className="overflow-x-auto">
+            <div className="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 w-max md:w-full">
+
               {newspapers.map((item) => (
                 <div
                   key={item._id}
-                  className="bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 min-w-[300px] md:min-w-0"
+                  className="bg-white rounded-xl border border-gray-200 shadow-sm min-w-[320px] h-[320px] flex flex-col justify-between"
                 >
-                  {/* Media */}
-                  <div className="h-48 w-full">
-                    {item.mediaType === 'image' ? (
-                      <img
-                        src={item.mediaUrl}
-                        alt={item.title}
-                        className="w-full h-full object-contain p-4 bg-gray-50"
-                      />
-                    ) : (
-                      <video
-                        src={item.mediaUrl}
-                        controls
-                        className="w-full h-full object-contain p-2 bg-black"
-                      />
-                    )}
-                  </div>
-
-                  {/* Content */}
-                  <div className="p-4">
-                    {item.logoUrl && (
-                      <img
-                        src={item.logoUrl}
-                        alt="Logo"
-                        className="h-8 mb-2"
-                      />
-                    )}
-                    <div className="flex items-start space-x-2 mb-2">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center">
-                        <span className="text-xs font-bold text-gray-700">
-                          {item.authorName.charAt(0)}
-                        </span>
+                  <div className="p-5">
+                    {/* Author */}
+                    <div className="flex items-start gap-3 mb-3">
+                      <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-lg font-semibold text-gray-700">
+                        {item.authorName?.charAt(0)}
                       </div>
                       <div>
-                        <p className="text-sm font-semibold">{item.authorName}</p>
-                        <p className="text-xs text-gray-500">{item.authorTitle}</p>
+                        <p className="font-semibold text-sm text-gray-900">
+                          {item.authorName}
+                        </p>
+                        <p className="text-xs text-gray-500">
+                          {item.authorTitle}
+                        </p>
                       </div>
                     </div>
-                    <h3 className="font-bold text-lg mb-1">{item.title}</h3>
-                    <p className="text-gray-600 text-sm line-clamp-2">
+
+                    {/* Short Description */}
+                    <p className="text-sm text-gray-700 leading-relaxed line-clamp-4">
                       {item.description}
                     </p>
-                    <p className="text-xs text-gray-400 mt-2">
+                  </div>
+
+                  {/* Footer */}
+                  <div className="px-5 pb-4 flex items-center justify-between">
+                    <button
+                      onClick={() => setSelectedNews(item)}
+                      className="text-sm text-blue-600 font-medium"
+                    >
+                      Show more
+                    </button>
+
+                    <p className="text-xs text-gray-400">
                       {new Date(item.date).toLocaleDateString()}
                     </p>
                   </div>
                 </div>
               ))}
+
             </div>
           </div>
         </div>
       )}
 
-      {/* FOOTER */}
+      {/* ================= NEWSLETTER DETAIL MODAL ================= */}
+      {selectedNews && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="bg-white w-full max-w-lg rounded-xl p-6 relative">
+            <button
+              onClick={() => setSelectedNews(null)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-black text-xl"
+            >
+              ✕
+            </button>
+
+            <div className="flex items-start gap-3 mb-4">
+              <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-lg font-semibold text-gray-700">
+                {selectedNews.authorName?.charAt(0)}
+              </div>
+              <div>
+                <p className="font-semibold">{selectedNews.authorName}</p>
+                <p className="text-sm text-gray-500">
+                  {selectedNews.authorTitle}
+                </p>
+              </div>
+            </div>
+
+            <p className="text-gray-700 leading-relaxed mb-4">
+              {selectedNews.description}
+            </p>
+
+            <p className="text-xs text-gray-400">
+              {new Date(selectedNews.date).toLocaleDateString()}
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* ---------------- FOOTER ---------------- */}
       <div className="border-t py-8 text-center text-xs text-gray-500">
         © 2025 Founder OS. All rights reserved.
       </div>

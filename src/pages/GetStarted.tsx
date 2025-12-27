@@ -220,53 +220,7 @@ export default function GetStarted() {
                 className="w-full border px-4 py-2 rounded-lg"
               />
 
-              {/* QUESTION 1 */}
-              <div>
-                <p className="font-medium mb-2">
-                  How soon can we get started if we are on the same page?
-                </p>
-                {[
-                  "Immediately",
-                  "Within 7 days",
-                  "Within 15 - 30 days",
-                  "After 30 days",
-                ].map((opt) => (
-                  <label key={opt} className="flex items-center gap-2 mb-1">
-                    <input
-                      type="radio"
-                      name="startTimeline"
-                      value={opt}
-                      checked={formData.startTimeline === opt}
-                      onChange={handleRadioChange}
-                    />
-                    {opt}
-                  </label>
-                ))}
-              </div>
-
-              {/* QUESTION 2 */}
-              <div>
-                <p className="font-medium mb-2">
-                  Which range best describes your current monthly revenue?
-                </p>
-                {[
-                  "Under $10k",
-                  "$10k–$30k",
-                  "$30k–$100k",
-                  "$100k+",
-                ].map((opt) => (
-                  <label key={opt} className="flex items-center gap-2 mb-1">
-                    <input
-                      type="radio"
-                      name="monthlyRevenue"
-                      value={opt}
-                      checked={formData.monthlyRevenue === opt}
-                      onChange={handleRadioChange}
-                    />
-                    {opt}
-                  </label>
-                ))}
-              </div>
+           
 
               {/* ADDITIONAL QUESTIONS FROM IMAGE */}
               <div className="space-y-6 pt-6 border-t border-gray-200">
@@ -326,6 +280,7 @@ export default function GetStarted() {
                     className="w-full border px-4 py-2 rounded-lg"
                   />
                 </div>
+                
 
                 <div>
                   <label className="block font-medium mb-2">
@@ -341,6 +296,53 @@ export default function GetStarted() {
                     className="w-full border px-4 py-2 rounded-lg"
                   />
                 </div>
+                   {/* QUESTION 1 */}
+              <div>
+                <p className="font-medium mb-2">
+                  How soon can we get started if we are on the same page?
+                </p>
+                {[
+                  "Immediately",
+                  "Within 7 days",
+                  "Within 15 - 30 days",
+                  "After 30 days",
+                ].map((opt) => (
+                  <label key={opt} className="flex items-center gap-2 mb-1">
+                    <input
+                      type="radio"
+                      name="startTimeline"
+                      value={opt}
+                      checked={formData.startTimeline === opt}
+                      onChange={handleRadioChange}
+                    />
+                    {opt}
+                  </label>
+                ))}
+              </div>
+
+              {/* QUESTION 2 */}
+              <div>
+                <p className="font-medium mb-2">
+                  Which range best describes your current monthly revenue?
+                </p>
+                {[
+                  "Under $10k",
+                  "$10k–$30k",
+                  "$30k–$100k",
+                  "$100k+",
+                ].map((opt) => (
+                  <label key={opt} className="flex items-center gap-2 mb-1">
+                    <input
+                      type="radio"
+                      name="monthlyRevenue"
+                      value={opt}
+                      checked={formData.monthlyRevenue === opt}
+                      onChange={handleRadioChange}
+                    />
+                    {opt}
+                  </label>
+                ))}
+              </div>
               </div>
 
               {/* TERMS AND CONDITIONS */}
