@@ -48,7 +48,7 @@ const Home: React.FC = () => {
 
       {/* ------------------- Page Sections --------------------- */}
       <HeroSection />
-      <TestimonialSection />
+      {/* <TestimonialSection /> */}
       <FeaturesCarousel />
       <HandOff />
       <HowItWorks />
