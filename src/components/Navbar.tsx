@@ -70,13 +70,13 @@ const Header = () => {
                 <Link to="/pricingsection">Case Studies</Link>
                 <Link to="/handoffreview">Testimonials</Link>
                 <Dropdown label="Resources" items={resources} />
-                <Link to="/Coffeebreak">Services</Link>
+                <Link to="/service">Services</Link>
                 <Link to="/careerspage">We're Hiring</Link>
               </nav>
 
               {/* DESKTOP BUTTONS */}
               <div className="hidden lg:flex gap-3">
-                <Link to="/loginpage" className="px-5 py-1.5 border rounded-full">
+                <Link to="/Coffeebreak" className="px-5 py-1.5 border rounded-full">
                   Login
                 </Link>
                 <Link to="/get-started" className="bg-green-500 text-white px-6 py-2 rounded-full">

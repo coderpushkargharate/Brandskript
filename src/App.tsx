@@ -1,10 +1,19 @@
 import { HelmetProvider } from "react-helmet-async";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 
+// Components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 
-// Pages
+// Pages from first app (e-commerce)
+import ProductMain from "./pages/ProductMain"; // Fixed typo: ProcudtMain → ProductMain
+import ProductDetailPage from "./pages/ProductDetailPage";
+import CheckoutPage from "./pages/CheckoutPage";
+import AdminLogin from "./pages/AdminLogin";
+import AdminPanel from "./pages/AdminPanel";
+
+// Pages from second app (website/content)
 import Home from "./pages/Home";
 import Blogs from "./pages/Blogs";
 import Admin from "./pages/Admin";
@@ -22,23 +31,59 @@ import ConstructionCosts from "./pages/ConstructionCosts";
 import EstimatingAIPage from "./pages/EstimatingAIPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CoffeeBreak from "./pages/CoffeeBreak";
+import Services from "./pages/Services";
 
 function App() {
+  // Cart state (from first app)
+  const [cart, setCart] = useState([]);
+  
+  // Admin auth state (from first app)
+  const [adminToken, setAdminToken] = useState(localStorage.getItem('adminToken') || null);
+
+  // Cart functions
+  const addToCart = (product) => {
+    const existingItem = cart.find(item => item._id === product._id);
+    if (existingItem) {
+      setCart(cart.map(item =>
+        item._id === product._id ? { ...item, quantity: item.quantity + 1 } : item
+      ));
+    } else {
+      setCart([...cart, { ...product, quantity: 1 }]);
+    }
+  };
+
+  const removeFromCart = (productId) => {
+    setCart(cart.filter(item => item._id !== productId));
+  };
+
+  const updateQuantity = (productId, quantity) => {
+    if (quantity <= 0) {
+      removeFromCart(productId);
+    } else {
+      setCart(cart.map(item =>
+        item._id === productId ? { ...item, quantity } : item
+      ));
+    }
+  };
+
+  const handleLogout = () => {
+    setAdminToken(null);
+    localStorage.removeItem('adminToken');
+  };
+
   return (
     <HelmetProvider>
       <Router>
-        <div className="min-h-screen bg-white flex flex-col">
-          <Navbar />
+        <div className="min-h-screen bg-gray-50 flex flex-col">
+          <Navbar cartCount={cart.length} adminToken={adminToken} />
 
           <main className="flex-grow">
             <Routes>
+              {/* Main website routes */}
               <Route path="/" element={<Home />} />
               <Route path="/blogs" element={<Blogs />} />
-              <Route path="/admin" element={<Admin />} />
+              <Route path="/service" element={<Services />} />
               <Route path="/get-started" element={<GetStarted />} />
-
-              {/* Additional Pages */}
-              <Route path="/startofestimate" element={<StartOnEstimate />} />
               <Route path="/careerspage" element={<CareersPage />} />
               <Route path="/helpcenter" element={<HelpCenter />} />
               <Route path="/pricingsection" element={<PricingSection />} />
@@ -50,9 +95,33 @@ function App() {
               <Route path="/instant-ai-estimates" element={<EstimatingAIPage />} />
               <Route path="/construction-costs" element={<ConstructionCosts />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              
               <Route path="/Coffeebreak" element={<CoffeeBreak />} />
 
+              {/* Admin route (generic - may conflict with /admin/login) */}
+              <Route path="/admin" element={<Admin />} />
+
+              {/* E-commerce specific routes */}
+              <Route path="/products" element={<ProductMain />} />
+              <Route path="/product/:id" element={<ProductDetailPage addToCart={addToCart} />} />
+              <Route path="/checkout" element={<CheckoutPage cart={cart} removeFromCart={removeFromCart} updateQuantity={updateQuantity} />} />
+
+              {/* Admin auth & panel (from first app) */}
+              <Route
+                path="/admin/login"
+                element={<AdminLogin setAdminToken={setAdminToken} />}
+              />
+              <Route
+                path="/admin/dashboard"
+                element={
+                  adminToken ? (
+                    <AdminPanel token={adminToken} onLogout={handleLogout} />
+                  ) : (
+                    <div className="flex items-center justify-center min-h-screen">
+                      <p className="text-xl text-gray-600">Redirecting to login...</p>
+                    </div>
+                  )
+                }
+              />
             </Routes>
           </main>
 

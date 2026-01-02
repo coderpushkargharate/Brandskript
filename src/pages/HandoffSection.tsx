@@ -1,16 +1,11 @@
 import React from "react";
 import { Star } from "lucide-react";
 
-const RatingCard = ({ logo, label }) => {
+const StatCard = ({ value, label, color = "text-gray-900" }) => {
   return (
-    <div className="flex flex-col items-center gap-2">
-      <div className="flex gap-1">
-        {[...Array(5)].map((_, i) => (
-          <Star key={i} size={20} fill="#FFC107" color="#FFC107" />
-        ))}
-      </div>
-
-      <img src={logo} alt={label} className="h-8 object-contain" />
+    <div className="flex flex-col items-center gap-2 p-4 bg-white rounded-xl shadow-sm">
+      <div className={`text-3xl font-bold ${color}`}>{value}</div>
+      <div className="text-xs text-gray-500 text-center">{label}</div>
     </div>
   );
 };
@@ -18,49 +13,36 @@ const RatingCard = ({ logo, label }) => {
 const HandoffSection = () => {
   return (
     <div className="w-full">
-      {/* ====================== TOP RATING SECTION ====================== */}
+
+      {/* ====================== WHY TO TRUST US SECTION ====================== */}
       <h2 className="text-center text-3xl md:text-4xl font-bold mb-8">
-        Highly rated by 1000s of contractors
+        Why To Trust Us
       </h2>
 
-      <div className="bg-white shadow-md rounded-3xl p-8 mx-auto max-w-5xl flex flex-col md:flex-row justify-between items-center gap-10 md:gap-0">
-        <RatingCard
-          logo="https://upload.wikimedia.org/wikipedia/commons/6/69/Capterra-logo.png"
-          label="Capterra"
-        />
-
-        <RatingCard
-          logo="https://upload.wikimedia.org/wikipedia/commons/5/5f/Apple_logo_black.svg"
-          label="App Store"
-        />
-
-        <RatingCard
-          logo="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-          label="Google Play"
-        />
-
-        <RatingCard
-          logo="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/G2_logo.svg/600px-G2_logo.svg.png"
-          label="G2"
-        />
+      <div className="bg-white shadow-md rounded-3xl p-8 mx-auto max-w-6xl grid grid-cols-2 md:grid-cols-4 gap-6">
+        <StatCard value="+$500k" label="Saved on Ad Spend" color="text-green-600" />
+        <StatCard value="+$6M" label="In Total Ad Spend" color="text-blue-600" />
+        <StatCard value="+300" label="Clients Across Globe" color="text-purple-600" />
+        <StatCard value="+12k" label="Campaigns Created" color="text-orange-600" />
+        <StatCard value="+4.8/5" label="Rating On Google" color="text-yellow-600" />
+        <StatCard value=">3%" label="In Churn Rate" color="text-red-600" />
       </div>
 
       {/* ====================== BOOST BUSINESS SECTION ====================== */}
       <div className="bg-green-50 rounded-3xl mt-16 py-16 px-6 md:px-12 text-center relative overflow-hidden">
-        {/* Mascot Image */}
+        {/* Icon Image */}
         <img
-          src="https://cdn-icons-png.flaticon.com/512/6569/6569269.png"
-          alt="Character"
-          className="w-60 mx-auto mb-6"
+          src="https://placehold.co/150x150/4A90E2/FFFFFF?text=📊"
+          alt="ROI Edge Dashboard"
+          className="w-32 mx-auto mb-6"
         />
 
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Boost your business with Handoff
+          Boost Your Business With ROI Edge
         </h2>
 
-        <p className="text-gray-600 mb-6 text-lg">
-          Start earning more revenue right away with Handoff, without spending a
-          single penny upfront
+        <p className="text-gray-600 mb-6 text-lg max-w-3xl mx-auto">
+          Generate consistent leads, reduce acquisition costs, and grow your revenue with a fully managed, ROI-driven client acquisition system.
         </p>
 
         {/* App Store Buttons */}

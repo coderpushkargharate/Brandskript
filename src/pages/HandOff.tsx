@@ -3,8 +3,9 @@ import { Play } from "lucide-react";
 
 const HandOff = () => {
   useEffect(() => {
-  window.scrollTo(0, 0); // 🔥 Page opens from top
-}, []);
+    window.scrollTo(0, 0); // 🔥 Page opens from top
+  }, []);
+
   return (
     <div className="w-full">
 
@@ -57,20 +58,21 @@ const HandOff = () => {
 
       {/* ---------------------- SUPPLIER LOGOS ----------------------- */}
       <section className="py-10 text-center">
-        <h2 className="text-2xl font-bold">Integrated with top</h2>
-        <p className="text-2xl font-bold -mt-1">construction suppliers</p>
+        <h2 className="text-2xl font-bold">Working with Top Industry Players</h2>
+        {/* <p className="text-2xl font-bold -mt-1">construction suppliers</p> */}
 
         <div className="flex flex-wrap justify-center gap-10 mt-10 grayscale opacity-70">
           {[
-            "https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e36_Logo_Mohawk.webp",
-            "https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e34_Logo_USG.webp",
-            "https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e32_Logo_Kohler.webp",
-            "https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e37_Logo_Boise_Cascade.webp",
-            "https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e33_Logo_Southwire.webp",
-            "https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753dd7_Logo_EATON.webp",
-            "https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753dd8_Logo_Pergo.webp",
+            // Placeholder for Client Logos. Replace these URLs with actual client logos from brandsript.
+            "https://via.placeholder.com/150?text=Client+Logo+1",
+            "https://via.placeholder.com/150?text=Client+Logo+2",
+            "https://via.placeholder.com/150?text=Client+Logo+3",
+            "https://via.placeholder.com/150?text=Client+Logo+4",
+            "https://via.placeholder.com/150?text=Client+Logo+5",
+            "https://via.placeholder.com/150?text=Client+Logo+6",
+            "https://via.placeholder.com/150?text=Client+Logo+7",
           ].map((logo, index) => (
-            <img key={index} src={logo} alt="Supplier" className="h-10" />
+            <img key={index} src={logo} alt="Client Logo" className="h-10" />
           ))}
         </div>
       </section>
@@ -80,11 +82,10 @@ const HandOff = () => {
         {/* Text */}
         <div className="max-w-lg">
           <h2 className="text-3xl font-bold leading-tight">
-            HandOff creates accurate estimates in seconds.
+            ROI Edge Replaces Empty Promises with Performance, Accountability, and Guaranteed Results.
           </h2>
           <p className="mt-4 text-gray-700 leading-relaxed">
-            You will finally have the time to start working on <b>your business</b>, 
-            not in your business.
+            You finally get a marketing partner who keeps your pipeline full—at 15× lower cost than an in-house team and 2× better performance than local agencies. All driven by strong ROI.
           </p>
           <button className="mt-6 bg-green-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow hover:bg-green-600">
             Get started now
@@ -103,49 +104,74 @@ const HandOff = () => {
 
       {/* ---------------------- WHO IS HANDOFF FOR ----------------------- */}
       <section className="max-w-6xl mx-auto py-16 px-6">
-        <h2 className="text-center text-3xl font-bold">Who is HandOff for?</h2>
+        <h2 className="text-center text-3xl font-bold">Who We Serve?</h2>
         <p className="text-center text-gray-600 mt-2">
-          If you are an owner of a residential construction business, HandOff is for you.
-          Supercharge your growth and let us handle your operations on autopilot.
+          If you run a Healthcare, Service Business, Bookkeeping Business, Real Estate & SaaS Business, ROI Edge is For You. Supercharge your business growth with a strong ROI-driven Client Acquisition System.
         </p>
 
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-10">
-          {/* Card 1 */}
+          {/* Card 1: Healthcare Business */}
           <div className="relative rounded-xl overflow-hidden shadow group">
             <img
-              src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753dd1_Remodelers.webp"
+              src="/6650cddf762ba9b692753dd1_Remodelers.webp"
               className="w-full h-64 object-cover group-hover:scale-105 transition"
             />
             <div className="absolute bottom-4 left-4">
-              <h3 className="text-white text-xl font-bold">Remodelers</h3>
-              <p className="text-white text-sm">Grow your business without adding overhead</p>
+              <h3 className="text-white text-xl font-bold">Healthcare Business</h3>
+              <p className="text-white text-sm">Help you generate a consistent flow of high-intent patient inquiries using Paid Ads & automated follow-ups—while reducing cost per lead, lowering acquisition cost, and improving ROI.</p>
               <button className="text-white mt-2 underline">Learn more →</button>
             </div>
           </div>
 
-          {/* Card 2 */}
-          <div className="relative rounded-xl overflow-hidden shadow group">
+          {/* Card 2: Service Business */}
+          <div className="/6650cddf762ba9b692753dd3_Fix and flip.webp">
             <img
-              src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753dd2_Handyman.webp"
+              src="/6650cddf762ba9b692753dd2_Handyman.webp"
               className="w-full h-64 object-cover group-hover:scale-105 transition"
             />
             <div className="absolute bottom-4 left-4">
-              <h3 className="text-white text-xl font-bold">Handyman</h3>
-              <p className="text-white text-sm">Bid on bigger jobs with confidence</p>
+              <h3 className="text-white text-xl font-bold">Service Business</h3>
+              <p className="text-white text-sm">Help you fill your pipeline with ready-to-convert clients using Paid Ads & automated nurturing—reducing CPR, cutting CAC, and driving predictable monthly revenue.</p>
               <button className="text-white mt-2 underline">Learn more →</button>
             </div>
           </div>
 
-          {/* Card 3 */}
+          {/* Card 3: Bookkeeping Business */}
           <div className="relative rounded-xl overflow-hidden shadow group">
             <img
-              src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753dd3_Fix%20and%20flip.webp"
+              src="/6650cddf762ba9b692753dd3_Fix and flip.webpp"
               className="w-full h-64 object-cover group-hover:scale-105 transition"
             />
             <div className="absolute bottom-4 left-4">
-              <h3 className="text-white text-xl font-bold">Fix and flip</h3>
-              <p className="text-white text-sm">Instantly assess investment opportunities and get funded</p>
+              <h3 className="text-white text-xl font-bold">Bookkeeping Business</h3>
+              <p className="text-white text-sm">Help you attract qualified business owners with Paid Ads & automated outreach—lowering lead costs, improving conversion rates, and increasing overall ROI.</p>
+              <button className="text-white mt-2 underline">Learn more →</button>
+            </div>
+          </div>
+
+          {/* Card 4: Real Estate Business */}
+          <div className="relative rounded-xl overflow-hidden shadow group">
+            <img
+              src="/6650cddf762ba9b692753e89_Heath.webp"
+              className="w-full h-64 object-cover group-hover:scale-105 transition"
+            />
+            <div className="absolute bottom-4 left-4">
+              <h3 className="text-white text-xl font-bold">Real Estate Business</h3>
+              <p className="text-white text-sm">Help you generate high-quality buyer and seller leads using Paid Ads & automation—reducing cost per result, improving deal velocity, and maximizing ROI.</p>
+              <button className="text-white mt-2 underline">Learn more →</button>
+            </div>
+          </div>
+
+          {/* Card 5: SaaS Business */}
+          <div className="relative rounded-xl overflow-hidden shadow group">
+            <img
+              src="https://via.placeholder.com/400x300?text=SaaS+Business"
+              className="w-full h-64 object-cover group-hover:scale-105 transition"
+            />
+            <div className="absolute bottom-4 left-4">
+              <h3 className="text-white text-xl font-bold">SaaS Business</h3>
+              <p className="text-white text-sm">Help you generate a constant flow of new paid users using Paid Ads & automated outreach—while reducing CPR, lowering CAC, and increasing ROI.</p>
               <button className="text-white mt-2 underline">Learn more →</button>
             </div>
           </div>
