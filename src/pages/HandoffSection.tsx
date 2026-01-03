@@ -67,7 +67,7 @@ const TrustAndBoostSection = () => {
         </p>
 
         {/* Store Buttons */}
-        <div className="flex justify-center gap-4 mt-8 flex-wrap">
+        {/* <div className="flex justify-center gap-4 mt-8 flex-wrap">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
             alt="Google Play"
@@ -78,7 +78,7 @@ const TrustAndBoostSection = () => {
             alt="App Store"
             className="h-12 cursor-pointer"
           />
-        </div>
+        </div> */}
       </section>
 
     </div>

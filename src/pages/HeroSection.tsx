@@ -90,57 +90,70 @@ const HeroSection = () => {
 
    
 
-      {/* ===== NEW IMAGE DATA SECTION ===== */}
-      <div className="max-w-7xl mx-auto mt-20 px-4 sm:px-6 text-center">
-     
+   {/* ===== NEW IMAGE DATA SECTION ===== */}
+<div className="max-w-7xl mx-auto mt-20 px-4 sm:px-6 text-center">
+  <div className="border-2 border-gray-300 rounded-2xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-6 gap-8 items-center">
 
-        <div className="border-2 border-gray-300 rounded-2xl p-8 md:p-12 grid grid-cols-1 md:grid-cols-5 gap-8 items-center">
+    {/* Left Column: Headline */}
+    <div className="md:col-span-1 text-left">
+      <h3 className="text-2xl font-extrabold">See Immediate Results</h3>
+    </div>
 
-          <div className="md:col-span-1 text-left">
-            <h3 className="text-2xl font-extrabold">
-              See Immediate Results
-            </h3>
-          </div>
+    {/* Stat 1 */}
+    <div>
+      <h4 className="text-3xl font-extrabold">
+        <span className="relative">
+          <CountUp end={15000} prefix="+$" />
+          <span className="absolute bottom-[-4px] left-0 right-0 h-3 bg-yellow-300 rounded-sm"></span>
+        </span>
+      </h4>
+      <p className="text-sm text-gray-600 mt-1">Saved on Team Hiring</p>
+    </div>
 
-          <div>
-            <h4 className="text-3xl font-extrabold">
-              <CountUp end={15000} prefix="+$" />
-            </h4>
-            <p className="text-sm text-gray-600 mt-1">
-              Saved on Team Hiring
-            </p>
-          </div>
+    {/* Stat 2 */}
+    <div>
+      <h4 className="text-3xl font-extrabold">
+        <span className="relative">
+          <CountUp end={80} suffix=" hrs" />
+          <span className="absolute bottom-[-4px] left-0 right-0 h-3 bg-yellow-300 rounded-sm"></span>
+        </span>
+      </h4>
+      <p className="text-sm text-gray-600 mt-1">Saved weekly</p>
+    </div>
 
-          <div>
-            <h4 className="text-3xl font-extrabold">
-              <CountUp end={80} suffix=" hrs" />
-            </h4>
-            <p className="text-sm text-gray-600 mt-1">
-              Saved weekly
-            </p>
-          </div>
+    {/* Stat 3 */}
+    <div>
+      <h4 className="text-3xl font-extrabold">
+        <span className="relative">
+          <CountUp end={60} suffix="%" />
+          <span className="absolute bottom-[-4px] left-0 right-0 h-3 bg-yellow-300 rounded-sm"></span>
+        </span>
+      </h4>
+      <p className="text-sm text-gray-600 mt-1">ROI Compared to others</p>
+    </div>
 
-          <div>
-            <h4 className="text-3xl font-extrabold">
-              <CountUp end={60} suffix="%" />
-            </h4>
-            <p className="text-sm text-gray-600 mt-1">
-              ROI Compared to others
-            </p>
-          </div>
+    {/* Stat 4 */}
+    <div>
+      <h4 className="text-3xl font-extrabold">
+        <span className="relative">
+          <CountUp end={400} suffix="%" />
+          <span className="absolute bottom-[-4px] left-0 right-0 h-3 bg-yellow-300 rounded-sm"></span>
+        </span>
+      </h4>
+      <p className="text-sm text-gray-600 mt-1">More Clients Acquired</p>
+    </div>
 
-          <div>
-            <h4 className="text-3xl font-extrabold">
-              <CountUp end={400} suffix="%" />
-            </h4>
-            <p className="text-sm text-gray-600 mt-1">
-              More Clients Acquired
-            </p>
-          </div>
+    {/* Image Column (Right Side) */}
+    <div className="md:col-span-1 flex justify-center items-center">
+      <img
+        src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e22_AI.webp" // 👈 Replace with your actual image path
+        alt="Green monster with crown"
+        className="h-24 w-auto object-contain"
+      />
+    </div>
 
-        </div>
-      </div>
-
+  </div>
+</div>
     </section>
   );
 };

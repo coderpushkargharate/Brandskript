@@ -51,7 +51,7 @@ const HandOff = () => {
             />
             <div>
               <p className="font-semibold">Suhail B</p>
-              <p className="text-sm text-gray-500">Transport Private Limited</p>
+              <p className="text-sm text-gray-500">BTransport Private Limited</p>
             </div>
           </div>
         </div>
@@ -129,27 +129,27 @@ const HandOff = () => {
             {[
               {
                 title: "Healthcare Business",
-                img: "/images/healthcare.webp",
+                img: "/6650cddf762ba9b692753dd1_Remodelers.webp",
                 desc: "Generate consistent high-intent patient inquiries with automation."
               },
               {
                 title: "Service Business",
-                img: "/images/service.webp",
+                img: "/6650cddf762ba9b692753dd2_Handyman.webp",
                 desc: "Fill your pipeline with ready-to-convert clients."
               },
               {
                 title: "Bookkeeping Business",
-                img: "/images/bookkeeping.webp",
+                img: "/6650cddf762ba9b692753dd3_Fix and flip.webp",
                 desc: "Attract qualified business owners and improve conversions."
               },
               {
                 title: "Real Estate Business",
-                img: "/images/realestate.webp",
+                img: "/6650cddf762ba9b692753dd1_Remodelers.webp",
                 desc: "High-quality buyer & seller leads with faster deal velocity."
               },
               {
                 title: "SaaS Business",
-                img: "/images/saas.webp",
+                img: "/6650cddf762ba9b692753dd3_Fix and flip.webp",
                 desc: "Acquire paid users while lowering CAC & CPR."
               },
             ].map((item, i) => (
