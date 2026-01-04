@@ -20,7 +20,6 @@ export default function Footer() {
                 alt="Handoff Logo"
                 className="w-24 sm:w-28 xl:w-32"
               />
-             
             </Link>
 
             <p className="text-gray-600 mt-4 text-sm leading-relaxed">
@@ -93,27 +92,29 @@ export default function Footer() {
           </Link>
         </div>
 
-        {/* Social Icons */}
-        <div className="flex items-center gap-6 mt-10 text-gray-700">
-          <Link to="/facebook"><FaFacebookF size={20} className="hover:text-black" /></Link>
-          <Link to="/instagram"><FaInstagram size={20} className="hover:text-black" /></Link>
-          <Link to="/youtube"><FaYoutube size={20} className="hover:text-black" /></Link>
-          <Link to="/tiktok"><FaTiktok size={20} className="hover:text-black" /></Link>
-          <Link to="/twitter"><FaXTwitter size={20} className="hover:text-black" /></Link>
-          <Link to="/linkedin"><Linkedin size={20} className="hover:text-black" /></Link>
-        </div>
-
         {/* Bottom Bar */}
-        <div className="mt-12 border-t border-gray-300 pt-6 flex flex-col sm:flex-row justify-between text-sm text-gray-600">
+        <div className="mt-12 border-t border-gray-300 pt-6 flex flex-col sm:flex-row justify-between items-start sm:items-center text-sm text-gray-600">
           <p>Handoff © 2025. All rights reserved.</p>
 
-          <div className="flex gap-6 mt-4 sm:mt-0">
-            <Link to="/privacy-policy" className="hover:text-black">
-              Privacy Policy
-            </Link>
-            <Link to="/terms-of-use" className="hover:text-black">
-              Terms of Use
-            </Link>
+          <div className="flex flex-wrap items-center gap-6 mt-4 sm:mt-0">
+            {/* Social Icons moved here → bottom right */}
+            <div className="flex items-center gap-4">
+              <Link to="/facebook"><FaFacebookF size={18} className="hover:text-black" /></Link>
+              <Link to="/instagram"><FaInstagram size={18} className="hover:text-black" /></Link>
+              <Link to="/youtube"><FaYoutube size={18} className="hover:text-black" /></Link>
+              <Link to="/tiktok"><FaTiktok size={18} className="hover:text-black" /></Link>
+              <Link to="/twitter"><FaXTwitter size={18} className="hover:text-black" /></Link>
+              <Link to="/linkedin"><Linkedin size={18} className="hover:text-black" /></Link>
+            </div>
+
+            <div className="flex gap-6 border-l border-gray-300 pl-6">
+              <Link to="/privacy-policy" className="hover:text-black">
+                Privacy Policy
+              </Link>
+              <Link to="/terms-of-use" className="hover:text-black">
+                Terms of Use
+              </Link>
+            </div>
           </div>
         </div>
 

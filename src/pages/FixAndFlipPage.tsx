@@ -22,29 +22,64 @@ export default function FixAndFlipPage() {
 
   return (
     <div className="w-full font-sans text-gray-900">
-      {/* HERO SECTION - Updated for Service Businesses */}
-      <section className="w-full bg-white py-14 px-6 lg:px-20">
+      {/* HERO SECTION - Refined for Service Businesses (Reference Design) */}
+      <section className="w-full bg-gradient-to-br from-gray-50 to-white py-16 px-6 lg:px-20">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
-          <div className="bg-green-600 rounded-3xl p-10 text-white">
-            <span className="text-sm bg-white/20 px-3 py-1 rounded-full">SERVICE BUSINESSES</span>
-            <h1 className="text-4xl lg:text-5xl font-bold mt-4 leading-tight">
-              Scale Your Service Business Profitably
+          <div>
+            <span className="inline-block text-sm font-medium bg-blue-100 text-blue-800 px-3 py-1 rounded-full mb-4">
+              Service Business Growth
+            </span>
+            <h1 className="text-4xl lg:text-5xl font-extrabold leading-tight text-gray-900">
+              Build a <span className="text-green-600">Predictable Client Pipeline</span>
             </h1>
-            <p className="mt-4 opacity-90">
-              Service businesses don't grow on visibility alone. They grow when qualified prospects book, show up, and convert into paying clients. At ROI Edge, we build ROI-driven Client Acquisition Systems for service businesses that need consistent enquiries, booked appointments, and predictable revenue — without chasing leads or relying on referrals.
+            <p className="mt-6 text-lg text-gray-700 max-w-lg">
+              Stop guessing where your next client will come from. We help service business owners attract, book, and convert high-intent clients—without burnout or endless lead chasing.
             </p>
-            <button className="mt-6 px-6 py-3 bg-white text-green-600 rounded-full font-semibold shadow">
-              Book An Appointment
-            </button>
-            <p className="text-sm mt-2 opacity-80">7-day free trial</p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4">
+              <button className="px-8 py-3.5 bg-green-600 hover:bg-green-700 text-white font-semibold rounded-full shadow-md transition duration-200">
+                Book a Strategy Call
+              </button>
+              <button className="px-8 py-3.5 bg-white border border-gray-300 text-gray-800 font-medium rounded-full hover:bg-gray-50 transition">
+                See How It Works
+              </button>
+            </div>
+            <p className="text-sm mt-4 text-gray-500">7-day free trial • No credit card required</p>
           </div>
 
-          {/* Right Image Grid */}
+          {/* Right Image Grid - Clean and professional */}
           <div className="grid grid-cols-2 gap-4">
-            <img className="rounded-xl" src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6676ce1c5516346f3336dec4_fix%20and%20flip_1.webp" />
-            <img className="rounded-xl" src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6676ce1cf086b776db91dc2d_fix%20and%20flip_2.webp" />
-            <img className="rounded-xl" src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6676ce1c6f5e1c29d54caff3_fix%20and%20flip_3.webp" />
-            <img className="rounded-xl" src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6676ce1cef39f53a4f040c76_fix%20and%20flip_4.webp" />
+            <div className="bg-gray-200 rounded-xl overflow-hidden">
+              <img 
+                className="w-full h-full object-cover" 
+                src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6676ce1c5516346f3336dec4_fix%20and%20flip_1.webp" 
+                alt="Client consultation" 
+                loading="lazy"
+              />
+            </div>
+            <div className="bg-gray-200 rounded-xl overflow-hidden">
+              <img 
+                className="w-full h-full object-cover" 
+                src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6676ce1cf086b776db91dc2d_fix%20and%20flip_2.webp" 
+                alt="Service team meeting" 
+                loading="lazy"
+              />
+            </div>
+            <div className="bg-gray-200 rounded-xl overflow-hidden">
+              <img 
+                className="w-full h-full object-cover" 
+                src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6676ce1c6f5e1c29d54caff3_fix%20and%20flip_3.webp" 
+                alt="Digital dashboard" 
+                loading="lazy"
+              />
+            </div>
+            <div className="bg-gray-200 rounded-xl overflow-hidden">
+              <img 
+                className="w-full h-full object-cover" 
+                src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6676ce1cef39f53a4f040c76_fix%20and%20flip_4.webp" 
+                alt="Client follow-up" 
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -293,19 +328,24 @@ export default function FixAndFlipPage() {
       <section className="bg-green-50 py-16 px-6 lg:px-20">
         <h2 className="text-center text-3xl font-bold mb-10">Key benefits for Service Businesses</h2>
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-6">
-          {[{
-            title: "Scale your service business with AI",
-            desc: "Grow your company rapidly without adding more headcount.",
-          },{
-            title: "Impress your clients with professionalism",
-            desc: "Give your clients a seamless experience from first contact to project completion.",
-          },{
-            title: "Get a handle on your conversion rates",
-            desc: "Easily track what's working and what needs improvement in your sales process.",
-          },{
-            title: "Grow your revenue and profit",
-            desc: "Make more money and decrease your risk at the same time.",
-          }].map((b,i)=>(
+          {[
+            {
+              title: "Scale your service business with AI",
+              desc: "Grow your company rapidly without adding more headcount.",
+            },
+            {
+              title: "Impress your clients with professionalism",
+              desc: "Give your clients a seamless experience from first contact to project completion.",
+            },
+            {
+              title: "Get a handle on your conversion rates",
+              desc: "Easily track what's working and what needs improvement in your sales process.",
+            },
+            {
+              title: "Grow your revenue and profit",
+              desc: "Make more money and decrease your risk at the same time.",
+            },
+          ].map((b, i) => (
             <div key={i} className="bg-white rounded-xl shadow p-6 border">
               <h3 className="font-bold text-lg">{b.title}</h3>
               <p className="mt-2 text-gray-600">{b.desc}</p>
@@ -318,16 +358,30 @@ export default function FixAndFlipPage() {
       <section className="py-16 px-6 lg:px-20">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
           <div className="relative">
-            <img className="rounded-2xl" src="https://cdn.prod.website-files.com/6650cddf762ba9b692753dc0/667b0bf0516a6deffb5daad7_video_EJ%20Elliot.webp" />
-            <button className="absolute inset-0 m-auto w-16 h-16 bg-white rounded-full shadow flex items-center justify-center text-red-500 text-3xl">▶</button>
+            <img
+              className="rounded-2xl w-full"
+              src="https://cdn.prod.website-files.com/6650cddf762ba9b692753dc0/667b0bf0516a6deffb5daad7_video_EJ%20Elliot.webp"
+              alt="EJ Elliot testimonial"
+              loading="lazy"
+            />
+            <button className="absolute inset-0 m-auto w-16 h-16 bg-white rounded-full shadow flex items-center justify-center text-red-500 text-3xl">
+              ▶
+            </button>
           </div>
           <div>
-            <h3 className="text-2xl font-bold">Learn how EJ Elliot made $118,000 in his first month using Handoff.</h3>
+            <h3 className="text-2xl font-bold">
+              Learn how EJ Elliot made $118,000 in his first month using Handoff.
+            </h3>
             <p className="mt-4 text-gray-600">
               Handoff delivered a detailed estimate for a down-to-the-studs high-end remodel that enabled EJ to go from site visit to a $118,000 winning bid in under 24 hours.
             </p>
             <div className="flex items-center gap-4 mt-6">
-              <img className="w-12 h-12 rounded-full" src="https://i.postimg.cc/8cGJT2L9/avatar1.jpg" />
+              <img
+                className="w-12 h-12 rounded-full"
+                src="https://i.postimg.cc/8cGJT2L9/avatar1.jpg"
+                alt="EJ Elliot"
+                loading="lazy"
+              />
               <div>
                 <p className="font-semibold">EJ Elliot</p>
                 <p className="text-gray-500 text-sm">San Antonio, TX</p>
@@ -377,9 +431,6 @@ export default function FixAndFlipPage() {
           </button>
         </div>
       </section>
-
-  
-
     </div>
   );
 }

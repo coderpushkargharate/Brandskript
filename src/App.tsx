@@ -32,6 +32,10 @@ import EstimatingAIPage from "./pages/EstimatingAIPage";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CoffeeBreak from "./pages/CoffeeBreak";
 import Services from "./pages/Services";
+import BookkeepingBusinessPage from "./pages/BookkeepingBusinessPage";
+import AdSpendCalculator from "./pages/AdSpendCalculator";
+import CaseStudies from "./pages/CaseStudyPage";
+import CaseStudyDetail from "./pages/CaseStudyDetail";
 
 function App() {
   // Cart state (from first app)
@@ -96,6 +100,10 @@ function App() {
               <Route path="/construction-costs" element={<ConstructionCosts />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/Coffeebreak" element={<CoffeeBreak />} />
+              <Route path="/BookKeeping" element={<BookkeepingBusinessPage />} />
+              <Route path="/adspendcalculator" element={<AdSpendCalculator />} />
+                <Route path="/case-studies" element={<CaseStudies />} />
+        <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
 
               {/* Admin route (generic - may conflict with /admin/login) */}
               <Route path="/admin" element={<Admin />} />
@@ -111,7 +119,7 @@ function App() {
                 element={<AdminLogin setAdminToken={setAdminToken} />}
               />
               <Route
-                path="/admin/dashboard"
+                path="/adminPanel/dashboard"
                 element={
                   adminToken ? (
                     <AdminPanel token={adminToken} onLogout={handleLogout} />

@@ -17,12 +17,7 @@ interface Product {
   rating: number;
 }
 
-interface AdminPanelProps {
-  token: string;
-  onLogout: () => void;
-}
-
-function AdminPanel({ token, onLogout }: AdminPanelProps) {
+function AdminPanel() {
   const navigate = useNavigate();
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
@@ -38,6 +33,14 @@ function AdminPanel({ token, onLogout }: AdminPanelProps) {
     rating: ''
   });
 
+  // Redirect if not logged in
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isAdminLoggedIn') === 'true';
+    if (!isLoggedIn) {
+      navigate('/admin/login');
+    }
+  }, [navigate]);
+
   useEffect(() => {
     fetchProducts();
   }, []);
@@ -48,6 +51,7 @@ function AdminPanel({ token, onLogout }: AdminPanelProps) {
       setProducts(response.data);
     } catch (err) {
       console.error('Error fetching products:', err);
+      alert('Failed to load products');
     } finally {
       setLoading(false);
     }
@@ -68,18 +72,14 @@ function AdminPanel({ token, onLogout }: AdminPanelProps) {
       image: formData.image,
       category: formData.category,
       stock: parseInt(formData.stock, 10),
-      rating: parseFloat(formData.rating)
+      rating: parseFloat(formData.rating) || 0
     };
 
     try {
       if (editingProduct) {
-        await axios.put(`${API_BASE_URL}/products/${editingProduct._id}`, productData, {
-          headers: { Authorization: `Bearer ${token}` }
-        });
+        await axios.put(`${API_BASE_URL}/products/${editingProduct._id}`, productData);
       } else {
-        await axios.post(`${API_BASE_URL}/products`, productData, {
-          headers: { Authorization: `Bearer ${token}` }
-        });
+        await axios.post(`${API_BASE_URL}/products`, productData);
       }
       resetForm();
       fetchProducts();
@@ -120,9 +120,7 @@ function AdminPanel({ token, onLogout }: AdminPanelProps) {
   const handleDelete = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
       try {
-        await axios.delete(`${API_BASE_URL}/products/${id}`, {
-          headers: { Authorization: `Bearer ${token}` }
-        });
+        await axios.delete(`${API_BASE_URL}/products/${id}`);
         fetchProducts();
       } catch (err) {
         console.error('Error deleting product:', err);
@@ -132,7 +130,7 @@ function AdminPanel({ token, onLogout }: AdminPanelProps) {
   };
 
   const handleLogout = () => {
-    onLogout();
+    localStorage.removeItem('isAdminLoggedIn');
     navigate('/');
   };
 
@@ -161,7 +159,6 @@ function AdminPanel({ token, onLogout }: AdminPanelProps) {
         <button
           onClick={() => {
             resetForm();
-            setEditingProduct(null);
             setShowForm(true);
           }}
           className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700"

@@ -21,13 +21,14 @@ const whoWeServe = [
   { title: "Service Businesses", desc: "More booked calls", link: "/fixandflip" },
   { title: "Real Estate", desc: "Buyer & seller leads", link: "/instant-ai-estimates" },
   { title: "Healthcare", desc: "Patient acquisition", link: "/construction-costs" },
+  { title: "BookKeeping", desc: "Patient acquisition", link: "/BookKeeping" },
 ];
 
 const resources = [
   { title: "Blogs", desc: "Growth insights", link: "/blogs" },
   { title: "E-Books", desc: "Guides & playbooks", link: "/ebooks" },
-  { title: "Ad Spend Calculator", desc: "Estimate ROI", link: "/ad-spend-calculator" },
-  { title: "Lead Gen Course", desc: "Learn funnels", link: "/lead-gen-course" },
+  { title: "Ad Spend Calculator", desc: "Estimate ROI", link: "/adspendcalculator" },
+  { title: "Lead Gen Course", desc: "Learn funnels", link: "/Coffeebreak" },
 ];
 
 /* ---------- HEADER ---------- */
@@ -67,16 +68,16 @@ const Header = () => {
               <nav className="hidden lg:flex items-center gap-6 text-gray-700 font-medium">
                 <Dropdown label="Who we serve" items={whoWeServe} />
                 <Dropdown label="Specialities" items={specialities} cols="grid-cols-3" width="w-[900px]" />
-                <Link to="/pricingsection">Case Studies</Link>
+                <Link to="/case-studies">Case Studies</Link>
                 <Link to="/handoffreview">Testimonials</Link>
                 <Dropdown label="Resources" items={resources} />
                 <Link to="/service">Services</Link>
-                <Link to="/careerspage">We're Hiring</Link>
+                <Link to="/Coffeebreak">Lead Gen Course</Link>
               </nav>
 
               {/* DESKTOP BUTTONS */}
               <div className="hidden lg:flex gap-3">
-                <Link to="/Coffeebreak" className="px-5 py-1.5 border rounded-full">
+                <Link to="/loginpage" className="px-5 py-1.5 border rounded-full">
                   Login
                 </Link>
                 <Link to="/get-started" className="bg-green-500 text-white px-6 py-2 rounded-full">

@@ -5,7 +5,7 @@ import { Booking } from '../types/booking';
 import { Plus, Edit2, Trash2, LogOut, Eye, Upload } from 'lucide-react';
 import SEO from '../components/SEO';
 
-// Define types inline
+// === EXISTING TYPES ===
 interface CoffeeRegistration {
   _id: string;
   firstName: string;
@@ -27,20 +27,47 @@ interface Newspaper {
   date: string;
 }
 
+// === NEW PRODUCT TYPE ===
+interface Product {
+  _id: string;
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+  category: string;
+  stock: number;
+  rating: number;
+}
+
 export default function Admin() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [activeTab, setActiveTab] = useState<'blogs' | 'bookings' | 'coffee' | 'newspapers'>('blogs');
+  const [activeTab, setActiveTab] = useState<'blogs' | 'bookings' | 'coffee' | 'newspapers' | 'products'>('blogs');
+
+  // Auth
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  // Existing data
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [bookings, setBookings] = useState<Booking[]>([]);
   const [coffees, setCoffees] = useState<CoffeeRegistration[]>([]);
   const [newspapers, setNewspapers] = useState<Newspaper[]>([]);
+
+  // New: Products
+  const [products, setProducts] = useState<Product[]>([]);
+  const [loadingProducts, setLoadingProducts] = useState(true);
+
+  // UI states
   const [selectedBooking, setSelectedBooking] = useState<Booking | null>(null);
   const [selectedCoffee, setSelectedCoffee] = useState<CoffeeRegistration | null>(null);
   const [selectedNewspaper, setSelectedNewspaper] = useState<Newspaper | null>(null);
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+
   const [showForm, setShowForm] = useState(false);
   const [editingBlog, setEditingBlog] = useState<Blog | null>(null);
+  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+
+  // Blog form
   const [formData, setFormData] = useState({
     title: '',
     excerpt: '',
@@ -49,6 +76,17 @@ export default function Admin() {
     author: 'Admin',
     featured: false,
     image: ''
+  });
+
+  // Product form
+  const [productFormData, setProductFormData] = useState({
+    name: '',
+    description: '',
+    price: '',
+    image: '',
+    category: '',
+    stock: '',
+    rating: ''
   });
 
   // Newspaper upload state
@@ -62,7 +100,7 @@ export default function Admin() {
 
   const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001';
 
-  // Auth check on mount
+  // Auth on mount
   useEffect(() => {
     const token = localStorage.getItem('adminToken');
     if (token === 'authenticated') {
@@ -71,6 +109,7 @@ export default function Admin() {
       fetchBookings();
       fetchCoffees();
       fetchNewspapers();
+      fetchProducts(); // fetch products on load
     }
   }, []);
 
@@ -83,6 +122,7 @@ export default function Admin() {
       fetchBookings();
       fetchCoffees();
       fetchNewspapers();
+      fetchProducts();
     } else {
       alert('Invalid credentials');
     }
@@ -95,7 +135,7 @@ export default function Admin() {
     setPassword('');
   };
 
-  // Fetchers
+  // === FETCHERS ===
   const fetchBlogs = async () => {
     try {
       const res = await fetch(`${API_URL}/api/blogs`);
@@ -136,15 +176,27 @@ export default function Admin() {
     }
   };
 
-  // Blog CRUD
-  const handleSubmit = async (e: React.FormEvent) => {
+  const fetchProducts = async () => {
+    try {
+      const res = await fetch(`${API_URL}/api/products`);
+      const data = await res.json();
+      setProducts(Array.isArray(data) ? data : []);
+    } catch (err) {
+      console.error('Error fetching products:', err);
+      alert('Failed to load products');
+    } finally {
+      setLoadingProducts(false);
+    }
+  };
+
+  // === BLOG CRUD === (unchanged)
+  const handleSubmitBlog = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const method = editingBlog ? 'PUT' : 'POST';
       const url = editingBlog
         ? `${API_URL}/api/blogs/${editingBlog._id}`
         : `${API_URL}/api/blogs`;
-
       const response = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
@@ -153,10 +205,8 @@ export default function Admin() {
           date: new Date().toISOString()
         })
       });
-
       if (!response.ok) throw new Error('Failed to save blog');
-
-      resetForm();
+      resetBlogForm();
       fetchBlogs();
     } catch (error) {
       console.error('Error saving blog:', error);
@@ -164,7 +214,7 @@ export default function Admin() {
     }
   };
 
-  const handleEdit = (blog: Blog) => {
+  const handleEditBlog = (blog: Blog) => {
     setEditingBlog(blog);
     setFormData({
       title: blog.title,
@@ -190,7 +240,88 @@ export default function Admin() {
     }
   };
 
-  // Booking delete
+  // === PRODUCT CRUD ===
+  const handleProductInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setProductFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmitProduct = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const productData = {
+      name: productFormData.name,
+      description: productFormData.description,
+      price: parseFloat(productFormData.price),
+      image: productFormData.image,
+      category: productFormData.category,
+      stock: parseInt(productFormData.stock, 10),
+      rating: parseFloat(productFormData.rating) || 0
+    };
+
+    try {
+      if (editingProduct) {
+        await fetch(`${API_URL}/api/products/${editingProduct._id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(productData)
+        });
+      } else {
+        await fetch(`${API_URL}/api/products`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(productData)
+        });
+      }
+      resetProductForm();
+      fetchProducts();
+    } catch (err) {
+      console.error('Error saving product:', err);
+      alert('Error saving product');
+    }
+  };
+
+  const resetProductForm = () => {
+    setProductFormData({
+      name: '',
+      description: '',
+      price: '',
+      image: '',
+      category: '',
+      stock: '',
+      rating: ''
+    });
+    setEditingProduct(null);
+    setShowForm(false);
+  };
+
+  const handleEditProduct = (product: Product) => {
+    setEditingProduct(product);
+    setProductFormData({
+      name: product.name,
+      description: product.description,
+      price: product.price.toString(),
+      image: product.image,
+      category: product.category,
+      stock: product.stock.toString(),
+      rating: product.rating.toString()
+    });
+    setShowForm(true);
+  };
+
+  const handleDeleteProduct = async (id: string) => {
+    if (window.confirm('Are you sure you want to delete this product?')) {
+      try {
+        await fetch(`${API_URL}/api/products/${id}`, { method: 'DELETE' });
+        fetchProducts();
+      } catch (err) {
+        console.error('Error deleting product:', err);
+        alert('Error deleting product');
+      }
+    }
+  };
+
+  // === OTHER DELETES (unchanged) ===
   const deleteBooking = async (id: string) => {
     if (!confirm('Are you sure you want to delete this booking?')) return;
     try {
@@ -204,7 +335,6 @@ export default function Admin() {
     }
   };
 
-  // Coffee delete
   const deleteCoffee = async (id: string) => {
     if (!confirm('Are you sure you want to delete this coffee registration?')) return;
     try {
@@ -215,82 +345,6 @@ export default function Admin() {
     } catch (error) {
       console.error('Error deleting coffee registration:', error);
       alert('Failed to delete registration');
-    }
-  };
-
-  // Newspaper CRUD
-
-  const handleNewspaperUpload = async () => {
-    if (!uploadTitle || !uploadDescription || !uploadAuthorName || !uploadAuthorTitle || !uploadMedia) {
-      alert('Please fill all required fields and upload media.');
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('title', uploadTitle);
-    formData.append('description', uploadDescription);
-    formData.append('authorName', uploadAuthorName);
-    formData.append('authorTitle', uploadAuthorTitle);
-    formData.append('media', uploadMedia);
-
-    if (uploadLogo) {
-      formData.append('logo', uploadLogo);
-    }
-
-    try {
-      const res = await fetch(`${API_URL}/api/newspapers`, {
-        method: 'POST',
-        body: formData,
-      });
-
-      if (res.ok) {
-        resetNewspaperForm();
-        fetchNewspapers();
-        alert('Newspaper uploaded successfully!');
-      } else {
-        throw new Error('Upload failed');
-      }
-    } catch (error) {
-      console.error('Error uploading newspaper:', error);
-      alert('Upload failed');
-    }
-  };
-
-  const handleNewspaperUpdate = async () => {
-    if (!editingNewspaper || !uploadTitle || !uploadDescription || !uploadAuthorName || !uploadAuthorTitle) {
-      alert('Please fill all required fields.');
-      return;
-    }
-
-    const formData = new FormData();
-    formData.append('title', uploadTitle);
-    formData.append('description', uploadDescription);
-    formData.append('authorName', uploadAuthorName);
-    formData.append('authorTitle', uploadAuthorTitle);
-
-    if (uploadMedia) {
-      formData.append('media', uploadMedia);
-    }
-    if (uploadLogo) {
-      formData.append('logo', uploadLogo);
-    }
-
-    try {
-      const res = await fetch(`${API_URL}/api/newspapers/${editingNewspaper._id}`, {
-        method: 'PUT',
-        body: formData,
-      });
-
-      if (res.ok) {
-        resetNewspaperForm();
-        fetchNewspapers();
-        alert('Newspaper updated successfully!');
-      } else {
-        throw new Error('Update failed');
-      }
-    } catch (error) {
-      console.error('Error updating newspaper:', error);
-      alert('Update failed');
     }
   };
 
@@ -317,17 +371,8 @@ export default function Admin() {
     setUploadLogo(null);
   };
 
-  const resetNewspaperForm = () => {
-    setUploadTitle('');
-    setUploadDescription('');
-    setUploadAuthorName('');
-    setUploadAuthorTitle('');
-    setUploadMedia(null);
-    setUploadLogo(null);
-    setEditingNewspaper(null);
-  };
-
-  const resetForm = () => {
+  // === FORM RESETS ===
+  const resetBlogForm = () => {
     setFormData({
       title: '',
       excerpt: '',
@@ -339,6 +384,83 @@ export default function Admin() {
     });
     setEditingBlog(null);
     setShowForm(false);
+  };
+
+  const resetNewspaperForm = () => {
+    setUploadTitle('');
+    setUploadDescription('');
+    setUploadAuthorName('');
+    setUploadAuthorTitle('');
+    setUploadMedia(null);
+    setUploadLogo(null);
+    setEditingNewspaper(null);
+  };
+
+  // === NEWSPAPER UPLOADS === (unchanged)
+  const handleNewspaperUpload = async () => {
+    if (!uploadTitle || !uploadDescription || !uploadAuthorName || !uploadAuthorTitle || !uploadMedia) {
+      alert('Please fill all required fields and upload media.');
+      return;
+    }
+    const formData = new FormData();
+    formData.append('title', uploadTitle);
+    formData.append('description', uploadDescription);
+    formData.append('authorName', uploadAuthorName);
+    formData.append('authorTitle', uploadAuthorTitle);
+    formData.append('media', uploadMedia);
+    if (uploadLogo) {
+      formData.append('logo', uploadLogo);
+    }
+    try {
+      const res = await fetch(`${API_URL}/api/newspapers`, {
+        method: 'POST',
+        body: formData,
+      });
+      if (res.ok) {
+        resetNewspaperForm();
+        fetchNewspapers();
+        alert('Newspaper uploaded successfully!');
+      } else {
+        throw new Error('Upload failed');
+      }
+    } catch (error) {
+      console.error('Error uploading newspaper:', error);
+      alert('Upload failed');
+    }
+  };
+
+  const handleNewspaperUpdate = async () => {
+    if (!editingNewspaper || !uploadTitle || !uploadDescription || !uploadAuthorName || !uploadAuthorTitle) {
+      alert('Please fill all required fields.');
+      return;
+    }
+    const formData = new FormData();
+    formData.append('title', uploadTitle);
+    formData.append('description', uploadDescription);
+    formData.append('authorName', uploadAuthorName);
+    formData.append('authorTitle', uploadAuthorTitle);
+    if (uploadMedia) {
+      formData.append('media', uploadMedia);
+    }
+    if (uploadLogo) {
+      formData.append('logo', uploadLogo);
+    }
+    try {
+      const res = await fetch(`${API_URL}/api/newspapers/${editingNewspaper._id}`, {
+        method: 'PUT',
+        body: formData,
+      });
+      if (res.ok) {
+        resetNewspaperForm();
+        fetchNewspapers();
+        alert('Newspaper updated successfully!');
+      } else {
+        throw new Error('Update failed');
+      }
+    } catch (error) {
+      console.error('Error updating newspaper:', error);
+      alert('Update failed');
+    }
   };
 
   // === AUTH SCREEN ===
@@ -399,7 +521,7 @@ export default function Admin() {
     <>
       <SEO
         title="Admin Dashboard"
-        description="Manage blogs, session bookings, coffee break registrations, and newspaper features."
+        description="Manage blogs, session bookings, coffee break registrations, newspapers, and products."
         keywords="admin, dashboard, management"
         type="website"
       />
@@ -430,6 +552,7 @@ export default function Admin() {
                   setSelectedBooking(null);
                   setSelectedCoffee(null);
                   setSelectedNewspaper(null);
+                  setSelectedProduct(null);
                 }}
                 className={`pb-4 px-1 border-b-2 font-medium text-sm ${
                   activeTab === 'blogs'
@@ -445,6 +568,7 @@ export default function Admin() {
                   setShowForm(false);
                   setSelectedCoffee(null);
                   setSelectedNewspaper(null);
+                  setSelectedProduct(null);
                 }}
                 className={`pb-4 px-1 border-b-2 font-medium text-sm ${
                   activeTab === 'bookings'
@@ -460,6 +584,7 @@ export default function Admin() {
                   setShowForm(false);
                   setSelectedBooking(null);
                   setSelectedNewspaper(null);
+                  setSelectedProduct(null);
                 }}
                 className={`pb-4 px-1 border-b-2 font-medium text-sm ${
                   activeTab === 'coffee'
@@ -475,6 +600,7 @@ export default function Admin() {
                   setShowForm(false);
                   setSelectedBooking(null);
                   setSelectedCoffee(null);
+                  setSelectedProduct(null);
                 }}
                 className={`pb-4 px-1 border-b-2 font-medium text-sm ${
                   activeTab === 'newspapers'
@@ -483,6 +609,22 @@ export default function Admin() {
                 }`}
               >
                 Newspapers ({newspapers.length})
+              </button>
+              <button
+                onClick={() => {
+                  setActiveTab('products');
+                  setShowForm(false);
+                  setSelectedBooking(null);
+                  setSelectedCoffee(null);
+                  setSelectedNewspaper(null);
+                }}
+                className={`pb-4 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'products'
+                    ? 'border-green-600 text-green-600'
+                    : 'border-transparent text-gray-600 hover:text-gray-900 hover:border-gray-300'
+                }`}
+              >
+                Products ({products.length})
               </button>
             </div>
           </div>
@@ -499,13 +641,12 @@ export default function Admin() {
                   <span>Add New Blog</span>
                 </button>
               </div>
-
               {showForm && (
                 <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
                   <h2 className="text-xl font-bold text-gray-900 mb-4">
                     {editingBlog ? 'Edit Blog' : 'Add New Blog'}
                   </h2>
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmitBlog} className="space-y-4">
                     <div>
                       <label className="block text-sm font-medium text-gray-700 mb-1">Title</label>
                       <input
@@ -541,12 +682,7 @@ export default function Admin() {
                         <label className="block text-sm font-medium text-gray-700 mb-1">Category</label>
                         <select
                           value={formData.category}
-                          onChange={(e) =>
-                            setFormData({
-                              ...formData,
-                              category: e.target.value as any
-                            })
-                          }
+                          onChange={(e) => setFormData({ ...formData, category: e.target.value as any })}
                           className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-green-500 focus:border-green-500"
                         >
                           <option>GUIDES</option>
@@ -598,7 +734,7 @@ export default function Admin() {
                       </button>
                       <button
                         type="button"
-                        onClick={resetForm}
+                        onClick={resetBlogForm}
                         className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400"
                       >
                         Cancel
@@ -607,7 +743,6 @@ export default function Admin() {
                   </form>
                 </div>
               )}
-
               <div className="bg-white rounded-lg shadow overflow-hidden">
                 <table className="min-w-full divide-y divide-gray-200">
                   <thead className="bg-gray-50">
@@ -640,15 +775,13 @@ export default function Admin() {
                             {blog.category}
                           </span>
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                          {blog.author}
-                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{blog.author}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                           {blog.featured ? 'Yes' : 'No'}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                           <button
-                            onClick={() => handleEdit(blog)}
+                            onClick={() => handleEditBlog(blog)}
                             className="text-blue-600 hover:text-blue-900 mr-4"
                           >
                             <Edit2 className="w-4 h-4" />
@@ -776,9 +909,7 @@ export default function Admin() {
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                           {booking.businessName}
                         </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
-                          {booking.email}
-                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{booking.email}</td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                           {booking.selectedDate} at {booking.timeSlot}
                         </td>
@@ -1043,9 +1174,7 @@ export default function Admin() {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                           <button
-                            onClick={() => {
-                              setSelectedNewspaper(item);
-                            }}
+                            onClick={() => setSelectedNewspaper(item)}
                             className="text-blue-600 hover:text-blue-900 mr-4"
                           >
                             <Eye className="w-4 h-4" />
@@ -1079,7 +1208,6 @@ export default function Admin() {
                     >
                       ✕
                     </button>
-
                     <div className="flex flex-col md:flex-row gap-6">
                       {/* Left Side: Text Content */}
                       <div className="md:w-1/2 space-y-4">
@@ -1107,7 +1235,6 @@ export default function Admin() {
                           Published on: {new Date(selectedNewspaper.date).toLocaleDateString()}
                         </p>
                       </div>
-
                       {/* Right Side: Media */}
                       <div className="md:w-1/2">
                         {selectedNewspaper.mediaType === 'image' ? (
@@ -1129,6 +1256,165 @@ export default function Admin() {
                 </div>
               )}
             </div>
+          )}
+
+          {/* === PRODUCTS TAB === */}
+          {activeTab === 'products' && (
+            <>
+              <div className="mb-6">
+                <button
+                  onClick={() => {
+                    resetProductForm();
+                    setShowForm(true);
+                  }}
+                  className="flex items-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700"
+                >
+                  <Plus size={20} />
+                  Add New Product
+                </button>
+              </div>
+
+              {showForm && (
+                <div className="bg-white rounded-lg shadow-md p-8 mb-8">
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                    {editingProduct ? 'Edit Product' : 'Add New Product'}
+                  </h2>
+                  <form onSubmit={handleSubmitProduct} className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <input
+                        type="text"
+                        name="name"
+                        placeholder="Product Name"
+                        value={productFormData.name}
+                        onChange={handleProductInputChange}
+                        required
+                        className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                      />
+                      <input
+                        type="text"
+                        name="category"
+                        placeholder="Category"
+                        value={productFormData.category}
+                        onChange={handleProductInputChange}
+                        required
+                        className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                      />
+                    </div>
+
+                    <textarea
+                      name="description"
+                      placeholder="Product Description"
+                      value={productFormData.description}
+                      onChange={handleProductInputChange}
+                      required
+                      rows={4}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                    />
+
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+                      <input
+                        type="number"
+                        name="price"
+                        placeholder="Price"
+                        value={productFormData.price}
+                        onChange={handleProductInputChange}
+                        step="0.01"
+                        required
+                        className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                      />
+                      <input
+                        type="number"
+                        name="stock"
+                        placeholder="Stock"
+                        value={productFormData.stock}
+                        onChange={handleProductInputChange}
+                        required
+                        className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                      />
+                      <input
+                        type="number"
+                        name="rating"
+                        placeholder="Rating (1-5)"
+                        value={productFormData.rating}
+                        onChange={handleProductInputChange}
+                        step="0.1"
+                        min="0"
+                        max="5"
+                        required
+                        className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                      />
+                      <input
+                        type="text"
+                        name="image"
+                        placeholder="Image URL"
+                        value={productFormData.image}
+                        onChange={handleProductInputChange}
+                        required
+                        className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-600"
+                      />
+                    </div>
+
+                    <div className="flex gap-4">
+                      <button
+                        type="submit"
+                        className="bg-green-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-green-700"
+                      >
+                        {editingProduct ? 'Update' : 'Create'} Product
+                      </button>
+                      <button
+                        type="button"
+                        onClick={resetProductForm}
+                        className="bg-gray-400 text-white px-6 py-2 rounded-lg font-semibold hover:bg-gray-500"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              )}
+
+              <div className="bg-white rounded-lg shadow-md overflow-hidden">
+                <table className="w-full">
+                  <thead className="bg-gray-100 border-b border-gray-300">
+                    <tr>
+                      <th className="px-6 py-4 text-left font-semibold text-gray-900">Name</th>
+                      <th className="px-6 py-4 text-left font-semibold text-gray-900">Category</th>
+                      <th className="px-6 py-4 text-left font-semibold text-gray-900">Price</th>
+                      <th className="px-6 py-4 text-left font-semibold text-gray-900">Stock</th>
+                      <th className="px-6 py-4 text-left font-semibold text-gray-900">Rating</th>
+                      <th className="px-6 py-4 text-left font-semibold text-gray-900">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {products.map((product) => (
+                      <tr key={product._id} className="border-b border-gray-200 hover:bg-gray-50">
+                        <td className="px-6 py-4 font-semibold text-gray-900">{product.name}</td>
+                        <td className="px-6 py-4 text-gray-700">{product.category}</td>
+                        <td className="px-6 py-4 font-semibold text-blue-600">${product.price.toFixed(2)}</td>
+                        <td className="px-6 py-4">{product.stock}</td>
+                        <td className="px-6 py-4">{product.rating}</td>
+                        <td className="px-6 py-4 flex gap-4">
+                          <button
+                            onClick={() => handleEditProduct(product)}
+                            className="text-blue-600 hover:text-blue-800 flex items-center gap-2"
+                          >
+                            <Edit2 size={18} />
+                            Edit
+                          </button>
+                          <button
+                            onClick={() => handleDeleteProduct(product._id)}
+                            className="text-red-600 hover:text-red-800 flex items-center gap-2"
+                          >
+                            <Trash2 size={18} />
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
           )}
         </div>
       </div>
