@@ -26,7 +26,7 @@ const whoWeServe = [
 
 const resources = [
   { title: "Blogs", desc: "Growth insights", link: "/blogs" },
-  { title: "E-Books", desc: "Guides & playbooks", link: "/ebooks" },
+  { title: "E-Books", desc: "Guides & playbooks", link: "/products" },
   { title: "Ad Spend Calculator", desc: "Estimate ROI", link: "/adspendcalculator" },
   { title: "Lead Gen Course", desc: "Learn funnels", link: "/Coffeebreak" },
 ];
