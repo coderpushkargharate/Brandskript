@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Lock } from 'lucide-react';
 
-const API_BASE_URL = 'https://brandskript-5r5c.vercel.app/api';
+const API_BASE_URL = 'https://brandskript-pymn.vercel.app/api';
 
 function AdminLogin({ setAdminToken }: { setAdminToken: (token: string) => void }) {
   const navigate = useNavigate();

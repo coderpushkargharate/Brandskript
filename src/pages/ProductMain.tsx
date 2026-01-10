@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Star } from 'lucide-react';
 
-const API_BASE_URL = 'https://brandskript-5r5c.vercel.app/api';
+const API_BASE_URL = 'https://brandskript-pymn.vercel.app/api';
 
 interface Product {
   _id: string;

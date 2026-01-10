@@ -81,7 +81,7 @@ const Header = () => {
                   Login
                 </Link>
                 <Link to="/get-started" className="bg-green-500 text-white px-6 py-2 rounded-full">
-                  Book An Appointmen
+                  Book An Appointment
                 </Link>
               </div>
 

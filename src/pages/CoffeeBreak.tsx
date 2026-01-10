@@ -17,7 +17,7 @@ const CEOCoffeeBreakPage = () => {
 
   /* ---------------- FETCH DATA ---------------- */
   useEffect(() => {
-    fetch("https://brandskript-5r5c.vercel.app/api/newspapers")
+    fetch("https://brandskript-pymn.vercel.app/api/newspapers")
       .then((res) => res.json())
       .then(setNewspapers)
       .catch(console.error);
@@ -35,7 +35,7 @@ const CEOCoffeeBreakPage = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("https://brandskript-5r5c.vercel.app/api/coffee-register", {
+      const res = await fetch("https://brandskript-pymn.vercel.app/api/coffee-register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
