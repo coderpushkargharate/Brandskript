@@ -36,6 +36,7 @@ import BookkeepingBusinessPage from "./pages/BookkeepingBusinessPage";
 import AdSpendCalculator from "./pages/AdSpendCalculator";
 import CaseStudies from "./pages/CaseStudyPage";
 import CaseStudyDetail from "./pages/CaseStudyDetail";
+import Specialities from "./pages/Specialities";
 
 function App() {
   // Cart state (from first app)
@@ -104,7 +105,7 @@ function App() {
               <Route path="/adspendcalculator" element={<AdSpendCalculator />} />
                 <Route path="/case-studies" element={<CaseStudies />} />
         <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
-
+<Route path="specialities" element={<Specialities />} />
               {/* Admin route (generic - may conflict with /admin/login) */}
               <Route path="/admin" element={<Admin />} />
 

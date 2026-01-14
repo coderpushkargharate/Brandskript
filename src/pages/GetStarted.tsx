@@ -21,7 +21,6 @@ export default function GetStarted() {
     mainChallenges: ""
   });
 
-  // Generate current dates for the next 7 days
   const generateDates = () => {
     const dates = [];
     const today = new Date();
@@ -91,7 +90,6 @@ export default function GetStarted() {
       return;
     }
 
-    // Validate required additional fields
     if (!formData.businessName.trim()) {
       alert("Please enter your business name");
       return;
@@ -131,7 +129,6 @@ export default function GetStarted() {
       
       if (response.ok) {
         alert("Event Scheduled Successfully! Check your email for confirmation.");
-        // Reset form
         setFormData({
           fullName: "",
           email: "",
@@ -162,415 +159,430 @@ export default function GetStarted() {
     <>
       <SEO title="1-1 Consultation Call" />
 
-      <div className="min-h-screen bg-gray-100 flex justify-center items-start py-8 px-4">
-        <div className="bg-white rounded-xl shadow-lg w-full max-w-6xl grid md:grid-cols-2">
+      <div className="min-h-screen bg-gray-100 py-6 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+            {/* On small screens: stack vertically. On md+: split into two columns */}
+            <div className="grid grid-cols-1 md:grid-cols-2">
 
-          {/* LEFT PANEL - Information Sections */}
-          <div className="p-8 border-r border-gray-200">
-            <img 
-              src="/logo.png" 
-              alt="Brand" 
-              className="h-8 mb-6"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = "https://via.placeholder.com/100x30?text=ROI+Edge";
-              }}
-            />
+              {/* LEFT PANEL - Info */}
+              <div className="p-6 sm:p-8 border-b md:border-b-0 md:border-r border-gray-200">
+                <img 
+                  src="/logo.png" 
+                  alt="Brand" 
+                  className="h-8 mb-6"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = "https://via.placeholder.com/100x30?text=ROI+Edge";
+                  }}
+                />
 
-            <h2 className="text-2xl font-bold mb-2">1-1 Consultation Call</h2>
+                <h2 className="text-xl sm:text-2xl font-bold mb-2">1-1 Consultation Call</h2>
 
-            <div className="flex items-center text-gray-600 text-sm mb-4">
-              <Clock className="w-4 h-4 mr-2" /> 30 min
-            </div>
+                <div className="flex items-center text-gray-600 text-sm mb-4">
+                  <Clock className="w-4 h-4 mr-2 flex-shrink-0" /> 30 min
+                </div>
 
-            <p className="text-gray-700 mb-6">
-              Ready to scale your business with predictable leads & profitable ads?
-            </p>
+                <p className="text-gray-700 mb-6">
+                  Ready to scale your business with predictable leads & profitable ads?
+                </p>
 
-            <div className="bg-red-50 border border-red-200 p-4 rounded-lg text-sm text-red-700 mb-6">
-              Only for businesses generating <strong>$10K+/month</strong>.
-            </div>
+                <div className="bg-red-50 border border-red-200 p-4 rounded-lg text-sm text-red-700 mb-6">
+                  Only for businesses generating <strong>$10K+/month</strong>.
+                </div>
 
-            {/* Before You Book Section */}
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-5 h-5 text-red-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 11-2 0 1 1 0 012 0zm0 6a1 1 0 11-2 0 1 1 0 012 0z" clipRule="evenodd" />
-                </svg>
-                <h3 className="font-semibold text-gray-800">Before You Book (Important)</h3>
+                {/* Reusable pattern for all info blocks */}
+                {[
+                  {
+                    title: "Before You Book (Important)",
+                    iconColor: "text-red-500",
+                    content: (
+                      <>
+                        <p className="text-sm text-gray-600 mb-2">This consultation is best suited for businesses that:</p>
+                        <ul className="list-disc list-inside text-sm text-gray-600 mb-2 space-y-1">
+                          <li>Are already generating revenue</li>
+                          <li>Have a validated product or service</li>
+                          <li>Are serious about scaling profitably</li>
+                        </ul>
+                        <p className="text-sm text-gray-600 mb-2">
+                          If you're still testing ideas or looking for free marketing advice, this call may not be the right fit.
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          We work best with founders and teams who value systems, accountability, and execution.
+                        </p>
+                      </>
+                    )
+                  },
+                  {
+                    title: "What This Strategy Session Is About",
+                    iconColor: "text-yellow-500",
+                    content: (
+                      <>
+                        <p className="text-sm text-gray-600 mb-2">
+                          In this 1:1 session, we'll focus on your business numbers, not theory.
+                        </p>
+                        <p className="text-sm text-gray-600 mb-2">We'll discuss:</p>
+                        <ul className="list-disc list-inside text-sm text-gray-600 mb-2 space-y-1">
+                          <li>Your current acquisition model (leads, installs, trials, subscriptions, demos, etc)</li>
+                          <li>Where CAC is leaking and ROI is breaking</li>
+                          <li>What's stopping predictable scale right now</li>
+                          <li>Whether a Client Acquisition System makes sense for your business</li>
+                        </ul>
+                        <p className="text-sm text-gray-600 mb-2">
+                          If there's a clear opportunity, we'll map out how ROI Edge would approach it.
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          If not, we'll tell you honestly.
+                        </p>
+                      </>
+                    )
+                  },
+                  {
+                    title: "How ROI Edge Is Different",
+                    iconColor: "text-gray-500",
+                    content: (
+                      <>
+                        <p className="text-sm text-gray-600 mb-2">
+                          We don't sell "ads" or "leads" in isolation.
+                        </p>
+                        <p className="text-sm text-gray-600 mb-2">
+                          We build Client Acquisition Systems that combine:
+                        </p>
+                        <ul className="list-disc list-inside text-sm text-gray-600 mb-2 space-y-1">
+                          <li>Google Ads & Meta Ads (intent + demand capture)</li>
+                          <li>Funnel and conversion optimization</li>
+                          <li>Full-funnel tracking (CAC, ROAS, ROI)</li>
+                          <li>AI-powered qualification and follow-ups</li>
+                        </ul>
+                        <p className="text-sm text-gray-600">
+                          Everything is designed to support profitable scale, not vanity metrics.
+                        </p>
+                      </>
+                    )
+                  },
+                  {
+                    title: "Who We Typically Work With",
+                    iconColor: "text-blue-500",
+                    content: (
+                      <>
+                        <p className="text-sm text-gray-600 mb-2">
+                          We partner with growth-focused businesses across the US, India, UAE, Europe & Australia, including:
+                        </p>
+                        <ul className="list-disc list-inside text-sm text-gray-600 mb-2 space-y-1">
+                          <li>SaaS & B2B Software Companies</li>
+                          <li>Healthcare Clinics & Medical Services</li>
+                          <li>Real Estate, Builders & Developers</li>
+                          <li>High-ticket Service Businesses</li>
+                          <li>Consulting & Professional Services</li>
+                        </ul>
+                        <p className="text-sm text-gray-600">
+                          If your business depends on acquiring customers profitably, this call is for you.
+                        </p>
+                      </>
+                    )
+                  },
+                  {
+                    title: "Real Results, Real Accountability",
+                    iconColor: "text-green-500",
+                    content: (
+                      <>
+                        <p className="text-sm text-gray-600 mb-2">
+                          Our systems have helped businesses:
+                        </p>
+                        <ul className="list-disc list-inside text-sm text-gray-600 mb-2 space-y-1">
+                          <li>Generate consistent, qualified pipelines</li>
+                          <li>Reduce CAC while scaling spend</li>
+                          <li>Improve conversion quality and sales efficiency</li>
+                          <li>Build predictable, repeatable growth</li>
+                        </ul>
+                        <p className="text-sm text-gray-600 mb-2">
+                          We don't promise "results someday."
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          We focus on clear benchmarks, accountability, and execution.
+                        </p>
+                      </>
+                    )
+                  },
+                  {
+                    title: "Why Book This Call",
+                    iconColor: "text-yellow-500",
+                    content: (
+                      <>
+                        <p className="text-sm text-gray-600 mb-2">
+                          Book this session if you want:
+                        </p>
+                        <ul className="list-disc list-inside text-sm text-gray-600 mb-2 space-y-1">
+                          <li>A clear acquisition strategy aligned with your business model</li>
+                          <li>Honest feedback — even if we're not a fit</li>
+                          <li>A scalable alternative to hiring in-house teams</li>
+                          <li>A partner focused on ROI, not activity</li>
+                        </ul>
+                        <p className="text-sm text-gray-600">
+                          This is a strategy-first conversation, not a sales pitch.
+                        </p>
+                      </>
+                    )
+                  },
+                  {
+                    title: "Next Step",
+                    iconColor: "text-blue-500",
+                    content: (
+                      <>
+                        <p className="text-sm text-gray-600 mb-2">
+                          If you're serious about building a predictable, ROI-driven acquisition system:
+                        </p>
+                        <ul className="list-disc list-inside text-sm text-gray-600 mb-2 space-y-1">
+                          <li>Book Your Strategy Session</li>
+                        </ul>
+                        <p className="text-sm text-gray-600">
+                          We'll help you decide the smartest next move — with clarity and numbers.
+                        </p>
+                      </>
+                    )
+                  },
+                  {
+                    title: "Signature (Updated for Trust)",
+                    iconColor: "text-gray-500",
+                    content: (
+                      <>
+                        <p className="text-sm text-gray-600 mb-1">Shubham Channagire</p>
+                        <p className="text-sm text-gray-600 mb-1">Founder, ROI Edge</p>
+                        <p className="text-sm text-gray-600">Helping businesses scale with predictable client acquisition systems</p>
+                      </>
+                    )
+                  }
+                ].map((section, idx) => (
+                  <div key={idx} className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
+                    <div className="flex items-start gap-2 mb-2">
+                      <svg className={`w-5 h-5 ${section.iconColor} mt-0.5 flex-shrink-0`} fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm1-12a1 1 0 11-2 0 1 1 0 012 0zm0 6a1 1 0 11-2 0 1 1 0 012 0z" clipRule="evenodd" />
+                      </svg>
+                      <h3 className="font-semibold text-gray-800">{section.title}</h3>
+                    </div>
+                    {section.content}
+                  </div>
+                ))}
               </div>
-              <p className="text-sm text-gray-600 mb-2">This consultation is best suited for businesses that:</p>
-              <ul className="list-disc list-inside text-sm text-gray-600 mb-2 space-y-1">
-                <li>Are already generating revenue</li>
-                <li>Have a validated product or service</li>
-                <li>Are serious about scaling profitably</li>
-              </ul>
-              <p className="text-sm text-gray-600 mb-2">
-                If you're still testing ideas or looking for free marketing advice, this call may not be the right fit.
-              </p>
-              <p className="text-sm text-gray-600">
-                We work best with founders and teams who value systems, accountability, and execution.
-              </p>
-            </div>
 
-            {/* What This Strategy Session Is About */}
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-5 h-5 text-yellow-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 001 1h1a1 1 0 100-2H9a1 1 0 00-1 1zm3 5a1 1 0 100-2h1a1 1 0 100 2h-1z" clipRule="evenodd" />
-                </svg>
-                <h3 className="font-semibold text-gray-800">What This Strategy Session Is About</h3>
-              </div>
-              <p className="text-sm text-gray-600 mb-2">
-                In this 1:1 session, we'll focus on your business numbers, not theory.
-              </p>
-              <p className="text-sm text-gray-600 mb-2">We'll discuss:</p>
-              <ul className="list-disc list-inside text-sm text-gray-600 mb-2 space-y-1">
-                <li>Your current acquisition model (leads, installs, trials, subscriptions, demos, etc)</li>
-                <li>Where CAC is leaking and ROI is breaking</li>
-                <li>What's stopping predictable scale right now</li>
-                <li>Whether a Client Acquisition System makes sense for your business</li>
-              </ul>
-              <p className="text-sm text-gray-600 mb-2">
-                If there's a clear opportunity, we'll map out how ROI Edge would approach it.
-              </p>
-              <p className="text-sm text-gray-600">
-                If not, we'll tell you honestly.
-              </p>
-            </div>
+              {/* RIGHT PANEL - Form */}
+              <div className="p-6 sm:p-8">
+                <h3 className="text-lg sm:text-xl font-semibold mb-6">Enter Details</h3>
 
-            {/* How ROI Edge Is Different */}
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-5 h-5 text-gray-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 001 1h1a1 1 0 100-2H9a1 1 0 00-1 1zm3 5a1 1 0 100-2h1a1 1 0 100 2h-1z" clipRule="evenodd" />
-                </svg>
-                <h3 className="font-semibold text-gray-800">How ROI Edge Is Different</h3>
-              </div>
-              <p className="text-sm text-gray-600 mb-2">
-                We don't sell "ads" or "leads" in isolation.
-              </p>
-              <p className="text-sm text-gray-600 mb-2">
-                We build Client Acquisition Systems that combine:
-              </p>
-              <ul className="list-disc list-inside text-sm text-gray-600 mb-2 space-y-1">
-                <li>Google Ads & Meta Ads (intent + demand capture)</li>
-                <li>Funnel and conversion optimization</li>
-                <li>Full-funnel tracking (CAC, ROAS, ROI)</li>
-                <li>AI-powered qualification and follow-ups</li>
-              </ul>
-              <p className="text-sm text-gray-600">
-                Everything is designed to support profitable scale, not vanity metrics.
-              </p>
-            </div>
-
-            {/* Who We Typically Work With */}
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-5 h-5 text-blue-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 001 1h1a1 1 0 100-2H9a1 1 0 00-1 1zm3 5a1 1 0 100-2h1a1 1 0 100 2h-1z" clipRule="evenodd" />
-                </svg>
-                <h3 className="font-semibold text-gray-800">Who We Typically Work With</h3>
-              </div>
-              <p className="text-sm text-gray-600 mb-2">
-                We partner with growth-focused businesses across the US, India, UAE, Europe & Australia, including:
-              </p>
-              <ul className="list-disc list-inside text-sm text-gray-600 mb-2 space-y-1">
-                <li>SaaS & B2B Software Companies</li>
-                <li>Healthcare Clinics & Medical Services</li>
-                <li>Real Estate, Builders & Developers</li>
-                <li>High-ticket Service Businesses</li>
-                <li>Consulting & Professional Services</li>
-              </ul>
-              <p className="text-sm text-gray-600">
-                If your business depends on acquiring customers profitably, this call is for you.
-              </p>
-            </div>
-
-            {/* Real Results, Real Accountability */}
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-5 h-5 text-green-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 001 1h1a1 1 0 100-2H9a1 1 0 00-1 1zm3 5a1 1 0 100-2h1a1 1 0 100 2h-1z" clipRule="evenodd" />
-                </svg>
-                <h3 className="font-semibold text-gray-800">Real Results, Real Accountability</h3>
-              </div>
-              <p className="text-sm text-gray-600 mb-2">
-                Our systems have helped businesses:
-              </p>
-              <ul className="list-disc list-inside text-sm text-gray-600 mb-2 space-y-1">
-                <li>Generate consistent, qualified pipelines</li>
-                <li>Reduce CAC while scaling spend</li>
-                <li>Improve conversion quality and sales efficiency</li>
-                <li>Build predictable, repeatable growth</li>
-              </ul>
-              <p className="text-sm text-gray-600 mb-2">
-                We don't promise "results someday."
-              </p>
-              <p className="text-sm text-gray-600">
-                We focus on clear benchmarks, accountability, and execution.
-              </p>
-            </div>
-
-            {/* Why Book This Call */}
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-5 h-5 text-yellow-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 001 1h1a1 1 0 100-2H9a1 1 0 00-1 1zm3 5a1 1 0 100-2h1a1 1 0 100 2h-1z" clipRule="evenodd" />
-                </svg>
-                <h3 className="font-semibold text-gray-800">Why Book This Call</h3>
-              </div>
-              <p className="text-sm text-gray-600 mb-2">
-                Book this session if you want:
-              </p>
-              <ul className="list-disc list-inside text-sm text-gray-600 mb-2 space-y-1">
-                <li>A clear acquisition strategy aligned with your business model</li>
-                <li>Honest feedback — even if we're not a fit</li>
-                <li>A scalable alternative to hiring in-house teams</li>
-                <li>A partner focused on ROI, not activity</li>
-              </ul>
-              <p className="text-sm text-gray-600">
-                This is a strategy-first conversation, not a sales pitch.
-              </p>
-            </div>
-
-            {/* Next Step Section */}
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 mb-6">
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-5 h-5 text-blue-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 001 1h1a1 1 0 100-2H9a1 1 0 00-1 1zm3 5a1 1 0 100-2h1a1 1 0 100 2h-1z" clipRule="evenodd" />
-                </svg>
-                <h3 className="font-semibold text-gray-800">Next Step</h3>
-              </div>
-              <p className="text-sm text-gray-600 mb-2">
-                If you're serious about building a predictable, ROI-driven acquisition system:
-              </p>
-              <ul className="list-disc list-inside text-sm text-gray-600 mb-2 space-y-1">
-                <li>Book Your Strategy Session</li>
-              </ul>
-              <p className="text-sm text-gray-600">
-                We'll help you decide the smartest next move — with clarity and numbers.
-              </p>
-            </div>
-
-            {/* Signature Section */}
-            <div className="bg-gray-50 border border-gray-200 rounded-lg p-4">
-              <div className="flex items-start gap-2 mb-2">
-                <svg className="w-5 h-5 text-gray-500 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 001 1h1a1 1 0 100-2H9a1 1 0 00-1 1zm3 5a1 1 0 100-2h1a1 1 0 100 2h-1z" clipRule="evenodd" />
-                </svg>
-                <h3 className="font-semibold text-gray-800">Signature (Updated for Trust)</h3>
-              </div>
-              <p className="text-sm text-gray-600 mb-1">Shubham Channagire</p>
-              <p className="text-sm text-gray-600 mb-1">Founder, ROI Edge</p>
-              <p className="text-sm text-gray-600">Helping businesses scale with predictable client acquisition systems</p>
-            </div>
-          </div>
-
-          {/* RIGHT PANEL - Calendar and Form */}
-          <div className="p-8">
-            <h3 className="text-xl font-semibold mb-6">Enter Details</h3>
-
-            {/* DATE */}
-            <div className="flex gap-2 mb-4 overflow-x-auto pb-2">
-              {dates.map((date) => (
-                <button
-                  key={date}
-                  onClick={() => handleDateSelect(date)}
-                  className={`px-4 py-2 rounded-full text-sm whitespace-nowrap ${
-                    selectedDate === date
-                      ? "bg-green-600 text-white"
-                      : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                  }`}
-                >
-                  {date}
-                </button>
-              ))}
-            </div>
-
-            {/* TIME */}
-            <div className="space-y-3 mb-6">
-              {Object.entries(timeSlots).map(([label, times]) => (
-                <div key={label}>
-                  <p className="text-sm text-gray-600 mb-1 font-medium">{label}</p>
-                  <div className="grid grid-cols-2 gap-2">
-                    {times.map((time) => (
+                {/* DATE PICKER */}
+                <div className="mb-6">
+                  <p className="text-sm font-medium text-gray-700 mb-2">Select a date</p>
+                  <div className="flex gap-2 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-hide">
+                    {dates.map((date) => (
                       <button
-                        key={time}
-                        onClick={() => handleTimeSelect(time)}
-                        className={`border rounded-lg py-2 text-sm ${
-                          selectedTime === time
-                            ? "bg-green-600 text-white border-green-600"
-                            : "border-gray-300 hover:border-green-400"
+                        key={date}
+                        onClick={() => handleDateSelect(date)}
+                        className={`px-4 py-2 rounded-full text-sm whitespace-nowrap flex-shrink-0 ${
+                          selectedDate === date
+                            ? "bg-green-600 text-white"
+                            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
                         }`}
                       >
-                        {time}
+                        {date}
                       </button>
                     ))}
                   </div>
                 </div>
-              ))}
+
+                {/* TIME SLOTS */}
+                <div className="mb-8">
+                  <p className="text-sm font-medium text-gray-700 mb-3">Select a time</p>
+                  <div className="space-y-4">
+                    {Object.entries(timeSlots).map(([period, times]) => (
+                      <div key={period}>
+                        <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-1">{period}</p>
+                        <div className="grid grid-cols-3 gap-2">
+                          {times.map((time) => (
+                            <button
+                              key={time}
+                              type="button"
+                              onClick={() => handleTimeSelect(time)}
+                              className={`text-xs py-2 px-1 rounded border ${
+                                selectedTime === time
+                                  ? "bg-green-600 text-white border-green-600"
+                                  : "border-gray-300 text-gray-700 hover:border-green-400"
+                              }`}
+                            >
+                              {time}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* FORM FIELDS */}
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <input
+                    name="fullName"
+                    placeholder="Name *"
+                    required
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    className="w-full border px-4 py-2.5 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  />
+
+                  <input
+                    name="email"
+                    type="email"
+                    placeholder="Email *"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full border px-4 py-2.5 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                  />
+
+                  <div className="space-y-6 pt-6 border-t border-gray-200">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        What is the name of your business?
+                      </label>
+                      <input
+                        name="businessName"
+                        placeholder="Enter your business name"
+                        required
+                        value={formData.businessName}
+                        onChange={handleChange}
+                        className="w-full border px-4 py-2.5 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        What products or services do you offer?
+                      </label>
+                      <input
+                        name="productsServices"
+                        placeholder="Describe your products or services"
+                        required
+                        value={formData.productsServices}
+                        onChange={handleChange}
+                        className="w-full border px-4 py-2.5 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Who is your target audience or ideal customer?
+                      </label>
+                      <input
+                        name="targetAudience"
+                        placeholder="Describe your target audience or ideal customer"
+                        required
+                        value={formData.targetAudience}
+                        onChange={handleChange}
+                        className="w-full border px-4 py-2.5 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        How do you currently generate leads or acquire new customers?
+                      </label>
+                      <textarea
+                        name="leadGenerationMethod"
+                        placeholder="Describe your current lead generation methods"
+                        required
+                        rows={3}
+                        value={formData.leadGenerationMethod}
+                        onChange={handleChange}
+                        className="w-full border px-4 py-2.5 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        What are the main challenges you face in generating consistent leads or clients?
+                      </label>
+                      <textarea
+                        name="mainChallenges"
+                        placeholder="Describe your main challenges in generating consistent leads"
+                        required
+                        rows={3}
+                        value={formData.mainChallenges}
+                        onChange={handleChange}
+                        className="w-full border px-4 py-2.5 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                      />
+                    </div>
+
+                    <div>
+                      <p className="text-sm font-medium text-gray-700 mb-2">
+                        How soon can we get started if we are on the same page?
+                      </p>
+                      {[
+                        "Immediately",
+                        "Within 7 days",
+                        "Within 15 - 30 days",
+                        "After 30 days",
+                      ].map((opt) => (
+                        <label key={opt} className="flex items-center gap-2 mb-2">
+                          <input
+                            type="radio"
+                            name="startTimeline"
+                            value={opt}
+                            checked={formData.startTimeline === opt}
+                            onChange={handleRadioChange}
+                            className="h-4 w-4 text-green-600"
+                          />
+                          <span className="text-sm text-gray-700">{opt}</span>
+                        </label>
+                      ))}
+                    </div>
+
+                    <div>
+                      <p className="text-sm font-medium text-gray-700 mb-2">
+                        Which range best describes your current monthly revenue?
+                      </p>
+                      {[
+                        "Under $10k",
+                        "$10k–$30k",
+                        "$30k–$100k",
+                        "$100k+",
+                      ].map((opt) => (
+                        <label key={opt} className="flex items-center gap-2 mb-2">
+                          <input
+                            type="radio"
+                            name="monthlyRevenue"
+                            value={opt}
+                            checked={formData.monthlyRevenue === opt}
+                            onChange={handleRadioChange}
+                            className="h-4 w-4 text-green-600"
+                          />
+                          <span className="text-sm text-gray-700">{opt}</span>
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-4 border-t border-gray-200">
+                    <p className="text-xs text-gray-600">
+                      By proceeding, you confirm that you have read and agree to{" "}
+                      <a href="#" className="text-blue-600 hover:text-blue-800 underline">
+                        Brandskript's Terms of Use
+                      </a>{" "}
+                      and{" "}
+                      <a href="#" className="text-blue-600 hover:text-blue-800 underline">
+                        Privacy Notice
+                      </a>
+                      .
+                    </p>
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition disabled:opacity-80 text-sm"
+                  >
+                    {loading ? "Scheduling..." : "Schedule Event"}
+                  </button>
+                </form>
+              </div>
             </div>
-
-            {/* FORM */}
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <input
-                name="fullName"
-                placeholder="Name *"
-                required
-                value={formData.fullName}
-                onChange={handleChange}
-                className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-              />
-
-              <input
-                name="email"
-                type="email"
-                placeholder="Email *"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-              />
-
-              {/* ADDITIONAL QUESTIONS */}
-              <div className="space-y-6 pt-6 border-t border-gray-200">
-                <div>
-                  <label className="block font-medium mb-2">
-                    What is the name of your business?
-                  </label>
-                  <input
-                    name="businessName"
-                    placeholder="Enter your business name"
-                    required
-                    value={formData.businessName}
-                    onChange={handleChange}
-                    className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block font-medium mb-2">
-                    What products or services do you offer?
-                  </label>
-                  <input
-                    name="productsServices"
-                    placeholder="Describe your products or services"
-                    required
-                    value={formData.productsServices}
-                    onChange={handleChange}
-                    className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block font-medium mb-2">
-                    Who is your target audience or ideal customer?
-                  </label>
-                  <input
-                    name="targetAudience"
-                    placeholder="Describe your target audience or ideal customer"
-                    required
-                    value={formData.targetAudience}
-                    onChange={handleChange}
-                    className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block font-medium mb-2">
-                    How do you currently generate leads or acquire new customers?
-                  </label>
-                  <textarea
-                    name="leadGenerationMethod"
-                    placeholder="Describe your current lead generation methods"
-                    required
-                    rows={3}
-                    value={formData.leadGenerationMethod}
-                    onChange={handleChange}
-                    className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  />
-                </div>
-
-                <div>
-                  <label className="block font-medium mb-2">
-                    What are the main challenges you face in generating consistent leads or clients?
-                  </label>
-                  <textarea
-                    name="mainChallenges"
-                    placeholder="Describe your main challenges in generating consistent leads"
-                    required
-                    rows={3}
-                    value={formData.mainChallenges}
-                    onChange={handleChange}
-                    className="w-full border px-4 py-2 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
-                  />
-                </div>
-
-                {/* QUESTION 1 */}
-                <div>
-                  <p className="font-medium mb-2">
-                    How soon can we get started if we are on the same page?
-                  </p>
-                  {[
-                    "Immediately",
-                    "Within 7 days",
-                    "Within 15 - 30 days",
-                    "After 30 days",
-                  ].map((opt) => (
-                    <label key={opt} className="flex items-center gap-2 mb-1">
-                      <input
-                        type="radio"
-                        name="startTimeline"
-                        value={opt}
-                        checked={formData.startTimeline === opt}
-                        onChange={handleRadioChange}
-                      />
-                      {opt}
-                    </label>
-                  ))}
-                </div>
-
-                {/* QUESTION 2 */}
-                <div>
-                  <p className="font-medium mb-2">
-                    Which range best describes your current monthly revenue?
-                  </p>
-                  {[
-                    "Under $10k",
-                    "$10k–$30k",
-                    "$30k–$100k",
-                    "$100k+",
-                  ].map((opt) => (
-                    <label key={opt} className="flex items-center gap-2 mb-1">
-                      <input
-                        type="radio"
-                        name="monthlyRevenue"
-                        value={opt}
-                        checked={formData.monthlyRevenue === opt}
-                        onChange={handleRadioChange}
-                      />
-                      {opt}
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              {/* TERMS AND CONDITIONS */}
-              <div className="pt-4 border-t border-gray-200">
-                <p className="text-sm text-gray-600 mb-4">
-                  By proceeding, you confirm that you have read and agree to 
-                  <a href="#" className="text-blue-600 hover:text-blue-800 underline ml-1">Brandskript's Terms of Use</a> and 
-                  <a href="#" className="text-blue-600 hover:text-blue-800 underline ml-1">Privacy Notice</a>.
-                </p>
-              </div>
-
-              <button
-                disabled={loading}
-                className="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition"
-              >
-                {loading ? "Scheduling..." : "Schedule Event"}
-              </button>
-            </form>
           </div>
         </div>
       </div>
