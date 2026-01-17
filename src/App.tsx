@@ -30,7 +30,7 @@ import FixAndFlipPage from "./pages/ServiceBusinesses";
 import ConstructionCosts from "./pages/Healthcare";
 import EstimatingAIPage from "./pages/RealEstate";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-import CoffeeBreak from "./pages/CoffeeBreak";
+import CoffeeBreak from "./pages/LeadGenCourse";
 import Services from "./pages/Services";
 import BookkeepingBusinessPage from "./pages/BookkeepingBusinessPage";
 import AdSpendCalculator from "./pages/AdSpendCalculator";
@@ -42,6 +42,7 @@ import ServiceBusinesses from "./pages/ServiceBusinesses";
 import RealEstate from "./pages/RealEstate";
 import Healthcare from "./pages/Healthcare";
 import Testimonials from "./pages/Testimonials";
+import LeadGenCourse from "./pages/LeadGenCourse";
 
 function App() {
   // Cart state (from first app)
@@ -105,7 +106,7 @@ function App() {
               <Route path="/RealEstate" element={<RealEstate />} />
               <Route path="/Healthcare" element={<Healthcare />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-              <Route path="/Coffeebreak" element={<CoffeeBreak />} />
+              <Route path="/LeadGenCourse" element={<LeadGenCourse />} />
               <Route path="/BookKeeping" element={<BookkeepingBusinessPage />} />
               <Route path="/adspendcalculator" element={<AdSpendCalculator />} />
               <Route path="/case-studies" element={<CaseStudies />} />

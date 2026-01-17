@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const CEOCoffeeBreakPage = () => {
+const LeadGenCourse = () => {
   const [form, setForm] = useState({
     firstName: "",
     email: "",
@@ -249,4 +249,4 @@ const CEOCoffeeBreakPage = () => {
   );
 };
 
-export default CEOCoffeeBreakPage;
+export default LeadGenCourse;

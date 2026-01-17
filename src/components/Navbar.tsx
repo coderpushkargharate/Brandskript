@@ -28,7 +28,7 @@ const resources = [
   { title: "Blogs", desc: "Growth insights", link: "/blogs" },
   { title: "E-Books", desc: "Guides & playbooks", link: "/products" },
   { title: "Ad Spend Calculator", desc: "Estimate ROI", link: "/adspendcalculator" },
-  { title: "Lead Gen Course", desc: "Learn funnels", link: "/Coffeebreak" },
+  { title: "Lead Gen Course", desc: "Learn funnels", link: "/LeadGenCourse" },
 ];
 
 /* ---------- HEADER ---------- */
@@ -54,8 +54,8 @@ const Header = () => {
   return (
     <>
       <header ref={headerRef} className="fixed top-3 left-0 w-full z-50">
-        <div className="mx-auto px-4 sm:px-6 lg:px-12 xl:px-28">
-          <div className="rounded-[32px] shadow-lg px-6">
+        <div className="mx-auto px-4 sm:px-6 lg:px-12 xl:px-28 ">
+          <div className="rounded-[32px] shadow-lg px-6 bg-white">
             <div className="flex items-center justify-between h-16">
               <Link to="/" className="flex items-center">
                 <img
