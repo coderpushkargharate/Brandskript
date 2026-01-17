@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TestimonialsPage() {
+export default function Testimonials() {
   const testimonials = [
     { name: "Valerie Vance", location: "Ohio, USA", rating: 5 },
     { name: "Sonny O", location: "Maryland, USA", rating: 5 },

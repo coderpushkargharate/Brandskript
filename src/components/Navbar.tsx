@@ -17,10 +17,10 @@ const specialities = [
 ];
 
 const whoWeServe = [
-  { title: "SaaS Business", desc: "Scalable SaaS growth", link: "/handyman" },
-  { title: "Service Businesses", desc: "More booked calls", link: "/fixandflip" },
-  { title: "Real Estate", desc: "Buyer & seller leads", link: "/instant-ai-estimates" },
-  { title: "Healthcare", desc: "Patient acquisition", link: "/construction-costs" },
+  { title: "SaaS Business", desc: "Scalable SaaS growth", link: "/SaaSBusiness" },
+  { title: "Service Businesses", desc: "More booked calls", link: "/ServiceBusinesses" },
+  { title: "Real Estate", desc: "Buyer & seller leads", link: "/RealEstate" },
+  { title: "Healthcare", desc: "Patient acquisition", link: "/Healthcare" },
   { title: "BookKeeping", desc: "Patient acquisition", link: "/BookKeeping" },
 ];
 
@@ -79,10 +79,10 @@ const Header = () => {
                 />
 
                 <Link to="/case-studies">Case Studies</Link>
-                <Link to="/handoffreview">Testimonials</Link>
+                <Link to="/Testimonials">Testimonials</Link>
                 <Dropdown label="Resources" items={resources} />
                 <Link to="/service">Services</Link>
-                <Link to="/Coffeebreak">Lead Gen Course</Link>
+                {/* <Link to="/Coffeebreak">Lead Gen Course</Link> */}
               </nav>
 
               <div className="hidden lg:flex gap-3">

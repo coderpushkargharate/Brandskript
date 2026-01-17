@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function FixAndFlipPage() {
+export default function ServiceBusinesses() {
   const [openFAQ, setOpenFAQ] = useState(null);
   const toggleFAQ = (i) => setOpenFAQ(openFAQ === i ? null : i);
 

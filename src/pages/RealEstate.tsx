@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 
-const EstimatingAIPage = () => {
+const RealEstate = () => {
   useEffect(() => {
     window.scrollTo(0, 0); // 🔥 Page opens from top
   }, []);
@@ -490,4 +490,4 @@ const EstimatingAIPage = () => {
   );
 };
 
-export default EstimatingAIPage;
+export default RealEstate;

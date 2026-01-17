@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Search, MapPin } from "lucide-react";
 
-export default function ConstructionCosts() {
+export default function Healthcare() {
   const categories = [
     "All", "Appliances", "Cabinets", "Ceiling", "Cleaning", "Concrete", "Countertops", "Demolition", "Doors", "Drywall", "Electrical", "Excavation", "Flooring", "Framing", "HVAC", "Insulation", "Landscaping", "Masonry", "Other", "Painting", "Plumbing", "Roofing", "Siding", "Specialties", "Tile", "Trim", "Windows",
   ];

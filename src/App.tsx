@@ -21,14 +21,14 @@ import GetStarted from "./pages/GetStarted";
 import CareersPage from "./pages/CareersPage";
 import HelpCenter from "./pages/HelpCenter";
 import PricingSection from "./pages/PricingSection";
-import HandoffReviewsPage from "./pages/HandoffReviewsPage";
+import HandoffReviewsPage from "./pages/Testimonials";
 import LoginPage from "./pages/LoginPage";
 import RemodelingPage from "./pages/RemodelingPage";
-import HandymanPage from "./pages/HandymanPage";
+import HandymanPage from "./pages/SaaSBusiness";
 import StartOnEstimate from "./pages/StartOnEstimate";
-import FixAndFlipPage from "./pages/FixAndFlipPage";
-import ConstructionCosts from "./pages/ConstructionCosts";
-import EstimatingAIPage from "./pages/EstimatingAIPage";
+import FixAndFlipPage from "./pages/ServiceBusinesses";
+import ConstructionCosts from "./pages/Healthcare";
+import EstimatingAIPage from "./pages/RealEstate";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CoffeeBreak from "./pages/CoffeeBreak";
 import Services from "./pages/Services";
@@ -37,11 +37,16 @@ import AdSpendCalculator from "./pages/AdSpendCalculator";
 import CaseStudies from "./pages/CaseStudyPage";
 import CaseStudyDetail from "./pages/CaseStudyDetail";
 import Specialities from "./pages/Specialities";
+import SaaSBusiness from "./pages/SaaSBusiness";
+import ServiceBusinesses from "./pages/ServiceBusinesses";
+import RealEstate from "./pages/RealEstate";
+import Healthcare from "./pages/Healthcare";
+import Testimonials from "./pages/Testimonials";
 
 function App() {
   // Cart state (from first app)
   const [cart, setCart] = useState([]);
-  
+
   // Admin auth state (from first app)
   const [adminToken, setAdminToken] = useState(localStorage.getItem('adminToken') || null);
 
@@ -92,20 +97,20 @@ function App() {
               <Route path="/careerspage" element={<CareersPage />} />
               <Route path="/helpcenter" element={<HelpCenter />} />
               <Route path="/pricingsection" element={<PricingSection />} />
-              <Route path="/handoffreview" element={<HandoffReviewsPage />} />
+              <Route path="/Testimonials" element={<Testimonials />} />
               <Route path="/loginpage" element={<LoginPage />} />
               <Route path="/remodelers" element={<RemodelingPage />} />
-              <Route path="/handyman" element={<HandymanPage />} />
-              <Route path="/fixandflip" element={<FixAndFlipPage />} />
-              <Route path="/instant-ai-estimates" element={<EstimatingAIPage />} />
-              <Route path="/construction-costs" element={<ConstructionCosts />} />
+              <Route path="/SaaSBusiness" element={<SaaSBusiness />} />
+              <Route path="/ServiceBusinesses" element={<ServiceBusinesses />} />
+              <Route path="/RealEstate" element={<RealEstate />} />
+              <Route path="/Healthcare" element={<Healthcare />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/Coffeebreak" element={<CoffeeBreak />} />
               <Route path="/BookKeeping" element={<BookkeepingBusinessPage />} />
               <Route path="/adspendcalculator" element={<AdSpendCalculator />} />
-                <Route path="/case-studies" element={<CaseStudies />} />
-        <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
-<Route path="specialities" element={<Specialities />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
+              <Route path="specialities" element={<Specialities />} />
               {/* Admin route (generic - may conflict with /admin/login) */}
               <Route path="/admin" element={<Admin />} />
 

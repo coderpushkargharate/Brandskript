@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Plus, Minus } from "lucide-react";
 
-export default function HandymanPage() {
+export default function SaaSBusiness() {
   const [openFAQ, setOpenFAQ] = useState(null);
   const toggleFAQ = (i) => setOpenFAQ(openFAQ === i ? null : i);
 
