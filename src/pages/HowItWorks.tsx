@@ -6,13 +6,13 @@ const HowItWorks = () => {
       {/* Title */}
       <div className="text-center mb-10 md:mb-12 px-4">
         <h2
-  className="text-3xl  font-bold dm-sans text-gray-900"
-  style={{ fontWeight: 900 , fontSize:"48px" }}
->
-  How it works
-</h2>
+          className="text-3xl  font-bold dm-sans text-gray-900"
+          style={{ fontWeight: 900, fontSize: "48px" }}
+        >
+          How it works
+        </h2>
 
-        <p className="text-gray-600 mt-2 max-w-2xl mx-auto text-sm md:text-base dm-sans">
+        <p className="text-gray-600 mt-2 max-w-2xl mx-auto text-sm md:text-base dm-sans mt-1">
           ROI Edge provides a complete, performance-driven system to grow your business with predictable, measurable results — not vanity metrics.
         </p>
       </div>

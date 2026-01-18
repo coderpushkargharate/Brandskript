@@ -21,7 +21,7 @@ const whoWeServe = [
   { title: "Service Businesses", desc: "More booked calls", link: "/ServiceBusinesses" },
   { title: "Real Estate", desc: "Buyer & seller leads", link: "/RealEstate" },
   { title: "Healthcare", desc: "Patient acquisition", link: "/Healthcare" },
-  { title: "BookKeeping", desc: "Patient acquisition", link: "/BookKeeping" },
+  { title: "BookKeeping", desc: "Accounting leads", link: "/BookKeeping" },
 ];
 
 const resources = [
@@ -37,9 +37,7 @@ const Header = () => {
   const headerRef = useRef(null);
   const location = useLocation();
 
-  useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location.pathname]);
+  useEffect(() => setIsMenuOpen(false), [location.pathname]);
 
   useEffect(() => {
     const handleClickOutside = (e) => {
@@ -54,9 +52,11 @@ const Header = () => {
   return (
     <>
       <header ref={headerRef} className="fixed top-3 left-0 w-full z-50">
-        <div className="mx-auto px-4 sm:px-6 lg:px-12 xl:px-28 ">
+        <div className="mx-auto px-4 sm:px-6 lg:px-12 xl:px-28">
           <div className="rounded-[32px] shadow-lg px-6 bg-white">
             <div className="flex items-center justify-between h-16">
+
+              {/* LOGO */}
               <Link to="/" className="flex items-center">
                 <img
                   src="/ROI Edge Logos-01.png"
@@ -66,10 +66,9 @@ const Header = () => {
               </Link>
 
               {/* DESKTOP NAV */}
-              <nav className="hidden lg:flex items-center gap-6 text-gray-700 font-medium">
-                <Dropdown label="Who we serve" items={whoWeServe} />
-                
-                {/* ✅ SPECIALITIES: hover + click */}
+              <nav className="hidden lg:flex items-center gap-7 text-black font-semibold">
+                <Dropdown label="Who We Serve" items={whoWeServe} />
+
                 <Dropdown
                   label="Specialities"
                   link="/specialities"
@@ -82,40 +81,52 @@ const Header = () => {
                 <Link to="/Testimonials">Testimonials</Link>
                 <Dropdown label="Resources" items={resources} />
                 <Link to="/service">Services</Link>
-                {/* <Link to="/Coffeebreak">Lead Gen Course</Link> */}
               </nav>
 
+              {/* CTA */}
               <div className="hidden lg:flex gap-3">
-                <Link to="/loginpage" className="px-5 py-1.5 border rounded-full">
+                <Link
+                  to="/loginpage"
+                  className="px-5 py-1.5 border border-black rounded-full font-semibold text-black"
+                >
                   Login
                 </Link>
-                <Link to="/get-started" className="bg-green-500 text-white px-6 py-2 rounded-full">
+                <Link
+                  to="/get-started"
+                  className="bg-[#d2fe3a] text-[#0074ff] px-6 py-2 rounded-full font-semibold"
+                >
                   Book An Appointment
                 </Link>
               </div>
 
-              <button className="lg:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+              {/* MOBILE TOGGLE */}
+              <button className="lg:hidden text-black" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                 {isMenuOpen ? <X /> : <Menu />}
               </button>
             </div>
 
             {/* MOBILE MENU */}
             {isMenuOpen && (
-              <div className="lg:hidden mt-4 bg-white rounded-2xl p-4 shadow-xl space-y-4">
-                <MobileDropdown title="Who we serve" items={whoWeServe} mainLink="/who-we-serve" />
+              <div className="lg:hidden mt-4 bg-white rounded-2xl p-4 shadow-xl space-y-4 text-black">
+                <MobileDropdown title="Who We Serve" items={whoWeServe} mainLink="/who-we-serve" />
                 <MobileDropdown title="Specialities" items={specialities} mainLink="/specialities" />
                 <MobileDropdown title="Resources" items={resources} mainLink="/resources" />
 
-                <NavItem title="Case Studies" link="/pricingsection" />
-                <NavItem title="Testimonials" link="/handoffreview" />
-                <NavItem title="Services" link="/Coffeebreak" />
-                <NavItem title="We're Hiring" link="/careerspage" />
+                <NavItem title="Case Studies" link="/case-studies" />
+                <NavItem title="Testimonials" link="/Testimonials" />
+                <NavItem title="Services" link="/service" />
 
                 <div className="pt-4 border-t space-y-3">
-                  <Link to="/loginpage" className="block text-center py-2 border rounded-full">
+                  <Link
+                    to="/loginpage"
+                    className="block text-center py-2 border border-black rounded-full font-semibold"
+                  >
                     Login
                   </Link>
-                  <Link to="/get-started" className="block text-center bg-green-500 text-white py-2 rounded-full">
+                  <Link
+                    to="/get-started"
+                    className="block text-center bg-[#d2fe3a] text-[#0074ff]  py-2 rounded-full font-semibold"
+                  >
                     Book An Appointment
                   </Link>
                 </div>
@@ -130,9 +141,7 @@ const Header = () => {
   );
 };
 
-/* ---------- COMPONENTS ---------- */
-
-/* DESKTOP DROPDOWN */
+/* ---------- DESKTOP DROPDOWN ---------- */
 const Dropdown = ({ label, link, items, cols = "grid-cols-2", width = "w-[520px]" }) => {
   const [open, setOpen] = useState(false);
   const timerRef = useRef(null);
@@ -153,21 +162,25 @@ const Dropdown = ({ label, link, items, cols = "grid-cols-2", width = "w-[520px]
       onMouseLeave={handleMouseLeave}
     >
       {link ? (
-        <Link to={link} className="flex items-center gap-1">
+        <Link to={link} className="flex items-center gap-1 font-semibold text-black">
           {label} ▾
         </Link>
       ) : (
-        <button className="flex items-center gap-1">
+        <button className="flex items-center gap-1 font-semibold text-black">
           {label} ▾
         </button>
       )}
 
       {open && (
-        <div className={`absolute top-full mt-4 bg-white shadow-xl rounded-xl p-6 grid ${cols} gap-5 ${width}`}>
+        <div className={`absolute top-full mt-4 bg-white shadow-2xl rounded-2xl p-6 grid ${cols} gap-6 ${width}`}>
           {items.map((item) => (
             <Link key={item.title} to={item.link}>
-              <p className="font-medium hover:text-green-600">{item.title}</p>
-              <p className="text-sm text-gray-500">{item.desc}</p>
+              <p className="font-semibold text-black hover:text-green-600">
+                {item.title}
+              </p>
+              <p className="text-sm text-gray-600">
+                {item.desc}
+              </p>
             </Link>
           ))}
         </div>
@@ -176,24 +189,24 @@ const Dropdown = ({ label, link, items, cols = "grid-cols-2", width = "w-[520px]
   );
 };
 
+/* ---------- MOBILE ---------- */
 const NavItem = ({ title, link }) => (
-  <Link to={link} className="block py-2 px-3 rounded-lg hover:bg-gray-100">
+  <Link to={link} className="block py-2 px-3 rounded-lg font-semibold text-black hover:bg-gray-100">
     {title}
   </Link>
 );
 
-/* MOBILE DROPDOWN */
 const MobileDropdown = ({ title, items, mainLink }) => {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="border rounded-xl">
       <div className="flex justify-between items-center px-4 py-3">
-        <Link to={mainLink} className="font-medium">
+        <Link to={mainLink} className="font-semibold text-black">
           {title}
         </Link>
-        <button onClick={() => setOpen(!open)}>
-          <span className={`${open ? "rotate-180" : ""}`}>▾</span>
+        <button onClick={() => setOpen(!open)} className="font-bold text-black">
+          ▾
         </button>
       </div>
 
@@ -201,8 +214,8 @@ const MobileDropdown = ({ title, items, mainLink }) => {
         <div className="px-4 pb-3 space-y-3">
           {items.map((item) => (
             <Link key={item.title} to={item.link}>
-              <p className="font-medium">{item.title}</p>
-              <p className="text-sm text-gray-500">{item.desc}</p>
+              <p className="font-semibold text-black">{item.title}</p>
+              <p className="text-sm text-gray-600">{item.desc}</p>
             </Link>
           ))}
         </div>

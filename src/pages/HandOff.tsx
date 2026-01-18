@@ -106,10 +106,10 @@ const HandOff = () => {
       <section className="max-w-6xl mx-auto py-24 px-6">
         <h2 className="text-center  font-bold dm-sans" style={{ fontWeight: 900 , fontSize:"48px" }}>
           Who We Serve?
-        </h2>-
+        </h2>
 
-        <p className="text-center text-gray-600 mt-3 max-w-3xl mx-auto noir-pro">
-          ROI Edge is built for Healthcare, Service, Bookkeeping, Real Estate & SaaS businesses.
+        <p className="text-center text-gray-600 mt-1 max-w-3xl mx-auto noir-pro">
+          ROI Edge is built for Healthcare, Service, Bookkeeping, Real Estate <br /> & SaaS businesses.
         </p>
 
         <div className="mt-14">

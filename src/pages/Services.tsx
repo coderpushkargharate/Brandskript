@@ -3,163 +3,173 @@ import React from "react";
 
 const ServicesPage = () => {
   return (
-    <div className="bg-white text-gray-800 font-sans">
+    <div className="bg-white text-gray-900 overflow-hidden">
 
       {/* ================= HERO ================= */}
-      <section className="relative bg-gradient-to-br from-[#40C65D] to-[#2fae4d] text-white py-32 px-6">
+      <section className="relative bg-[#0B5CFF] text-white px-6 pt-28 pb-36">
         <div className="max-w-7xl mx-auto">
-          <span className="uppercase tracking-widest text-white/80 text-sm font-semibold">
-            Our Services
-          </span>
 
-          <h1 className="text-4xl md:text-6xl font-extrabold mt-5 mb-8 leading-tight">
-            What We Deliver <br className="hidden md:block" />
-            And How We Drive Growth
+          {/* Small Label */}
+          <p className="dm uppercase text-xs tracking-[0.25em] text-white/70 mb-6">
+            Our Digital Marketing Services
+          </p>
+
+          {/* Headline */}
+          <h1 className="noir text-4xl sm:text-5xl md:text-6xl leading-[1.05] font-semibold max-w-4xl">
+            What We Deliver And
+            <br />
+            How We Drive Growth.
           </h1>
 
-          <p className="text-lg md:text-xl max-w-2xl text-white/90 leading-relaxed">
-            Performance-driven systems built to generate leads, book appointments,
-            and scale revenue with clarity and control.
-          </p>
+          {/* Divider */}
+          <div className="w-14 h-[2px] bg-white/40 mt-8 mb-10" />
+
+          {/* Services Row — Now with clickable links */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-10 gap-y-6 text-sm text-white/90 dm">
+            {[
+              { label: "Client Acquisition System", id: "client-acquisition" },
+              { label: "Lead Generation", id: "lead-generation" },
+              { label: "Meta Ads", id: "meta-ads" },
+              { label: "Google Ads", id: "google-ads" },
+              { label: "AI Agents", id: "ai-agents" }
+            ].map((item, i) => (
+              <a
+                key={i}
+                href={`#${item.id}`}
+                className="border-l border-white/20 pl-4 leading-snug hover:text-white transition-colors cursor-pointer"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ================= SECTION WRAPPER ================= */}
-      <div className="space-y-32 py-32">
+      {/* ================= SERVICES SECTIONS ================= */}
+      <div className="space-y-36 py-36">
 
-        {/* ================= CLIENT ACQUISITION SYSTEM ================= */}
-        <section className="px-6">
+        {/* CLIENT ACQUISITION */}
+        <section id="client-acquisition" className="px-6">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
             <img
               src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7"
-              alt="Client Acquisition System"
-              className="rounded-3xl h-80 w-full object-cover shadow-xl"
+              className="rounded-3xl h-96 w-full object-cover"
+              alt=""
             />
 
             <div>
-              <span className="inline-block mb-4 text-sm font-semibold uppercase text-[#40C65D]">
+              <span className="dm text-xs uppercase tracking-widest text-[#0B5CFF]">
                 Core System
               </span>
 
-              <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-snug">
+              <h2 className="noir text-4xl mt-4 mb-6">
                 Client Acquisition System
               </h2>
 
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Our Proprietary, performance-driven framework designed to consistently
-                attract, qualify, and convert your Ideal Customer Profile into booked
-                appointments. This system bridges the gap between marketing and sales
-                by combining paid ads, outreach, AI-powered automation, and full-funnel
-                optimization—so you don’t just get leads, you get ready-to-convert clients.
+              <p className="dm text-lg text-gray-600 leading-relaxed">
+                “Client Acquisition System — Our proprietary, performance-driven framework designed to consistently attract, qualify, and convert your Ideal Customer Profile into booked appointments. This system bridges the gap between marketing and sales by combining paid ads, outreach, AI-powered automation, and full-funnel optimization—so you don’t just get leads, you get ready-to-convert clients. This is where predictable growth begins at ROI Edge, and the foundation we use to help our partners scale into sustainable, high-revenue businesses with guaranteed results.”
               </p>
             </div>
           </div>
         </section>
 
-        {/* ================= ADVANCED LEAD GENERATION ================= */}
-        <section className="bg-gray-900 px-6 py-32 text-white">
+        {/* LEAD GENERATION */}
+        <section id="lead-generation" className="bg-gray-900 px-6 py-36 text-white">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
             <div>
-              <span className="inline-block mb-4 text-sm font-semibold uppercase text-[#40C65D]">
+              <span className="dm text-xs uppercase tracking-widest text-[#40C65D]">
                 Demand Engine
               </span>
 
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                Advance Lead Generation
+              <h2 className="noir text-4xl mt-4 mb-6">
+                Advanced Lead Generation
               </h2>
 
-              <p className="text-lg text-gray-300 leading-relaxed">
-                Our precision-driven system attracts high-intent prospects who match
-                your Ideal Customer Profile, not random inquiries. Using data-backed
-                targeting, conversion-focused creatives, and advanced tracking, we
-                deliver qualified leads ready for your sales team.
+              <p className="dm text-lg text-gray-300 leading-relaxed">
+                “Lead Generation — Our precision-driven system attracts high-intent prospects who match your Ideal Customer Profile, not random inquiries. Using data-backed targeting, conversion-focused creatives, and advanced tracking, we deliver qualified leads ready for your sales team. Every campaign is optimized to lower cost per lead, improve lead quality, and drive predictable pipeline growth—without wasted ad spend or guesswork.”
               </p>
             </div>
 
             <img
               src="https://images.unsplash.com/photo-1553877522-43269d4ea984"
-              alt="Advanced Lead Generation"
-              className="rounded-3xl h-80 w-full object-cover shadow-xl"
+              className="rounded-3xl h-96 w-full object-cover"
+              alt=""
             />
           </div>
         </section>
 
-        {/* ================= META ADS ================= */}
-        <section className="px-6">
+        {/* META ADS */}
+        <section id="meta-ads" className="px-6">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
             <img
               src="https://images.unsplash.com/photo-1611162617474-5b21e879e113"
-              alt="Meta Ads"
-              className="rounded-3xl h-80 w-full object-cover shadow-xl"
+              className="rounded-3xl h-96 w-full object-cover"
+              alt=""
             />
 
             <div>
-              <span className="inline-block mb-4 text-sm font-semibold uppercase text-[#40C65D]">
+              <span className="dm text-xs uppercase tracking-widest text-[#0B5CFF]">
                 Paid Media
               </span>
 
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="noir text-4xl mt-4 mb-6">
                 Meta Ads
               </h2>
 
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Our performance-focused approach to Facebook and Instagram advertising
-                designed to generate qualified leads and booked appointments, not vanity
-                metrics. Every campaign is optimized to maximize ROI and reduce cost per result.
+              <p className="dm text-lg text-gray-600 leading-relaxed">
+                Our performance-focused approach to Facebook and Instagram advertising designed to generate qualified leads and booked appointments, not vanity metrics.
+
+                We build and optimize conversion-driven campaigns using precise audience targeting, high-impact creatives, and full-funnel tracking. Every campaign is continuously refined to reduce cost per result, improve lead quality, and maximize ROI—so your ad spend turns into predictable business growth, not wasted impressions.
               </p>
             </div>
           </div>
         </section>
 
-        {/* ================= GOOGLE ADS ================= */}
-        <section className="bg-gray-50 px-6 py-32">
+        {/* GOOGLE ADS */}
+        <section id="google-ads" className="bg-gray-50 px-6 py-36">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
             <img
               src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
-              alt="Google Ads"
-              className="rounded-3xl h-80 w-full object-cover shadow-xl"
+              className="rounded-3xl h-96 w-full object-cover"
+              alt=""
             />
 
             <div>
-              <span className="inline-block mb-4 text-sm font-semibold uppercase text-[#40C65D]">
+              <span className="dm text-xs uppercase tracking-widest text-[#0B5CFF]">
                 Intent Capture
               </span>
 
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="noir text-4xl mt-4 mb-6">
                 Google Ads
               </h2>
 
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Our intent-driven advertising system captures demand exactly when prospects
-                are searching for your solution. We focus on keyword precision, conversion
-                tracking, and cost efficiency to drive predictable ROI.
+              <p className="dm text-lg text-gray-600 leading-relaxed">
+                Our intent-driven advertising system designed to capture demand at the exact moment prospects are actively searching for your solution. We build and optimize high-converting search and performance campaigns using precise keyword strategy, compelling ad copy, and advanced conversion tracking. Every campaign is engineered to reduce cost per conversion, attract high-quality leads, and deliver predictable ROI—so you only pay for traffic that’s ready to convert.
               </p>
             </div>
           </div>
         </section>
 
-        {/* ================= AI AGENTS ================= */}
-        <section className="px-6">
+        {/* AI AGENTS */}
+        <section id="ai-agents" className="px-6">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
             <img
               src="https://images.unsplash.com/photo-1677442136019-21780ecad995"
-              alt="AI Agents"
-              className="rounded-3xl h-80 w-full object-cover shadow-xl"
+              className="rounded-3xl h-96 w-full object-cover"
+              alt=""
             />
 
             <div>
-              <span className="inline-block mb-4 text-sm font-semibold uppercase text-[#40C65D]">
+              <span className="dm text-xs uppercase tracking-widest text-[#0B5CFF]">
                 Automation
               </span>
 
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="noir text-4xl mt-4 mb-6">
                 AI Agents
               </h2>
 
-              <p className="text-lg text-gray-600 leading-relaxed">
-                Intelligent automation systems that qualify, nurture, and follow up with
-                leads automatically—ensuring faster responses, higher conversions, and
-                scalable growth without manual effort.
+              <p className="dm text-lg text-gray-600 leading-relaxed">
+                Intelligent automation systems that qualify, nurture, and follow up with leads automatically, so your sales team speaks only with ready-to-convert prospects. Our AI agents handle lead filtering, multi-touch follow-ups, and engagement across email and WhatsApp—ensuring faster responses, higher show-up rates, and improved conversions. This removes manual workload, reduces leakage, and turns your acquisition process into a scalable, always-on system.
               </p>
             </div>
           </div>

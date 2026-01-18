@@ -75,7 +75,7 @@ const features = [
 /* ================= COMPONENT ================= */
 const FeaturesCarousel = () => {
   return (
-    <section className="py-20 bg-[#EAFBF1]">
+    <section className="py-20 bg-[#faf9f6]">
       {/* Heading */}
 <h2
   className="text-center text-3xl sm:text-4xl md:text-5xl font-black mb-4 px-4 dm-sans text-gray-900"

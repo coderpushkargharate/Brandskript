@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 /* ---------- COUNT UP ---------- */
 const CountUp = ({ end, duration = 2000, prefix = "", suffix = "" }) => {
@@ -62,9 +63,15 @@ const HeroSection = () => {
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4">
-              <button className="bg-[#d2fe3a] text-[#0074ff] px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition">
+              {/* <button className="bg-[#d2fe3a] text-[#0074ff] px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition">
                 Book An Appointment
-              </button>
+              </button> */}
+               <Link
+                  to="/get-started"
+                  className="bg-[#d2fe3a] text-[#0074ff] px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition"
+                >
+                  Book An Appointment
+                </Link>
 
               <button className="bg-white/10 border border-white/40 text-white px-8 py-3 rounded-full font-semibold hover:bg-white/20 transition">
                 Case Studies
