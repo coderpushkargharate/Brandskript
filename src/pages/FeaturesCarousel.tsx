@@ -77,8 +77,10 @@ const FeaturesCarousel = () => {
   return (
     <section className="py-20 bg-[#EAFBF1]">
       {/* Heading */}
-      <h2 className="text-center text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 px-4">
-        Get More Ideal Clients with <br />
+<h2
+  className="text-center text-3xl sm:text-4xl md:text-5xl font-black mb-4 px-4 dm-sans text-gray-900"
+  style={{ wordSpacing: '2px' }}
+>        Get More Ideal Clients with <br />
         Client Acquisition System
       </h2>
 
@@ -99,11 +101,12 @@ const FeaturesCarousel = () => {
             768: { slidesPerView: 2 },
             1280: { slidesPerView: 3 },
           }}
+          className="!items-stretch"
         >
           {features.map((item, i) => (
-            <SwiperSlide key={i}>
+            <SwiperSlide key={i} className="flex h-auto">
               <div
-                className="h-full flex flex-col rounded-3xl border border-gray-200 shadow-md p-6 sm:p-8 hover:shadow-xl transition"
+                className="h-full w-full flex flex-col rounded-3xl border border-gray-200 shadow-md p-6 sm:p-8 hover:shadow-xl transition"
                 style={{ backgroundColor: item.bg }}
               >
                 {/* Tag */}

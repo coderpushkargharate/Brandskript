@@ -1,18 +1,20 @@
 import React from "react";
 
+/* ================= STAT ITEM ================= */
 const StatItem = ({ value, label }) => {
   return (
     <div className="flex flex-col items-center text-center">
-      <h3 className="text-2xl md:text-3xl font-bold text-black">
+      <h3 className="text-2xl md:text-3xl font-bold text-black dm-sans">
         {value}
       </h3>
-      <p className="text-sm text-gray-500 mt-1">
+      <p className="text-sm text-gray-500 mt-1 dm-sans">
         {label}
       </p>
     </div>
   );
 };
 
+/* ================= MAIN SECTION ================= */
 const TrustAndBoostSection = () => {
   return (
     <div className="w-full">
@@ -23,7 +25,7 @@ const TrustAndBoostSection = () => {
 
           {/* Left Title */}
           <div className="md:col-span-1">
-            <h2 className="text-3xl md:text-4xl font-bold leading-tight">
+            <h2 className="text-3xl md:text-4xl font-bold leading-tight dm-sans">
               Why To <br /> Trust Us
             </h2>
           </div>
@@ -33,7 +35,7 @@ const TrustAndBoostSection = () => {
             <StatItem value="+$500k" label="Saved on Ad Spend" />
             <StatItem value="+$6M" label="In Total Ad Spend" />
             <StatItem value="+300" label="Clients Across Globe" />
-            <StatItem value="+12k" label="Campaigns Created" /> 
+            <StatItem value="+12k" label="Campaigns Created" />
             <StatItem value="+4.8 / 5" label="Rating on Google" />
             <StatItem value="< 3%" label="Churn Rate" />
           </div>
@@ -56,29 +58,19 @@ const TrustAndBoostSection = () => {
         </div>
 
         {/* Heading */}
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">
-          Boost Your Business With ROI Edge
+        <h2 className="text-3xl md:text-4xl font-bold mb-4 dm-sans">
+          Boost Your Business With{" "}
+          <span className="bg-[#d2fe3a] px-2 rounded-md">
+            ROI Edge
+          </span>
         </h2>
 
         {/* Subtext */}
-        <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+        <p className="text-gray-600 max-w-3xl mx-auto text-lg dm-sans">
           Generate consistent leads, reduce acquisition costs, and grow your
           revenue with a fully managed, ROI-driven client acquisition system.
         </p>
 
-        {/* Store Buttons */}
-        {/* <div className="flex justify-center gap-4 mt-8 flex-wrap">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
-            alt="Google Play"
-            className="h-12 cursor-pointer"
-          />
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Download_on_the_App_Store_Badge.svg"
-            alt="App Store"
-            className="h-12 cursor-pointer"
-          />
-        </div> */}
       </section>
 
     </div>

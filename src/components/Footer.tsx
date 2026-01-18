@@ -9,6 +9,43 @@ import {
 import { FaXTwitter } from "react-icons/fa6";
 import { Linkedin } from "lucide-react";
 
+// ================= NAV LINKS (same as Header) =================
+const whoWeServe = [
+  { title: "SaaS Business", link: "/SaaSBusiness" },
+  { title: "Service Businesses", link: "/ServiceBusinesses" },
+  { title: "Real Estate", link: "/RealEstate" },
+  { title: "Healthcare", link: "/Healthcare" },
+  { title: "BookKeeping", link: "/BookKeeping" },
+];
+
+const specialities = [
+  { title: "Result-Oriented Ads", link: "/specialities" },
+  { title: "ROI Tracking", link: "/specialities" },
+  { title: "UTM Tracking", link: "/specialities" },
+  { title: "Pixel & GTM Setups", link: "/specialities" },
+  { title: "Unlimited Campaigns", link: "/specialities" },
+  { title: "Nurturing AI Agents", link: "/specialities" },
+  { title: "Automatic Reports", link: "/specialities" },
+  { title: "Advance Targeting", link: "/specialities" },
+  { title: "Super Lead Qualification", link: "/specialities" },
+  { title: "Pre & Main Landing Page", link: "/specialities" },
+];
+
+const resources = [
+  { title: "Blogs", link: "/blogs" },
+  { title: "E-Books", link: "/products" },
+  { title: "Ad Spend Calculator", link: "/adspendcalculator" },
+  { title: "Lead Gen Course", link: "/LeadGenCourse" },
+];
+
+const otherLinks = [
+  { title: "Case Studies", link: "/case-studies" },
+  { title: "Testimonials", link: "/Testimonials" },
+  { title: "Services", link: "/service" },
+  { title: "Login", link: "/loginpage" },
+  { title: "Book An Appointment", link: "/get-started" },
+];
+
 export default function Footer() {
   return (
     <footer className="bg-[#F7F9FB] w-full pt-20 px-6">
@@ -34,57 +71,59 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Useful Links */}
-          <div>
-            <h4 className="font-semibold text-[#0B0F29] mb-5">
-              Useful Links
-            </h4>
-            <ul className="space-y-3 text-sm text-gray-600">
-              <li><Link to="/" className="hover:text-black">Home</Link></li>
-              <li><Link to="/pricing" className="hover:text-black">Pricing</Link></li>
-              <li><Link to="/blogs" className="hover:text-black">Blog</Link></li>
-              <li><Link to="/careers" className="hover:text-black">Careers</Link></li>
-              <li><Link to="/1build" className="hover:text-black">1build</Link></li>
-              <li><Link to="/construction-costs" className="hover:text-black">Construction Costs</Link></li>
-            </ul>
-          </div>
-
-          {/* Features */}
-          <div>
-            <h4 className="font-semibold text-[#0B0F29] mb-5">
-              Features
-            </h4>
-            <ul className="space-y-3 text-sm text-gray-600">
-              <li><Link to="/ai-estimates" className="hover:text-black">Instant AI Estimates</Link></li>
-              <li><Link to="/crm" className="hover:text-black">CRM</Link></li>
-              <li><Link to="/ai-proposals" className="hover:text-black">Winning AI Proposals</Link></li>
-              <li><Link to="/invoicing" className="hover:text-black">Invoicing</Link></li>
-            </ul>
-          </div>
-
           {/* Who We Serve */}
           <div>
-            <h4 className="font-semibold text-[#0B0F29] mb-5">
-              Who We Serve
-            </h4>
+            <h4 className="font-semibold text-[#0B0F29] mb-5">Who We Serve</h4>
             <ul className="space-y-3 text-sm text-gray-600">
-              <li><Link to="/remodelers" className="hover:text-black">Remodelers</Link></li>
-              <li><Link to="/handyman" className="hover:text-black">Handyman</Link></li>
-              <li><Link to="/fix-and-flip" className="hover:text-black">Fix and Flip</Link></li>
+              {whoWeServe.map((item) => (
+                <li key={item.title}>
+                  <Link to={item.link} className="hover:text-black">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Blog Categories */}
+          {/* Specialities */}
           <div>
-            <h4 className="font-semibold text-[#0B0F29] mb-5">
-              Blog Categories
-            </h4>
+            <h4 className="font-semibold text-[#0B0F29] mb-5">Specialities</h4>
             <ul className="space-y-3 text-sm text-gray-600">
-              <li><Link to="/case-studies" className="hover:text-black">Case Studies</Link></li>
-              <li><Link to="/updates" className="hover:text-black">Updates</Link></li>
-              <li><Link to="/resources" className="hover:text-black">Resources</Link></li>
-              <li><Link to="/guides" className="hover:text-black">Guides</Link></li>
-              <li><Link to="/admin" className="hover:text-black">Admin</Link></li>
+              {specialities.map((item) => (
+                <li key={item.title}>
+                  <Link to={item.link} className="hover:text-black">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h4 className="font-semibold text-[#0B0F29] mb-5">Resources</h4>
+            <ul className="space-y-3 text-sm text-gray-600">
+              {resources.map((item) => (
+                <li key={item.title}>
+                  <Link to={item.link} className="hover:text-black">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Other Links */}
+          <div>
+            <h4 className="font-semibold text-[#0B0F29] mb-5">Other Links</h4>
+            <ul className="space-y-3 text-sm text-gray-600">
+              {otherLinks.map((item) => (
+                <li key={item.title}>
+                  <Link to={item.link} className="hover:text-black">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -102,34 +141,18 @@ export default function Footer() {
 
             {/* Social Icons */}
             <div className="flex items-center gap-4">
-              <Link to="/facebook" className="hover:text-black">
-                <FaFacebookF size={16} />
-              </Link>
-              <Link to="/instagram" className="hover:text-black">
-                <FaInstagram size={16} />
-              </Link>
-              <Link to="/youtube" className="hover:text-black">
-                <FaYoutube size={16} />
-              </Link>
-              <Link to="/tiktok" className="hover:text-black">
-                <FaTiktok size={16} />
-              </Link>
-              <Link to="/twitter" className="hover:text-black">
-                <FaXTwitter size={16} />
-              </Link>
-              <Link to="/linkedin" className="hover:text-black">
-                <Linkedin size={16} />
-              </Link>
+              <Link to="/facebook" className="hover:text-black"><FaFacebookF size={16} /></Link>
+              <Link to="/instagram" className="hover:text-black"><FaInstagram size={16} /></Link>
+              <Link to="/youtube" className="hover:text-black"><FaYoutube size={16} /></Link>
+              <Link to="/tiktok" className="hover:text-black"><FaTiktok size={16} /></Link>
+              <Link to="/twitter" className="hover:text-black"><FaXTwitter size={16} /></Link>
+              <Link to="/linkedin" className="hover:text-black"><Linkedin size={16} /></Link>
             </div>
 
             {/* Legal */}
             <div className="flex gap-6 border-l border-gray-300 pl-6">
-              <Link to="/privacy-policy" className="hover:text-black">
-                Privacy Policy
-              </Link>
-              <Link to="/terms-of-use" className="hover:text-black">
-                Terms of Use
-              </Link>
+              <Link to="/privacy-policy" className="hover:text-black">Privacy Policy</Link>
+              <Link to="/terms-of-use" className="hover:text-black">Terms of Use</Link>
             </div>
           </div>
         </div>

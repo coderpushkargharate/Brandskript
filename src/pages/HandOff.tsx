@@ -11,11 +11,11 @@ const HandOff = () => {
   }, []);
 
   return (
-    <div className="w-full">
+    <div className="w-full dm-sans">
 
       {/* ================= VIDEO + TEXT ================= */}
-      <section className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 py-16 px-4">
-        
+      <section className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 py-20 px-4">
+
         {/* Video Card */}
         <div className="bg-white rounded-2xl shadow p-4 flex justify-center items-center">
           <div className="relative">
@@ -31,16 +31,15 @@ const HandOff = () => {
         </div>
 
         {/* Text */}
-        <div className="bg-white rounded-2xl shadow p-8 flex flex-col justify-center">
-          <h2 className="text-2xl md:text-3xl font-bold">
+        <div className="bg-white rounded-2xl shadow p-10 flex flex-col justify-center">
+          <h2 className="text-3xl md:text-4xl font-bold dm-sans">
             How BCabs Generates 600+ Leads Monthly and Earns $35,000+ Every Month with ROI Edge
           </h2>
 
-          <p className="text-gray-600 mt-4 leading-relaxed">
+          <p className="text-gray-600 mt-5 leading-relaxed">
             ROI Edge delivers 600+ qualified leads every month at 2× lower cost per
             result, cutting customer acquisition costs by over 60% and creating a
-            predictable revenue flow for BCabs for the last 2 years — powered by
-            Google Ads and Meta Ads.
+            predictable revenue flow for BCabs for the last 2 years.
           </p>
 
           <div className="mt-6 flex items-center gap-3">
@@ -58,19 +57,19 @@ const HandOff = () => {
       </section>
 
       {/* ================= LOGOS ================= */}
-      <section className="py-12 text-center">
-        <h2 className="text-2xl font-bold">
+      <section className="py-16 text-center">
+        <h2 className="text-3xl font-bold dm-sans">
           Working with Top Industry Players
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-10 mt-10 grayscale opacity-70">
+        <div className="flex flex-wrap justify-center gap-10 mt-12 grayscale opacity-70">
           {[
-            "/logos/client1.png",
-            "/logos/client2.png",
-            "/logos/client3.png",
-            "/logos/client4.png",
-            "/logos/client5.png",
-            "/logos/client6.png",
+            "https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png",
+            "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg",
           ].map((logo, i) => (
             <img key={i} src={logo} alt="Client Logo" className="h-10" />
           ))}
@@ -78,20 +77,20 @@ const HandOff = () => {
       </section>
 
       {/* ================= ROI EDGE SECTION ================= */}
-      <section className="bg-[#FFF3DF] py-16 rounded-2xl max-w-6xl mx-auto px-6 mt-10 flex flex-col md:flex-row items-center gap-10">
-        
-        <div className="max-w-lg">
-          <h2 className="text-3xl font-bold leading-tight">
+      <section className="bg-[#FFF3DF] py-20 rounded-3xl max-w-6xl mx-auto px-8 mt-10 flex flex-col md:flex-row items-center gap-12">
+
+        <div className="max-w-xl">
+          <h2 className="text-4xl md:text-4xl font-bold dm-sans leading-tight">
             ROI Edge Replaces Empty Promises with Performance, Accountability, and Guaranteed Results.
           </h2>
 
-          <p className="mt-4 text-gray-700 leading-relaxed">
+          <p className="mt-6 text-gray-700 leading-relaxed">
             You finally get a marketing partner who keeps your pipeline full — at
             15× lower cost than an in-house team and 2× better performance than
             local agencies.
           </p>
 
-          <button className="mt-6 bg-green-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow hover:bg-green-600">
+          <button className="mt-8 bg-[#d2fe3a] text-black px-8 py-3 rounded-full text-sm font-semibold shadow hover:scale-105 transition">
             Get started now
           </button>
         </div>
@@ -103,21 +102,20 @@ const HandOff = () => {
         />
       </section>
 
-      {/* ================= WHO WE SERVE (CAROUSEL) ================= */}
-      <section className="max-w-6xl mx-auto py-20 px-6">
-        <h2 className="text-center text-3xl font-bold">
+      {/* ================= WHO WE SERVE ================= */}
+      <section className="max-w-6xl mx-auto py-24 px-6">
+        <h2 className="text-center  font-bold dm-sans" style={{ fontWeight: 900 , fontSize:"48px" }}>
           Who We Serve?
-        </h2>
+        </h2>-
 
-        <p className="text-center text-gray-600 mt-2 max-w-3xl mx-auto">
-          If you run a Healthcare, Service, Bookkeeping, Real Estate or SaaS
-          business — ROI Edge is built for you.
+        <p className="text-center text-gray-600 mt-3 max-w-3xl mx-auto noir-pro">
+          ROI Edge is built for Healthcare, Service, Bookkeeping, Real Estate & SaaS businesses.
         </p>
 
-        <div className="mt-12">
+        <div className="mt-14">
           <Swiper
             modules={[Autoplay, Pagination]}
-            autoplay={{ delay: 3000, disableOnInteraction: false }}
+            autoplay={{ delay: 3000 }}
             pagination={{ clickable: true }}
             spaceBetween={24}
             breakpoints={{
@@ -127,49 +125,19 @@ const HandOff = () => {
             }}
           >
             {[
-              {
-                title: "Healthcare Business",
-                img: "/6650cddf762ba9b692753dd1_Remodelers.webp",
-                desc: "Generate consistent high-intent patient inquiries with automation."
-              },
-              {
-                title: "Service Business",
-                img: "/6650cddf762ba9b692753dd2_Handyman.webp",
-                desc: "Fill your pipeline with ready-to-convert clients."
-              },
-              {
-                title: "Bookkeeping Business",
-                img: "/6650cddf762ba9b692753dd3_Fix and flip.webp",
-                desc: "Attract qualified business owners and improve conversions."
-              },
-              {
-                title: "Real Estate Business",
-                img: "/6650cddf762ba9b692753dd1_Remodelers.webp",
-                desc: "High-quality buyer & seller leads with faster deal velocity."
-              },
-              {
-                title: "SaaS Business",
-                img: "/6650cddf762ba9b692753dd3_Fix and flip.webp",
-                desc: "Acquire paid users while lowering CAC & CPR."
-              },
+              { title: "Healthcare Business", img: "/6650cddf762ba9b692753dd1_Remodelers.webp", desc: "High-intent patient leads." },
+              { title: "Service Business", img: "/6650cddf762ba9b692753dd2_Handyman.webp", desc: "Ready-to-convert clients." },
+              { title: "Bookkeeping Business", img: "/6650cddf762ba9b692753dd3_Fix and flip.webp", desc: "Qualified business owners." },
             ].map((item, i) => (
               <SwiperSlide key={i}>
-                <div className="relative rounded-2xl overflow-hidden shadow-lg group">
-                  <img
-                    src={item.img}
-                    alt={item.title}
-                    className="w-full h-64 object-cover group-hover:scale-105 transition duration-500"
-                  />
-                  <div className="absolute inset-0 bg-black/45 flex flex-col justify-end p-5">
-                    <h3 className="text-white text-xl font-bold">
-                      {item.title}
-                    </h3>
-                    <p className="text-white text-sm mt-1">
-                      {item.desc}
-                    </p>
-                    <button className="text-white mt-3 underline text-sm">
+                <div className="relative rounded-3xl overflow-hidden shadow-lg">
+                  <img src={item.img} alt={item.title} className="w-full h-74 object-cover" />
+                  <div className="absolute inset-0 bg-black/50 p-6 flex flex-col justify-end">
+                    <h3 className="text-white text-xl font-bold">{item.title}</h3>
+                    <p className="text-white text-sm mt-1">{item.desc}</p>
+                    <span className="text-[#d2fe3a] mt-3 text-sm font-semibold">
                       Learn more →
-                    </button>
+                    </span>
                   </div>
                 </div>
               </SwiperSlide>
@@ -177,7 +145,6 @@ const HandOff = () => {
           </Swiper>
         </div>
       </section>
-
     </div>
   );
 };
