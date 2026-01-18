@@ -45,19 +45,19 @@ const HeroSection = () => {
           <div>
             <div className="hidden lg:inline-flex items-center bg-white/15 backdrop-blur border border-white/30 px-5 py-2 rounded-full mb-6">
               <span className="text-xs tracking-widest uppercase text-[#d2fe3a] noir-pro">
-                AI ESTIMATOR FOR REMODELERS
+                A System That Brings Clients on Autopilot
               </span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl xl:text-6xl font-bold leading-tight text-white dm-sans">
-              We Solve Growth With ROI-Deriven<br />
+              We Solve Growth With ROI-Driven<br />
               <span className="text-[#d2fe3a]">
-                Client Acquisition Systems
+                Client Acquisition System
               </span>
 
             </h1>
 
-            <p className="mt-6 max-w-xl text-lg text-white/90 italic noir-pro">
+            <p className="mt-6 max-w-xl text-lg text-white/90 noir-pro font-[400]">
               Where performance meets accountability, and guaranteed results
               replace empty promises.
             </p>
@@ -94,12 +94,12 @@ const HeroSection = () => {
 
       {/* ===== DATA SECTION (PERFECTLY ALIGNED) ===== */}
    <div className="max-w-7xl mx-auto mt-20 px-4 sm:px-6">
-  <div className="p-12 grid grid-cols-1 md:grid-cols-5 gap-12 items-start">
+  <div className="p-2 grid grid-cols-1 md:grid-cols-5 gap-2 items-start">
 
     {/* TITLE */}
     <div className="md:col-span-1 flex items-center">
       <h3 className="text-3xl noir-pro leading-snug">
-        See <br /> Immediate Results
+        Delegate & <br /> See Immediate Results
       </h3>
     </div>
 
