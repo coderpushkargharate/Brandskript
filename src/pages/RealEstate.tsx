@@ -1,17 +1,22 @@
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const RealEstate = () => {
   useEffect(() => {
-    window.scrollTo(0, 0); // 🔥 Page opens from top
+    window.scrollTo(0, 0);
   }, []);
-  
+
+  // Reusable button class
+  const primaryButtonClass =
+    "bg-[#d2fe3a] text-[#0074ff] font-semibold px-8 py-3 rounded-full shadow-lg hover:scale-[1.02] transition dm-sans";
+
   return (
-    <div className="w-full font-sans">
+    <div className="w-full font-sans dm-sans">
       {/* ================= HERO SECTION ================= */}
-      <section className="bg-green-500 min-h-[80vh] lg:h-[70vh] text-white rounded-b-[40px] pb-24 pt-20 px-6 lg:px-20 relative overflow-hidden">
+      <section className="bg-[#0074ff] min-h-[80vh] lg:h-[70vh] text-white rounded-[40px] pb-24 pt-20 mx-10 lg:px-20 relative overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* LEFT TEXT */}
-          <div className="lg:pr-10">
+          <div className="lg:pr-10 " style={{marginTop:"-65px"}}>
             <span className="bg-white text-black px-5 py-1 rounded-full text-sm font-semibold tracking-wide shadow-md">
               REAL ESTATE
             </span>
@@ -20,17 +25,17 @@ const RealEstate = () => {
               Scale Your Real Estate Business Profitably
             </h1>
 
-            <p className="mt-5 text-white text-lg opacity-95 leading-relaxed">
+            <p className="mt-5 text-white text-lg opacity-95 leading-relaxed mb-5">
               Real estate businesses don't grow on exposure alone. They grow when serious buyers and sellers enquire, respond, and convert into real transactions. At ROI Edge, we build ROI-driven Client Acquisition Systems for real estate businesses that need qualified enquiries, booked conversations, and predictable deal flow — without burning money on low-intent leads.
             </p>
 
-            <button className="bg-black mt-8 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:bg-gray-900 transition">
+            <Link to="/get-started " className={primaryButtonClass}>
               Book An Appointment
-            </button>
+            </Link>
           </div>
 
           {/* RIGHT SIDE: IMAGE + FLOATING CARDS */}
-          <div className="relative flex justify-center lg:justify-end">
+          <div className="relative flex justify-center lg:justify-end" style={{marginTop:"-45px"}}>
             <img
               src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6681a13f59ccf69efad6ee76_Mask_features.webp"
               className="w-full max-w-[500px] rounded-3xl object-cover shadow-2xl"
@@ -92,7 +97,7 @@ const RealEstate = () => {
       <section className="bg-blue-50 py-16 px-6 lg:px-20">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
           <div>
-            <h2 className="text-3xl font-bold text-orange-700 mb-4">We prioritise intent, not just enquiries</h2>
+            <h2 className="text-3xl font-bold text-green-600 mb-4">We prioritise intent, not just enquiries</h2>
             <p className="mb-4 text-gray-700">
               More leads don't mean more deals.
             </p>
@@ -144,7 +149,7 @@ const RealEstate = () => {
             <img src="https://picsum.photos/600/400?random=2" alt="Real Estate Sales Journey" className="rounded-xl w-full" />
           </div>
           <div>
-            <h2 className="text-3xl font-bold text-orange-700 mb-4">We build acquisition around how real estate actually sells</h2>
+            <h2 className="text-3xl font-bold text-green-600 mb-4">We build acquisition around how real estate actually sells</h2>
             <p className="mb-4 text-gray-700">
               Real estate sales aren't instant — and generic funnels don't work.
             </p>
@@ -167,7 +172,7 @@ const RealEstate = () => {
       {/* ================= TRACK WHAT LEADS TO REVENUE SECTION ================= */}
       <section className="py-16 px-6 lg:px-20">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-orange-700 mb-4">We track what leads to real revenue</h2>
+          <h2 className="text-3xl font-bold text-green-600 mb-4">We track what leads to real revenue</h2>
           <p className="mb-4 text-gray-700">
             Clicks and leads don't close deals — conversions do.
           </p>
@@ -178,7 +183,7 @@ const RealEstate = () => {
             <div className="bg-purple-100 p-4 rounded-lg flex-1">
               <div className="text-center mb-2">
                 <svg className="w-8 h-8 mx-auto text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 12a2 2 0 100-4h-3v4H7zM10 12a2 2 0 100-4h-3v4H7zM10 12a2 2 0 100-4h-3v4H7z"/>
+                  <path d="M10 12a2 2 0 100-4h-3v4H7z"/>
                 </svg>
               </div>
               <h3 className="font-semibold text-center">Cost per qualified enquiry</h3>
@@ -186,7 +191,7 @@ const RealEstate = () => {
             <div className="bg-purple-100 p-4 rounded-lg flex-1">
               <div className="text-center mb-2">
                 <svg className="w-8 h-8 mx-auto text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 12a2 2 0 100-4h-3v4H7zM10 12a2 2 0 100-4h-3v4H7zM10 12a2 2 0 100-4h-3v4H7z"/>
+                  <path d="M10 12a2 2 0 100-4h-3v4H7z"/>
                 </svg>
               </div>
               <h3 className="font-semibold text-center">Cost per meaningful conversation</h3>
@@ -194,7 +199,7 @@ const RealEstate = () => {
             <div className="bg-purple-100 p-4 rounded-lg flex-1">
               <div className="text-center mb-2">
                 <svg className="w-8 h-8 mx-auto text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M10 12a2 2 0 100-4h-3v4H7zM10 12a2 2 0 100-4h-3v4H7zM10 12a2 2 0 100-4h-3v4H7z"/>
+                  <path d="M10 12a2 2 0 100-4h-3v4H7z"/>
                 </svg>
               </div>
               <h3 className="font-semibold text-center">Revenue efficiency</h3>
@@ -212,7 +217,7 @@ const RealEstate = () => {
       <section className="bg-blue-50 py-16 px-6 lg:px-20">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 items-center">
           <div>
-            <h2 className="text-3xl font-bold text-orange-700 mb-4">We automate follow-ups without losing the human touch</h2>
+            <h2 className="text-3xl font-bold text-green-600 mb-4">We automate follow-ups without losing the human touch</h2>
             <p className="mb-4 text-gray-700">
               Most real estate teams lose deals due to poor follow-up.
             </p>
@@ -243,7 +248,7 @@ const RealEstate = () => {
       {/* ================= PREDICTABLE DEAL FLOW SECTION ================= */}
       <section className="py-16 px-6 lg:px-20">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold text-orange-700 mb-4">Built for stable, predictable deal flow</h2>
+          <h2 className="text-3xl font-bold text-green-600 mb-4">Built for stable, predictable deal flow</h2>
           <p className="mb-4 text-gray-700">
             We don't push volume for the sake of numbers.
           </p>
@@ -299,7 +304,7 @@ const RealEstate = () => {
       <section className="py-16 px-6 lg:px-20">
         <div className="max-w-7xl mx-auto">
           <div className="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl shadow-lg p-8">
-            <h2 className="text-3xl font-bold text-orange-700 mb-4">Build a profitable Client Acquisition System for your Real Estate Business</h2>
+            <h2 className="text-3xl font-bold text-green-600 mb-4">Build a profitable Client Acquisition System for your Real Estate Business</h2>
             <p className="mb-4 text-gray-700">
               Book a free strategy session to:
             </p>
@@ -317,9 +322,9 @@ const RealEstate = () => {
             <p className="mb-4 text-gray-700">
               No pressure. Just clarity.
             </p>
-            <button className="bg-green-600 text-white font-semibold px-6 py-3 rounded-full shadow hover:bg-green-700 transition">
+            <Link to="/get-started" className={primaryButtonClass.replace("px-8 py-3", "px-6 py-3")}>
               Book a Strategy Session
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -340,9 +345,9 @@ const RealEstate = () => {
             Upload photos, videos, files, or describe the scope...
           </p>
 
-          <button className="mt-6 bg-green-600 text-white px-6 py-2 rounded-full">
+          <Link to="/get-started" className="mt-6 bg-[#d2fe3a] text-[#0074ff] px-6 py-2 rounded-full inline-block dm-sans">
             Start free trial
-          </button>
+          </Link>
         </div>
 
         <div className="bg-yellow-100 rounded-2xl p-6 shadow">
@@ -356,9 +361,9 @@ const RealEstate = () => {
               <span className="bg-gray-200 px-3 py-1 rounded-full text-sm">Bathroom remodel</span>
               <span className="bg-gray-200 px-3 py-1 rounded-full text-sm">Kitchen remodel</span>
             </div>
-            <button className="bg-black text-white px-6 py-2 rounded-full mt-5">
+            <Link to="/get-started" className="bg-[#d2fe3a] text-[#0074ff] px-6 py-2 rounded-full mt-5 inline-block dm-sans">
               Apply
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -376,9 +381,9 @@ const RealEstate = () => {
             Whether you’ve uploaded a new photo, changed the scope...
           </p>
 
-          <button className="mt-6 bg-green-600 text-white px-6 py-2 rounded-full">
+          <Link to="/get-started" className="mt-6 bg-[#d2fe3a] text-[#0074ff] px-6 py-2 rounded-full inline-block dm-sans">
             Start free trial
-          </button>
+          </Link>
         </div>
       </section>
 
@@ -390,9 +395,9 @@ const RealEstate = () => {
             Handoff analyzes live construction pricing in every US city...
           </p>
 
-          <button className="mt-6 bg-green-600 text-white px-6 py-2 rounded-full">
+          <Link to="/get-started" className="mt-6 bg-[#d2fe3a] text-[#0074ff] px-6 py-2 rounded-full inline-block dm-sans">
             Start free trial
-          </button>
+          </Link>
         </div>
 
         <img
@@ -408,9 +413,9 @@ const RealEstate = () => {
             Handoff revolutionizes the construction industry with its
             <span className="underline"> AI-driven estimating software</span>
           </h2>
-          <button className="bg-green-600 text-white px-6 py-3 rounded-full mt-6 font-semibold">
+          <Link to="/get-started" className="bg-[#d2fe3a] text-[#0074ff] px-6 py-3 rounded-full mt-6 font-semibold inline-block dm-sans">
             Get started now
-          </button>
+          </Link>
         </div>
 
         <img
@@ -426,32 +431,19 @@ const RealEstate = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Card 1 */}
-          <div className="bg-white shadow-xl rounded-2xl p-6">
-            <h4 className="font-bold text-xl">Client Management System</h4>
-            <p className="text-gray-600 mt-2">
-              Store all project estimates in one place.
-            </p>
-            <a className="text-green-600 mt-4 inline-block font-semibold">Learn more →</a>
-          </div>
-
-          {/* Card 2 */}
-          <div className="bg-white shadow-xl rounded-2xl p-6">
-            <h4 className="font-bold text-xl">Winning AI Proposals</h4>
-            <p className="text-gray-600 mt-2">
-              AI generates proposals you can send instantly.
-            </p>
-            <a className="text-green-600 mt-4 inline-block font-semibold">Learn more →</a>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-white shadow-xl rounded-2xl p-6">
-            <h4 className="font-bold text-xl">Invoicing</h4>
-            <p className="text-gray-600 mt-2">
-              Send invoices & track payments easily.
-            </p>
-            <a className="text-green-600 mt-4 inline-block font-semibold">Learn more →</a>
-          </div>
+          {[
+            { title: "Client Management System", desc: "Store all project estimates in one place." },
+            { title: "Winning AI Proposals", desc: "AI generates proposals you can send instantly." },
+            { title: "Invoicing", desc: "Send invoices & track payments easily." },
+          ].map((f, i) => (
+            <div key={i} className="bg-white shadow-xl rounded-2xl p-6">
+              <h4 className="font-bold text-xl">{f.title}</h4>
+              <p className="text-gray-600 mt-2">{f.desc}</p>
+              <Link to="/get-started" className="text-[#0074ff] mt-4 inline-block font-semibold dm-sans">
+                Learn more →
+              </Link>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -460,9 +452,9 @@ const RealEstate = () => {
         <h2 className="text-3xl font-bold">Highly rated by 1000s of contractors</h2>
 
         <div className="flex justify-center gap-12 mt-10">
-          <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/67ea7a3eeda87d6ec6d3325f_Frame%201597878587.svg" className="h-10" />
-          <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/67ea7a7d926dcf9cfb578d33_Frame%201597878593.svg" className="h-10" />
-          <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/67ea7ab371c1c7e2a43a14e8_Frame%201597878592.svg" className="h-10" />
+          <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/67ea7a3eeda87d6ec6d3325f_Frame%201597878587.svg" className="h-10" alt="Rating 1" />
+          <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/67ea7a7d926dcf9cfb578d33_Frame%201597878593.svg" className="h-10" alt="Rating 2" />
+          <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/67ea7ab371c1c7e2a43a14e8_Frame%201597878592.svg" className="h-10" alt="Rating 3" />
         </div>
       </section>
 
@@ -471,6 +463,7 @@ const RealEstate = () => {
         <img
           src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e3e_Happy.webp"
           className="mx-auto h-40"
+          alt="Happy customer"
         />
 
         <h2 className="text-4xl font-bold mt-6">
@@ -482,8 +475,8 @@ const RealEstate = () => {
         </p>
 
         <div className="flex justify-center gap-6 mt-6">
-          <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e3c_google_app_store.webp" className="h-12" />
-          <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e3d_app_store.webp" className="h-12" />
+          <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e3c_google_app_store.webp" className="h-12" alt="Google Play" />
+          <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6650cddf762ba9b692753e3d_app_store.webp" className="h-12" alt="App Store" />
         </div>
       </section>
     </div>

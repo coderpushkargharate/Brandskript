@@ -1,4 +1,3 @@
-// Specialities.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -6,7 +5,7 @@ const features = [
   {
     title: "Performance-Driven Advertising",
     desc1: "Campaigns engineered to deliver real business outcomes—not vanity metrics.",
-    desc2: "We design and manage Google Ads, Meta Ads, and multi-channel campaigns with a single focus: revenue impact. Every campaign is structured around your Ideal Customer Profile, buying intent, and conversion behavior to ensure efficiency at scale.”",
+    desc2: "We design and manage Google Ads, Meta Ads, and multi-channel campaigns with a single focus: revenue impact. Every campaign is structured around your Ideal Customer Profile, buying intent, and conversion behavior to ensure efficiency at scale.",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5NfB--uS5k6orMIDNuTo4CLQHAes_ELkRFA&s",
   },
   {
@@ -24,7 +23,7 @@ const features = [
   {
     title: "Pixel & GTM Architecture",
     desc1: "Enterprise-grade tracking infrastructure built for accuracy and reliability.",
-    desc2: "Using Google Tag Manager, conversion pixels, and custom events, we create a clean, scalable data architecture that supports advanced optimization, attribution, and reporting without data loss.",
+    desc2: "Using Google Tag Manager, conversion pixels, and custom events, we create a clean, scalable data architecture that supports advanced optimization, attribution and reporting without data loss.",
     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQK0uYDu5gMRksKk-O2IKJDPpbBUuX9xZJttA&s",
   },
   {
@@ -83,11 +82,15 @@ const features = [
   },
 ];
 
+// Reusable button class
+const primaryButtonClass =
+  "bg-[#d2fe3a] text-[#0074ff] px-7 py-3 rounded-xl font-semibold shadow hover:bg-yellow-300 transition dm-sans";
+
 const Specialities = () => {
   return (
-    <div className="min-h-screen bg-white font-sans">
+    <div className="min-h-screen bg-white font-sans dm-sans">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#00A651] text-white rounded-3xl mx-4 my-10">
+      <section className="relative overflow-hidden bg-[#0074ff] text-white rounded-3xl mx-16 mb-10">
         <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
           {/* LEFT CONTENT */}
           <div className="z-10">
@@ -108,10 +111,7 @@ const Specialities = () => {
             </p>
 
             <div className="mt-8 flex items-center gap-4">
-              <Link
-                to="/get-started"
-                className="bg-white text-[#00A651] px-7 py-3 rounded-xl font-semibold shadow hover:bg-gray-100 transition"
-              >
+              <Link to="/get-started" className={primaryButtonClass}>
                 Book An Appointment
               </Link>
               <span className="text-sm opacity-80">✔ Strategy Call</span>
@@ -143,7 +143,7 @@ const Specialities = () => {
       </section>
 
       {/* HOW IT WORKS */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-6 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
             How It Works
@@ -156,7 +156,7 @@ const Specialities = () => {
       </section>
 
       {/* FEATURES */}
-      <section className="py-16">
+      <section className="">
         <div className="max-w-7xl mx-auto px-6 space-y-16">
           {features.map((item, index) => {
             const isEven = index % 2 === 0;
@@ -164,7 +164,7 @@ const Specialities = () => {
             return (
               <div
                 key={index}
-                className="grid lg:grid-cols-2 gap-10 items-center border-t pt-12"
+                className="grid lg:grid-cols-2 gap-10 items-center border-t "
               >
                 {isEven ? (
                   <>
@@ -176,7 +176,7 @@ const Specialities = () => {
                       <p className="text-gray-600 mb-4">{item.desc2}</p>
                       <Link
                         to="/get-started"
-                        className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full text-sm font-medium inline-block"
+                        className="bg-[#d2fe3a] text-[#0074ff] px-6 py-3 rounded-full text-sm font-medium inline-block dm-sans hover:bg-yellow-300 transition"
                       >
                         Book An Appointment
                       </Link>
@@ -206,7 +206,7 @@ const Specialities = () => {
                       <p className="text-gray-600 mb-4">{item.desc2}</p>
                       <Link
                         to="/get-started"
-                        className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-full text-sm font-medium inline-block"
+                        className="bg-[#d2fe3a] text-[#0074ff] px-6 py-3 rounded-full text-sm font-medium inline-block dm-sans hover:bg-yellow-300 transition"
                       >
                         Book An Appointment
                       </Link>
@@ -293,7 +293,7 @@ const Specialities = () => {
             </p>
             <Link
               to="/get-started"
-              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-semibold transition shadow inline-block"
+              className="bg-[#d2fe3a] text-[#0074ff] px-8 py-4 rounded-xl font-semibold transition shadow inline-block dm-sans hover:bg-yellow-300"
             >
               Book An Appointment
             </Link>

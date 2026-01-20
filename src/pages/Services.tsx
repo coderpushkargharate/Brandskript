@@ -15,7 +15,7 @@ const ServicesPage = () => {
           </p>
 
           {/* Headline */}
-          <h1 className="noir text-4xl sm:text-5xl md:text-6xl leading-[1.05] font-semibold max-w-4xl">
+          <h1 className="noir text-4xl sm:text-5xl md:text-6xl text-green leading-[1.05] font-semibold max-w-4xl">
             What We Deliver And
             <br />
             How We Drive Growth.
@@ -25,7 +25,7 @@ const ServicesPage = () => {
           <div className="w-14 h-[2px] bg-white/40 mt-8 mb-10" />
 
           {/* Services Row — Now with clickable links */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-x-10 gap-y-6 text-sm text-white/90 dm">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 text-sm text-white/90 dm">
             {[
               { label: "Client Acquisition System", id: "client-acquisition" },
               { label: "Lead Generation", id: "lead-generation" },
