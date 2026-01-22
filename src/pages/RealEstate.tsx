@@ -13,7 +13,7 @@ const RealEstate = () => {
   return (
     <div className="w-full font-sans dm-sans">
       {/* ================= HERO SECTION ================= */}
-      <section className="bg-[#0074ff] min-h-[80vh] lg:h-[70vh] text-white rounded-[40px] pb-24 pt-20 mx-10 lg:px-20 relative overflow-hidden">
+      <section className="bg-[#0074ff] min-h-[80vh] lg:h-[70vh] text-white rounded-[40px] pb-24 p-5 mx-2 pt-20 lg:mx-16 lg:px-20 relative overflow-hidden">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* LEFT TEXT */}
           <div className="lg:pr-10 " style={{marginTop:"-65px"}}>
@@ -300,34 +300,54 @@ const RealEstate = () => {
         </div>
       </section>
 
-      {/* ================= BUILD PROFITABLE SYSTEM SECTION ================= */}
-      <section className="py-16 px-6 lg:px-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl shadow-lg p-8">
-            <h2 className="text-3xl font-bold text-green-600 mb-4">Build a profitable Client Acquisition System for your Real Estate Business</h2>
-            <p className="mb-4 text-gray-700">
-              Book a free strategy session to:
-            </p>
-            <div className="grid md:grid-cols-3 gap-4 mb-4">
-              <div className="bg-white p-4 rounded-lg">
-                <h3 className="font-semibold">Identify where your current leads are leaking</h3>
-              </div>
-              <div className="bg-white p-4 rounded-lg">
-                <h3 className="font-semibold">Improve enquiry quality and follow-ups</h3>
-              </div>
-              <div className="bg-white p-4 rounded-lg">
-                <h3 className="font-semibold">Build a scalable, ROI-driven acquisition system</h3>
-              </div>
-            </div>
-            <p className="mb-4 text-gray-700">
-              No pressure. Just clarity.
-            </p>
-            <Link to="/get-started" className={primaryButtonClass.replace("px-8 py-3", "px-6 py-3")}>
-              Book a Strategy Session
-            </Link>
-          </div>
+{/* ================= BUILD PROFITABLE SYSTEM SECTION ================= */}
+<section className="py-14 sm:py-16 px-4 sm:px-6 lg:px-20">
+  <div className="max-w-7xl mx-auto">
+    <div className="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-2xl shadow-lg p-6 sm:p-8 lg:p-10">
+
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-green-600 mb-4 leading-tight">
+        Build a profitable Client Acquisition System for your Real Estate Business
+      </h2>
+
+      <p className="mb-6 text-sm sm:text-base text-gray-700">
+        Book a free strategy session to:
+      </p>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
+        <div className="bg-white p-4 rounded-xl shadow-sm">
+          <h3 className="font-semibold text-sm sm:text-base">
+            Identify where your current leads are leaking
+          </h3>
         </div>
-      </section>
+
+        <div className="bg-white p-4 rounded-xl shadow-sm">
+          <h3 className="font-semibold text-sm sm:text-base">
+            Improve enquiry quality and follow-ups
+          </h3>
+        </div>
+
+        <div className="bg-white p-4 rounded-xl shadow-sm">
+          <h3 className="font-semibold text-sm sm:text-base">
+            Build a scalable, ROI-driven acquisition system
+          </h3>
+        </div>
+      </div>
+
+      <p className="mb-6 text-sm sm:text-base text-gray-700">
+        No pressure. Just clarity.
+      </p>
+
+      <Link
+        to="/get-started"
+        className={`${primaryButtonClass.replace("px-8 py-3", "px-6 py-3")} inline-block`}
+      >
+        Book a Strategy Session
+      </Link>
+
+    </div>
+  </div>
+</section>
+
 
       {/* ================= HOW IT WORKS ================= */}
       <section className="py-20 px-6 lg:px-20 text-center">
@@ -447,16 +467,31 @@ const RealEstate = () => {
         </div>
       </section>
 
-      {/* ================= RATINGS SECTION ================= */}
-      <section className="px-6 lg:px-20 pb-20 text-center">
-        <h2 className="text-3xl font-bold">Highly rated by 1000s of contractors</h2>
+     {/* ================= RATINGS SECTION ================= */}
+<section className="px-6 sm:px-10 lg:px-20 pb-20 text-center">
+  <h2 className="text-2xl sm:text-3xl font-bold">
+    Highly rated by 1000s of contractors
+  </h2>
 
-        <div className="flex justify-center gap-12 mt-10">
-          <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/67ea7a3eeda87d6ec6d3325f_Frame%201597878587.svg" className="h-10" alt="Rating 1" />
-          <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/67ea7a7d926dcf9cfb578d33_Frame%201597878593.svg" className="h-10" alt="Rating 2" />
-          <img src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/67ea7ab371c1c7e2a43a14e8_Frame%201597878592.svg" className="h-10" alt="Rating 3" />
-        </div>
-      </section>
+  <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 place-items-center">
+    <img
+      src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/67ea7a3eeda87d6ec6d3325f_Frame%201597878587.svg"
+      className="h-8 sm:h-10"
+      alt="Rating 1"
+    />
+    <img
+      src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/67ea7a7d926dcf9cfb578d33_Frame%201597878593.svg"
+      className="h-8 sm:h-10"
+      alt="Rating 2"
+    />
+    <img
+      src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/67ea7ab371c1c7e2a43a14e8_Frame%201597878592.svg"
+      className="h-8 sm:h-10"
+      alt="Rating 3"
+    />
+  </div>
+</section>
+
 
       {/* ================= FOOTER CTA ================= */}
       <section className="bg-green-100 py-20 px-6 lg:px-20 rounded-t-3xl text-center">

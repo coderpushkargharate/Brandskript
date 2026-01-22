@@ -90,53 +90,44 @@ const Specialities = () => {
   return (
     <div className="min-h-screen bg-white font-sans dm-sans">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#0074ff] text-white rounded-3xl mx-16 mb-10">
-        <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
-          {/* LEFT CONTENT */}
+      <section className="relative overflow-hidden bg-[#0074ff] text-white mx-4 sm:mx-6 md:mx-16 mb-10 rounded-2xl md:rounded-3xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="z-10">
-            <span className="inline-flex items-center gap-2 bg-white/20 px-4 py-1 rounded-full text-sm font-semibold mb-6">
+            <span className="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold mb-4">
               🚀 Client Acquisition System
             </span>
-
-            <h1 className="text-4xl md:text-5xl xl:text-6xl font-extrabold leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold leading-tight">
               Client Acquisition <br /> Infrastructure by ROI Edge
             </h1>
-
-            <p className="mt-6 max-w-xl text-lg text-white/90 leading-relaxed">
-              A complete, ROI-driven system designed to acquire, qualify, and
-              convert customers profitably—at scale.
+            <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-lg text-white/90 leading-relaxed">
+              A complete, ROI-driven system designed to acquire, qualify, and convert customers profitably—at scale.
               <br /><br />
               Every feature below is built to support one goal:
               <strong> predictable growth with controlled CAC and measurable ROI.</strong>
             </p>
-
-            <div className="mt-8 flex items-center gap-4">
+            <div className="mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
               <Link to="/get-started" className={primaryButtonClass}>
                 Book An Appointment
               </Link>
-              <span className="text-sm opacity-80">✔ Strategy Call</span>
+              <span className="text-xs sm:text-sm opacity-80">✔ Strategy Call</span>
             </div>
           </div>
 
-          {/* RIGHT IMAGE */}
-          <div className="relative">
-            <div className="relative rounded-[3rem] overflow-hidden shadow-2xl">
+          <div className="relative mt-6 lg:mt-0">
+            <div className="relative rounded-xl sm:rounded-2xl md:rounded-[3rem] overflow-hidden shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c"
                 alt="AI Estimate Preview"
-                className="w-full h-full object-cover"
+                className="w-full h-auto object-cover"
               />
             </div>
-
-            <div className="absolute top-10 right-6 bg-white text-black rounded-xl shadow-lg px-4 py-3 text-sm hidden md:block">
-              <p className="font-semibold">Luxury Vinyl Plank (SF)</p>
-              <p className="text-gray-500">Quantity: 1 • Cost: $0.00</p>
+            {/* Overlay badges hidden on small screens */}
+            <div className="absolute top-3 right-3 bg-white text-black rounded-lg px-2 py-1 text-xs hidden sm:block">
+              Luxury Vinyl Plank (SF)
             </div>
-
-            <div className="absolute bottom-10 left-6 bg-white text-black rounded-xl shadow-lg px-4 py-3 text-sm hidden md:block">
+            <div className="absolute bottom-3 left-3 bg-white text-black rounded-lg px-2 py-1 text-xs hidden sm:block">
               <p className="font-semibold">Master Bathroom</p>
               <p className="text-green-600 font-bold">$55,200.00</p>
-              <p className="text-gray-400 text-xs">Jan 01, 2024</p>
             </div>
           </div>
         </div>

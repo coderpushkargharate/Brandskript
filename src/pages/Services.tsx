@@ -6,7 +6,7 @@ const ServicesPage = () => {
     <div className="bg-white text-gray-900 overflow-hidden">
 
       {/* ================= HERO ================= */}
-      <section className="relative bg-[#0B5CFF] text-white px-6 pt-28 pb-36">
+      <section className="relative bg-[#0074ff] text-white px-6 pt-28 pb-36">
         <div className="max-w-7xl mx-auto">
 
           {/* Small Label */}

@@ -66,12 +66,12 @@ const HeroSection = () => {
               {/* <button className="bg-[#d2fe3a] text-[#0074ff] px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition">
                 Book An Appointment
               </button> */}
-               <Link
-                  to="/get-started"
-                  className="bg-[#d2fe3a] text-[#0074ff] px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition"
-                >
-                  Book An Appointment
-                </Link>
+              <Link
+                to="/get-started"
+                className="bg-[#d2fe3a] text-[#0074ff] px-8 py-3 rounded-full font-semibold shadow-lg hover:scale-105 transition"
+              >
+                Book An Appointment
+              </Link>
 
               <button className="bg-white/10 border border-white/40 text-white px-8 py-3 rounded-full font-semibold hover:bg-white/20 transition">
                 Case Studies
@@ -92,36 +92,37 @@ const HeroSection = () => {
       </div>
 
 
-      {/* ===== DATA SECTION (PERFECTLY ALIGNED) ===== */}
-   <div className="max-w-7xl mx-auto mt-20 px-4 sm:px-6">
-  <div className="p-2 grid grid-cols-1 md:grid-cols-5 gap-2 items-start">
+    {/* ===== DATA SECTION (RESPONSIVE FIXED) ===== */}
+<div className="max-w-7xl mx-auto mt-20 px-4 sm:px-6">
+  <div className="p-2 grid grid-cols-1 md:grid-cols-5 gap-8 items-start">
 
     {/* TITLE */}
-    <div className="md:col-span-1 flex items-center">
-      <h3 className="text-3xl noir-pro leading-snug">
+    <div className="md:col-span-1 flex items-center justify-center md:justify-start">
+      <h3 className="text-2xl sm:text-3xl noir-pro leading-snug text-center md:text-left">
         Delegate & <br /> See Immediate Results
       </h3>
     </div>
 
     {/* STAT ITEMS */}
-    <div className="md:col-span-4 flex justify-between">
+    <div className="md:col-span-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8">
       {[
         { end: 15000, prefix: "+$", label: "Saved on Team Hiring" },
         { end: 80, suffix: " hrs", label: "Saved Weekly" },
         { end: 60, suffix: "%", label: "ROI Compared" },
         { end: 400, suffix: "%", label: "More Clients" },
       ].map((item, i) => (
-        <div key={i} className="flex flex-col items-center flex-1 mx-2">
-          <h4 className="text-5xl font-bold dm-sans relative inline-block">
+        <div key={i} className="flex flex-col items-center">
+          <h4 className="text-3xl sm:text-4xl md:text-5xl font-bold dm-sans relative inline-block">
             <CountUp {...item} />
-            <span className="absolute -bottom-2 left-0 right-0 h-3 bg-[#c8f75b] rounded-sm"></span>
+            <span className="absolute -bottom-2 left-0 right-0 h-2 sm:h-3 bg-[#c8f75b] rounded-sm"></span>
           </h4>
-          <p className="mt-3 text-sm text-gray-600 noir-pro text-center">
+          <p className="mt-3 text-xs sm:text-sm text-gray-600 noir-pro text-center">
             {item.label}
           </p>
         </div>
       ))}
     </div>
+
   </div>
 </div>
 
