@@ -1,86 +1,110 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
+// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-/* ================= FEATURE DATA ================= */
-const features = [
-  {
-    tag: "Strategy",
-    title: "ROI-Directed Strategy",
-    desc: "We start by understanding your business goals, ICP, and revenue targets. A custom funnel and channel mix is planned based on data, not assumptions. Every decision is aligned to maximize ROI and scalability.",
-    img: "https://cdn-icons-png.flaticon.com/512/1907/1907552.png",
-    bg: "#FFEECF",
-  },
-  {
-    tag: "Creative",
-    title: "Result-Oriented Ad Design & Editing",
-    desc: "Creatives are designed to stop scrolls and attract qualified intent, not just clicks. Messaging is crafted around pain points, triggers, and buying psychology. Each design is optimized for platform performance and conversions.",
-    img: "https://cdn-icons-png.flaticon.com/512/2920/2920277.png",
-    bg: "#E3EDFF",
-  },
-  {
-    tag: "Setup",
-    title: "Proven Campaign Setup",
-    desc: "Campaigns are structured with the right objectives, audiences, and bidding strategy. Tracking, pixels, and events are configured so performance can be measured and optimized from day one.",
-    img: "https://cdn-icons-png.flaticon.com/512/3208/3208707.png",
-    bg: "#E8F7ED",
-  },
-  {
-    tag: "Leads",
-    title: "High-Intent Lead Generation",
-    desc: "High-intent leads are generated through optimized ads, continuous testing, and conversion-focused landing flows. We prioritize quality volume over vanity metrics.",
-    img: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
-    bg: "#D2F9E8",
-  },
-  {
-    tag: "Filtering",
-    title: "Lead Qualification",
-    desc: "Leads are filtered using predefined criteria such as budget, need, and intent. Automation instantly removes junk and low-quality entries so your sales team only receives sales-ready prospects.",
-    img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
-    bg: "#FFEECF",
-  },
-  {
-    tag: "Conversion",
-    title: "Lead Conversion Support",
-    desc: "We automate meeting scheduling and follow-ups until prospects attend. Your sales team focuses only on attending and closing while we provide scripts, insights, and conversion data.",
-    img: "https://cdn-icons-png.flaticon.com/512/1087/1087840.png",
-    bg: "#E3EDFF",
-  },
-  {
-    tag: "CRM",
-    title: "Centralized Lead Management",
-    desc: "All leads are centralized inside a CRM with clear stage-wise visibility. Follow-ups, reminders, and status updates are automated so nothing slips through the cracks.",
-    img: "https://cdn-icons-png.flaticon.com/512/906/906334.png",
-    bg: "#E8F7ED",
-  },
-  {
-    tag: "AI",
-    title: "Customized AI Agents",
-    desc: "We deploy customized AI agents tailored to your sales process. They handle lead qualification, instant responses, follow-ups, reminders, and real-time CRM updates—without increasing manpower.",
-    img: "https://cdn-icons-png.flaticon.com/512/4712/4712109.png",
-    bg: "#D2F9E8",
-  },
-  {
-    tag: "Outreach",
-    title: "Email Outreach System",
-    desc: "We build a structured email outreach system powered by intelligent workflows. Each sequence is personalized, behavior-triggered, and fully automated—driving predictable meeting bookings without relying only on paid ads.",
-    img: "https://cdn-icons-png.flaticon.com/512/561/561127.png",
-    bg: "#FFEECF",
-  },
-];
+// Optional: Add minimal custom styles for arrows (you can adjust as needed)
+const arrowStyles = `
+  .custom-swiper .swiper-button-prev,
+  .custom-swiper .swiper-button-next {
+    color: #333;
+   
+    width: 40px;
+    height: 40px;
 
-/* ================= COMPONENT ================= */
+    transition: all 0.2s ease;
+    margin-top: -20px; /* center vertically */
+  }
+ 
+  .custom-swiper .swiper-button-prev::after,
+  .custom-swiper .swiper-button-next::after {
+    font-size: 18px !important;
+    font-weight: bold;
+  }
+`;
+
 const FeaturesCarousel = () => {
+  const features = [
+    {
+      tag: "Strategy",
+      title: "ROI-Directed Strategy",
+      desc: "We start by understanding your business goals, ICP, and revenue targets. A custom funnel and channel mix is planned based on data, not assumptions. Every decision is aligned to maximize ROI and scalability.",
+      img: "https://cdn-icons-png.flaticon.com/512/1907/1907552.png",
+      bg: "#FFEECF",
+    },
+    {
+      tag: "Creative",
+      title: "Result-Oriented Ad Design & Editing",
+      desc: "Creatives are designed to stop scrolls and attract qualified intent, not just clicks. Messaging is crafted around pain points, triggers, and buying psychology. Each design is optimized for platform performance and conversions.",
+      img: "https://cdn-icons-png.flaticon.com/512/2920/2920277.png",
+      bg: "#E3EDFF",
+    },
+    {
+      tag: "Setup",
+      title: "Proven Campaign Setup",
+      desc: "Campaigns are structured with the right objectives, audiences, and bidding strategy. Tracking, pixels, and events are configured so performance can be measured and optimized from day one.",
+      img: "https://cdn-icons-png.flaticon.com/512/3208/3208707.png",
+      bg: "#E8F7ED",
+    },
+    {
+      tag: "Leads",
+      title: "High-Intent Lead Generation",
+      desc: "High-intent leads are generated through optimized ads, continuous testing, and conversion-focused landing flows. We prioritize quality volume over vanity metrics.",
+      img: "https://cdn-icons-png.flaticon.com/512/3135/3135715.png",
+      bg: "#D2F9E8",
+    },
+    {
+      tag: "Filtering",
+      title: "Lead Qualification",
+      desc: "Leads are filtered using predefined criteria such as budget, need, and intent. Automation instantly removes junk and low-quality entries so your sales team only receives sales-ready prospects.",
+      img: "https://cdn-icons-png.flaticon.com/512/942/942748.png",
+      bg: "#FFEECF",
+    },
+    {
+      tag: "Conversion",
+      title: "Lead Conversion Support",
+      desc: "We automate meeting scheduling and follow-ups until prospects attend. Your sales team focuses only on attending and closing while we provide scripts, insights, and conversion data.",
+      img: "https://cdn-icons-png.flaticon.com/512/1087/1087840.png",
+      bg: "#E3EDFF",
+    },
+    {
+      tag: "CRM",
+      title: "Centralized Lead Management",
+      desc: "All leads are centralized inside a CRM with clear stage-wise visibility. Follow-ups, reminders, and status updates are automated so nothing slips through the cracks.",
+      img: "https://cdn-icons-png.flaticon.com/512/906/906334.png",
+      bg: "#E8F7ED",
+    },
+    {
+      tag: "AI",
+      title: "Customized AI Agents",
+      desc: "We deploy customized AI agents tailored to your sales process. They handle lead qualification, instant responses, follow-ups, reminders, and real-time CRM updates—without increasing manpower.",
+      img: "https://cdn-icons-png.flaticon.com/512/4712/4712109.png",
+      bg: "#D2F9E8",
+    },
+    {
+      tag: "Outreach",
+      title: "Email Outreach System",
+      desc: "We build a structured email outreach system powered by intelligent workflows. Each sequence is personalized, behavior-triggered, and fully automated—driving predictable meeting bookings without relying only on paid ads.",
+      img: "https://cdn-icons-png.flaticon.com/512/561/561127.png",
+      bg: "#FFEECF",
+    },
+  ];
+
   return (
-    <section className="py-20 bg-[#faf9f6]">
+    <section className="py-20 bg-[#faf9f6] relative">
+      {/* Inject minimal arrow styles */}
+      <style>{arrowStyles}</style>
+
       {/* Heading */}
-<h2
-  className="text-center text-3xl sm:text-4xl md:text-5xl font-black mb-4 px-4 dm-sans text-gray-900"
-  style={{ wordSpacing: '2px' }}
->        Get More Ideal Clients with <br />
+      <h2
+        className="text-center text-3xl sm:text-4xl md:text-5xl font-black mb-4 px-4 dm-sans text-gray-900"
+        style={{ wordSpacing: '2px' }}
+      >
+        Get More Ideal Clients with <br />
         Client Acquisition System
       </h2>
 
@@ -92,16 +116,17 @@ const FeaturesCarousel = () => {
       {/* Carousel */}
       <div className="max-w-7xl mx-auto px-4">
         <Swiper
-          modules={[Autoplay, Pagination]}
+          modules={[Autoplay, Pagination, Navigation]}
           autoplay={{ delay: 3500, disableOnInteraction: false }}
           pagination={{ clickable: true }}
+          navigation={true}
           spaceBetween={24}
           breakpoints={{
             0: { slidesPerView: 1 },
             768: { slidesPerView: 2 },
             1280: { slidesPerView: 3 },
           }}
-          className="!items-stretch"
+          className="!items-stretch custom-swiper"
         >
           {features.map((item, i) => (
             <SwiperSlide key={i} className="flex h-auto">
@@ -117,7 +142,7 @@ const FeaturesCarousel = () => {
                 {/* Image */}
                 <div className="h-40 sm:h-48 flex items-center justify-center mb-4">
                   <img
-                    src={item.img}
+                    src={item.img.trim()}
                     alt={item.title}
                     className="max-h-full object-contain"
                   />

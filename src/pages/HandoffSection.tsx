@@ -4,10 +4,14 @@ import React from "react";
 const StatItem = ({ value, label }) => {
   return (
     <div className="flex flex-col items-center text-center">
-      <h3 className="text-2xl md:text-3xl font-bold text-black dm-sans">
+      {/* VALUE */}
+      <h4 className="text-3xl sm:text-4xl md:text-5xl font-bold dm-sans relative inline-block text-black">
         {value}
-      </h3>
-      <p className="text-sm text-gray-500 mt-1 dm-sans">
+        <span className="absolute -bottom-2 left-0 right-0 h-2 sm:h-3 bg-[#c8f75b] rounded-sm"></span>
+      </h4>
+
+      {/* LABEL */}
+      <p className="mt-3 text-xs sm:text-sm text-gray-600 noir-pro">
         {label}
       </p>
     </div>
@@ -20,7 +24,7 @@ const TrustAndBoostSection = () => {
     <div className="w-full">
 
       {/* ================= WHY TO TRUST US ================= */}
-      <section className="max-w-7xl mx-auto px-6 py-20">
+      <section className="max-w-7xl mx-auto px-6 py-20 ">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-10 items-start">
 
           {/* Left Title */}
@@ -30,7 +34,7 @@ const TrustAndBoostSection = () => {
             </h2>
           </div>
 
-          {/* Stats */}
+          {/* ================= STATS ================= */}
           <div className="md:col-span-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8">
             <StatItem value="+$500k" label="Saved on Ad Spend" />
             <StatItem value="+$6M" label="In Total Ad Spend" />
@@ -44,7 +48,7 @@ const TrustAndBoostSection = () => {
       </section>
 
       {/* ================= BOOST BUSINESS ================= */}
-      <section className="bg-[#ECFDF5] rounded-3xl mx-6 mb-20 py-20 px-6 text-center">
+      <section className="bg-[#ECFDF5] rounded-3xl mx-6 mb-20 py-20 px-6 text-center lg:mx-24">
 
         {/* Icon */}
         <div className="flex justify-center mb-6">

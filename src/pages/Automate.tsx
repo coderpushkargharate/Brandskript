@@ -3,7 +3,7 @@ export default function Automation() {
     <div className="bg-white text-black overflow-hidden dm-sans">
 
       {/* ================= HERO FEATURES ================= */}
-      <section className="rounded-3xl mx-4 sm:mx-6 mt-6 px-6 sm:px-10 py-14 bg-[#ECFDF5]">
+      <section className="rounded-3xl mx-4 lg:mx-24 sm:mx-6 mt-6 px-6 sm:px-10 py-14 bg-[#ECFDF5]">
         <div className="max-w-7xl mx-auto">
 
           <h1 className="text-center text-2xl sm:text-3xl lg:text-4xl font-bold max-w-3xl mx-auto leading-snug dm-sans">
@@ -76,7 +76,7 @@ export default function Automation() {
       </section>
 
       {/* ================= CONSULTATION CTA ================= */}
-      <section className="mt-24 rounded-3xl mx-6 sm:mx-10 lg:mx-16 px-6 sm:px-10 py-20 sm:py-28 bg-[#0B0B0B]">
+      <section className="mt-24 rounded-3xl mx-6 lg:mx-24 sm:mx-10 lg:mx-16 px-6 sm:px-10 py-20 sm:py-28 bg-[#0074ff]">
         <div className="max-w-4xl mx-auto text-center">
 
           <h2 className="text-white text-2xl sm:text-3xl lg:text-4xl font-bold leading-snug dm-sans">
@@ -98,7 +98,7 @@ export default function Automation() {
       </section>
 
       {/* ================= SOCIAL SECTION ================= */}
-      <section className="bg-gray-50 rounded-3xl mx-4 sm:mx-6 my-20 px-6 sm:px-10 py-14">
+      <section className="bg-gray-50 rounded-3xl mx-4 sm:mx-6 my-20 lg:mx-24 px-6 sm:px-10 py-14">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
 
           {/* Text */}

@@ -16,3 +16,15 @@
   font-weight: 500;
 }
 
+@keyframes scroll-rtl {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-rtl {
+  animation: scroll-rtl 25s linear infinite;
+}
