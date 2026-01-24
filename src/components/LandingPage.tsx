@@ -23,6 +23,7 @@ import {
   Star,
   Flame,
   Check,
+  X, // 👈 Added this for the close button
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -91,7 +92,6 @@ const HeroSection = () => {
                 <ArrowRight className="ml-2 h-5 w-5 inline-block group-hover:translate-x-1 transition-transform" />
               </button>
 
-              {/* 🔥 ONLY CHANGE HERE */}
               <button
                 onClick={() => setOpenVideo(true)}
                 className="text-lg px-8 py-6 bg-transparent border border-white/30 text-white font-semibold rounded-md hover:bg-white/10 transition-all duration-300 group"
@@ -123,7 +123,7 @@ const HeroSection = () => {
         </div>
       </section>
 
-      {/* ================= VIDEO POPUP (ADDED) ================= */}
+      {/* ================= VIDEO POPUP ================= */}
       {openVideo && (
         <div
           className="fixed inset-0 z-[999] bg-black/70 backdrop-blur-sm flex items-center justify-center px-4"
@@ -141,7 +141,7 @@ const HeroSection = () => {
               <X className="h-5 w-5" />
             </button>
 
-            {/* ONLINE VIDEO */}
+            {/* ONLINE VIDEO — fixed URL (no trailing space) */}
             <iframe
               className="w-full h-full"
               src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
@@ -156,8 +156,6 @@ const HeroSection = () => {
     </>
   );
 };
-
-
 
 // ================== ClientLogos ==================
 const ClientLogos = () => {
@@ -202,8 +200,6 @@ const ClientLogos = () => {
     </section>
   );
 };
-
-
 
 // ================== ProblemSection ==================
 const ProblemSection = () => {
@@ -697,7 +693,7 @@ const AboutSection = () => {
             {/* Avatar */}
             <div className="flex-shrink-0">
               <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gradient-to-br from-[hsl(68,100%,50%)] to-[hsl(80,100%,60%)] flex items-center justify-center text-[hsl(220,25%,10%)] text-5xl lg:text-6xl font-bold shadow-2xl">
-                S
+                <img src="/Shubh Dp new.jpg.jpeg" alt="" className="w-32 h-32 lg:w-40 lg:h-40 rounded-full" />
               </div>
             </div>
 
@@ -866,7 +862,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="text-center md:text-left">
             <div className="text-xl font-bold text-white mb-2">
-              ROI Edge<span className="text-[hsl(68,100%,50%)]">Forge</span>
+              ROI Edge
             </div>
             <p className="text-sm">
               Done-for-you outbound systems for B2B lead generation agencies
@@ -894,7 +890,7 @@ const Footer = () => {
 };
 
 // ================== HomePage ==================
-export default function LAndingPage() {
+export default function LandingPage() {
   return (
     <>
       <AttentionBar />
