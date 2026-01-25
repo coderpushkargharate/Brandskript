@@ -317,16 +317,16 @@ export default function SaaSBusiness() {
 
       {/* BOOST YOUR BUSINESS SECTION */}
       <section className="max-w-7xl mx-auto p-6 md:p-8">
-        <div className="bg-green-50 rounded-xl shadow-lg p-8 text-center">
+        <div className="bg-[#0074ff] rounded-xl shadow-lg p-8 text-center">
           <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
             <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
-          <h2 className="noir-pro text-2xl md:text-3xl font-medium mb-4 text-gray-800">
+          <h2 className="noir-pro text-2xl md:text-3xl font-medium mb-4 text-white">
             Boost Your Business With ROI Edge
           </h2>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+          <p className="text-white mb-6 max-w-2xl mx-auto">
             Generate consistent leads, reduce acquisition costs, and grow your revenue with our SaaS-focused acquisition systems.
           </p>
           <button className="bg-[#d2fe3a] text-[#0074ff] font-semibold px-6 py-3 rounded-xl shadow hover:bg-green-700 transition dm-sans">
