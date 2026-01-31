@@ -112,7 +112,7 @@ function AppContent() {
           <Route path="/case-studies" element={<CaseStudies />} />
           <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
           <Route path="/specialities" element={<Specialities />} />
-          <Route path="/LandingPage" element={<LandingPage />} />
+          <Route path="/client_acquisition_system" element={<LandingPage />} />
 
           {/* Admin generic route */}
           <Route path="/admin" element={<Admin />} />
