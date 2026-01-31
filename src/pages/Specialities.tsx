@@ -90,13 +90,13 @@ const Specialities = () => {
   return (
     <div className="min-h-screen bg-white font-sans dm-sans">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-[#0074ff] text-white mx-4 sm:mx-6 md:mx-16 mb-10 rounded-2xl md:rounded-3xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
+      <section className=" bg-[#0074ff] rounded-3xl max-w-7xl mx-2 lg:mx-auto  overflow-hidden ">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6  sm:py-16 py-10 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
           <div className="z-10">
             <span className="inline-flex items-center gap-2 bg-white/20 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold mb-4">
               🚀 Client Acquisition System
             </span>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-extrabold leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-white/90 font-extrabold leading-tight">
               Client Acquisition <br /> Infrastructure by ROI Edge
             </h1>
             <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-lg text-white/90 leading-relaxed">

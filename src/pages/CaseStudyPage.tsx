@@ -145,12 +145,12 @@ const CaseStudies = () => {
     <div className="bg-white text-gray-800">
 
       {/* ================= HERO ================= */}
-      <section className="bg-gradient-to-br from-black via-gray-900 to-black text-white py-24 px-6">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+      <section className="bg-[#0074ff] rounded-3xl max-w-7xl mx-2 lg:mx-auto  mt-6 overflow-hidden p-5">
+        <div className="max-w-7xl mx-auto text-center py-10">
+          <h1 className="text-4xl sm:text-5xl text-white font-bold pb-3">
             Results Aren’t Promises.  
             <br className="hidden sm:block" />
-            <span className="text-green-400">They’re Proof.</span>
+            <span className="text-green-400 ">They’re Proof.</span>
           </h1>
           <p className="max-w-3xl mx-auto text-gray-300 text-lg">
             Real brands. Real revenue. Real growth stories powered by performance-driven marketing.
@@ -159,7 +159,7 @@ const CaseStudies = () => {
       </section>
 
       {/* ================= CASE STUDIES ================= */}
-      <section className="py-20 px-6">
+      <section className="py-16 px-6">
         <div className="max-w-7xl mx-auto space-y-20">
 
           {caseStudies.map((study, index) => (

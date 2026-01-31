@@ -23,7 +23,9 @@ import {
   Star,
   Flame,
   Check,
-  X, // 👈 Added this for the close button
+  X,
+  Instagram,
+  Youtube,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
@@ -34,7 +36,7 @@ const AttentionBar = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-pulse" />
       <div className="container mx-auto flex items-center justify-center gap-3 text-sm md:text-base font-bold relative z-10">
         <Shield className="h-5 w-5" />
-        <span>20 Conversations Guarantee</span>
+        <span>15+ Conversations Guarantee</span>
         <span className="hidden sm:inline">•</span>
         <span className="hidden sm:inline">For B2B Lead Generation Agencies</span>
         <ArrowRight className="h-4 w-4" />
@@ -70,7 +72,7 @@ const HeroSection = () => {
 
             {/* Main Headline */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              Get <span className="text-gradient">20+ Qualified Sales</span>
+              Get <span className="text-gradient">15+ Qualified Sales</span>
               <br />
               Conversations in 30 Days
             </h1>
@@ -87,10 +89,16 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <button className="text-lg px-8 py-6 bg-[hsl(68,100%,50%)] hover:bg-[hsl(68,100%,45%)] text-[hsl(220,25%,10%)] font-semibold rounded-md transition-all duration-300 group animate-pulse-glow">
+              <a
+                href="https://calendly.com/brandskript/1-1-consultation-call?month=2026-01"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-lg px-8 py-6 bg-[hsl(68,100%,50%)] hover:bg-[hsl(68,100%,45%)] text-[hsl(220,25%,10%)] font-semibold rounded-md transition-all duration-300 group animate-pulse-glow"
+              >
                 Book a 20-Minute Call
-                <ArrowRight className="ml-2 h-5 w-5 inline-block group-hover:translate-x-1 transition-transform" />
-              </button>
+                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </a>
+
 
               <button
                 onClick={() => setOpenVideo(true)}
@@ -160,33 +168,45 @@ const HeroSection = () => {
 // ================== ClientLogos ==================
 const ClientLogos = () => {
   const logos = [
-    { name: "TechCorp", initial: "TC" },
-    { name: "GrowthLabs", initial: "GL" },
-    { name: "ScaleUp", initial: "SU" },
-    { name: "VentureX", initial: "VX" },
-    { name: "ProspectPro", initial: "PP" },
-    { name: "LeadFlow", initial: "LF" },
+    { image: "/clientLogo/Logo 1.png" },
+    { image: "/clientLogo/Logo 2.png" },
+    { image: "/clientLogo/Logo 3.png" },
+    { image: "/clientLogo/Logo 4.png" },
+    { image: "/clientLogo/Logo 5.png" },
+    { image: "/clientLogo/Logo 6.png" },
+    { image: "/clientLogo/Logo 7.png" },
+    { image: "/clientLogo/Logo 8.png" },
+    { image: "/clientLogo/Logo 9.png" },
+    { image: "/clientLogo/Logo 10.png" },
+    { image: "/clientLogo/Logo 11.png" },
+    { image: "/clientLogo/Logo 12.png" },
+    { image: "/clientLogo/Logo 13.png" },
+    { image: "/clientLogo/Logo 14.png" },
+    { image: "/clientLogo/Logo 15.png" },
+    { image: "/clientLogo/Logo 16.png" },
   ];
 
   return (
     <section className="py-12 bg-[hsl(220,25%,6%)] relative overflow-hidden border-t border-white/5">
       <div className="container mx-auto px-4">
-        <p className="text-center text-white/40 mb-8 text-sm uppercase tracking-wider font-medium">
-          TRUSTED BY BUSINESSES ACROSS 5 COUNTRIES
+        <p className="text-center text-white/100 mb-8 text-sm uppercase tracking-wider font-medium">
+          Trusted by businesses across 5 countries
         </p>
 
-        {/* Infinite Scroll Container */}
+        {/* Infinite Scroll */}
         <div className="relative overflow-hidden">
           <div className="flex w-max animate-scroll-rtl">
             {[...logos, ...logos].map((logo, index) => (
               <div key={index} className="flex-shrink-0 mx-6 md:mx-10">
-                <div className="flex items-center gap-3 px-6 py-3 bg-white/5 rounded-lg border border-white/10 hover:border-[hsl(68,100%,50%)]/30 transition-colors cursor-pointer">
-                  <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[hsl(68,100%,50%)] to-[hsl(80,100%,60%)] flex items-center justify-center text-[hsl(220,25%,10%)] font-bold text-sm">
-                    {logo.initial}
-                  </div>
-                  <span className="text-white/80 font-medium whitespace-nowrap">
-                    {logo.name}
-                  </span>
+                <div className="flex items-center justify-center bg-white/100 rounded-lg border ">
+                  
+                  {/* ONLY LOGO IMAGE */}
+                  <img
+                    src={logo.image}
+                    alt="Client Logo"
+                    className="h-16 md:h-18 "
+                  />
+
                 </div>
               </div>
             ))}
@@ -200,6 +220,10 @@ const ClientLogos = () => {
     </section>
   );
 };
+
+
+
+
 
 // ================== ProblemSection ==================
 const ProblemSection = () => {
@@ -256,7 +280,7 @@ const SolutionSection = () => {
     { icon: MessageSquare, title: "Multi-touch Follow-up", description: "7-10 touchpoints that actually convert" },
     { icon: Database, title: "CRM & Pipeline Setup", description: "Nothing falls through the cracks" },
     { icon: Calendar, title: "30 Days Managed", description: "I run it, you take the calls" },
-    { icon: Shield, title: "20 Conversations Guarantee", description: "Or I work free until we hit it" },
+    { icon: Shield, title: "15+ Conversations Guarantee", description: "Or I work free until we hit it" },
   ];
 
   return (
@@ -293,12 +317,19 @@ const SolutionSection = () => {
           </div>
 
           <div className="text-center">
-            <button
-              className="text-lg px-8 py-6 bg-[hsl(68,100%,50%)] hover:bg-[hsl(68,100%,45%)] text-[hsl(220,25%,10%)] font-semibold rounded-md transition-all duration-300 group animate-pulse-glow"
+            <a
+              href="https://calendly.com/brandskript/1-1-consultation-call?month=2026-01"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Book Your Strategy Call
-              <ArrowRight className="ml-2 h-5 w-5 inline-block group-hover:translate-x-1 transition-transform" />
-            </button>
+              <button
+                className="text-lg px-8 py-6 bg-[hsl(68,100%,50%)] hover:bg-[hsl(68,100%,45%)] text-[hsl(220,25%,10%)] font-semibold rounded-md transition-all duration-300 group animate-pulse-glow"
+              >
+                Book Your Strategy Call
+                <ArrowRight className="ml-2 h-5 w-5 inline-block group-hover:translate-x-1 transition-transform" />
+              </button>
+            </a>
+
           </div>
         </div>
       </div>
@@ -487,7 +518,7 @@ const FitSection = () => {
 
 // ================== PricingSection ==================
 const PricingSection = () => {
-  const features = ["20 qualified conversations guarantee", "Monthly retainer available after pilot (optional)"];
+  const features = ["15+ qualified conversations guarantee", "Monthly retainer available after pilot (optional)"];
   return (
     <section className="py-24 bg-gradient-to-b from-[hsl(220,25%,8%)] to-[hsl(220,25%,6%)]">
       <div className="container mx-auto px-4">
@@ -528,12 +559,16 @@ const PricingSection = () => {
               ))}
             </ul>
 
-            <button
-              className="w-full text-lg py-6 bg-[hsl(68,100%,50%)] hover:bg-[hsl(68,100%,45%)] text-[hsl(220,25%,10%)] font-semibold rounded-md transition-all duration-300 group animate-pulse-glow"
+            <a
+              href="https://calendly.com/brandskript/1-1-consultation-call?month=2026-01"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full inline-flex justify-center items-center text-lg py-6 bg-[hsl(68,100%,50%)] hover:bg-[hsl(68,100%,45%)] text-[hsl(220,25%,10%)] font-semibold rounded-md transition-all duration-300 group animate-pulse-glow"
             >
               Book Your Strategy Call
-              <ArrowRight className="ml-2 h-5 w-5 inline-block group-hover:translate-x-1 transition-transform" />
-            </button>
+              <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+
           </div>
 
           {/* Guarantee Badge */}
@@ -541,7 +576,7 @@ const PricingSection = () => {
             <div className="inline-flex items-center gap-3 bg-[hsl(68,100%,50%)]/10 border border-[hsl(68,100%,50%)]/30 rounded-xl px-6 py-4">
               <Shield className="h-8 w-8 text-[hsl(68,100%,50%)]" />
               <div className="text-left">
-                <div className="text-[hsl(68,100%,50%)] font-bold">20 Conversations</div>
+                <div className="text-[hsl(68,100%,50%)] font-bold">15+ Conversations</div>
                 <div className="text-white/60 text-sm">Or Free Work Until You Get Desired Results</div>
               </div>
             </div>
@@ -556,28 +591,28 @@ const PricingSection = () => {
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "Marcus Chen",
-      role: "Agency Owner",
-      company: "GrowthLabs",
-      image: "MC",
-      content: "Shubham helped us generate 28 qualified conversations in our first month. We closed 4 new clients worth $40K in recurring revenue.",
-      metric: "$40K MRR",
+      name: "Suhail M.",
+      role: "Owner",
+      company: "BTransport Pvt. Ltd.",
+      image: "SM",
+      content: "We were about to shut down Google Ads completely — it was bleeding money with negative ROI. Shubham turned it around. Meta ads now run at 3.2x lower CAC, and Google ads went from a loss to profitable. We've been working with him for over 18 months now, and there's no reason to stop.",
+      metric: "3.2x Lower CAC",
     },
     {
-      name: "Sarah Williams",
-      role: "Founder",
-      company: "ScaleUp Agency",
-      image: "SW",
-      content: "Finally, a system that actually works. No more chasing referrals or hoping for leads. My pipeline is predictable now.",
-      metric: "28 Meetings/mo",
+      name: "Tushar Sontakke",
+      role: "Owner",
+      company: "The HealingMonk LLP",
+      image: "TS",
+      content: "I expected him to just generate leads — that's what most people do. But Shubham started tracking lead quality, show-up rates, and actual ROI. That surprised me. We were skeptical at first, especially with a new service launch, but I've already sent him two referrals. We're on retainer now.",
+      metric: "2.8x Lower CAC + 2x Lead Quality",
     },
     {
-      name: "David Park",
-      role: "CEO",
-      company: "LeadFlow Digital",
-      image: "DP",
-      content: "The ROI is insane. $2K investment turned into $25K in new business. Shubham delivers exactly what he promises.",
-      metric: "12.5x ROI",
+      name: "Shivani",
+      role: "Head of Marketing",
+      company: "CeeKr Concepts Pvt. Ltd.",
+      image: "SH",
+      content: "Our app install-to-retention rate was terrible. Shubham didn't just run ads — he came back with a detailed execution plan showing exactly what needed to change and why it was urgent. Meta CAC dropped 5.4x, Google cost-per-conversion improved 3.4x, and retention actually started moving. He treats feedback like fuel.",
+      metric: "5.4x Lower CAC + 3.4x Better Conversions",
     },
   ];
 
@@ -590,7 +625,7 @@ const Testimonials = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-            Real Results From <span className="text-gradient">Real Agencies</span>
+            Real Results From <span className="text-gradient">Real Businesses</span>
           </h2>
           <p className="text-white/60 text-lg">
             Don't take my word for it. Here's what clients say:
@@ -641,7 +676,7 @@ const Testimonials = () => {
         </div>
 
         {/* Video CTA */}
-        <div className="mt-16 text-center">
+        {/* <div className="mt-16 text-center">
           <div className="inline-flex items-center gap-4 bg-white/5 border border-white/10 rounded-xl px-6 py-4 hover:border-primary/50 transition-colors cursor-pointer group">
             <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center group-hover:scale-110 transition-transform">
               <span className="text-white text-xl font-bold">S</span>
@@ -651,7 +686,7 @@ const Testimonials = () => {
               <div className="text-white/60 text-sm">2 minute case study</div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
@@ -660,8 +695,8 @@ const Testimonials = () => {
 // ================== AboutSection ==================
 const AboutSection = () => {
   const stats = [
-    { value: 5, label: "Countries Served", suffix: "" },
     { value: 11000, label: "Campaigns Managed", suffix: "+" },
+    { value: 5, label: "Countries Served", suffix: "" },
     { value: 40000, label: "Qualified Leads", suffix: "+" },
     { value: 8, label: "Years Experience", suffix: "+" },
   ];
@@ -693,24 +728,37 @@ const AboutSection = () => {
             {/* Avatar */}
             <div className="flex-shrink-0">
               <div className="w-32 h-32 lg:w-40 lg:h-40 rounded-full bg-gradient-to-br from-[hsl(68,100%,50%)] to-[hsl(80,100%,60%)] flex items-center justify-center text-[hsl(220,25%,10%)] text-5xl lg:text-6xl font-bold shadow-2xl">
-                <img src="/Shubh Dp new.jpg.jpeg" alt="" className="w-32 h-32 lg:w-40 lg:h-40 rounded-full" />
+                <img src="/Shubh Dp new.jpg.jpeg" alt="Shubham Channagire" className="w-32 h-32 lg:w-40 lg:h-40 rounded-full" />
               </div>
             </div>
 
             {/* Content */}
             <div className="text-center lg:text-left">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                Hey, I'm <span className="text-gradient">Shubham</span>
+                Hey, I'm <span className="text-gradient">Shubham Channagire</span>
               </h2>
               <p className="text-white/70 text-lg leading-relaxed">
-                I've spent 8+ years building client acquisition systems for B2B service businesses 
-                across 5 countries. I've managed 11,000+ campaigns, generated 40,000+ qualified leads, 
+                I've spent 8+ years building client acquisition systems for B2B service businesses
+                across 5 countries. I've managed 11,000+ campaigns, generated 40,000+ qualified leads,
                 and helped businesses move from referral-dependent to pipeline-predictable.
               </p>
               <p className="text-white/70 text-lg mt-4">
                 I don't do this as a side hustle. <span className="text-white font-medium">This is what I do, full-time, every day.</span>
               </p>
             </div>
+          </div>
+
+          {/* Social Media Icons */}
+          <div className="flex justify-center gap-6 mt-8">
+            <a href="https://www.linkedin.com/in/shubhamchannagire/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center hover:bg-[hsl(68,100%,50%)] hover:text-[hsl(220,25%,10%)] transition-colors">
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a href="https://www.instagram.com/marketing_with_shubh/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center hover:bg-[hsl(68,100%,50%)] hover:text-[hsl(220,25%,10%)] transition-colors">
+              <Instagram className="h-5 w-5" />
+            </a>
+            <a href="https://www.youtube.com/@shubhamchannagire" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center hover:bg-[hsl(68,100%,50%)] hover:text-[hsl(220,25%,10%)] transition-colors">
+              <Youtube className="h-5 w-5" />
+            </a>
           </div>
 
           {/* Stats */}
@@ -738,7 +786,7 @@ const FAQSection = () => {
   const faqs = [
     {
       question: "Why should I trust you?",
-      answer: "I've been doing this for 8+ years across 5 countries, managing 11,000+ campaigns and generating 40,000+ qualified leads. My track record speaks for itself, and I offer a money-back guarantee if we don't hit 20 conversations.",
+      answer: "I've been doing this for 8+ years across 5 countries, managing 11,000+ campaigns and generating 40,000+ qualified leads. My track record speaks for itself, and I offer a money-back guarantee if we don't hit 15+ conversations.",
     },
     {
       question: "What if the leads are low quality?",
@@ -754,7 +802,7 @@ const FAQSection = () => {
     },
     {
       question: "How is this different from hiring a BDR?",
-      answer: "A BDR costs $6K+/month with no guarantee. They need 3-6 months to ramp up, might not work out, and you're stuck with HR headaches. I deliver 20 qualified conversations in 30 days, guaranteed, for a fraction of the cost.",
+      answer: "A BDR costs $6K+/month with no guarantee. They need 3-6 months to ramp up, might not work out, and you're stuck with HR headaches. I deliver 15+ qualified conversations in 30 days, guaranteed, for a fraction of the cost.",
     },
   ];
 
@@ -797,7 +845,7 @@ const FAQSection = () => {
 // ================== CTASection ==================
 const CTASection = () => {
   const guarantees = [
-    { icon: Shield, text: "20 Conversations Guaranteed" },
+    { icon: Shield, text: "15+ Conversations Guaranteed" },
     { icon: Clock, text: "Results in 30 Days" },
     { icon: CheckCircle2, text: "Free Work Until You Get Desired Results" },
   ];
@@ -822,17 +870,24 @@ const CTASection = () => {
           </h2>
 
           <p className="text-xl text-white/70 mb-10 max-w-2xl mx-auto">
-            Book a 20-minute strategy call. We'll discuss your ICP, current challenges, 
+            Book a 20-minute strategy call. We'll discuss your ICP, current challenges,
             and whether this system is the right fit for your agency.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <button 
+            <button
+              onClick={() =>
+                window.open(
+                  "https://calendly.com/brandskript/1-1-consultation-call?month=2026-01",
+                  "_blank"
+                )
+              }
               className="text-lg px-10 py-7 bg-[hsl(68,100%,50%)] hover:bg-[hsl(68,100%,45%)] text-[hsl(220,25%,10%)] font-semibold rounded-md transition-all duration-300 group"
             >
               Book Your Strategy Call
               <ArrowRight className="ml-2 h-5 w-5 inline-block group-hover:translate-x-1 transition-transform" />
             </button>
+
           </div>
 
           {/* Guarantees */}
@@ -852,7 +907,7 @@ const CTASection = () => {
     </section>
   );
 };
-// hi?
+
 // ================== Footer ==================
 const Footer = () => {
   return (
@@ -865,25 +920,67 @@ const Footer = () => {
               ROI Edge
             </div>
             <p className="text-sm">
-              Done-for-you outbound systems for B2B lead generation agencies
+              Get 15+ Qualified Sales Conversations in 30 Days
             </p>
           </div>
 
           {/* Social Links */}
-          <div className="flex gap-4">
-            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[hsl(68,100%,50%)] hover:text-[hsl(220,25%,10%)] transition-colors">
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-[hsl(68,100%,50%)] hover:text-[hsl(220,25%,10%)] transition-colors">
-              <Mail className="h-5 w-5" />
-            </a>
-          </div>
+      <div className="mt-8 pt-8 border-t border-white/10 text-sm text-white">
+
+  {/* Contact Information */}
+  <div className="">
+    <p>
+      Address: C1G, Floor 12, 1203, Brooklyn Pride World City, Charholi Budruk, <br />
+      Pune, Maharashtra 412105
+    </p>
+    <p className="mt-1">
+      Contact No.: +1 213-646-7609 (USA) | +91 899 905 1967 (India)
+    </p>
+   <p className="mt-1">
+  Email:
+  <a
+    href="https://mail.google.com/mail/?view=cm&fs=1&to=hello.roiedge@gmail.com"
+    className="underline ml-1"
+  >
+    hello.roiedge@gmail.com
+  </a>
+
+ 
+</p>
+
+  </div>
+
+  {/* Social Icons */}
+  <div className="flex justify-center gap-4 mt-6">
+    <a
+      href="https://www.linkedin.com/in/shubhamchannagire/"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center
+                 hover:bg-[hsl(68,100%,50%)] hover:text-[hsl(220,25%,10%)]
+                 transition-colors"
+    >
+      <Linkedin className="h-5 w-5" />
+    </a>
+
+   <a
+  href="https://mail.google.com/mail/?view=cm&fs=1&to=hello.roiedge@gmail.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center
+             hover:bg-[hsl(68,100%,50%)] hover:text-[hsl(220,25%,10%)]
+             transition-colors"
+>
+  <Mail className="h-5 w-5" />
+</a>
+
+  </div>
+
+</div>
+
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-8 pt-8 border-t border-white/10 text-center text-sm">
-          <p>© 2025 ROI Edge. All rights reserved.</p>
-        </div>
+        
       </div>
     </footer>
   );

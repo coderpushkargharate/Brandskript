@@ -79,7 +79,7 @@ const Header = () => {
 
                 <Link to="/case-studies">Case Studies</Link>
                 <Link to="/Testimonials">Testimonials</Link>
-                <Dropdown label="Resources" items={resources} />
+                {/* <Dropdown label="Resources" items={resources} /> */}
                 <Link to="/service">Services</Link>
               </nav>
 

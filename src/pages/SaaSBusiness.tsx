@@ -27,7 +27,7 @@ export default function SaaSBusiness() {
       <section className="bg-[#0074ff] rounded-3xl max-w-7xl mx-2 lg:mx-auto  mt-6 overflow-hidden">
         <div className="grid md:grid-cols-2 gap-6 p-6 md:p-12 ">
           <div className="text-white p-2 ">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl xl:text-5xl font-extrabold mb-4">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4">
               Scale Your SaaS Business Profitably
             </h1>
             <p className="mb-6 opacity-90 text-lg">

@@ -13,15 +13,15 @@ const RealEstate = () => {
   return (
     <div className="w-full font-sans dm-sans">
       {/* ================= HERO SECTION ================= */}
-      <section className="bg-[#0074ff] min-h-[80vh] lg:h-[70vh] text-white rounded-[40px] pb-24 p-5 mx-2 pt-20 lg:mx-16 lg:px-20 relative overflow-hidden">
+      <section className="bg-[#0074ff] rounded-3xl max-w-7xl mx-2 lg:mx-auto  mt-6 overflow-hidden p-5">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* LEFT TEXT */}
-          <div className="lg:pr-10 " style={{marginTop:"-65px"}}>
+          <div className="lg:pr-10 lg:ps-5" >
             <span className="bg-white text-black px-5 py-1 rounded-full text-sm font-semibold tracking-wide shadow-md">
               REAL ESTATE
             </span>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mt-6 leading-tight">
+            <h1 className="text-4xl text-white md:text-5xl lg:text-6xl  font-extrabold mt-6 leading-tight">
               Scale Your Real Estate Business Profitably
             </h1>
 
@@ -35,7 +35,7 @@ const RealEstate = () => {
           </div>
 
           {/* RIGHT SIDE: IMAGE + FLOATING CARDS */}
-          <div className="relative flex justify-center lg:justify-end" style={{marginTop:"-45px"}}>
+          <div className="relative flex justify-center lg:justify-end" >
             <img
               src="https://cdn.prod.website-files.com/6650cddf762ba9b692753d9a/6681a13f59ccf69efad6ee76_Mask_features.webp"
               className="w-full max-w-[500px] rounded-3xl object-cover shadow-2xl"

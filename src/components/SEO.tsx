@@ -13,16 +13,21 @@ interface SEOProps {
 export default function SEO({
   title,
   description,
-  keywords = 'contractor, estimating, AI, software, construction',
-  image = 'https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=800',
-  url = typeof window !== 'undefined' ? window.location.href : 'https://handoff.example.com',
+  keywords = 'contractor, estimating, AI, construction software, ROI, takeoff, bidding',
+  image = 'https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=1200',
+  url = typeof window !== 'undefined' ? window.location.href : 'https://roiedge.ai',
   type = 'website',
-  author = 'Handoff'
+  author = 'ROI Edge'
 }: SEOProps) {
-  const fullTitle = `${title} | Handoff - AI Contractor Software`;
+  const fullTitle = `${title} | ROI Edge – AI Estimating for Contractors`;
+
+  // Ensure no trailing spaces in URLs
+  const cleanImage = image.trim();
+  const cleanUrl = url.trim();
 
   return (
     <Helmet>
+      {/* Standard Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
@@ -30,36 +35,41 @@ export default function SEO({
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta charSet="utf-8" />
 
+      {/* Open Graph */}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
-      <meta property="og:url" content={url} />
+      <meta property="og:image" content={cleanImage} />
+      <meta property="og:url" content={cleanUrl} />
       <meta property="og:type" content={type} />
-      <meta property="og:site_name" content="Handoff" />
+      <meta property="og:site_name" content="ROI Edge" />
 
+      {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={cleanImage} />
 
-      <link rel="canonical" href={url} />
+      {/* Canonical */}
+      <link rel="canonical" href={cleanUrl} />
 
+      {/* Structured Data (Schema.org) */}
       <script type="application/ld+json">
         {JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'Organization',
-          name: 'Handoff',
-          description: 'AI-powered estimating software for contractors',
-          url: 'https://handoff.example.com',
-          logo: image,
+          name: 'ROI Edge',
+          description: 'AI-powered estimating and takeoff software for construction contractors',
+          url: 'https://roiedge.ai',
+          logo: cleanImage,
           sameAs: [
-            'https://twitter.com/handoff',
-            'https://facebook.com/handoff',
-            'https://linkedin.com/company/handoff'
+            'https://twitter.com/roiedge', // update if different
+            'https://facebook.com/roiedge',
+            'https://linkedin.com/company/roi-edge'
           ]
         })}
       </script>
 
+      {/* SEO Directives */}
       <meta name="robots" content="index, follow" />
       <meta name="language" content="English" />
       <meta name="revisit-after" content="7 days" />
